@@ -1,6 +1,6 @@
 x = 1
 name = "Ashley"
 
-print ashley + 1
+print ashley + str(1)
 
 #First comment
