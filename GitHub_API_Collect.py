@@ -1,39 +1,39 @@
-from github import Github
-import csv
-import cPickle
-from tqdm import tqdm
-from openpyxl import Workbook
-import requests
-import sys
-import os
-reload(sys)  
-sys.setdefaultencoding('utf8')
-g = Github('msashleychen', 'freemason1')
+from github import Github #Github API
+import csv #Convert to csv is needed
+import cPickle #Module to store data anytime
+from tqdm import tqdm #Loading bar API
+from openpyxl import Workbook #Excel API
+import requests #To request things off the web
+import sys #For encoding/decoding special keys
+import os #For encoding/decoding special keys
+reload(sys) #Fixes bug for encoding special keys
+sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
+g = Github('yuannc', 'notmypassword1') #Access to Github API
 
-class Pull:
-	def __init__(self, pullObj,repoID):
+class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Reverted"
+	def __init__(self, pullObj,repoID): #Inolves information from the pull
 		self.idNum = str(pullObj.id)
 		self.number = str(pullObj.number)
-		self.state = str(pullObj.state)
-		self.merge = str(pullObj.merged)
+		self.state = str(pullObj.state).lower()
+		self.merge = pullObj.merged
 		self.label = str(pullObj.base.label)
 		self.result = ""
 		self.title = pullObj.title.encode('utf-8')
 		self.repo = repoID
 
 
-	def classify(self):
-		if self.title[:6] == "Revert" and self.state == "Closed" and self.merge == True:
+	def classify(self): #If else statement to classify pull
+		if self.title[:6] == "revert" and self.state == "closed" and self.merge == True:
 			print pull.title
 			self.result = "Revert"
-		elif self.state == "Closed" and self.merge == False:
+		elif self.state == "closed" and self.merge == False:
 			self.result = "Rejected"
-		elif self.state == "Open" and self.merge == False:
+		elif self.state == "open" and self.merge == False:
 			self.result = "Pending"
 		else:
 			self.result = "Accepted"
 
-def searchRepo(description, language):
+def searchRepo(description, language): #Searches for repos under description. May be overwhelming data (depending on the description)
 	repos = g.search_repositories(description)
 
 	for i in repos:
@@ -42,40 +42,14 @@ def searchRepo(description, language):
 			+ "repo id: " + str(i.id))
 		print i.html_url
 
-def sumOfPulls(pullObject):
+def sumOfPulls(pullObject): #Used to find the sum of any Paginated List, not just pulls
 	count = 0
 	
 	for i in pullObject:
 		count += 1
 	return count
 
-def pullInfo(repo):
-	pulls = repo.get_pulls("closed")
-	for i in pulls:
-		print "//NEW PULL//"
-		print "id: " , i.id
-		print "#: ", i.number
-		print "state: " , i.title
-		print "body: ", i.body
-		print "Merged: ", i.merged
-		print "label: ", i.base.label
-		print ""
-		print "/COMMENTS/"
-		commentsInfo(i)
-		print "/END COMMENTS/"		
-		print "//END OF PULL//"
-		print 
-
-def issueInfo(repo):
-	issues = repo.get_issues(milestone="none",state="closed")
-	for i in issues:
-		print "Title: " + i.title
-		print "LABELS: "
-		for a in i.labels:
-			print a.name
-		print
-
-def commentsInfo(pull):
+def commentsInfo(pull): #Use attributes to get comments of a pull
 	pullComments = pull.get_issue_comments()
 	for i in pullComments:
 		print "id: " + str(i.id)
@@ -84,46 +58,52 @@ def commentsInfo(pull):
 		print 
 
 def main():
-	#searchRepo("katello","")
-	#repoID = 60700215
-	repoID = 21836148
-	repo = g.get_repo(repoID)
-	cloneFiles(repo)
+	repoIDs = [7266492,2287594, 15694901, 13131265, 14568504, 3739369, 1840419] #IDs of repos to clone
 
+	for repoID in repoIDs:
+		repo = g.get_repo(repoID)
+		cloneFiles(repo)
+	
 	
 def cloneFiles(repo):
-	os.makedirs(repo.name)
-	for pull in repo.get_pulls(state="all"):
-	#pull = repo.get_pull(262)
-		os.makedirs(repo.name+"//"+str(pull.number))
+	if not os.path.lexists("Repos"+"//"+repo.name):
+		os.makedirs("Repos"+"//"+repo.name)
+	for pull in repo.get_pulls(state="closed"):
+		pullInfo = Pull(pull, repo)
+		pullInfo.classify()
+			#os.makedirs("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result)
 		ogSHA = pull.head.sha
 		pullFiles = pull.get_files()
 		for i in tqdm(range(sumOfPulls(pullFiles))):	
 			filePathName = pullFiles[i].filename
 
-			switch = 1
+			switch = 1 #safety pin
 
 			if switch == 1:
-				os.makedirs(repo.name+"//"+str(pull.number)+"//"+str(pullFiles[i].sha[:8]))
-				r = requests.get(pullFiles[i].raw_url)
+				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])):
+					os.makedirs("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8]))
 				if pullFiles[i].status == "removed":
 					suffix = "_BEFORE.txt"
 				else:
 					suffix = "_AFTER.txt"
-				fo = open(repo.name+"//"+str(pull.number)+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
-				fo.write(str(pullFiles[i].sha)+ str(pullFiles[i].filename)+r.text.encode('utf-8').strip())
+				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix):
+					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
+					r = requests.get(pullFiles[i].raw_url)
+					fo.write(str(pullFiles[i].sha)+ str(pullFiles[i].filename)+r.text.encode('utf-8').strip())
+					fo.close()
 
 			if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1:
 				beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha
 				for file in repo.get_commit(beforeSHA).files:
 					if file.filename == filePathName:
 						beforeURL = file.raw_url
-				rB = requests.get(beforeURL)
 				shaID = str(beforeSHA)+"_BEFORE" + "\n" 
 				fileName = str(pullFiles[i].filename)+"_BEFORE" + "\n" 
-				fo = open(repo.name+"//"+str(pull.number)+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
-				fo.write(beforeSHA + fileName + rB.text.encode('utf-8').strip())
-				fo.close()
+				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt"):
+					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
+					rB = requests.get(beforeURL)
+					fo.write(beforeSHA + fileName + rB.text.encode('utf-8').strip())
+					fo.close()
 
 
 def storePulls(repo):
@@ -137,7 +117,7 @@ def storePulls(repo):
 	f.close() 	
 	print "code pickled"
 
-def end():
+def openPickledData():
 	f = open('data.p', 'rb')
 	myData = cPickle.load(f)
 	f.close()
