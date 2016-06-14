@@ -66,47 +66,51 @@ def main():
 	
 	
 def cloneFiles(repo):
-	if not os.path.lexists("Repos"+"//"+repo.name):
-		os.makedirs("Repos"+"//"+repo.name)
-	for pull in repo.get_pulls(state="closed"):
+	if not os.path.lexists("Repos"+"//"+repo.name): #Checks if folder exist. Also makes sure not to duplicate files
+		os.makedirs("Repos"+"//"+repo.name) #Makes folder
+	for pull in repo.get_pulls(state="closed"): #Default is all pulls
 		pullInfo = Pull(pull, repo)
-		pullInfo.classify()
-			#os.makedirs("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result)
+		pullInfo.classify() #accepted, rejected, reverted
 		ogSHA = pull.head.sha
 		pullFiles = pull.get_files()
-		for i in tqdm(range(sumOfPulls(pullFiles))):	
+		for i in tqdm(range(sumOfPulls(pullFiles))):	#tqdm is the loading bar
 			filePathName = pullFiles[i].filename
 
 			switch = 1 #safety pin
 
-			if switch == 1:
+			if switch == 1: 
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])):
 					os.makedirs("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8]))
 				if pullFiles[i].status == "removed":
+					#Checks whether or not the file was added, removed, or modified
 					suffix = "_BEFORE.txt"
 				else:
 					suffix = "_AFTER.txt"
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix):
+					#Starts to create the file here
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
 					r = requests.get(pullFiles[i].raw_url)
+					#Only using request raw text for now. Figure our how to download img later.
 					fo.write(str(pullFiles[i].sha)+ str(pullFiles[i].filename)+r.text.encode('utf-8').strip())
 					fo.close()
 
+			#Statement checks for whether or not the file was added or removed
 			if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1:
-				beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha
-				for file in repo.get_commit(beforeSHA).files:
-					if file.filename == filePathName:
-						beforeURL = file.raw_url
+				beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha #Gets the SHA that's before the current commit in its history
+				for file in repo.get_commit(beforeSHA).files: #Checks that commit for the file. 
+					if file.filename == filePathName: 
+						beforeURL = file.raw_url #BEFORE version of the file URL
 				shaID = str(beforeSHA)+"_BEFORE" + "\n" 
 				fileName = str(pullFiles[i].filename)+"_BEFORE" + "\n" 
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt"):
+					#Same for the AFTER file
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
 					rB = requests.get(beforeURL)
 					fo.write(beforeSHA + fileName + rB.text.encode('utf-8').strip())
 					fo.close()
 
 
-def storePulls(repo):
+def storePulls(repo): #Pickles pull objects, use for rough coding
 	pulls = repo.get_pulls("all")
 	listt = []
 	for pull in tqdm(range(sumOfPulls(pulls))):
@@ -123,7 +127,7 @@ def openPickledData():
 	f.close()
 	return myData
 
-def colnum_string(n):
+def colnum_string(n): #Used to number infinite columns in Excel
     div=n
     string=""
     temp=0
@@ -133,7 +137,7 @@ def colnum_string(n):
         div=int((div-module)/26)
     return string
 
-def submitToExcel(cells):
+def submitToExcel(cells): #Excel test
 	wb = Workbook()
 	ws = wb.active
 	attributes = ["idNum","number","state","merge","label", "result", "title","repo"]
