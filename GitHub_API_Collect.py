@@ -3,6 +3,11 @@ import csv
 import cPickle
 from tqdm import tqdm
 from openpyxl import Workbook
+import requests
+import sys
+import os
+reload(sys)  
+sys.setdefaultencoding('utf8')
 g = Github('msashleychen', 'freemason1')
 
 class Pull:
@@ -80,8 +85,49 @@ def commentsInfo(pull):
 
 def main():
 	#searchRepo("katello","")
-	repoID = 32202720
-	pulls = g.get_repo(repoID).get_pulls("all")
+	#repoID = 60700215
+	repoID = 21836148
+	repo = g.get_repo(repoID)
+	cloneFiles(repo)
+
+	
+def cloneFiles(repo):
+	os.makedirs(repo.name)
+	for pull in repo.get_pulls(state="all"):
+	#pull = repo.get_pull(262)
+		os.makedirs(repo.name+"//"+str(pull.number))
+		ogSHA = pull.head.sha
+		pullFiles = pull.get_files()
+		for i in tqdm(range(sumOfPulls(pullFiles))):	
+			filePathName = pullFiles[i].filename
+
+			switch = 1
+
+			if switch == 1:
+				os.makedirs(repo.name+"//"+str(pull.number)+"//"+str(pullFiles[i].sha[:8]))
+				r = requests.get(pullFiles[i].raw_url)
+				if pullFiles[i].status == "removed":
+					suffix = "_BEFORE.txt"
+				else:
+					suffix = "_AFTER.txt"
+				fo = open(repo.name+"//"+str(pull.number)+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
+				fo.write(str(pullFiles[i].sha)+ str(pullFiles[i].filename)+r.text.encode('utf-8').strip())
+
+			if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1:
+				beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha
+				for file in repo.get_commit(beforeSHA).files:
+					if file.filename == filePathName:
+						beforeURL = file.raw_url
+				rB = requests.get(beforeURL)
+				shaID = str(beforeSHA)+"_BEFORE" + "\n" 
+				fileName = str(pullFiles[i].filename)+"_BEFORE" + "\n" 
+				fo = open(repo.name+"//"+str(pull.number)+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
+				fo.write(beforeSHA + fileName + rB.text.encode('utf-8').strip())
+				fo.close()
+
+
+def storePulls(repo):
+	pulls = repo.get_pulls("all")
 	listt = []
 	for pull in tqdm(range(sumOfPulls(pulls))):
 		listt.append(Pull(pulls[pull],repoID))
@@ -112,13 +158,13 @@ def submitToExcel(cells):
 	ws = wb.active
 	attributes = ["idNum","number","state","merge","label", "result", "title","repo"]
 	for r in range(1,len(cells)):
-		for c in range(1,9):
+		for c in range(1,8):
 			ws[colnum_string(c)+str(r)] = getattr(cells[r],attributes[c])
 	wb.save("sample.xlsx")
 	print "Submited to Excel"
 
-#main()
-submitToExcel(end())
+main()
+#submitToExcel(end())
 
 
 	
