@@ -33,14 +33,15 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 		else:
 			self.result = "Accepted"
 
-def searchRepo(description, language): #Searches for repos under description. May be overwhelming data (depending on the description)
+def searchRepos(description, numOfPulls): #Searches for repos under description. May be overwhelming data (depending on the description)
 	repos = g.search_repositories(description)
 
 	for i in repos:
-		print("repo name: " + str(i.name) + 
-			"repo owner: " + str(i.owner.name)
-			+ "repo id: " + str(i.id))
-		print i.html_url
+		if sumOfPulls(i.get_pulls(state="closed")) <= numOfPulls:
+			print("repo name: " + str(i.name) + 
+				"repo owner: " + str(i.owner.name)
+				+ "repo id: " + str(i.id))
+			print i.html_url
 
 def sumOfPulls(pullObject): #Used to find the sum of any Paginated List, not just pulls
 	count = 0
@@ -57,12 +58,16 @@ def commentsInfo(pull): #Use attributes to get comments of a pull
 		print "body: ", i.body
 		print 
 
-def main():
+def hardwireClones():
 	repoIDs = [7266492,2287594, 15694901, 13131265, 14568504, 3739369, 1840419] #IDs of repos to clone
 
 	for repoID in repoIDs:
 		repo = g.get_repo(repoID)
 		cloneFiles(repo)
+
+def storePull(repoID):
+	repo = g.get_repo(repoID)
+	cloneFiles(repo)
 	
 	
 def cloneFiles(repo):
@@ -91,7 +96,7 @@ def cloneFiles(repo):
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
 					r = requests.get(pullFiles[i].raw_url)
 					#Only using request raw text for now. Figure our how to download img later.
-					fo.write(str(pullFiles[i].sha)+ str(pullFiles[i].filename)+r.text.encode('utf-8').strip())
+					fo.write("//" + str(pullFiles[i].sha)+ str(pullFiles[i].filename)+r.text.encode('utf-8').strip())
 					fo.close()
 
 			#Statement checks for whether or not the file was added or removed
@@ -106,7 +111,7 @@ def cloneFiles(repo):
 					#Same for the AFTER file
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
 					rB = requests.get(beforeURL)
-					fo.write(beforeSHA + fileName + rB.text.encode('utf-8').strip())
+					fo.write("//" + beforeSHA + fileName + rB.text.encode('utf-8').strip())
 					fo.close()
 
 
@@ -147,8 +152,6 @@ def submitToExcel(cells): #Excel test
 	wb.save("sample.xlsx")
 	print "Submited to Excel"
 
-main()
-#submitToExcel(end())
 
 
 	
