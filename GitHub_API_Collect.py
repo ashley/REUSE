@@ -96,7 +96,7 @@ def cloneFiles(repo):
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
 					r = requests.get(pullFiles[i].raw_url)
 					#Only using request raw text for now. Figure our how to download img later.
-					fo.write("//" + str(pullFiles[i].sha)+ str(pullFiles[i].filename)+r.text.encode('utf-8').strip())
+					fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n"+r.text.encode('utf-8').strip())
 					fo.close()
 
 			#Statement checks for whether or not the file was added or removed
@@ -105,13 +105,13 @@ def cloneFiles(repo):
 				for file in repo.get_commit(beforeSHA).files: #Checks that commit for the file. 
 					if file.filename == filePathName: 
 						beforeURL = file.raw_url #BEFORE version of the file URL
-				shaID = str(beforeSHA)+"_BEFORE" + "\n" 
-				fileName = str(pullFiles[i].filename)+"_BEFORE" + "\n" 
+				shaID = str(beforeSHA)
+				fileName = str(pullFiles[i].filename)
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt"):
 					#Same for the AFTER file
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
 					rB = requests.get(beforeURL)
-					fo.write("//" + beforeSHA + fileName + rB.text.encode('utf-8').strip())
+					fo.write("//SHA: " + beforeSHA + "\n//Path: " + fileName + "\n//Version: _BEFORE.txt \n" + rB.text.encode('utf-8').strip())
 					fo.close()
 
 

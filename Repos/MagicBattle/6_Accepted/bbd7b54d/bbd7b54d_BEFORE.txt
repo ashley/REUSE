@@ -1,0 +1,4 @@
+//SHA: b62acb4faa28f64c1221f7ee280f47b68db7f011
+//Path: Contributing.md
+//Version: _BEFORE.txt 
+##### How To Contribute
