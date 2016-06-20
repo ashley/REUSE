@@ -1,14 +1,15 @@
 import java.io.File;
+import java.io.IOException;
 
 public class Repo {
-	Repo(){
-		String repoPath = "/Users/ashleychen/Desktop/REUSE/REUSE/Repos/MagicBattle/";
-		//aPull.getChanges();
+	Repo(File repoFile) throws IOException{
+		String repoPath = repoFile.toString();
 		
 		File [] pulls = new File(repoPath).listFiles();
 		for (File i: pulls){
-			System.out.println(i);
-			new Pull(i.toString()).getChanges();
+			System.out.println(repoPath);
+			new Pull(i.toString());
+			Pull.getChanges();
 			System.out.println();
 		}
 	}

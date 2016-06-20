@@ -1,5 +1,11 @@
-from GitHub_API_Collect import searchRepos, storePull
+from GitHub_API_Collect import searchRepos, storePull, openPickledData, pickledData
+import os
 
-#searchRepos("game+language:java",20)
+if os.path.lexists("/Users/ashleychen/Desktop/REUSE/REUSE/repoID.p"):
+	print "great"
+else:
+	listofRepoID = searchRepos("game+language:java",20)
+	pickedData('repoID.p',listofRepoID)
 
-storePull(14286879)
+for id in listofRepoID:
+	storePull(id)

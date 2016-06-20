@@ -35,13 +35,17 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 
 def searchRepos(description, numOfPulls): #Searches for repos under description. May be overwhelming data (depending on the description)
 	repos = g.search_repositories(description)
+	listt = []
 
-	for i in repos:
-		if sumOfPulls(i.get_pulls(state="closed")) <= numOfPulls:
-			print("repo name: " + str(i.name) + 
-				"repo owner: " + str(i.owner.name)
-				+ "repo id: " + str(i.id))
-			print i.html_url
+	for i in range(20):
+		if sumOfPulls(repos[i].get_pulls(state="closed")) <= numOfPulls:
+			print("repo name: " + str(repos[i].name) + 
+				"repo owner: " + str(repos[i].owner.name)
+				+ "repo id: " + str(repos[i].id))
+			print repos[i].html_url
+			listt.append(repos[i].id)
+	return listt
+
 
 def sumOfPulls(pullObject): #Used to find the sum of any Paginated List, not just pulls
 	count = 0
@@ -94,6 +98,7 @@ def cloneFiles(repo):
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix):
 					#Starts to create the file here
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
+					print pullFiles[i].raw_url
 					r = requests.get(pullFiles[i].raw_url)
 					#Only using request raw text for now. Figure our how to download img later.
 					fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n"+r.text.encode('utf-8').strip())
@@ -102,9 +107,12 @@ def cloneFiles(repo):
 			#Statement checks for whether or not the file was added or removed
 			if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1:
 				beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha #Gets the SHA that's before the current commit in its history
+				beforeURL = pullFiles[i].raw_url
 				for file in repo.get_commit(beforeSHA).files: #Checks that commit for the file. 
-					if file.filename == filePathName: 
+					if file.filename == filePathName:
 						beforeURL = file.raw_url #BEFORE version of the file URL
+				if beforeURL == pullFiles[i].raw_url:
+					print("Error with finding file's previous SHA")
 				shaID = str(beforeSHA)
 				fileName = str(pullFiles[i].filename)
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt"):
@@ -121,8 +129,10 @@ def storePulls(repo): #Pickles pull objects, use for rough coding
 	for pull in tqdm(range(sumOfPulls(pulls))):
 		listt.append(Pull(pulls[pull],repoID))
 		listt[pull].classify()
-	f = open('data.p', 'wb')
-	cPickle.dump(listt,f)      
+
+def pickledData(nameOfFile, objectt):
+	f = open(nameOfFile, 'wb')
+	cPickle.dump(objectt,f)      
 	f.close() 	
 	print "code pickled"
 
