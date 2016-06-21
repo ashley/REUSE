@@ -19,7 +19,22 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 		self.label = str(pullObj.base.label)
 		self.result = ""
 		self.title = pullObj.title.encode('utf-8')
-		self.repo = repoID
+		self.repo = str(pullObj.base.repo.id)
+		self.repoName = str(pullObj.base.repo.name)
+		self.numOfFiles = pullObj.changed_files
+		self.changeByLines = str(pullObj.additions) + "/" + str(pullObj.deletions)
+		self.files = pullObj.get_files()
+		self.modified = 0
+		self.added = 0
+		self.removed = 0
+		self.renamed = 0
+		self.otherStatus = 0
+
+	def stringAttributes(self):
+		print vars(self)
+		print
+		print sorted(vars(self).iterkeys())
+		print
 
 
 	def classify(self): #If else statement to classify pull
@@ -33,6 +48,26 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 		else:
 			self.result = "Accepted"
 
+	def writePullAttributes(self):
+		filePath = "Repos"+"//"+self.repoName+"//"+str(self.number)+"_"+self.result+"//INFO.txt"
+		with open(filePath, 'wb') as fo:
+			for key, value in vars(self).items():
+				fo.write('%s:%s\n' % (key, value))
+		fo.close()
+
+	def getFilesStatus(self):
+		for file in self.files:
+			if file.status == "modified":
+				self.modified += 1
+			elif file.status == "added":
+				self.added += 1
+			elif file.status == "removed":
+				self.removed += 1
+			elif file.status == "renamed":
+				self.renamed += 1
+			else:
+				self.otherStatus += 1
+
 def searchRepos(description, numOfPulls): #Searches for repos under description. May be overwhelming data (depending on the description)
 	repos = g.search_repositories(description)
 	listt = []
@@ -45,7 +80,6 @@ def searchRepos(description, numOfPulls): #Searches for repos under description.
 			print repos[i].html_url
 			listt.append(repos[i].id)
 	return listt
-
 
 def sumOfPulls(pullObject): #Used to find the sum of any Paginated List, not just pulls
 	count = 0
@@ -69,6 +103,10 @@ def hardwireClones():
 		repo = g.get_repo(repoID)
 		cloneFiles(repo)
 
+def samplePull():
+	repo = g.get_repo(17752176)
+	return repo
+
 def storePull(repoID):
 	repo = g.get_repo(repoID)
 	cloneFiles(repo)
@@ -80,6 +118,8 @@ def cloneFiles(repo):
 	for pull in repo.get_pulls(state="closed"): #Default is all pulls
 		pullInfo = Pull(pull, repo)
 		pullInfo.classify() #accepted, rejected, reverted
+		pullInfo.getFilesStatus()
+		
 		ogSHA = pull.head.sha
 		pullFiles = pull.get_files()
 		for i in tqdm(range(sumOfPulls(pullFiles))):	#tqdm is the loading bar
@@ -90,6 +130,7 @@ def cloneFiles(repo):
 			if switch == 1: 
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])):
 					os.makedirs("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8]))
+					pullInfo.writePullAttributes()
 				if pullFiles[i].status == "removed":
 					#Checks whether or not the file was added, removed, or modified
 					suffix = "_BEFORE.txt"
@@ -99,13 +140,14 @@ def cloneFiles(repo):
 					#Starts to create the file here
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
 					print pullFiles[i].raw_url
-					r = requests.get(pullFiles[i].raw_url)
+					if pullFiles[i].raw_url != None:
+						r = requests.get(pullFiles[i].raw_url)
 					#Only using request raw text for now. Figure our how to download img later.
-					fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n"+r.text.encode('utf-8').strip())
+					fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n"+pullFiles[i].filename.split(".")[-1] + "\n" + r.text.encode('utf-8').strip())
 					fo.close()
 
 			#Statement checks for whether or not the file was added or removed
-			if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1:
+			if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1 and pullFiles[i].raw_url != None:
 				beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha #Gets the SHA that's before the current commit in its history
 				beforeURL = pullFiles[i].raw_url
 				for file in repo.get_commit(beforeSHA).files: #Checks that commit for the file. 
@@ -136,8 +178,8 @@ def pickledData(nameOfFile, objectt):
 	f.close() 	
 	print "code pickled"
 
-def openPickledData():
-	f = open('data.p', 'rb')
+def openPickledData(nameOfFile):
+	f = open(nameOfFile, 'rb')
 	myData = cPickle.load(f)
 	f.close()
 	return myData

@@ -1,5 +1,11 @@
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pull {
 	private static File pull;
@@ -36,10 +42,21 @@ public class Pull {
 	
 	public static void getChanges() throws IOException{
 		for (int i = 0; i<getFilesCount();i++){
-			if(files[i].listFiles().length == 2){
-				new Distiller(i,getFileVersion(i,"before"),getFileVersion(i,"after"));
+			if(!files[i].isFile()){
+				if(files[i].listFiles().length >= 2){
+					Distiller aDistiller = new Distiller(i,getFileVersion(i,"before"),getFileVersion(i,"after"));
+					if (!aDistiller.getArrayList().isEmpty()){
+						storeChanges(aDistiller.getArrayList(),i);
+					}
+				}
 			}
 		}//for 
 	}//getChanges
+	
+	public static void storeChanges(ArrayList<String> changesInString, int fileNum) throws IOException{
+		List<String> lines = changesInString;
+	    Path textFile = Paths.get(files[fileNum].toString() + "/" + getSha(fileNum)+"CHANGES.txt");
+	    Files.write(textFile, lines, Charset.forName("UTF-8"));
+	}
 	
 }

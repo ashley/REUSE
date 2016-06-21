@@ -13,6 +13,8 @@ import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 
 public class Distiller {
+	private static ArrayList<String> changesInString = new ArrayList<String>();
+	
 	Distiller(int i,File before, File after) throws IOException{
 		File left = before;
 		File right = after;
@@ -33,17 +35,19 @@ public class Distiller {
 		}
 		else if(changes != null) {
 			int current = 0;
-			ArrayList<String> changesInString = new ArrayList<String>();
+			changesInString.clear();
 		    for(SourceCodeChange change : changes){
 		    	System.out.println(Integer.toString(current) + ": " + change); 
 		    	changesInString.add(Integer.toString(current) + ": " + change);
-		    List<String> lines = changesInString;
-		    Path textFile = Paths.get(before.toString().split("BEFORE.txt")[0]+"CHANGES.txt");
-		    Files.write(textFile, lines, Charset.forName("UTF-8"));
-		    
 		    	current++;
 		    }
 		    System.out.println();
 		}
+	}//initialize
+	
+	public static ArrayList<String> getArrayList(){
+		return (changesInString);
 	}
+
 }
+
