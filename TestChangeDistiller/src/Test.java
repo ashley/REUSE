@@ -26,18 +26,18 @@ public class Test {
 		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
 		//SampleTSG.main(arguments);
 
-		StructureNode cu = analyzeDistiller();
+		//StructureNode cu = analyzeDistiller();
 		
 		org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
 		
 		//final TreeNodeExtractor ex = new TreeNodeExtractor(false);
 		//ex.extractFromNode(compTree);
 		
-		final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
+		/*final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
 		TreeNode <Integer> treeInt = format.getTree(compTree);
 		
 		TreeNode <Integer> intTree = makeActualTree(); 
-		
+		*/
 		System.out.println("Done");
 	}
 	
