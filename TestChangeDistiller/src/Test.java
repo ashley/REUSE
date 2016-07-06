@@ -75,7 +75,7 @@ public class Test {
 		final File fi = new File("/Users/ashleychen/Desktop/FixedFindBugsWarningsRuleTest.java");
 				//new RegexFileFilter(".*\\.java$"),
 				//DirectoryFileFilter.DIRECTORY)) {
-//				org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
+				org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
 				//org.eclipse.jdt.core.dom.CompilationUnit compTree = format.getDistillerTree(fi);//insert Distiller Tree here
 				return null;
 	}
