@@ -1,6 +1,7 @@
 //SHA: 33b24f49f663fbadc236af9eea63b472e0f9bff8
 //Path: src/me/pogostick29dev/magicbattle/commands/Delete.java
 //Version: _AFTER.txt
+//File Type: java
 package me.pogostick29dev.magicbattle.commands;
 
 import me.pogostick29dev.magicbattle.Arena;

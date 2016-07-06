@@ -1,9 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +11,7 @@ import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 public class Distiller {
 	private static ArrayList<String> changesInString = new ArrayList<String>();
 	
-	Distiller(int i,File before, File after) throws IOException{
+	Distiller(File before, File after) throws IOException{
 		File left = before;
 		File right = after;
 		
@@ -38,7 +34,7 @@ public class Distiller {
 			changesInString.clear();
 		    for(SourceCodeChange change : changes){
 		    	System.out.println(Integer.toString(current) + ": " + change); 
-		    	changesInString.add(Integer.toString(current) + ": " + change);
+		    	changesInString.add(Integer.toString(current) + ": " + change); //for storing prints
 		    	current++;
 		    }
 		    System.out.println();

@@ -1,6 +1,7 @@
 //SHA: 9084b45f8759aa3229dff52530aac63da2591515
 //Path: README.md
 //Version: _AFTER.txt
+//File Type: md
 MagicBattle
 ===========
 

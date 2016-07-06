@@ -1,6 +1,7 @@
 //SHA: 9e86582d1d2cd735d30ac167f66d52faf5852226
 //Path: src/me/pogostick29dev/magicbattle/ArenaManager.java
 //Version: _AFTER.txt
+//File Type: java
 package me.pogostick29dev.magicbattle;
 
 import java.util.ArrayList;

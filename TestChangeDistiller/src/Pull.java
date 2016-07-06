@@ -44,9 +44,10 @@ public class Pull {
 		for (int i = 0; i<getFilesCount();i++){
 			if(!files[i].isFile()){
 				if(files[i].listFiles().length >= 2){
-					Distiller aDistiller = new Distiller(i,getFileVersion(i,"before"),getFileVersion(i,"after"));
+					System.out.println(files[i]);
+					Distiller aDistiller = new Distiller(getFileVersion(i,"before"),getFileVersion(i,"after"));
 					if (!aDistiller.getArrayList().isEmpty()){
-						storeChanges(aDistiller.getArrayList(),i);
+						//storeChanges(aDistiller.getArrayList(),i);
 					}
 				}
 			}

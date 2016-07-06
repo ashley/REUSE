@@ -1,6 +1,7 @@
 //SHA: 83a32968ec013e022a4ccfbb194f5a47e4551dc5
 //Path: src/me/pogostick29dev/magicbattle/listeners/SignManager.java
 //Version: _AFTER.txt
+//File Type: java
 package me.pogostick29dev.magicbattle.listeners;
 
 import java.util.ArrayList;

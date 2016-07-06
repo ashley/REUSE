@@ -1,6 +1,7 @@
 //SHA: e84d5fdfe3e31fc7747eaaadd92f8fd6716f7577
 //Path: src/me/pogostick29dev/magicbattle/Wand.java
 //Version: _AFTER.txt
+//File Type: java
 package me.pogostick29dev.magicbattle;
 
 import java.util.Arrays;

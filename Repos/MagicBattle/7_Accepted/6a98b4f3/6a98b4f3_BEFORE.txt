@@ -1,6 +1,7 @@
 //SHA: a3c6d97558604cc94fbb2020ba21395bc76c9882
 //Path: Contributing.md
 //Version: _BEFORE.txt 
+//File Type: md
 # How To Contribute
 1. Fork this repo (pogostick29dev/MagicBattle)
 2. Add code you want to see*

@@ -1,6 +1,7 @@
 //SHA: 5691048b66e74b3f618d5a920d411f57a30aa11e
 //Path: src/me/pogostick29dev/magicbattle/commands/ForceStop.java
 //Version: _AFTER.txt
+//File Type: java
 package me.pogostick29dev.magicbattle.commands;
 
 import me.pogostick29dev.magicbattle.Arena;

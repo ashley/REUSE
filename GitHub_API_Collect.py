@@ -8,7 +8,7 @@ import sys #For encoding/decoding special keys
 import os #For encoding/decoding special keys
 reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
-g = Github('yuannc', 'notmypassword1') #Access to Github API
+g = Github('msashleychen', 'freemason1') #Access to Github API //notmypassword1
 
 class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Reverted"
 	def __init__(self, pullObj,repoID): #Inolves information from the pull
@@ -143,7 +143,7 @@ def cloneFiles(repo):
 					if pullFiles[i].raw_url != None:
 						r = requests.get(pullFiles[i].raw_url)
 					#Only using request raw text for now. Figure our how to download img later.
-					fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n"+pullFiles[i].filename.split(".")[-1] + "\n" + r.text.encode('utf-8').strip())
+					fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n" + "//File Type: " + pullFiles[i].filename.split(".")[-1] + "\n" + r.text.encode('utf-8').strip())
 					fo.close()
 
 			#Statement checks for whether or not the file was added or removed
@@ -160,8 +160,10 @@ def cloneFiles(repo):
 				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt"):
 					#Same for the AFTER file
 					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
+					print "AFTER " + str(pullFiles[i].raw_url)
+					print "BEFORE" + str(beforeURL)
 					rB = requests.get(beforeURL)
-					fo.write("//SHA: " + beforeSHA + "\n//Path: " + fileName + "\n//Version: _BEFORE.txt \n" + rB.text.encode('utf-8').strip())
+					fo.write("//SHA: " + beforeSHA + "\n//Path: " + fileName + "\n//Version: _BEFORE.txt \n" + "//File Type: " + fileName.split(".")[-1] + "\n" + rB.text.encode('utf-8').strip())
 					fo.close()
 
 
