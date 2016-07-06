@@ -98,17 +98,17 @@
 		</dependency>
 
 		<!-- JDT Compiler -->
+		<dependency>
+			<groupId>org.eclipse.jdt.core.compiler</groupId>
+			<artifactId>ecj</artifactId>
+			<version>4.2.2</version>
+		</dependency>
 
 		<!-- Apache Commons -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jdt.core.compiler</groupId>
-			<artifactId>ecj</artifactId>
-			<version>4.2.2</version>
 		</dependency>
 	</dependencies>
 
@@ -194,7 +194,7 @@
 			</plugin>
 
 			<!-- Create jar with Javadoc -->
-			<plugin>
+			<!--  <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.9</version>
@@ -206,7 +206,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 
 			<!-- Copy dependencies -->
 			<plugin>
@@ -301,7 +301,15 @@
 					</instructions>
 				</configuration>
 
-				
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 
