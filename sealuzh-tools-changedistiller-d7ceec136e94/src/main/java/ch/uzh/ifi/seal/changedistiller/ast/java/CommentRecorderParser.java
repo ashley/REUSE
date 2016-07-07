@@ -9,7 +9,7 @@
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 // CHECKSTYLE:OFF
-package org.eclipse.jdt.internal.core.util;
+package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
 import org.eclipse.jdt.internal.compiler.classfmt.ClassFileConstants;

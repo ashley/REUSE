@@ -31,7 +31,6 @@ import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
 import org.eclipse.jdt.internal.compiler.parser.Parser;
 import org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
-import org.eclipse.jdt.internal.core.util.CommentRecorderParser;
 
 import ch.uzh.ifi.seal.changedistiller.ast.FileUtils;
 import ch.uzh.ifi.seal.changedistiller.ast.InvalidSyntaxException;

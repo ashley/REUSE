@@ -110,7 +110,7 @@ public class FileDistiller {
 		StructureDifferencer structureDifferencer = new StructureDifferencer();
 		StructureNode fLeftAST = fLeftASTHelper.createStructureTree();
 		StructureNode fRightAST = fRightASTHelper.createStructureTree();
-        structureDifferencer.extractDifferences(fLeftAST,fRightASTHelper.createStructureTree());
+        structureDifferencer.extractDifferences(fLeftAST,fRightAST);
         StructureDiffNode structureDiff = structureDifferencer.getDifferences();
         if (structureDiff != null) {
         	fChanges = new LinkedList<SourceCodeChange>();

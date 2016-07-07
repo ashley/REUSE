@@ -38,10 +38,10 @@ import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
 import org.eclipse.jdt.internal.compiler.parser.Parser;
 import org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory;
 import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
-import org.eclipse.jdt.internal.core.util.CommentRecorderParser;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.Comment;
 import ch.uzh.ifi.seal.changedistiller.ast.java.CommentCollector;
+import ch.uzh.ifi.seal.changedistiller.ast.java.CommentRecorderParser;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
 
 public final class CompilationUtils {
