@@ -22,7 +22,8 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 		self.repo = str(pullObj.base.repo.id)
 		self.repoName = str(pullObj.base.repo.name)
 		self.numOfFiles = pullObj.changed_files
-		self.changeByLines = str(pullObj.additions) + "/" + str(pullObj.deletions)
+		self.additions = str(pullObj.additions)
+		self.subtractions = str(pullObj.deletions)
 		self.files = pullObj.get_files()
 		self.modified = 0
 		self.added = 0
@@ -72,13 +73,19 @@ def searchRepos(description, numOfPulls): #Searches for repos under description.
 	repos = g.search_repositories(description)
 	listt = []
 
-	for i in range(20):
-		if sumOfPulls(repos[i].get_pulls(state="closed")) <= numOfPulls:
+	i = 0
+	while i <20:
+		num = sumOfPulls(repos[i].get_pulls(state="closed"))
+		if num <= numOfPulls and num != 0:
 			print("repo name: " + str(repos[i].name) + 
 				"repo owner: " + str(repos[i].owner.name)
 				+ "repo id: " + str(repos[i].id))
 			print repos[i].html_url
+			print "Pulls: " + str(num)
 			listt.append(repos[i].id)
+			i+= 1
+		else:
+			print "pass"
 	return listt
 
 def sumOfPulls(pullObject): #Used to find the sum of any Paginated List, not just pulls
@@ -110,6 +117,19 @@ def samplePull():
 def storePull(repoID):
 	repo = g.get_repo(repoID)
 	cloneFiles(repo)
+
+def createPullClass(repoID):
+	dataCollected = []
+	repo = g.get_repo(repoID)
+	pulls = repo.get_pulls(state="closed")
+	for i in tqdm(range(sumOfPulls(pulls))): #Default is all pulls
+		pullInfo = Pull(pulls[i], repo)
+		pullInfo.classify() #accepted, rejected, reverted
+		pullInfo.getFilesStatus()
+		dataCollected.append(pullInfo)
+	return dataCollected
+
+
 	
 	
 def cloneFiles(repo):

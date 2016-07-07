@@ -1,15 +1,19 @@
 from GitHub_API_Collect import *
 import os
 
-if os.path.lexists("/Users/ashleychen/Desktop/REUSE/REUSE/repoID.p"):
+pas = 0
+
+if os.path.lexists("/Users/ashleychen/Desktop/REUSE/REUSE/repoID.p") and pas == 1:
 	print "already pickled files"
 	listofRepoID = openPickledData('repoID.p')
 else:
-	listofRepoID = searchRepos("game+language:java",20)
+	listofRepoID = searchRepos("language:java",50)
 	pickledData('repoID.p',listofRepoID)
 
+repoCollection = []
 for id in listofRepoID:
-	storePull(id)
+	repoCollection.append(createPullClass(id))
+pickledData("repoCollection",repoCollection)
 
 
 
