@@ -74,13 +74,12 @@ def searchRepos(description, numOfPulls): #Searches for repos under description.
 	listt = []
 
 	i = 0
-	while i <20:
+	while i <3:
 		num = sumOfPulls(repos[i].get_pulls(state="closed"))
 		if num <= numOfPulls and num != 0:
 			print("repo name: " + str(repos[i].name) + 
 				"repo owner: " + str(repos[i].owner.name)
 				+ "repo id: " + str(repos[i].id))
-			print repos[i].html_url
 			print "Pulls: " + str(num)
 			listt.append(repos[i].id)
 			i+= 1
