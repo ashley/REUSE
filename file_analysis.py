@@ -7,13 +7,15 @@ if os.path.lexists("/Users/ashleychen/Desktop/REUSE/REUSE/repoID.p") and pas == 
 	print "already pickled files"
 	listofRepoID = openPickledData('repoID.p')
 else:
-	listofRepoID = searchRepos("game+language:java",200)
+	listofRepoID = searchRepos("a+language:java",200,500)
 	pickledData('repoID.p',listofRepoID)
 
-repoCollection = []
-for id in listofRepoID:
-	repoCollection.append(createPullClass(id))
-pickledData("repoCollection",repoCollection)
+def firstARFFTest():
+	repoCollection = []
+	for id in listofRepoID:
+		repoCollection.append(createPullClass(id))
+	pickledData("repoCollection",repoCollection)
 
-
+for repo in listofRepoID:
+	storePull(repo)
 

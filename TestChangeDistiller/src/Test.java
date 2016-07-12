@@ -28,7 +28,8 @@ public class Test {
 
 		//StructureNode cu = analyzeDistiller();
 		
-		org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
+		//org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
+		distillAllFiles();
 		
 		//final TreeNodeExtractor ex = new TreeNodeExtractor(false);
 		//ex.extractFromNode(compTree);
@@ -54,7 +55,7 @@ public class Test {
 		return outcome;
 	}
 	
-	public static void distillAllFiles() throws IOException{
+	public static void distillAllFiles() throws IOException, SerializationException{
 		String repoPath = "/Users/ashleychen/Desktop/REUSE/REUSE/Repos/";
 		File [] pulls = new File(repoPath).listFiles();
 		for (File i: pulls){

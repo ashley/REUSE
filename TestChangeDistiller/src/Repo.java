@@ -1,8 +1,10 @@
 import java.io.File;
 import java.io.IOException;
 
+import codemining.util.serialization.ISerializationStrategy.SerializationException;
+
 public class Repo {
-	Repo(File repoFile) throws IOException{
+	Repo(File repoFile) throws IOException, SerializationException{
 		String repoPath = repoFile.toString();
 		
 		File [] pulls = new File(repoPath).listFiles();

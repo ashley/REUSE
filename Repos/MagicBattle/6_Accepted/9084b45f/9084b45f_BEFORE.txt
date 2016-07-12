@@ -1,8 +1,0 @@
-//SHA: 301b52f5cbd96cf8a64520aef505fc25661d4aaf
-//Path: README.md
-//Version: _BEFORE.txt 
-//File Type: md
-MagicBattle
-===========
-
-MagicBattle is a Bukkit minigame created by PogoStick29Dev. You can learn how to make it [here](http://www.youtube.com/watch?v=1oOi2qonpM4&list=SPAF3anQEEkzSmWCd_G-S-hMwaAXLp8xv0).

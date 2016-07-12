@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import codemining.util.serialization.ISerializationStrategy.SerializationException;
+
 public class Pull {
 	private static File pull;
 	private static File[] files;
@@ -40,12 +42,17 @@ public class Pull {
 		return (files.length);
 	}
 	
-	public static void getChanges() throws IOException{
+	public static void getChanges() throws IOException, SerializationException{
 		for (int i = 0; i<getFilesCount();i++){
 			if(!files[i].isFile()){
 				if(files[i].listFiles().length >= 2){
 					System.out.println(files[i]);
 					Distiller aDistiller = new Distiller(getFileVersion(i,"before"),getFileVersion(i,"after"));
+					aDistiller.clearArrayList();
+					aDistiller.getChanges();
+					//String [] entropy = StoreEntropy.entropyLevel(pull.toString());
+					//aDistiller.getArrayList().add("Entropy: " + entropy[0]);
+					//aDistiller.getArrayList().add("Cross-Entropy: " + entropy[1]);
 					if (!aDistiller.getArrayList().isEmpty()){
 						//storeChanges(aDistiller.getArrayList(),i);
 					}

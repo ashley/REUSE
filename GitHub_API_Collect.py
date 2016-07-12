@@ -6,6 +6,7 @@ from openpyxl import Workbook #Excel API
 import requests #To request things off the web
 import sys #For encoding/decoding special keys
 import os #For encoding/decoding special keys
+import collections
 reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
 g = Github('msashleychen', 'freemason1') #Access to Github API //notmypassword1
@@ -69,12 +70,13 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 			else:
 				self.otherStatus += 1
 
-def searchRepos(description, numOfPulls): #Searches for repos under description. May be overwhelming data (depending on the description)
+def searchRepos(description, numOfPulls,pullLimit): #Searches for repos under description. May be overwhelming data (depending on the description)
 	repos = g.search_repositories(description)
 	listt = []
 
 	i = 0
-	while i <3:
+	pullsCounted = 0
+	while i < 5 and pullsCounted < pullLimit:
 		num = sumOfPulls(repos[i].get_pulls(state="closed"))
 		if num <= numOfPulls and num != 0:
 			print("repo name: " + str(repos[i].name) + 
@@ -83,14 +85,16 @@ def searchRepos(description, numOfPulls): #Searches for repos under description.
 			print "Pulls: " + str(num)
 			listt.append(repos[i].id)
 			i+= 1
+			pullsCounted += num
 		else:
 			print "pass"
+			i += 1
 	return listt
 
 def sumOfPulls(pullObject): #Used to find the sum of any Paginated List, not just pulls
 	count = 0
 	
-	for i in pullObject:
+	for i in tqdm(pullObject):
 		count += 1
 	return count
 
