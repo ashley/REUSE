@@ -31,7 +31,7 @@ public class Distiller {
 	
 	public void getChanges(){
 		if(changes.isEmpty()){
-			System.out.println("Empty");
+			changesInString.add("DISTILLER " + "EMPTY");
 		}
 		else if(changes != null) {
 			int current = 0;

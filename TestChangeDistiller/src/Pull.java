@@ -50,7 +50,7 @@ public class Pull {
 					Distiller aDistiller = new Distiller(getFileVersion(i,"before"),getFileVersion(i,"after"));
 					aDistiller.clearArrayList();
 					aDistiller.getChanges();
-					//String [] entropy = StoreEntropy.entropyLevel(pull.toString());
+					String [] entropy = StoreEntropy.entropyLevel(pull.toString());
 					//aDistiller.getArrayList().add("Entropy: " + entropy[0]);
 					//aDistiller.getArrayList().add("Cross-Entropy: " + entropy[1]);
 					if (!aDistiller.getArrayList().isEmpty()){

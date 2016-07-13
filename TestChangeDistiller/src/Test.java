@@ -25,16 +25,14 @@ public class Test {
 	public static void main(String[] args) throws IOException, SerializationException{
 		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
 		//SampleTSG.main(arguments);
-
-		//StructureNode cu = analyzeDistiller();
-		
-		//org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
 		distillAllFiles();
+
+		/*
+		StructureNode cu = analyzeDistiller();
 		
-		//final TreeNodeExtractor ex = new TreeNodeExtractor(false);
-		//ex.extractFromNode(compTree);
+		org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
 		
-		/*final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
+		final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
 		TreeNode <Integer> treeInt = format.getTree(compTree);
 		
 		TreeNode <Integer> intTree = makeActualTree(); 
@@ -44,8 +42,8 @@ public class Test {
 	
 	public static StructureNode analyzeDistiller(){
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
-		File file1 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/Game/10_Accepted/8ab034ba/8ab034ba_AFTER.txt");
-		File file2 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/Game/10_Accepted/8ab034ba/8ab034ba_BEFORE.txt");
+		File file1 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
+		File file2 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
 
 		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
 		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
@@ -73,12 +71,10 @@ public class Test {
 		final double percentRootsInit = .9;
 		int nFiles = 0;
 		int nNodes = 0;
-		final File fi = new File("/Users/ashleychen/Desktop/FixedFindBugsWarningsRuleTest.java");
-				//new RegexFileFilter(".*\\.java$"),
-				//DirectoryFileFilter.DIRECTORY)) {
+		final File fi = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
 				org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
 				//org.eclipse.jdt.core.dom.CompilationUnit compTree = format.getDistillerTree(fi);//insert Distiller Tree here
-				return null;
+				return treeInt;
 	}
 	public static TreeNode <Integer> makeActualTree() throws IOException{
 		final int nIterations = Integer.parseInt("1");
@@ -88,9 +84,7 @@ public class Test {
 		final double percentRootsInit = .9;
 		int nFiles = 0;
 		int nNodes = 0;
-		final File fi = new File("/Users/ashleychen/Desktop/FixedFindBugsWarningsRuleTest.java");
-				//new RegexFileFilter(".*\\.java$"),
-				//DirectoryFileFilter.DIRECTORY)) {
+		final File fi = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
 				TreeNode <Integer> treeInt = format.getTree(fi);
 				return treeInt;
 	}
