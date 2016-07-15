@@ -1,0 +1,13 @@
+https://github.com/alibaba/weex
+https://github.com/Microsoft/malmo
+https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+https://github.com/ReactiveX/RxJava
+https://github.com/facebook/react-native
+https://github.com/JakeWharton/butterknife
+https://github.com/bumptech/glide
+https://github.com/iluwatar/java-design-patterns
+https://github.com/PhilJay/MPAndroidChart
+https://github.com/elastic/elasticsearch
+https://github.com/square/retrofit
+https://github.com/nostra13/Android-Universal-Image-Loader
+https://github.com/square/okhttp
