@@ -55,8 +55,8 @@ public class Test {
 	
 	public static void distillAllFiles() throws IOException, SerializationException{
 		String repoPath = "/Users/ashleychen/Desktop/REUSE/REUSE/Repos/";
-		File [] pulls = new File(repoPath).listFiles();
-		for (File i: pulls){
+		File [] repos = new File(repoPath).listFiles();
+		for (File i: repos){
 			if(!i.toString().equals("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/.DS_Store")){
 				new Repo(i);
 			}

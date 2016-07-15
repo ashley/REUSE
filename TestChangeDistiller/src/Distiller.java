@@ -11,8 +11,13 @@ import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 public class Distiller {
 	private static ArrayList<String> changesInString = new ArrayList<String>();
 	private static List<SourceCodeChange> changes;
+	private static ArrayList<Integer> sigLevels = new ArrayList<Integer>();
 	
-	Distiller(File before, File after) throws IOException{
+	Distiller(){
+		resetSigLevel();
+	}
+	
+	public void executeDistiller(File before, File after) throws IOException{
 		File left = before;
 		File right = after;
 		
@@ -31,12 +36,21 @@ public class Distiller {
 	
 	public void getChanges(){
 		if(changes.isEmpty()){
-			changesInString.add("DISTILLER " + "EMPTY");
+			//changesInString.add("DISTILLER " + "EMPTY");
 		}
 		else if(changes != null) {
 			int current = 0;
 			changesInString.clear();
 		    for(SourceCodeChange change : changes){
+		    	if (change.getSignificanceLevel().toString().equals("LOW")){
+		    		sigLevels.set(0, sigLevels.get(0)+1);
+		    	}
+		    	else if (change.getSignificanceLevel().toString().equals("MEDIUM")) {
+		    		sigLevels.set(1,sigLevels.get(1)+1);
+		    	}
+		    	else{
+		    		sigLevels.set(2,sigLevels.get(2)+1);
+		    	}
 		    	System.out.println("DISTILLER " + Integer.toString(current) + ": " + change.getLabel()); 
 		    	System.out.println("DISTILLER " + Integer.toString(current) + ": " + change.getSignificanceLevel()); 
 		    	changesInString.add("DISTILLER " + Integer.toString(current) + ": " + change.getLabel()); //for storing prints
@@ -51,8 +65,19 @@ public class Distiller {
 		return (changesInString);
 	}
 	
+	public ArrayList<Integer> getSigList(){
+		return (sigLevels);
+	}
+	
 	public void clearArrayList(){
 		changesInString.clear();
+	}
+	
+	public void resetSigLevel(){
+		sigLevels.clear();
+		sigLevels.add(0,0);
+		sigLevels.add(1,0);
+		sigLevels.add(2,0);
 	}
 
 }

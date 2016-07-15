@@ -9,7 +9,9 @@ import os #For encoding/decoding special keys
 import collections
 reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
-g = Github('msashleychen', 'freemason1') #Access to Github API //notmypassword1
+g = Github(client_id='d59f9312dfce5a0799fe') #Access to Github API //notmypassword1
+shaLength = 9
+buggyFiles = []
 
 class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Reverted"
 	def __init__(self, pullObj,repoID): #Inolves information from the pull
@@ -31,6 +33,7 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 		self.removed = 0
 		self.renamed = 0
 		self.otherStatus = 0
+		self.blob = pullObj.url
 
 	def stringAttributes(self):
 		print vars(self)
@@ -120,6 +123,7 @@ def samplePull():
 def storePull(repoID):
 	repo = g.get_repo(repoID)
 	cloneFiles(repo)
+	storeBuggyFiles()
 
 def createPullClass(repoID):
 	dataCollected = []
@@ -151,43 +155,60 @@ def cloneFiles(repo):
 			switch = 1 #safety pin
 
 			if switch == 1: 
-				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])):
-					os.makedirs("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8]))
-					pullInfo.writePullAttributes()
-				if pullFiles[i].status == "removed":
-					#Checks whether or not the file was added, removed, or modified
-					suffix = "_BEFORE.txt"
+				name = repo.name
+				pullnumber = pull.number
+				pullInforesult = pullInfo.result
+				pulley = pullFiles[i].sha
+				print name
+				print type(name)
+				print pullnumber
+				print type(pullnumber)
+				print pullInforesult
+				print type(pullInforesult)
+				print pulley
+				print type(pulley)
+				
+				if pullFiles[i].sha == None:
+					print "Error in retreiving SHA"
+					buggyFiles.append(pullFiles[i].blob_url)
 				else:
-					suffix = "_AFTER.txt"
-				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix):
-					#Starts to create the file here
-					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+suffix,"wb")
-					print pullFiles[i].raw_url
-					if pullFiles[i].raw_url != None:
-						r = requests.get(pullFiles[i].raw_url)
-					#Only using request raw text for now. Figure our how to download img later.
-					fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n" + "//File Type: " + pullFiles[i].filename.split(".")[-1] + "\n" + r.text.encode('utf-8').strip())
-					fo.close()
+					if not os.path.lexists("Repos"+"//"+name+"//"+str(pullnumber)+"_"+pullInforesult+"//"+str(pulley[:shaLength])):
+						os.makedirs("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:shaLength]))
+						pullInfo.writePullAttributes()
+					if pullFiles[i].status == "removed":
+						#Checks whether or not the file was added, removed, or modified
+						suffix = "_BEFORE.txt"
+					else:
+						suffix = "_AFTER.txt"
+					if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:shaLength])+"//"+str(pullFiles[i].sha[:shaLength])+suffix):
+						#Starts to create the file here
+						fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:shaLength])+"//"+str(pullFiles[i].sha[:shaLength])+suffix,"wb")
+						print pullFiles[i].raw_url
+						if pullFiles[i].raw_url != None:
+							r = requests.get(pullFiles[i].raw_url)
+						#Only using request raw text for now. Figure our how to download img later.
+						fo.write("//SHA: " + str(pullFiles[i].sha)+ "\n" + "//Path: " + str(pullFiles[i].filename)+"\n//Version: " + suffix+"\n" + "//File Type: " + pullFiles[i].filename.split(".")[-1] + "\n" + r.text.encode('utf-8').strip())
+						fo.close()
 
-			#Statement checks for whether or not the file was added or removed
-			if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1 and pullFiles[i].raw_url != None:
-				beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha #Gets the SHA that's before the current commit in its history
-				beforeURL = pullFiles[i].raw_url
-				for file in repo.get_commit(beforeSHA).files: #Checks that commit for the file. 
-					if file.filename == filePathName:
-						beforeURL = file.raw_url #BEFORE version of the file URL
-				if beforeURL == pullFiles[i].raw_url:
-					print("Error with finding file's previous SHA")
-				shaID = str(beforeSHA)
-				fileName = str(pullFiles[i].filename)
-				if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt"):
-					#Same for the AFTER file
-					fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:8])+"//"+str(pullFiles[i].sha[:8])+"_BEFORE.txt","wb")
-					print "AFTER " + str(pullFiles[i].raw_url)
-					print "BEFORE" + str(beforeURL)
-					rB = requests.get(beforeURL)
-					fo.write("//SHA: " + beforeSHA + "\n//Path: " + fileName + "\n//Version: _BEFORE.txt \n" + "//File Type: " + fileName.split(".")[-1] + "\n" + rB.text.encode('utf-8').strip())
-					fo.close()
+				#Statement checks for whether or not the file was added or removed
+				if switch == 1 and pullFiles[i].patch != None and sumOfPulls(repo.get_commits(sha=ogSHA,path=filePathName)) > 1 and pullFiles[i].raw_url != None:
+					beforeSHA = repo.get_commits(sha=ogSHA,path=filePathName)[1].sha #Gets the SHA that's before the current commit in its history
+					beforeURL = pullFiles[i].raw_url
+					for file in repo.get_commit(beforeSHA).files: #Checks that commit for the file. 
+						if file.filename == filePathName:
+							beforeURL = file.raw_url #BEFORE version of the file URL
+					if beforeURL == pullFiles[i].raw_url:
+						print("Error with finding file's previous SHA")
+					shaID = str(beforeSHA)
+					fileName = str(pullFiles[i].filename)
+					if not os.path.lexists("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:shaLength])+"//"+str(pullFiles[i].sha[:shaLength])+"_BEFORE.txt"):
+						#Same for the AFTER file
+						fo = open("Repos"+"//"+repo.name+"//"+str(pull.number)+"_"+pullInfo.result+"//"+str(pullFiles[i].sha[:shaLength])+"//"+str(pullFiles[i].sha[:shaLength])+"_BEFORE.txt","wb")
+						print "AFTER " + str(pullFiles[i].raw_url)
+						print "BEFORE" + str(beforeURL)
+						rB = requests.get(beforeURL)
+						fo.write("//SHA: " + beforeSHA + "\n//Path: " + fileName + "\n//Version: _BEFORE.txt \n" + "//File Type: " + fileName.split(".")[-1] + "\n" + rB.text.encode('utf-8').strip())
+						fo.close()
 
 
 def storePulls(repo): #Pickles pull objects, use for rough coding
@@ -229,6 +250,12 @@ def submitToExcel(cells): #Excel test
 	wb.save("sample.xlsx")
 	print "Submited to Excel"
 
+def storeBuggyFiles():
+	print "There were" + str(len(buggyFiles)) + " files that were not retreived."
+	f = open("BuggyFiles.txt","wb")
+	for line in buggyFiles:
+		f.write(lines + "\n")
+		f.close()
 
 
 	
