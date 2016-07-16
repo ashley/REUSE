@@ -159,7 +159,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         push(
                 label, comment.toString(),
                 comment.getStartPosition(),
-                getEndPosition(comment));
+                getEndPosition(comment),
+                comment);
         pop(comment);
     }
 
@@ -381,7 +382,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                 fASTHelper.convertNode(assertStatement),
                 value,
                 assertStatement.getStartPosition(),
-                getEndPosition(assertStatement) + 1);
+                getEndPosition(assertStatement) + 1,
+                assertStatement);
         return false;
     }
 
@@ -503,7 +505,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                 fASTHelper.convertNode(expression),
                 expression.toString() + ';',
                 expression.getStartPosition(),
-                getEndPosition(expression) + 1);
+                getEndPosition(expression) + 1,
+                expression);
         return false;
     }
 
@@ -541,7 +544,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         			JavaEntityType.FOR_INIT,
         			initStatement.toString(),
         			initStatement.getStartPosition(),
-        			getEndPosition(initStatement)
+        			getEndPosition(initStatement),
+        			initStatement
         		);
         		initStatement.accept(this);
         		pop(initStatement);
@@ -556,7 +560,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         			JavaEntityType.FOR_INCR,
         			incrementStatement.toString(),
         			incrementStatement.getStartPosition(),
-        			getEndPosition(incrementStatement)
+        			getEndPosition(incrementStatement),
+        			incrementStatement
         		);
         		
         		incrementStatement.accept(this);
@@ -578,13 +583,14 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     public boolean visit(IfStatement ifStatement) {
         preVisit(ifStatement);
         String expression = ifStatement.getElseStatement().toString();
-        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.getStartPosition(), getEndPosition(ifStatement));
+        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.getStartPosition(), getEndPosition(ifStatement), ifStatement);
         if (ifStatement.getThenStatement() != null) {
             push(
                     JavaEntityType.THEN_STATEMENT,
                     expression,
                     ifStatement.getThenStatement().getStartPosition(),
-                    getEndPosition(ifStatement.getThenStatement()));
+                    getEndPosition(ifStatement.getThenStatement()),
+                    ifStatement.getThenStatement());
             ifStatement.getThenStatement().accept(this);
             pop(ifStatement.getThenStatement());
         }
@@ -593,7 +599,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                     JavaEntityType.ELSE_STATEMENT,
                     expression,
                     ifStatement.getElseStatement().getStartPosition(),
-                    getEndPosition(ifStatement.getElseStatement()));
+                    getEndPosition(ifStatement.getElseStatement()),
+                    ifStatement.getElseStatement());
             ifStatement.getElseStatement().accept(this);
             pop(ifStatement.getElseStatement());
         }
@@ -625,7 +632,9 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     	// FIXME: this is one of the methods whose correctness I am least certain of
         preVisit(localDeclaration);
         int start = localDeclaration.getType().getStartPosition();
-        push(fASTHelper.convertNode(localDeclaration), localDeclaration.toString(), start, getEndPosition(localDeclaration));
+        push(fASTHelper.convertNode(localDeclaration), 
+        		localDeclaration.toString(), start, getEndPosition(localDeclaration),
+        		localDeclaration);
         return false;
     }
 
@@ -721,7 +730,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     public boolean visit(TryStatement node) {
         preVisit(node);
         pushEmptyNode(node);
-        push(JavaEntityType.BODY, "", node.getBody().getStartPosition(), getEndPosition(node.getBody()));
+        push(JavaEntityType.BODY, "", node.getBody().getStartPosition(), getEndPosition(node.getBody()), node.getBody());
         node.getBody().accept(this);
         pop(node.getBody());
         visitCatchClauses(node);
@@ -731,7 +740,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
 
     private void visitFinally(TryStatement node) {
         if (node.getFinally() != null) {
-            push(JavaEntityType.FINALLY, "", node.getFinally().getStartPosition(), getEndPosition(node.getFinally()));
+            push(JavaEntityType.FINALLY, "", node.getFinally().getStartPosition(), getEndPosition(node.getFinally()), node.getFinally());
             node.getFinally().accept(this);
             pop(node.getFinally());
         }
@@ -740,8 +749,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @SuppressWarnings("unchecked")
 	private void visitCatchClauses(TryStatement node) {
         if ((node.catchClauses() != null) && (node.catchClauses().size() > 0)) {
-            Block lastCatchBlock = ((CatchClause) node.catchClauses().get(node.catchClauses().size() - 1)).getBody();
-            push(JavaEntityType.CATCH_CLAUSES, "", getEndPosition(node.getBody()), getEndPosition(lastCatchBlock));
+            Block lastCatchBlock = ((CatchClause) node.catchClauses().get(node.catchClauses().size() - 1)).getBody(); // FIXME: it's not clear that the node to pass to the push on the next line should be the last catch block
+            push(JavaEntityType.CATCH_CLAUSES, "", getEndPosition(node.getBody()), getEndPosition(lastCatchBlock), lastCatchBlock);
             int start = getEndPosition(node.getBody());
             List<CatchClause> catchClauses = node.catchClauses();
             for(CatchClause catchClause : catchClauses) {
@@ -752,7 +761,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                         JavaEntityType.CATCH_CLAUSE,
                         catchClause.getException().getType().toString(), 
                         catchClause.getStartPosition(),
-                        getEndPosition(catchClause));
+                        getEndPosition(catchClause),
+                        catchClause);
                 catchClause.getBody().accept(this); 
                 pop(catchClause.getException().getType());
             }
@@ -773,7 +783,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                 fASTHelper.convertNode(whileStatement),
                 whileStatement.getExpression().toString(),
                 whileStatement.getStartPosition(),
-                getEndPosition(whileStatement));
+                getEndPosition(whileStatement),
+                whileStatement);
         whileStatement.getBody().accept(this);
         return false;
     }
@@ -791,16 +802,16 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     private void pushValuedNode(ASTNode node, String value) {
-        push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node));
+        push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node), node);
     }
 
     private void pushEmptyNode(ASTNode node) {
-        push(fASTHelper.convertNode(node), "", node.getStartPosition(), getEndPosition(node));
+        push(fASTHelper.convertNode(node), "", node.getStartPosition(), getEndPosition(node), node);
     }
 
-    private void push(EntityType label, String value, int start, int end) {
+    private void push(EntityType label, String value, int start, int end, ASTNode node) {
         Node n = new Node(label, value.trim());
-        n.setEntity(new SourceCodeEntity(value.trim(), label, new SourceRange(start, end)));
+        n.setEntity(new SourceCodeEntity(value.trim(), label, new SourceRange(start, end), node));
         getCurrentParent().add(n);
         fNodeStack.push(n);
     }
