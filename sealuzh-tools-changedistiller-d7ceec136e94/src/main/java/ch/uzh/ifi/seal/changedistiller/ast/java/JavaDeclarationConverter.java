@@ -22,6 +22,8 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import java.util.Stack;
 
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
@@ -47,7 +49,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
     private boolean fInMethodDeclaration;
     private String fSource;
     private ASTNodeTypeConverter fASTHelper;
-    private Scanner fScanner;
+    private Scanner fScanner; // FIXME: really need to fix this.
 
     @Inject
     JavaDeclarationConverter(ASTNodeTypeConverter astHelper) {

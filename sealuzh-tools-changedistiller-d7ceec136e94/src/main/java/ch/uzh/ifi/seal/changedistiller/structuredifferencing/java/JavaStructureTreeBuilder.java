@@ -31,6 +31,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
@@ -110,8 +111,8 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     
     @Override
     public boolean visit(EnumDeclaration node) {
-        push(Type.ENUM, String.valueOf(node.name), node);
-        fQualifiers.push(node.name);
+        push(Type.ENUM, node.getName().getIdentifier(), node);
+        fQualifiers.push(node.getName().getIdentifier().toCharArray());
         return true;
     }
     
@@ -123,8 +124,9 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
 
     @Override
     public boolean visit(AnnotationTypeDeclaration node) {
-        push(Type.ANNOTATION, String.valueOf(node.name), node);
-        fQualifiers.push(node.name);
+        push(Type.ANNOTATION, node.getName().getIdentifier(), node); 
+        fQualifiers.push(node.getName().getIdentifier().toCharArray());
+        return true;
     }
     
     @Override
@@ -141,8 +143,8 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     	} else {
     		type = Type.CLASS;
     	}
-        push(type, String.valueOf(typeDeclaration.name), typeDeclaration);
-        fQualifiers.push(typeDeclaration.name);
+        push(type, typeDeclaration.getName().getIdentifier(), typeDeclaration);
+        fQualifiers.push(typeDeclaration.getName().getIdentifier().toCharArray());
         return true;
     }
 
@@ -152,16 +154,17 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
         fQualifiers.pop();
     }
 
-    private String getMethodSignature(AbstractMethodDeclaration methodDeclaration) {
+    private String getMethodSignature(MethodDeclaration methodDeclaration) {
         StringBuffer signature = new StringBuffer();
-        signature.append(methodDeclaration.selector);
+        signature.append(methodDeclaration.getName().getIdentifier());
         signature.append('(');
-        if (methodDeclaration.arguments != null) {
-            for (int i = 0; i < methodDeclaration.arguments.length; i++) {
+        if (methodDeclaration.parameters() != null) {
+            for (int i = 0; i < methodDeclaration.parameters().size(); i++) {
                 if (i > 0) {
                     signature.append(',');
                 }
-                methodDeclaration.arguments[i].type.print(0, signature);
+                SingleVariableDeclaration param =  (SingleVariableDeclaration) methodDeclaration.parameters().get(i);
+               signature.append(param.getType().toString());
             }
         }
         signature.append(')');

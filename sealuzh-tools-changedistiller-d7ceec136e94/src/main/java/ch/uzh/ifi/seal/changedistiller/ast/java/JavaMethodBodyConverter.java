@@ -25,6 +25,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
@@ -47,7 +51,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     private List<Comment> fComments;
     private Stack<Node> fNodeStack;
     private String fSource;
-    private Scanner fScanner;
+    private Scanner fScanner; // FIXME: I really need to fix this.
 
     private ASTNode fLastVisitedNode;
     private Node fLastAddedNode;

@@ -1,5 +1,8 @@
 package ch.uzh.ifi.seal.changedistiller.ast.java;
 
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.internal.compiler.parser.Scanner; // FIXME: I really need to fix this.
+
 /*
  * #%L
  * ChangeDistiller
@@ -27,7 +30,7 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
  */
 public class JavaCompilation {
 
-    private CompilationUnitDeclaration fCompilationUnit;
+    private CompilationUnit fCompilationUnit;
     private Scanner fScanner;
 
     /**
@@ -38,12 +41,12 @@ public class JavaCompilation {
      * @param scanner
      *            that produced the compilation
      */
-    public JavaCompilation(CompilationUnitDeclaration compilationUnit, Scanner scanner) {
+    public JavaCompilation(CompilationUnit compilationUnit, Scanner scanner) {
         fCompilationUnit = compilationUnit;
         fScanner = scanner;
     }
 
-    public CompilationUnitDeclaration getCompilationUnit() {
+    public CompilationUnit getCompilationUnit() {
         return fCompilationUnit;
     }
 

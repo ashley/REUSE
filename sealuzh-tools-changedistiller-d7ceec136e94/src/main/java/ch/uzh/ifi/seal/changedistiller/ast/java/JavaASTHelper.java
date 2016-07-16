@@ -23,6 +23,7 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 import java.io.File;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -66,18 +67,7 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
             JavaASTNodeTypeConverter astHelper,
             JavaDeclarationConverter declarationConverter,
             JavaMethodBodyConverter bodyConverter) {
-    	long versionNumber;
-    	switch (javaVersion) {
-    	case "1.1": versionNumber = ClassFileConstants.JDK1_1;break;
-    	case "1.2": versionNumber = ClassFileConstants.JDK1_2;break;
-    	case "1.3": versionNumber = ClassFileConstants.JDK1_3;break;
-    	case "1.4": versionNumber = ClassFileConstants.JDK1_4;break;
-    	case "1.5": versionNumber = ClassFileConstants.JDK1_5;break;
-    	case "1.6": versionNumber = ClassFileConstants.JDK1_6;break;
-    	case "1.7": versionNumber = ClassFileConstants.JDK1_7;break;
-    	default: versionNumber = ClassFileConstants.JDK1_6;
-    	}
-        fCompilation = JavaCompilationUtils.compile(file, versionNumber);
+        fCompilation = JavaCompilationUtils.compile(file, AST.JLS4);
         prepareComments();
         fASTHelper = astHelper;
         fDeclarationConverter = declarationConverter;
