@@ -25,6 +25,8 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTHelper;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.ChangeModifier;
@@ -147,9 +149,9 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
 
     @Override
     public JavaStructureNode createStructureTree() {
-        CompilationUnitDeclaration cu = fCompilation.getCompilationUnit();
+        CompilationUnit cu = fCompilation.getCompilationUnit();
         JavaStructureNode node = new JavaStructureNode(Type.CU, null, null, cu);
-        cu.traverse(new JavaStructureTreeBuilder(node), (CompilationUnitScope) null);
+        cu.accept(new JavaStructureTreeBuilder(node));
         return node;
     }
     
@@ -166,20 +168,11 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
                 createSourceRange(node.getASTNode()));
     }
 
+    private int getEndPosition(ASTNode node) {
+    	return node.getStartPosition() + node.getLength();
+    }
     private SourceRange createSourceRange(ASTNode astNode) {
-        if (astNode instanceof TypeDeclaration) {
-            TypeDeclaration type = (TypeDeclaration) astNode;
-            return new SourceRange(type.declarationSourceStart, type.declarationSourceEnd);
-        }
-        if (astNode instanceof AbstractMethodDeclaration) {
-            AbstractMethodDeclaration method = (AbstractMethodDeclaration) astNode;
-            return new SourceRange(method.declarationSourceStart, method.declarationSourceEnd);
-        }
-        if (astNode instanceof FieldDeclaration) {
-            FieldDeclaration field = (FieldDeclaration) astNode;
-            return new SourceRange(field.declarationSourceStart, field.declarationSourceEnd);
-        }
-        return new SourceRange(astNode.sourceStart(), astNode.sourceEnd());
+        return new SourceRange(astNode.getStartPosition(), getEndPosition(astNode)); 
     }
 
     @Override
