@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ch.uzh.ifi.seal.changedistiller.ast.java.Comment.CommentType;
+import org.eclipse.jdt.core.dom.Comment;
 
 /**
  * Removes dead code comments and joins successive line comments.
@@ -69,11 +69,10 @@ public class CommentCleaner {
         if (commentDoesNotContainNonNLS(comment)) {
             int newLength = comment.getLength();
             if (fVisitedComment != null) {
-                newLength = newLength + (comment.sourceStart() - fVisitedComment.sourceStart());
-                fVisitedComment.sourceStart = fVisitedComment.sourceStart();
-                fVisitedComment.sourceEnd = fVisitedComment.sourceStart() + newLength;
-                fVisitedComment
-                        .setComment(fSource.substring(fVisitedComment.sourceStart(), fVisitedComment.sourceEnd()));
+                newLength = newLength + (comment.getStartPosition() - fVisitedComment.getStartPosition());
+                fVisitedComment.setSourceRange(fVisitedComment.getStartPosition(), fVisitedComment.getStartPosition() + newLength);
+                fVisitedComment. // FIXME: I don't know how to do this, nor why we'd want to.
+                        .setComment(fSource.substring(fVisitedComment.getStartPosition(), fVisitedComment.getStartPosition() + fVisitedComment.getLength());
             } else {
                 fVisitedComment = comment;
             }
@@ -107,7 +106,7 @@ public class CommentCleaner {
      *            to process
      */
     public void process(Comment comment) {
-        if (comment.isJavadocComment()) {
+        if (comment.isDocComment()) {
             return;
         }
         fCommentsCount++;
@@ -122,8 +121,8 @@ public class CommentCleaner {
     private void prepareConsecutiveComments(Comment comment) {
         fVisitedComment = null;
         if (previousCommentExistsAndIsLineComment() && comment.isLineComment() && commentDoesNotContainNonNLS(comment)) {
-            int positionAfterPreviousComment = fPreviousComment.sourceEnd() + 1;
-            int length = comment.sourceStart() - positionAfterPreviousComment;
+            int positionAfterPreviousComment = fPreviousComment.getStartPosition() + fPreviousComment.getLength() + 1;
+            int length = comment.getStartPosition() - positionAfterPreviousComment;
             // If only whitespace is between previous comment and current comment, the comments are in the same block
             if (hasWithspaceInSourcePart(positionAfterPreviousComment, length)) {
                 fVisitedComment = fComments.remove(fComments.size() - 1);
@@ -149,7 +148,7 @@ public class CommentCleaner {
     }
 
     private String getCommentString(Comment node) {
-        return fSource.substring(node.sourceStart(), node.sourceEnd());
+    	return node.toString(); // FIXME: I assume this does what we want for comments
     }
 
     // Uses regex patterns to guess whether a comment is commented source code and - if this is the case - removes it
@@ -159,7 +158,7 @@ public class CommentCleaner {
         for (Comment comment : fComments) {
             Matcher matcher = sSourceCodePattern.matcher(getCommentString(comment));
             // Javadocs often contain source code examples
-            if ((comment.getType() == CommentType.JAVA_DOC) || !matcher.matches()) {
+            if ((comment.isDocComment()) || !matcher.matches()) {
                 cleanComments.add(comment);
             }
         }
