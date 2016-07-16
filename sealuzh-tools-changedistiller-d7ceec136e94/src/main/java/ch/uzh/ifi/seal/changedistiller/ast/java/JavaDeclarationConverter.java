@@ -22,7 +22,9 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import java.util.Stack;
 
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.WildcardType;
 import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
@@ -73,17 +75,17 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(Argument argument, ClassScope scope) {
+    public boolean visit(Argument argument) {
         return visit(argument, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(Argument argument, ClassScope scope) {
+    public void endVisit(Argument argument) {
         endVisit(argument, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(Argument node, BlockScope scope) {
+    public boolean visit(Argument node) {
         boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
         pushValuedNode(node, String.valueOf(node.name));
         if (isNotParam) {
@@ -94,18 +96,18 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(Argument node, BlockScope scope) {
+    public void endVisit(Argument node) {
         pop();
     }
 
     @Override
-    public boolean visit(Block block, BlockScope scope) {
+    public boolean visit(Block block) {
         // skip block as it is not interesting
         return true;
     }
 
     @Override
-    public void endVisit(Block block, BlockScope scope) {
+    public void endVisit(Block block) {
         // do nothing pop is not needed (see visit(Block, BlockScope))
     }
 
@@ -201,17 +203,17 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(Javadoc javadoc, ClassScope scope) {
+    public boolean visit(Javadoc javadoc) {
         return visit(javadoc, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(Javadoc javadoc, ClassScope scope) {
+    public void endVisit(Javadoc javadoc) {
         endVisit(javadoc, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(Javadoc javadoc, BlockScope scope) {
+    public boolean visit(Javadoc javadoc) {
         String string = null;
         string = getSource(javadoc);
         if (isJavadocEmpty(string)) {
@@ -223,7 +225,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(Javadoc javadoc, BlockScope scope) {
+    public void endVisit(Javadoc javadoc) {
         if (!fEmptyJavaDoc) {
             pop();
         }
@@ -251,30 +253,30 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(MethodDeclaration methodDeclaration, ClassScope scope) {
+    public boolean visit(MethodDeclaration methodDeclaration) {
         visitAbstractMethodDeclaration(methodDeclaration, scope);
         // ignore body, since only declaration is interesting
         return false;
     }
 
     @Override
-    public void endVisit(MethodDeclaration methodDeclaration, ClassScope scope) {
+    public void endVisit(MethodDeclaration methodDeclaration) {
         pop();
     }
 
     @Override
-    public boolean visit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
+    public boolean visit(ConstructorDeclaration constructorDeclaration) {
         visitAbstractMethodDeclaration(constructorDeclaration, scope);
         // ignore body, since only declaration is interesting
         return false;
     }
 
     @Override
-    public void endVisit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
+    public void endVisit(ConstructorDeclaration constructorDeclaration) {
         pop();
     }
 
-    private void visitAbstractMethodDeclaration(AbstractMethodDeclaration methodDeclaration, ClassScope scope) {
+    private void visitAbstractMethodDeclaration(AbstractMethodDeclaration methodDeclaration) {
         if (methodDeclaration.javadoc != null) {
             methodDeclaration.javadoc.traverse(this, scope);
         }
@@ -287,7 +289,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
         visitList(JavaEntityType.THROW, methodDeclaration.thrownExceptions);
     }
 
-    private void visitReturnType(AbstractMethodDeclaration abstractMethodDeclaration, ClassScope scope) {
+    private void visitReturnType(AbstractMethodDeclaration abstractMethodDeclaration) {
         if (abstractMethodDeclaration instanceof MethodDeclaration) {
             MethodDeclaration methodDeclaration = (MethodDeclaration) abstractMethodDeclaration;
             if (methodDeclaration.returnType != null) {
@@ -297,17 +299,17 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(ParameterizedSingleTypeReference parameterizedSingleTypeReference, ClassScope scope) {
+    public boolean visit(ParameterizedSingleTypeReference parameterizedSingleTypeReference) {
         return visit(parameterizedSingleTypeReference, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(ParameterizedSingleTypeReference type, ClassScope scope) {
+    public void endVisit(ParameterizedSingleTypeReference type) {
         endVisit(type, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(ParameterizedSingleTypeReference type, BlockScope scope) {
+    public boolean visit(ParameterizedSingleTypeReference type) {
         int start = type.sourceStart();
         int end = findSourceEndTypeReference(type, type.typeArguments);
         pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + getSource(start, end));
@@ -328,22 +330,22 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(ParameterizedSingleTypeReference type, BlockScope scope) {
+    public void endVisit(ParameterizedSingleTypeReference type) {
         pop();
     }
 
     @Override
-    public boolean visit(ParameterizedQualifiedTypeReference type, ClassScope scope) {
+    public boolean visit(ParameterizedQualifiedTypeReference type) {
         return visit(type, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(ParameterizedQualifiedTypeReference type, ClassScope scope) {
+    public void endVisit(ParameterizedQualifiedTypeReference type) {
         endVisit(type, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(ParameterizedQualifiedTypeReference type, BlockScope scope) {
+    public boolean visit(ParameterizedQualifiedTypeReference type) {
         pushValuedNode(type, getSource(type));
         adjustEndPositionOfParameterizedType(type);
         return false;
@@ -361,95 +363,95 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(ParameterizedQualifiedTypeReference type, BlockScope scope) {
+    public void endVisit(ParameterizedQualifiedTypeReference type) {
         pop();
     }
 
     @Override
-    public boolean visit(QualifiedTypeReference type, ClassScope scope) {
+    public boolean visit(QualifiedTypeReference type) {
         return visit(type, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(QualifiedTypeReference type, ClassScope scope) {
+    public void endVisit(QualifiedTypeReference type) {
         endVisit(type, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(QualifiedTypeReference type, BlockScope scope) {
+    public boolean visit(QualifiedTypeReference type) {
         pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString());
         return false;
     }
 
     @Override
-    public void endVisit(QualifiedTypeReference type, BlockScope scope) {
+    public void endVisit(QualifiedTypeReference type) {
         pop();
     }
 
     @Override
-    public boolean visit(SingleTypeReference type, ClassScope scope) {
+    public boolean visit(SingleTypeReference type) {
         return visit(type, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(SingleTypeReference type, ClassScope scope) {
+    public void endVisit(SingleTypeReference type) {
         endVisit(type, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(ArrayTypeReference arrayType, ClassScope scope) {
+    public boolean visit(ArrayTypeReference arrayType) {
     	return visit(arrayType, (BlockScope) null);
     }
     
     @Override
-    public void endVisit(ArrayTypeReference arrayType, ClassScope scope) {
+    public void endVisit(ArrayTypeReference arrayType) {
     	endVisit(arrayType, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(SingleTypeReference type, BlockScope scope) {
+    public boolean visit(SingleTypeReference type) {
         pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + String.valueOf(type.token));
         return false;
     }
 
     @Override
-    public void endVisit(SingleTypeReference type, BlockScope scope) {
+    public void endVisit(SingleTypeReference type) {
         pop();
     }
 
     @Override
-	public boolean visit(ArrayTypeReference arrayType, BlockScope scope) {
+	public boolean visit(ArrayTypeReference arrayType) {
     	pushValuedNode(arrayType, prefixWithNameOfParrentIfInMethodDeclaration() + String.valueOf(arrayType.token));
 		return false;
 	}
     
     @Override
-    public void endVisit(ArrayTypeReference arrayType, BlockScope scope) {
+    public void endVisit(ArrayTypeReference arrayType) {
     	pop();
     }
 
 	@Override
-    public boolean visit(TypeDeclaration typeDeclaration, ClassScope scope) {
+    public boolean visit(TypeDeclaration typeDeclaration) {
         return visit(typeDeclaration, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(TypeDeclaration typeDeclaration, ClassScope scope) {
+    public void endVisit(TypeDeclaration typeDeclaration) {
         endVisit(typeDeclaration, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
+    public boolean visit(TypeDeclaration typeDeclaration) {
         return visit(typeDeclaration, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
+    public void endVisit(TypeDeclaration typeDeclaration) {
         endVisit(typeDeclaration, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(TypeDeclaration typeDeclaration, BlockScope scope) {
+    public boolean visit(TypeDeclaration typeDeclaration) {
         if (typeDeclaration.javadoc != null) {
             typeDeclaration.javadoc.traverse(this, scope);
         }
@@ -463,22 +465,22 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(TypeDeclaration typeDeclaration, BlockScope scope) {
+    public void endVisit(TypeDeclaration typeDeclaration) {
         pop();
     }
 
     @Override
-    public boolean visit(TypeParameter typeParameter, ClassScope scope) {
+    public boolean visit(TypeParameter typeParameter) {
         return visit(typeParameter, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(TypeParameter typeParameter, ClassScope scope) {
+    public void endVisit(TypeParameter typeParameter) {
         endVisit(typeParameter, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(TypeParameter typeParameter, BlockScope scope) {
+    public boolean visit(TypeParameter typeParameter) {
         push(
                 fASTHelper.convertNode(typeParameter),
                 getSource(typeParameter.sourceStart(), typeParameter.declarationSourceEnd),
@@ -488,22 +490,22 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(TypeParameter typeParameter, BlockScope scope) {
+    public void endVisit(TypeParameter typeParameter) {
         pop();
     }
 
     @Override
-    public boolean visit(Wildcard type, ClassScope scope) {
+    public boolean visit(Wildcard type) {
         return visit(type, (BlockScope) null);
     }
 
     @Override
-    public void endVisit(Wildcard type, ClassScope scope) {
+    public void endVisit(Wildcard type) {
         endVisit(type, (BlockScope) null);
     }
 
     @Override
-    public boolean visit(Wildcard type, BlockScope scope) {
+    public boolean visit(Wildcard type) {
         String bound = "";
         switch (type.kind) {
             case Wildcard.EXTENDS:
@@ -519,7 +521,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(Wildcard type, BlockScope scope) {
+    public void endVisit(WildcardType type) {
         pop();
     }
 

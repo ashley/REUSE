@@ -27,6 +27,9 @@ import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTHelper;
@@ -102,11 +105,11 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     private Node createDeclarationTree(ASTNode astNode, Node root) {
         fDeclarationConverter.initialize(root, fCompilation.getScanner());
         if (astNode instanceof TypeDeclaration) {
-            ((TypeDeclaration) astNode).traverse(fDeclarationConverter, (ClassScope) null);
-        } else if (astNode instanceof AbstractMethodDeclaration) {
-            ((AbstractMethodDeclaration) astNode).traverse(fDeclarationConverter, (ClassScope) null);
+            ((TypeDeclaration) astNode).accept(fDeclarationConverter);
+        } else if (astNode instanceof MethodDeclaration) {
+            ((MethodDeclaration) astNode).accept(fDeclarationConverter);
         } else if (astNode instanceof FieldDeclaration) {
-            ((FieldDeclaration) astNode).traverse(fDeclarationConverter, null);
+            ((FieldDeclaration) astNode).accept(fDeclarationConverter);
         }
         return root;
     }
@@ -128,10 +131,10 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     @Override
     public Node createMethodBodyTree(JavaStructureNode node) {
         ASTNode astNode = node.getASTNode();
-        if (astNode instanceof AbstractMethodDeclaration) {
+        if (astNode instanceof MethodDeclaration) {
             Node root = createRootNode(node, astNode);
             fBodyConverter.initialize(root, astNode, fComments, fCompilation.getScanner());
-            ((AbstractMethodDeclaration) astNode).traverse(fBodyConverter, (ClassScope) null);
+            ((MethodDeclaration) astNode).accept(fBodyConverter);
             return root;
         }
         return null;
@@ -183,13 +186,13 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     }
 
     private int extractModifier(ASTNode node) {
-        int ecjModifer = -1;
-        if (node instanceof AbstractMethodDeclaration) {
-            ecjModifer = ((AbstractMethodDeclaration) node).modifiers;
+        int ecjModifer = -1; // important FIXME: I think I did this conversion properly, but check
+        if (node instanceof MethodDeclaration) {
+            ecjModifer = ((MethodDeclaration) node).getModifiers(); 
         } else if (node instanceof FieldDeclaration) {
-            ecjModifer = ((FieldDeclaration) node).modifiers;
+            ecjModifer = ((FieldDeclaration) node).getModifiers();
         } else if (node instanceof TypeDeclaration) {
-            ecjModifer = ((TypeDeclaration) node).modifiers;
+            ecjModifer = ((TypeDeclaration) node).getModifiers();
         }
         if (ecjModifer > -1) {
             return convertECJModifier(ecjModifer);
@@ -236,48 +239,48 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     }
     
     private boolean isNative(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccNative) != 0;
+    	return Modifier.isNative(ecjModifier); 
     }
     
     private boolean isStatic(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccStatic) != 0;
+    	return Modifier.isStatic(ecjModifier);
     }
     
     private boolean isStrictFP(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccStrictfp) != 0;
+    	return Modifier.isStrictfp(ecjModifier); 
     }
 
     private boolean isSynchronized(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccSynchronized) != 0;
+    	return Modifier.isSynchronized(ecjModifier);
     }
 
     private boolean isTransient(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccTransient) != 0;
+    	return Modifier.isTransient(ecjModifier);
     }
 
     private boolean isVolatile(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccVolatile) != 0;
+    	return Modifier.isVolatile(ecjModifier); 
     }
     
 
     private boolean isAbstract(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccAbstract) != 0;
+        return Modifier.isAbstract(ecjModifier);
     }
     
     private boolean isPrivate(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccPrivate) != 0;
+        return Modifier.isPrivate(ecjModifier); 
     }
 
     private boolean isProtected(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccProtected) != 0;
+        return Modifier.isProtected(ecjModifier);
     }
 
     private boolean isPublic(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccPublic) != 0;
+        return Modifier.isPublic(ecjModifier); 
     }
 
     private boolean isFinal(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccFinal) != 0;
+        return Modifier.isFinal(ecjModifier);
     }
 
     @Override
@@ -375,8 +378,8 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
 	}
 
 	@Override
-	public CompilationUnitDeclaration returnCU() {
-        CompilationUnitDeclaration cu = fCompilation.getCompilationUnit();
+	public CompilationUnit returnCU() {
+        CompilationUnit cu = fCompilation.getCompilationUnit();
         return cu;
 	}
 
