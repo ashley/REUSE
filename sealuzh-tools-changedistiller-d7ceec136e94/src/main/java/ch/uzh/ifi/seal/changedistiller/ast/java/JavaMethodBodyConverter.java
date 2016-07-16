@@ -28,6 +28,20 @@ import java.util.Stack;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.IfStatement;
+import org.eclipse.jdt.core.dom.LabeledStatement;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.ReturnStatement;
+import org.eclipse.jdt.core.dom.SwitchCase;
+import org.eclipse.jdt.core.dom.SwitchStatement;
+import org.eclipse.jdt.core.dom.SynchronizedStatement;
+import org.eclipse.jdt.core.dom.ThrowStatement;
+import org.eclipse.jdt.core.dom.TryStatement;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.core.dom.WhileStatement;
 import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
@@ -119,26 +133,28 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         }
     }
 
+    private int getEndPosition(ASTNode node) {
+    	return node.getStartPosition() + node.getLength();
+    }
     private void insertCommentIntoTree(Comment comment) {
         EntityType label = JavaEntityType.LINE_COMMENT;
-        if (comment.getType() == CommentType.BLOCK_COMMENT) {
+        if (comment.isBlockComment()) {
             label = JavaEntityType.BLOCK_COMMENT;
         }
         push(
-                label,
-                getSource(comment.sourceStart(), comment.sourceEnd() - 1),
-                comment.sourceStart(),
-                comment.sourceEnd());
+                label, comment.toString(),
+                comment.getStartPosition(),
+                getEndPosition(comment));
         pop(comment);
     }
 
     private boolean previousNodeExistsAndIsNotTheFirstNode() {
-        return (fLastVisitedNode != null) && (fLastVisitedNode.sourceStart() > 0);
+        return (fLastVisitedNode != null) && (fLastVisitedNode.getStartPosition() > 0);
     }
 
     private boolean isCommentBetweenCurrentNodeAndLastNode(Comment comment, ASTNode currentNode) {
-        return (fLastVisitedNode.sourceStart() < comment.sourceStart())
-                && (comment.sourceStart() < currentNode.sourceStart());
+        return (fLastVisitedNode.getStartPosition() < comment.getStartPosition())
+                && (comment.getStartPosition() < currentNode.getStartPosition());
     }
 
     private boolean hasComments() {
@@ -204,19 +220,19 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         ASTNode nodeOne = left;
         ASTNode nodeTwo = right;
         // swap code, if nodeOne is not before nodeTwo
-        if ((nodeTwo.sourceStart() - nodeOne.sourceStart()) < 0) {
+        if ((nodeTwo.getStartPosition() - nodeOne.getStartPosition()) < 0) {
             ASTNode tmpNode = nodeOne;
             nodeOne = nodeTwo;
             nodeTwo = tmpNode;
         }
 
-        int endOfNodePosition = nodeOne.sourceEnd();
+        int endOfNodePosition = getEndPosition(nodeOne);
 
         // comment (nodeTwo) inside nodeOne
-        if (endOfNodePosition > nodeTwo.sourceStart()) {
+        if (endOfNodePosition > nodeTwo.getStartPosition()) {
 
             // find position before comment start
-            String findNodeEndTemp = fSource.substring(nodeOne.sourceStart(), nodeTwo.sourceStart());
+            String findNodeEndTemp = fSource.substring(nodeOne.getStartPosition(), nodeTwo.getStartPosition());
 
             // remove white space between nodeOne and comment (nodeTwo)
             int lastNonSpaceChar = findNodeEndTemp.lastIndexOf("[^\\s]");
@@ -225,9 +241,9 @@ public class JavaMethodBodyConverter extends ASTVisitor {
             }
 
             // end position of nodeOne before comment without succeeding white space
-            endOfNodePosition = nodeTwo.sourceStart() - findNodeEndTemp.length();
+            endOfNodePosition = nodeTwo.getStartPosition() - findNodeEndTemp.length();
         }
-        String betweenOneAndComment = fSource.substring(endOfNodePosition, nodeTwo.sourceStart());
+        String betweenOneAndComment = fSource.substring(endOfNodePosition, nodeTwo.getStartPosition());
 
         // Comment is on the same line as code, but node in code
         int positionAfterBracket = betweenOneAndComment.lastIndexOf('}');
@@ -288,87 +304,89 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     private String getASTString(ASTNode node) {
-        if (node instanceof CompilationUnitDeclaration) {
+        if (node instanceof CompilationUnit) {
             return "";
         }
         String result = node.toString();
         // method and type declaration strings contain their javadoc
-        // get rid of the javadoc
-        if (node instanceof MethodDeclaration || node instanceof TypeDeclaration) {
+        // get rid of the javadoc 
+        if (node instanceof MethodDeclaration) {
             MethodDeclaration method = (MethodDeclaration) node;
-            if (method.javadoc != null) {
-            	return result.replace(method.javadoc.toString(), "");
-            }
+        	return result.replace(method.getJavadoc().toString(), "");
+        }
+        if (node instanceof TypeDeclaration) {
+        	TypeDeclaration method = (TypeDeclaration) node;
+        	return result.replace(method.getJavadoc().toString(), "");}
         }
         return result;
     }
 
     private String getCommentString(ASTNode node) {
-        return ((Comment) node).getComment();
+        return ((Comment) node).toString();
     }
 
     @Override
-    public boolean visit(Assignment assignment, BlockScope scope) {
-        return visitExpression(assignment, scope);
+    public boolean visit(Assignment assignment) {
+        return visitExpression(assignment);
     }
 
     @Override
-    public void endVisit(Assignment assignment, BlockScope scope) {
-        endVisitExpression(assignment, scope);
+    public void endVisit(Assignment assignment) {
+        endVisitExpression(assignment);
     }
 
     @Override
-    public boolean visit(CompoundAssignment compoundAssignment, BlockScope scope) {
-        return visitExpression(compoundAssignment, scope);
+    public boolean visit(CompoundAssignment compoundAssignment) {
+        return visitExpression(compoundAssignment);
     }
 
     @Override
-    public void endVisit(CompoundAssignment compoundAssignment, BlockScope scope) {
-        endVisitExpression(compoundAssignment, scope);
+    public void endVisit(CompoundAssignment compoundAssignment) {
+        endVisitExpression(compoundAssignment);
     }
 
     @Override
-    public boolean visit(PostfixExpression postfixExpression, BlockScope scope) {
-        return visitExpression(postfixExpression, scope);
+    public boolean visit(PostfixExpression postfixExpression) {
+        return visitExpression(postfixExpression);
     }
 
     @Override
-    public void endVisit(PostfixExpression postfixExpression, BlockScope scope) {
-        endVisitExpression(postfixExpression, scope);
+    public void endVisit(PostfixExpression postfixExpression) {
+        endVisitExpression(postfixExpression);
     }
 
     @Override
-    public boolean visit(PrefixExpression prefixExpression, BlockScope scope) {
-        return visitExpression(prefixExpression, scope);
+    public boolean visit(PrefixExpression prefixExpression) {
+        return visitExpression(prefixExpression);
     }
 
     @Override
-    public void endVisit(PrefixExpression prefixExpression, BlockScope scope) {
-        endVisitExpression(prefixExpression, scope);
+    public void endVisit(PrefixExpression prefixExpression) {
+        endVisitExpression(prefixExpression);
     }
 
     @Override
-    public boolean visit(AllocationExpression allocationExpression, BlockScope scope) {
-        return visitExpression(allocationExpression, scope);
+    public boolean visit(AllocationExpression allocationExpression) {
+        return visitExpression(allocationExpression);
     }
 
     @Override
-    public void endVisit(AllocationExpression allocationExpression, BlockScope scope) {
-        endVisitExpression(allocationExpression, scope);
+    public void endVisit(AllocationExpression allocationExpression) {
+        endVisitExpression(allocationExpression);
     }
 
     @Override
-    public boolean visit(QualifiedAllocationExpression qualifiedAllocationExpression, BlockScope scope) {
-        return visitExpression(qualifiedAllocationExpression, scope);
+    public boolean visit(QualifiedAllocationExpression qualifiedAllocationExpression) {
+        return visitExpression(qualifiedAllocationExpression);
     }
 
     @Override
-    public void endVisit(QualifiedAllocationExpression qualifiedAllocationExpression, BlockScope scope) {
-        endVisitExpression(qualifiedAllocationExpression, scope);
+    public void endVisit(QualifiedAllocationExpression qualifiedAllocationExpression) {
+        endVisitExpression(qualifiedAllocationExpression);
     }
 
     @Override
-    public boolean visit(AssertStatement assertStatement, BlockScope scope) {
+    public boolean visit(AssertStatement assertStatement) {
         preVisit(assertStatement);
         String value = assertStatement.assertExpression.toString();
         if (assertStatement.exceptionArgument != null) {
@@ -377,56 +395,56 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         push(
                 fASTHelper.convertNode(assertStatement),
                 value,
-                assertStatement.sourceStart(),
+                assertStatement.getStartPosition(),
                 assertStatement.sourceEnd() + 1);
         return false;
     }
 
     @Override
-    public void endVisit(AssertStatement assertStatement, BlockScope scope) {
+    public void endVisit(AssertStatement assertStatement) {
         pop(assertStatement);
         postVisit(assertStatement);
     }
 
     @Override
-    public boolean visit(Block block, BlockScope scope) {
+    public boolean visit(Block block) {
         // skip block as it is not interesting
         return true;
     }
 
     @Override
-    public void endVisit(Block block, BlockScope scope) {
+    public void endVisit(Block block) {
         // do nothing
     }
 
     @Override
-    public boolean visit(BreakStatement breakStatement, BlockScope scope) {
+    public boolean visit(BreakStatement breakStatement) {
         preVisit(breakStatement);
         pushValuedNode(breakStatement, breakStatement.label != null ? String.valueOf(breakStatement.label) : "");
         return false;
     }
 
     @Override
-    public void endVisit(BreakStatement breakStatement, BlockScope scope) {
+    public void endVisit(BreakStatement breakStatement) {
         pop(breakStatement);
         postVisit(breakStatement);
     }
 
     @Override
-    public boolean visit(ExplicitConstructorCall explicitConstructor, BlockScope scope) {
+    public boolean visit(ExplicitConstructorCall explicitConstructor) {
         preVisit(explicitConstructor);
         pushValuedNode(explicitConstructor, explicitConstructor.toString());
         return false;
     }
 
     @Override
-    public void endVisit(ExplicitConstructorCall explicitConstructor, BlockScope scope) {
+    public void endVisit(ExplicitConstructorCall explicitConstructor) {
         pop(explicitConstructor);
         postVisit(explicitConstructor);
     }
 
     @Override
-    public boolean visit(ContinueStatement continueStatement, BlockScope scope) {
+    public boolean visit(ContinueStatement continueStatement) {
         preVisit(continueStatement);
         pushValuedNode(continueStatement, continueStatement.label != null
                 ? String.valueOf(continueStatement.label)
@@ -435,49 +453,49 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(ContinueStatement continueStatement, BlockScope scope) {
+    public void endVisit(ContinueStatement continueStatement) {
         pop(continueStatement);
         postVisit(continueStatement);
     }
 
     @Override
-    public boolean visit(DoStatement doStatement, BlockScope scope) {
+    public boolean visit(DoStatement doStatement) {
         preVisit(doStatement);
         pushValuedNode(doStatement, doStatement.condition.toString());
-        doStatement.action.traverse(this, scope);
+        doStatement.action.traverse(this);
         return false;
     }
 
     @Override
-    public void endVisit(DoStatement doStatement, BlockScope scope) {
+    public void endVisit(DoStatement doStatement) {
         pop(doStatement);
         postVisit(doStatement);
     }
 
     @Override
-    public boolean visit(EmptyStatement emptyStatement, BlockScope scope) {
+    public boolean visit(EmptyStatement emptyStatement) {
         preVisit(emptyStatement);
         pushEmptyNode(emptyStatement);
         return false;
     }
 
     @Override
-    public void endVisit(EmptyStatement emptyStatement, BlockScope scope) {
+    public void endVisit(EmptyStatement emptyStatement) {
         pop(emptyStatement);
         postVisit(emptyStatement);
     }
 
     @Override
-    public boolean visit(ForeachStatement foreachStatement, BlockScope scope) {
+    public boolean visit(ForeachStatement foreachStatement) {
         preVisit(foreachStatement);
         pushValuedNode(foreachStatement, foreachStatement.elementVariable.printAsExpression(0, new StringBuffer())
                 .toString() + COLON + foreachStatement.collection.toString());
-        foreachStatement.action.traverse(this, scope);
+        foreachStatement.action.traverse(this);
         return false;
     }
 
     @Override
-    public void endVisit(ForeachStatement foreachStatement, BlockScope scope) {
+    public void endVisit(ForeachStatement foreachStatement) {
         pop(foreachStatement);
         postVisit(foreachStatement);
     }
@@ -491,7 +509,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
      *            in which the expression resides
      * @return <code>true</code> if the children of the expression should be visited, <code>false</code> otherwise.
      */
-    public boolean visitExpression(Expression expression, BlockScope scope) {
+    public boolean visitExpression(Expression expression) {
         preVisit(expression);
         // all expression processed in this method are statements
         // - use printStatement to get the ';' at the end of the expression
@@ -499,8 +517,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         push(
                 fASTHelper.convertNode(expression),
                 expression.toString() + ';',
-                expression.sourceStart(),
-                expression.sourceEnd() + 1);
+                expression.getStartPosition(),
+                getEndPosition(expression) + 1);
         return false;
     }
 
@@ -516,13 +534,13 @@ public class JavaMethodBodyConverter extends ASTVisitor {
      * @param scope
      *            in which the visitor visits
      */
-    public void endVisitExpression(Expression expression, BlockScope scope) {
+    public void endVisitExpression(Expression expression) {
         pop(expression);
         postVisit(expression);
     }
 
     @Override
-    public boolean visit(ForStatement forStatement, BlockScope scope) {
+    public boolean visit(ForStatement forStatement) {
         preVisit(forStatement);
         // loop condition
         String value = "";
@@ -530,7 +548,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         	value = forStatement.condition.toString();
         }
         pushValuedNode(forStatement, value);
-        forStatement.action.traverse(this, scope);
+        forStatement.action.traverse(this);
        
         // loop init
         if(forStatement.initializations != null && forStatement.initializations.length > 0) {
@@ -538,11 +556,11 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         		push(
         			JavaEntityType.FOR_INIT,
         			initStatement.toString(),
-        			initStatement.sourceStart(),
+        			initStatement.getStartPosition(),
         			initStatement.sourceEnd()
         		);
         		
-        		initStatement.traverse(this, scope);
+        		initStatement.traverse(this);
         		
         		pop(initStatement);
         	}
@@ -554,11 +572,11 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         		push(
         			JavaEntityType.FOR_INCR,
         			incrementStatement.toString(),
-        			incrementStatement.sourceStart(),
+        			incrementStatement.getStartPosition(),
         			incrementStatement.sourceEnd()
         		);
         		
-        		incrementStatement.traverse(this, scope);
+        		incrementStatement.traverse(this);
         		
         		pop(incrementStatement);
         	}
@@ -568,61 +586,61 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(ForStatement forStatement, BlockScope scope) {
+    public void endVisit(ForStatement forStatement) {
         pop(forStatement);
         postVisit(forStatement);
     }
 
     @Override
-    public boolean visit(IfStatement ifStatement, BlockScope scope) {
+    public boolean visit(IfStatement ifStatement) {
         preVisit(ifStatement);
         String expression = ifStatement.condition.toString();
-        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.sourceStart(), ifStatement.sourceEnd());
+        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.getStartPosition(), ifStatement.sourceEnd());
         if (ifStatement.thenStatement != null) {
             push(
                     JavaEntityType.THEN_STATEMENT,
                     expression,
-                    ifStatement.thenStatement.sourceStart(),
+                    ifStatement.thenStatement.getStartPosition(),
                     ifStatement.thenStatement.sourceEnd());
-            ifStatement.thenStatement.traverse(this, scope);
+            ifStatement.thenStatement.traverse(this);
             pop(ifStatement.thenStatement);
         }
         if (ifStatement.elseStatement != null) {
             push(
                     JavaEntityType.ELSE_STATEMENT,
                     expression,
-                    ifStatement.elseStatement.sourceStart(),
+                    ifStatement.elseStatement.getStartPosition(),
                     ifStatement.elseStatement.sourceEnd());
-            ifStatement.elseStatement.traverse(this, scope);
+            ifStatement.elseStatement.traverse(this);
             pop(ifStatement.elseStatement);
         }
         return false;
     }
 
     @Override
-    public void endVisit(IfStatement ifStatement, BlockScope scope) {
+    public void endVisit(IfStatement ifStatement) {
         pop(ifStatement);
         postVisit(ifStatement);
     }
 
     @Override
-    public boolean visit(LabeledStatement labeledStatement, BlockScope scope) {
+    public boolean visit(LabeledStatement labeledStatement) {
         preVisit(labeledStatement);
         pushValuedNode(labeledStatement, String.valueOf(labeledStatement.label));
-        labeledStatement.statement.traverse(this, scope);
+        labeledStatement.statement.accept(this);
         return false;
     }
 
     @Override
-    public void endVisit(LabeledStatement labeledStatement, BlockScope scope) {
+    public void endVisit(LabeledStatement labeledStatement) {
         pop(labeledStatement);
         postVisit(labeledStatement);
     }
 
     @Override
-    public boolean visit(LocalDeclaration localDeclaration, BlockScope scope) {
+    public boolean visit(LocalDeclaration localDeclaration) {
         preVisit(localDeclaration);
-        int start = localDeclaration.type.sourceStart();
+        int start = localDeclaration.type.getStartPosition();
         int end = start;
         if (localDeclaration.initialization != null) {
         	end = localDeclaration.initialization.sourceEnd();
@@ -634,126 +652,126 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(LocalDeclaration localDeclaration, BlockScope scope) {
+    public void endVisit(LocalDeclaration localDeclaration) {
         pop(localDeclaration);
         postVisit(localDeclaration);
     }
 
     @Override
-    public boolean visit(MessageSend messageSend, BlockScope scope) {
+    public boolean visit(MethodInvocation messageSend) {
         preVisit(messageSend);
-        return visitExpression(messageSend, scope);
+        return visitExpression(messageSend);
     }
 
     @Override
-    public void endVisit(MessageSend messageSend, BlockScope scope) {
-        endVisitExpression(messageSend, scope);
+    public void endVisit(MethodInvocation messageSend) {
+        endVisitExpression(messageSend);
         postVisit(messageSend);
     }
 
     @Override
-    public boolean visit(ReturnStatement returnStatement, BlockScope scope) {
+    public boolean visit(ReturnStatement returnStatement) {
         preVisit(returnStatement);
-        pushValuedNode(returnStatement, returnStatement.expression != null
-                ? returnStatement.expression.toString() + ';'
+        pushValuedNode(returnStatement, returnStatement.getExpression() != null
+                ? returnStatement.getExpression().toString() + ';'
                 : "");
         return false;
     }
 
     @Override
-    public void endVisit(ReturnStatement returnStatement, BlockScope scope) {
+    public void endVisit(ReturnStatement returnStatement) {
         pop(returnStatement);
         postVisit(returnStatement);
     }
 
     @Override
-    public boolean visit(CaseStatement caseStatement, BlockScope scope) {
+    public boolean visit(SwitchCase caseStatement) {
         preVisit(caseStatement);
         pushValuedNode(
                 caseStatement,
-                caseStatement.constantExpression != null ? caseStatement.constantExpression.toString() : "default");
+                caseStatement.getExpression() != null ? caseStatement.getExpression().toString() : "default");
         return false;
     }
 
     @Override
-    public void endVisit(CaseStatement caseStatement, BlockScope scope) {
+    public void endVisit(SwitchCase caseStatement) {
         pop(caseStatement);
         postVisit(caseStatement);
     }
 
     @Override
-    public boolean visit(SwitchStatement switchStatement, BlockScope scope) {
+    public boolean visit(SwitchStatement switchStatement) {
         preVisit(switchStatement);
-        pushValuedNode(switchStatement, switchStatement.expression.toString());
-        visitNodes(switchStatement.statements, scope);
+        pushValuedNode(switchStatement, switchStatement.getExpression().toString());
+        visitNodes((ASTNode[]) switchStatement.statements().toArray());
         return false;
     }
 
     @Override
-    public void endVisit(SwitchStatement switchStatement, BlockScope scope) {
+    public void endVisit(SwitchStatement switchStatement) {
         pop(switchStatement);
         postVisit(switchStatement);
     }
 
     @Override
-    public boolean visit(SynchronizedStatement synchronizedStatement, BlockScope scope) {
+    public boolean visit(SynchronizedStatement synchronizedStatement) {
         preVisit(synchronizedStatement);
-        pushValuedNode(synchronizedStatement, synchronizedStatement.expression.toString());
+        pushValuedNode(synchronizedStatement, synchronizedStatement.getExpression().toString());
         return true;
     }
 
     @Override
-    public void endVisit(SynchronizedStatement synchronizedStatement, BlockScope scope) {
+    public void endVisit(SynchronizedStatement synchronizedStatement) {
         pop(synchronizedStatement);
         postVisit(synchronizedStatement);
     }
 
     @Override
-    public boolean visit(ThrowStatement throwStatement, BlockScope scope) {
+    public boolean visit(ThrowStatement throwStatement) {
         preVisit(throwStatement);
-        pushValuedNode(throwStatement, throwStatement.exception.toString() + ';');
+        pushValuedNode(throwStatement, throwStatement.getExpression().toString() + ';');
         return false;
     }
 
     @Override
-    public void endVisit(ThrowStatement throwStatement, BlockScope scope) {
+    public void endVisit(ThrowStatement throwStatement) {
         pop(throwStatement);
         postVisit(throwStatement);
     }
 
     @Override
-    public boolean visit(TryStatement node, BlockScope scope) {
+    public boolean visit(TryStatement node) {
         preVisit(node);
         pushEmptyNode(node);
-        push(JavaEntityType.BODY, "", node.tryBlock.sourceStart(), node.tryBlock.sourceEnd());
-        node.tryBlock.traverse(this, scope);
+        push(JavaEntityType.BODY, "", node.tryBlock.getStartPosition(), node.tryBlock.sourceEnd());
+        node.tryBlock.traverse(this);
         pop(node.tryBlock);
-        visitCatchClauses(node, scope);
-        visitFinally(node, scope);
+        visitCatchClauses(node);
+        visitFinally(node);
         return false;
     }
 
-    private void visitFinally(TryStatement node, BlockScope scope) {
+    private void visitFinally(TryStatement node) {
         if (node.finallyBlock != null) {
-            push(JavaEntityType.FINALLY, "", node.finallyBlock.sourceStart(), node.finallyBlock.sourceEnd());
-            node.finallyBlock.traverse(this, scope);
+            push(JavaEntityType.FINALLY, "", node.finallyBlock.getStartPosition(), node.finallyBlock.sourceEnd());
+            node.finallyBlock.traverse(this);
             pop(node.finallyBlock);
         }
     }
 
-    private void visitCatchClauses(TryStatement node, BlockScope scope) {
+    private void visitCatchClauses(TryStatement node) {
         if ((node.catchBlocks != null) && (node.catchBlocks.length > 0)) {
             Block lastCatchBlock = node.catchBlocks[node.catchBlocks.length - 1];
             push(JavaEntityType.CATCH_CLAUSES, "", node.tryBlock.sourceEnd + 1, lastCatchBlock.sourceEnd);
             int start = node.tryBlock.sourceEnd();
             for (int i = 0; i < node.catchArguments.length; i++) {
-                int catchClauseSourceStart = retrieveStartingCatchPosition(start, node.catchArguments[i].sourceStart);
+                int catchClausegetStartPosition = retrieveStartingCatchPosition(start, node.catchArguments[i].getStartPosition);
                 push(
                         JavaEntityType.CATCH_CLAUSE,
                         node.catchArguments[i].type.toString(),
-                        catchClauseSourceStart,
+                        catchClausegetStartPosition,
                         node.catchBlocks[i].sourceEnd);
-                node.catchBlocks[i].traverse(this, scope);
+                node.catchBlocks[i].traverse(this);
                 pop(node.catchArguments[i].type);
                 start = node.catchBlocks[i].sourceEnd();
             }
@@ -781,41 +799,41 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(TryStatement tryStatement, BlockScope scope) {
+    public void endVisit(TryStatement tryStatement) {
         pop(tryStatement);
         postVisit(tryStatement);
     }
 
     @Override
-    public boolean visit(WhileStatement whileStatement, BlockScope scope) {
+    public boolean visit(WhileStatement whileStatement) {
         preVisit(whileStatement);
         push(
                 fASTHelper.convertNode(whileStatement),
-                whileStatement.condition.toString(),
-                whileStatement.sourceStart(),
-                whileStatement.sourceEnd);
-        whileStatement.action.traverse(this, scope);
+                whileStatement.getExpression().toString(),
+                whileStatement.getStartPosition(),
+                getEndPosition(whileStatement));
+        whileStatement.getBody().accept(this);
         return false;
     }
 
     @Override
-    public void endVisit(WhileStatement whileStatement, BlockScope scope) {
+    public void endVisit(WhileStatement whileStatement) {
         pop(whileStatement);
         postVisit(whileStatement);
     }
 
-    private void visitNodes(ASTNode[] nodes, BlockScope scope) {
+    private void visitNodes(ASTNode[] nodes) {
         for (ASTNode element : nodes) {
-            element.traverse(this, scope);
+            element.accept(this);
         }
     }
 
     private void pushValuedNode(ASTNode node, String value) {
-        push(fASTHelper.convertNode(node), value, node.sourceStart(), node.sourceEnd());
+        push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node));
     }
 
     private void pushEmptyNode(ASTNode node) {
-        push(fASTHelper.convertNode(node), "", node.sourceStart(), node.sourceEnd());
+        push(fASTHelper.convertNode(node), "", node.getStartPosition(), getEndPosition(node));
     }
 
     private void push(EntityType label, String value, int start, int end) {
