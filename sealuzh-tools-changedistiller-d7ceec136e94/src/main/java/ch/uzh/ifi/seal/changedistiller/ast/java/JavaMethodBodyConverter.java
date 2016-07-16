@@ -79,7 +79,6 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     private List<Comment> fComments;
     private Stack<Node> fNodeStack;
     private String fSource;
-    private Scanner fScanner; // FIXME: I really need to fix this.
 
     private ASTNode fLastVisitedNode;
     private Node fLastAddedNode;
@@ -110,6 +109,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
      *            the scanner with which the AST was created
      */
     public void initialize(Node root, ASTNode methodRoot, List<Comment> comments, Scanner scanner) {
+    	// FIXME: I am VERY close to killing the scanner, but to do that I need to figure out
+    	// why we need the source for proximity computation, which is clearly required for comment association.
         fNodeStack.clear();
         fLastAssociationCandidate.clear();
         fLastCommentNodeTuples.clear();
@@ -117,7 +118,6 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         fLastAddedNode = root;
         fNodeStack.push(root);
         fComments = comments;
-        fScanner = scanner;
         fSource = String.valueOf(scanner.getSource());
     }
 
@@ -507,10 +507,6 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         return false;
     }
 
-    private String getSource(int start, int end) {
-        return fSource.substring(start, end + 1);
-    }
-
     /**
      * Ends visiting an expression.
      * 
@@ -741,7 +737,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         }
     }
 
-    private void visitCatchClauses(TryStatement node) {
+    @SuppressWarnings("unchecked")
+	private void visitCatchClauses(TryStatement node) {
         if ((node.catchClauses() != null) && (node.catchClauses().size() > 0)) {
             Block lastCatchBlock = ((CatchClause) node.catchClauses().get(node.catchClauses().size() - 1)).getBody();
             push(JavaEntityType.CATCH_CLAUSES, "", getEndPosition(node.getBody()), getEndPosition(lastCatchBlock));
@@ -749,7 +746,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
             List<CatchClause> catchClauses = node.catchClauses();
             for(CatchClause catchClause : catchClauses) {
                 // FIXME: there was a complicated thing here to compute the positions of
-                // catch clauses that I believe to be unecessary when using the jdt dom
+                // catch clauses that I believe to be unnecessary when using the jdt dom
                 // but if things go weird, this may be related
                 push(
                         JavaEntityType.CATCH_CLAUSE,
