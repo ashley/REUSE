@@ -79,16 +79,9 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     
     @SuppressWarnings("unchecked")
 	private void prepareComments() {
-        cleanComments(fCompilation.getCompilationUnit().getCommentList());
+        fComments = fCompilation.getCompilationUnit().getCommentList(); 
     }
 
-    private void cleanComments(List<Comment> comments) {
-        CommentCleaner visitor = new CommentCleaner(fCompilation.getSource());
-        for (Comment comment : comments) {
-            visitor.process(comment);
-        }
-        fComments = visitor.getComments();
-    }
 
     @Override
     public Node createDeclarationTree(JavaStructureNode node) {
@@ -98,7 +91,7 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     }
 
     private Node createDeclarationTree(ASTNode astNode, Node root) {
-        fDeclarationConverter.initialize(root, fCompilation.getScanner());
+        fDeclarationConverter.initialize(root, fCompilation.getSource());
         if (astNode instanceof TypeDeclaration) {
             ((TypeDeclaration) astNode).accept(fDeclarationConverter);
         } else if (astNode instanceof MethodDeclaration) {
@@ -128,7 +121,7 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
         ASTNode astNode = node.getASTNode();
         if (astNode instanceof MethodDeclaration) {
             Node root = createRootNode(node, astNode);
-            fBodyConverter.initialize(root, astNode, fComments, fCompilation.getScanner());
+            fBodyConverter.initialize(root, astNode, fComments, fCompilation.getSource());
             ((MethodDeclaration) astNode).accept(fBodyConverter);
             return root;
         }

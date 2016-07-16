@@ -43,7 +43,6 @@ import org.eclipse.jdt.core.dom.TypeParameter;
 import org.eclipse.jdt.core.dom.VariableDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.WildcardType;
-import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
@@ -84,8 +83,8 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	 * @param scanner
 	 *            of the source file that is traversed
 	 */
-	public void initialize(Node root, Scanner scanner) {
-		fSource = String.valueOf(scanner.source); // not confident we need source
+	public void initialize(Node root, String source) {
+		fSource = source; // not confident we need source
 		fNodeStack.clear();
 		fNodeStack.push(root);
 	}

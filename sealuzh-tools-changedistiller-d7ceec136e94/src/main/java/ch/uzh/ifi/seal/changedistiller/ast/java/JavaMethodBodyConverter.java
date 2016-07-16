@@ -56,7 +56,6 @@ import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 import org.eclipse.jdt.core.dom.WhileStatement;
-import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
@@ -108,8 +107,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
      * @param scanner
      *            the scanner with which the AST was created
      */
-    public void initialize(Node root, ASTNode methodRoot, List<Comment> comments, Scanner scanner) {
-    	// FIXME: I am VERY close to killing the scanner, but to do that I need to figure out
+    public void initialize(Node root, ASTNode methodRoot, List<Comment> comments, String source) {
+    	// FIXME: I am VERY close to killing the source, but to do that I need to figure out
     	// why we need the source for proximity computation, which is clearly required for comment association.
         fNodeStack.clear();
         fLastAssociationCandidate.clear();
@@ -118,7 +117,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         fLastAddedNode = root;
         fNodeStack.push(root);
         fComments = comments;
-        fSource = String.valueOf(scanner.getSource());
+        fSource = source;
     }
 
     /**

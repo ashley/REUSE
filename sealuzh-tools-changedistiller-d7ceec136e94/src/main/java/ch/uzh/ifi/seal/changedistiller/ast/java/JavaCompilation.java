@@ -1,7 +1,6 @@
 package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.internal.compiler.parser.Scanner; // FIXME: I really need to fix this.
 
 /*
  * #%L
@@ -24,14 +23,14 @@ import org.eclipse.jdt.internal.compiler.parser.Scanner; // FIXME: I really need
  */
 
 /**
- * Container for {@link CompilationUnitDeclaration} and the corresponding {@link Scanner}.
+ * Container for {@link CompilationUnitDeclaration} and the corresponding source.
  * 
  * @author Beat Fluri
  */
 public class JavaCompilation {
 
     private CompilationUnit fCompilationUnit;
-    private Scanner fScanner;
+    private String originalSource;
 
     /**
      * Create a new Java compilation
@@ -41,9 +40,9 @@ public class JavaCompilation {
      * @param scanner
      *            that produced the compilation
      */
-    public JavaCompilation(CompilationUnit compilationUnit, Scanner scanner) {
+    public JavaCompilation(CompilationUnit compilationUnit, String originalSource) {
         fCompilationUnit = compilationUnit;
-        fScanner = scanner;
+        this.originalSource = originalSource;
     }
 
     public CompilationUnit getCompilationUnit() {
@@ -51,10 +50,8 @@ public class JavaCompilation {
     }
 
     public String getSource() {
-        return String.valueOf(fScanner.source);
+        return originalSource; 
     }
 
-    public Scanner getScanner() {
-        return fScanner;
-    }
+
 }
