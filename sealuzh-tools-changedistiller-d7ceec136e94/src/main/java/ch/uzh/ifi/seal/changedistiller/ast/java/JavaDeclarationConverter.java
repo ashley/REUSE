@@ -22,33 +22,6 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import java.util.Stack;
 
-import org.eclipse.jdt.core.compiler.InvalidInputException;
-import org.eclipse.jdt.internal.compiler.ASTVisitor;
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.AbstractVariableDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.Argument;
-import org.eclipse.jdt.internal.compiler.ast.ArrayTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.Block;
-import org.eclipse.jdt.internal.compiler.ast.ConstructorDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.Expression;
-import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.Javadoc;
-import org.eclipse.jdt.internal.compiler.ast.MethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.ParameterizedQualifiedTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.ParameterizedSingleTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.QualifiedTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.SingleTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.TypeParameter;
-import org.eclipse.jdt.internal.compiler.ast.TypeReference;
-import org.eclipse.jdt.internal.compiler.ast.Wildcard;
-import org.eclipse.jdt.internal.compiler.lookup.BlockScope;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
-import org.eclipse.jdt.internal.compiler.lookup.MethodScope;
-import org.eclipse.jdt.internal.compiler.parser.Scanner;
-import org.eclipse.jdt.internal.compiler.parser.TerminalTokens;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;

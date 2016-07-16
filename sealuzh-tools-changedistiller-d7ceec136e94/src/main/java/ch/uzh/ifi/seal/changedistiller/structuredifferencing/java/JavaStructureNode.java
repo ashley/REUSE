@@ -23,7 +23,7 @@ package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.core.dom.ASTNode;
 
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 

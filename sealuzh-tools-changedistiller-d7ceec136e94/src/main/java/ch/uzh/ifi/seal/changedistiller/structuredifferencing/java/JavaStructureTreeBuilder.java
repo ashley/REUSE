@@ -1,5 +1,7 @@
 package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 
+import java.util.List;
+
 /*
  * #%L
  * ChangeDistiller
@@ -22,18 +24,12 @@ package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 
 import java.util.Stack;
 
-import org.eclipse.jdt.internal.compiler.ASTVisitor;
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.ConstructorDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.MethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.BlockScope;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
-import org.eclipse.jdt.internal.compiler.lookup.MethodScope;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureNode.Type;
 
@@ -60,78 +56,84 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(CompilationUnitDeclaration compilationUnitDeclaration, CompilationUnitScope scope) {
-        if (compilationUnitDeclaration.currentPackage != null) {
-            for (char[] qualifier : compilationUnitDeclaration.currentPackage.tokens) {
-                fQualifiers.push(qualifier);
+    public boolean visit(CompilationUnit compilationUnitDeclaration) {
+        if (compilationUnitDeclaration.getPackage() != null) {
+        	String qualifiedName = compilationUnitDeclaration.getPackage().getName().getFullyQualifiedName();
+        	String[] qualifiers = qualifiedName.split("\\."); // FIXME: not confident this is how regexes work
+            for (String qualifier : qualifiers)  {
+                fQualifiers.push(qualifier.toCharArray());
             }
         }
         return true;
     }
 
     @Override
-    public boolean visit(FieldDeclaration fieldDeclaration, MethodScope scope) {
+    public boolean visit(FieldDeclaration fieldDeclaration) {
         StringBuffer name = new StringBuffer();
-        name.append(fieldDeclaration.name);
+        List<VariableDeclarationFragment> fragments = fieldDeclaration.fragments();
+        for(VariableDeclarationFragment frag : fragments) {
+        name.append(frag.getName().getIdentifier());
         name.append(" : ");
-        if (fieldDeclaration.type == null &&  fNodeStack.peek().getType().compareTo(JavaStructureNode.Type.ENUM) == 0) {
+        if (fieldDeclaration.getType() == null &&  fNodeStack.peek().getType().compareTo(JavaStructureNode.Type.ENUM) == 0) {
         	name.append(fNodeStack.peek().getName());
         } else {
-        	fieldDeclaration.type.print(0, name);
+        	name.append(fieldDeclaration.getType().toString()); // FIXME: I'm not sure about what was going on w/print before
+        //	fieldDeclaration.getType().print(0, name);
         }
         push(Type.FIELD, name.toString(), fieldDeclaration);
+        }
         return false;
     }
     
     @Override
-    public void endVisit(FieldDeclaration fieldDeclaration, MethodScope scope) {
+    public void endVisit(FieldDeclaration fieldDeclaration) {
         pop();
     }
 
     @Override
-    public boolean visit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
+    public boolean visit(ConstructorDeclaration constructorDeclaration) {
         push(Type.CONSTRUCTOR, getMethodSignature(constructorDeclaration), constructorDeclaration);
         return false;
     }
 
     @Override
-    public void endVisit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
+    public void endVisit(ConstructorDeclaration constructorDeclaration) {
         pop();
     }
 
     @Override
-    public boolean visit(MethodDeclaration methodDeclaration, ClassScope scope) {
+    public boolean visit(MethodDeclaration methodDeclaration) {
         push(Type.METHOD, getMethodSignature(methodDeclaration), methodDeclaration);
         return false;
     }
 
     @Override
-    public void endVisit(MethodDeclaration methodDeclaration, ClassScope scope) {
+    public void endVisit(MethodDeclaration methodDeclaration) {
         pop();
     }
 
     @Override
-    public boolean visit(TypeDeclaration localTypeDeclaration, BlockScope scope) {
+    public boolean visit(TypeDeclaration localTypeDeclaration) {
         return visit(localTypeDeclaration, (CompilationUnitScope) null);
     }
 
     @Override
-    public void endVisit(TypeDeclaration localTypeDeclaration, BlockScope scope) {
+    public void endVisit(TypeDeclaration localTypeDeclaration) {
         endVisit(localTypeDeclaration, (CompilationUnitScope) null);
     }
 
     @Override
-    public boolean visit(TypeDeclaration memberTypeDeclaration, ClassScope scope) {
+    public boolean visit(TypeDeclaration memberTypeDeclaration) {
         return visit(memberTypeDeclaration, (CompilationUnitScope) null);
     }
 
     @Override
-    public void endVisit(TypeDeclaration memberTypeDeclaration, ClassScope scope) {
+    public void endVisit(TypeDeclaration memberTypeDeclaration) {
         endVisit(memberTypeDeclaration, (CompilationUnitScope) null);
     }
 
     @Override
-    public boolean visit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
+    public boolean visit(TypeDeclaration typeDeclaration) {
         int kind = TypeDeclaration.kind(typeDeclaration.modifiers);
         Type type = null;
         switch (kind) {
@@ -156,7 +158,7 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     }
 
     @Override
-    public void endVisit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
+    public void endVisit(TypeDeclaration typeDeclaration) {
         pop();
         fQualifiers.pop();
     }

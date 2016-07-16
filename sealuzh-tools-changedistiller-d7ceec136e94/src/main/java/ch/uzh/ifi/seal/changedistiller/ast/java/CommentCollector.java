@@ -23,9 +23,8 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-
-import ch.uzh.ifi.seal.changedistiller.ast.java.Comment.CommentType;
+import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 
 /**
  * Collects comments for a {@link CompilationUnitDeclaration}.
@@ -34,7 +33,7 @@ import ch.uzh.ifi.seal.changedistiller.ast.java.Comment.CommentType;
  */
 public class CommentCollector {
 
-    private CompilationUnitDeclaration fCompilationUnit;
+    private CompilationUnit fCompilationUnit;
     private String fSource;
     private List<Comment> fComments;
 
@@ -46,7 +45,7 @@ public class CommentCollector {
      * @param source
      *            of the compilation unit
      */
-    public CommentCollector(CompilationUnitDeclaration compilationUnit, String source) {
+    public CommentCollector(CompilationUnit compilationUnit, String source) {
         fCompilationUnit = compilationUnit;
         fSource = source;
     }
