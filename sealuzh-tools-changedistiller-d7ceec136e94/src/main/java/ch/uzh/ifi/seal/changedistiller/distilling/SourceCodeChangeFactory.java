@@ -106,8 +106,7 @@ public class SourceCodeChangeFactory {
             SourceCodeEntity entity =
                     new SourceCodeEntity(update.getOldValue(), update.getNodeToUpdate().getEntity().getType(), update
                             .getNodeToUpdate().getEntity().getModifiers(), update.getNodeToUpdate().getEntity()
-                            .getSourceRange(),
-                            update.getNodeToUpdate());
+                            .getSourceRange(), update.getNodeToUpdate().getEntity().getOriginalNode());
             return new Update(structureEntity, entity, update.getNewNode().getEntity(), ((Node) update
                     .getNodeToUpdate().getParent()).getEntity());
         }
