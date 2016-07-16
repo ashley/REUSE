@@ -26,6 +26,7 @@ import java.util.Stack;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.ArrayType;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
@@ -33,6 +34,11 @@ import org.eclipse.jdt.core.dom.IExtendedModifier;
 import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
+import org.eclipse.jdt.core.dom.ParameterizedType;
+import org.eclipse.jdt.core.dom.PrimitiveType;
+import org.eclipse.jdt.core.dom.QualifiedType;
+import org.eclipse.jdt.core.dom.SimpleType;
+import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.TypeParameter;
 import org.eclipse.jdt.core.dom.VariableDeclaration;
@@ -136,13 +142,14 @@ public class JavaDeclarationConverter extends ASTVisitor {
 					fASTHelper.convertNode(expression),
 					expression.toString(),
 					expression.getStartPosition(),
-					getEndPosition(expression));
+					getEndPosition(expression),
+					expression);
 			pop();
 		}
 	}
 
 	private void visitModifiers(List<IExtendedModifier> modifiersList) {
-		push(JavaEntityType.MODIFIERS, "", -1, -1);
+		push(JavaEntityType.MODIFIERS, "", -1, -1, null); // FIXME: not confident about that null.  Possibly parent makes more sense?
 		if(modifiersList != null && !modifiersList.isEmpty()) {
 			Node modifiers = fNodeStack.peek();
 			for(IExtendedModifier mod : modifiersList) {
@@ -153,7 +160,8 @@ public class JavaDeclarationConverter extends ASTVisitor {
 				push(JavaEntityType.MODIFIER,
 						asMod.getKeyword().toString(),
 						asMod.getStartPosition(),
-						getEndPosition(asMod)); 		
+						getEndPosition(asMod),
+						asMod); 		
 				pop();
 			}
 			}
@@ -239,9 +247,9 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	}
 
 	@Override
-	public boolean visit(ParameterizedSingleTypeReference type) {
+	public boolean visit(ParameterizedType type) {
 		int start = type.getStartPosition();
-		int end = findSourceEndTypeReference(type, type.typeArguments);
+		int end = getEndPosition(type); 
 		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + getSource(start, end));
 		fNodeStack.peek().getEntity().setEndPosition(end);
 		return false;
@@ -260,64 +268,52 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	}
 
 	@Override
-	public void endVisit(ParameterizedSingleTypeReference type) {
+	public void endVisit(ParameterizedType type) {
 		pop();
 	}
 
 	@Override
-	public boolean visit(ParameterizedQualifiedTypeReference type) {
-		pushValuedNode(type, getSource(type));
-		adjustEndPositionOfParameterizedType(type);
-		return false;
-	}
-
-	private void adjustEndPositionOfParameterizedType(ParameterizedQualifiedTypeReference type) {
-		if (hasTypeParameter(type)) {
-			visitList(JavaEntityType.TYPE_PARAMETERS, type.typeArguments[type.typeArguments.length - 1]);
-			fNodeStack.peek().getEntity().setEndPosition(getLastChildOfCurrentNode().getEntity().getEndPosition() + 1);
-		}
-	}
-
-	private boolean hasTypeParameter(ParameterizedQualifiedTypeReference type) {
-		return type.typeArguments[type.typeArguments.length - 1] != null;
-	}
-
-	@Override
-	public void endVisit(ParameterizedQualifiedTypeReference type) {
-		pop();
-	}
-
-
-	@Override
-	public boolean visit(QualifiedTypeReference type) {
+	public boolean visit(QualifiedType type) {
 		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString());
 		return false;
 	}
 
 	@Override
-	public void endVisit(QualifiedTypeReference type) {
+	public void endVisit(QualifiedType type) {
 		pop();
+	}
+	
+	@Override
+	public boolean visit(PrimitiveType primitiveType) {
+		pushValuedNode(primitiveType, prefixWithNameOfParrentIfInMethodDeclaration() + primitiveType.toString());
+		return false;
+
 	}
 
 	@Override
-	public boolean visit(SingleTypeReference type) {
-		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + String.valueOf(type.token));
+	public void endVisit(PrimitiveType node) {
+		pop();
+	}
+	
+	@Override
+	public boolean visit(SimpleType type) {
+		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString()); 
 		return false;
 	}
 
 	@Override
-	public void endVisit(SingleTypeReference type) {
+	public void endVisit(SimpleType type) {
 		pop();
 	}
 
 	@Override
-	public boolean visit(ArrayTypeReference arrayType) {
-		pushValuedNode(arrayType, prefixWithNameOfParrentIfInMethodDeclaration() + String.valueOf(arrayType.token));
+	public boolean visit(ArrayType arrayType) {
+		pushValuedNode(arrayType, prefixWithNameOfParrentIfInMethodDeclaration() + arrayType.toString());
 		return false;
 	}
 
 	@Override
-	public void endVisit(ArrayTypeReference arrayType) {
+	public void endVisit(ArrayType arrayType) {
 		pop();
 	}
 
@@ -347,7 +343,8 @@ public class JavaDeclarationConverter extends ASTVisitor {
 				fASTHelper.convertNode(typeParameter),
 				getSource(typeParameter.getStartPosition(), getEndPosition(typeParameter)),
 				typeParameter.getStartPosition(),
-				getEndPosition(typeParameter));
+				getEndPosition(typeParameter),
+				typeParameter);
 		return false;
 	}
 
@@ -360,14 +357,10 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	@Override
 	public boolean visit(WildcardType type) {
 		String bound = "";
-		switch (type.kind) {
-		case Wildcard.EXTENDS:
+		if(type.isUpperBound()) {
 			bound = "extends";
-			break;
-		case Wildcard.SUPER:
+		} else {
 			bound = "super";
-			break;
-		default:
 		}
 		pushValuedNode(type, bound);
 		return true;
@@ -383,7 +376,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 			List<VariableDeclaration> declarations) {
 		int start = -1;
 		int end = -1;
-		push(parentLabel, "", start, end);
+		push(parentLabel, "", start, end, null); // FIXME: not confident about that 
 		if (declarations != null && !declarations.isEmpty()) {
 			start = declarations.get(0).getStartPosition();
 			end = getEndPosition(declarations.get(declarations.size()- 1));
@@ -403,7 +396,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	private void visitList(JavaEntityType parentLabel, List<ASTNode> nodes) {
 		int start = -1;
 		int end = -1;
-		push(parentLabel, "", start, end);
+		push(parentLabel, "", start, end, null); // FIXME: not confident about the null
 		if (nodes != null && !nodes.isEmpty()) {
 			start = nodes.get(0).getStartPosition();
 			for(ASTNode node : nodes) {
@@ -416,40 +409,17 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	}
 
 
-	// recursive method that finds the end position of a type reference with type parameters, e.g.,
-	// Foo<T>.List<Bar<T>>
-	private int findSourceEndTypeReference(TypeReference type, TypeReference[] typeParameters) {
-		int end = type.sourceEnd();
-		if (isNotEmpty(typeParameters)) {
-			TypeReference lastNode = typeParameters[typeParameters.length - 1];
-			if (lastNode instanceof ParameterizedQualifiedTypeReference) {
-				TypeReference[][] typeArguments = ((ParameterizedQualifiedTypeReference) lastNode).typeArguments;
-				end = findSourceEndTypeReference(lastNode, typeArguments[typeArguments.length - 1]);
-			} else if (lastNode instanceof ParameterizedSingleTypeReference) {
-				TypeReference[] typeArguments = ((ParameterizedSingleTypeReference) lastNode).typeArguments;
-				end = findSourceEndTypeReference(lastNode, typeArguments);
-			} else {
-				end = typeParameters[typeParameters.length - 1].sourceEnd();
-			}
-			if (end == -1) {
-				end = lastNode.sourceEnd();
-			}
-			end++; // increment end position to the the last '>'
-		}
-		return end;
-	}
-
 	private Node getLastChildOfCurrentNode() {
 		return (Node) fNodeStack.peek().getLastChild();
 	}
 
 	private void pushValuedNode(ASTNode node, String value) {
-		push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node));
+		push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node), node);
 	}
 
-	private void push(EntityType label, String value, int start, int end) {
+	private void push(EntityType label, String value, int start, int end, ASTNode node) {
 		Node n = new Node(label, value.trim());
-		n.setEntity(new SourceCodeEntity(value.trim(), label, new SourceRange(start, end)));
+		n.setEntity(new SourceCodeEntity(value.trim(), label, new SourceRange(start, end), node));
 		getCurrentParent().add(n);
 		fNodeStack.push(n);
 	}
