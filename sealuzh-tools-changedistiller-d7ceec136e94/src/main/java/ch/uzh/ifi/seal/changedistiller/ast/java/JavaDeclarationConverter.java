@@ -38,7 +38,6 @@ import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.eclipse.jdt.core.dom.QualifiedType;
 import org.eclipse.jdt.core.dom.SimpleType;
-import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.TypeParameter;
 import org.eclipse.jdt.core.dom.VariableDeclaration;
@@ -70,7 +69,6 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	private boolean fInMethodDeclaration;
 	private String fSource;
 	private ASTNodeTypeConverter fASTHelper;
-	private Scanner fScanner; // FIXME: really need to fix this.
 
 	@Inject
 	JavaDeclarationConverter(ASTNodeTypeConverter astHelper) {
@@ -87,8 +85,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	 *            of the source file that is traversed
 	 */
 	public void initialize(Node root, Scanner scanner) {
-		fScanner = scanner;
-		fSource = String.valueOf(scanner.source);
+		fSource = String.valueOf(scanner.source); // not confident we need source
 		fNodeStack.clear();
 		fNodeStack.push(root);
 	}
@@ -224,7 +221,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	}
 
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public boolean visit(MethodDeclaration methodDeclaration) {
 		if (methodDeclaration.getJavadoc() != null) {
 			methodDeclaration.getJavadoc().accept(this);
