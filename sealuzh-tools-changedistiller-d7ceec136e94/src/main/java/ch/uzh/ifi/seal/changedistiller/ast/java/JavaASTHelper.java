@@ -77,8 +77,9 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
         fBodyConverter = bodyConverter;
     }
     
-    private void prepareComments() {
-        cleanComments(collectComments());
+    @SuppressWarnings("unchecked")
+	private void prepareComments() {
+        cleanComments(fCompilation.getCompilationUnit().getCommentList());
     }
 
     private void cleanComments(List<Comment> comments) {
@@ -87,12 +88,6 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
             visitor.process(comment);
         }
         fComments = visitor.getComments();
-    }
-
-    private List<Comment> collectComments() {
-        CommentCollector collector = new CommentCollector(fCompilation.getCompilationUnit(), fCompilation.getSource());
-        collector.collect();
-        return collector.getComments();
     }
 
     @Override
