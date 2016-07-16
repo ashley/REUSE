@@ -26,8 +26,11 @@ import java.util.Stack;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.AnnotationTypeDeclaration;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
@@ -91,19 +94,11 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(ConstructorDeclaration constructorDeclaration) {
-        push(Type.CONSTRUCTOR, getMethodSignature(constructorDeclaration), constructorDeclaration);
-        return false;
-    }
-
-    @Override
-    public void endVisit(ConstructorDeclaration constructorDeclaration) {
-        pop();
-    }
-
-    @Override
     public boolean visit(MethodDeclaration methodDeclaration) {
-        push(Type.METHOD, getMethodSignature(methodDeclaration), methodDeclaration);
+    	if(methodDeclaration.isConstructor())
+            push(Type.CONSTRUCTOR, getMethodSignature(methodDeclaration), methodDeclaration);
+    	else
+    		push(Type.METHOD, getMethodSignature(methodDeclaration), methodDeclaration);
         return false;
     }
 
@@ -111,47 +106,41 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     public void endVisit(MethodDeclaration methodDeclaration) {
         pop();
     }
-
+    
+    
     @Override
-    public boolean visit(TypeDeclaration localTypeDeclaration) {
-        return visit(localTypeDeclaration, (CompilationUnitScope) null);
+    public boolean visit(EnumDeclaration node) {
+        push(Type.ENUM, String.valueOf(node.name), node);
+        fQualifiers.push(node.name);
+        return true;
+    }
+    
+    @Override
+    public void endVisit(EnumDeclaration node) {
+        pop();
+        fQualifiers.pop();
     }
 
     @Override
-    public void endVisit(TypeDeclaration localTypeDeclaration) {
-        endVisit(localTypeDeclaration, (CompilationUnitScope) null);
+    public boolean visit(AnnotationTypeDeclaration node) {
+        push(Type.ANNOTATION, String.valueOf(node.name), node);
+        fQualifiers.push(node.name);
     }
-
+    
     @Override
-    public boolean visit(TypeDeclaration memberTypeDeclaration) {
-        return visit(memberTypeDeclaration, (CompilationUnitScope) null);
+    public void endVisit(AnnotationTypeDeclaration node) {
+        pop();
+        fQualifiers.pop();
     }
-
-    @Override
-    public void endVisit(TypeDeclaration memberTypeDeclaration) {
-        endVisit(memberTypeDeclaration, (CompilationUnitScope) null);
-    }
-
     @Override
     public boolean visit(TypeDeclaration typeDeclaration) {
-        int kind = TypeDeclaration.kind(typeDeclaration.modifiers);
         Type type = null;
-        switch (kind) {
-            case TypeDeclaration.INTERFACE_DECL:
-                type = Type.INTERFACE;
-                break;
-            case TypeDeclaration.CLASS_DECL:
-                type = Type.CLASS;
-                break;
-            case TypeDeclaration.ANNOTATION_TYPE_DECL:
-                type = Type.ANNOTATION;
-                break;
-            case TypeDeclaration.ENUM_DECL:
-                type = Type.ENUM;
-                break;
-            default:
-                assert (false);
-        }
+
+    	if(typeDeclaration.isInterface()) {
+    		type = Type.INTERFACE;
+    	} else {
+    		type = Type.CLASS;
+    	}
         push(type, String.valueOf(typeDeclaration.name), typeDeclaration);
         fQualifiers.push(typeDeclaration.name);
         return true;

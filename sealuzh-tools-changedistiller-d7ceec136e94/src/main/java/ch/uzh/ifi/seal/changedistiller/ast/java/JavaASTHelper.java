@@ -23,6 +23,7 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 import java.io.File;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Comment;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTHelper;
