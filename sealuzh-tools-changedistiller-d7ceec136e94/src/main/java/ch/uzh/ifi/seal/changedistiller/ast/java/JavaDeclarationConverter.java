@@ -76,12 +76,12 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     @Override
     public boolean visit(Argument argument) {
-        return visit(argument, (BlockScope) null);
+        return visit(argument);
     }
 
     @Override
     public void endVisit(Argument argument) {
-        endVisit(argument, (BlockScope) null);
+        endVisit(argument);
     }
 
     @Override
@@ -132,24 +132,24 @@ public class JavaDeclarationConverter extends ASTVisitor {
             push(
                     fASTHelper.convertNode(expression),
                     expression.toString(),
-                    expression.sourceStart(),
+                    expression.getStartPosition(),
                     expression.sourceEnd());
             pop();
         }
     }
 
     private void visitFieldDeclarationModifiers(FieldDeclaration fieldDeclaration) {
-        fScanner.resetTo(fieldDeclaration.declarationSourceStart, fieldDeclaration.sourceStart());
+        fScanner.resetTo(fieldDeclaration.declarationgetStartPosition, fieldDeclaration.getStartPosition());
         visitModifiers(fieldDeclaration.modifiers);
     }
 
     private void visitMethodDeclarationModifiers(AbstractMethodDeclaration methodDeclaration) {
-        fScanner.resetTo(methodDeclaration.declarationSourceStart, methodDeclaration.sourceStart());
+        fScanner.resetTo(methodDeclaration.declarationgetStartPosition, methodDeclaration.getStartPosition());
         visitModifiers(methodDeclaration.modifiers);
     }
 
     private void visitTypeDeclarationModifiers(TypeDeclaration typeDeclaration) {
-        fScanner.resetTo(typeDeclaration.declarationSourceStart, typeDeclaration.sourceStart());
+        fScanner.resetTo(typeDeclaration.declarationgetStartPosition, typeDeclaration.getStartPosition());
         visitModifiers(typeDeclaration.modifiers);
     }
 
@@ -204,12 +204,12 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     @Override
     public boolean visit(Javadoc javadoc) {
-        return visit(javadoc, (BlockScope) null);
+        return visit(javadoc);
     }
 
     @Override
     public void endVisit(Javadoc javadoc) {
-        endVisit(javadoc, (BlockScope) null);
+        endVisit(javadoc);
     }
 
     @Override
@@ -300,17 +300,17 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     @Override
     public boolean visit(ParameterizedSingleTypeReference parameterizedSingleTypeReference) {
-        return visit(parameterizedSingleTypeReference, (BlockScope) null);
+        return visit(parameterizedSingleTypeReference);
     }
 
     @Override
     public void endVisit(ParameterizedSingleTypeReference type) {
-        endVisit(type, (BlockScope) null);
+        endVisit(type);
     }
 
     @Override
     public boolean visit(ParameterizedSingleTypeReference type) {
-        int start = type.sourceStart();
+        int start = type.getStartPosition();
         int end = findSourceEndTypeReference(type, type.typeArguments);
         pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + getSource(start, end));
         fNodeStack.peek().getEntity().setEndPosition(end);
@@ -318,7 +318,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     private String getSource(ASTNode node) {
-        return getSource(node.sourceStart(), node.sourceEnd());
+        return getSource(node.getStartPosition(), node.sourceEnd());
     }
 
     private String getSource(int start, int end) {
@@ -336,12 +336,12 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     @Override
     public boolean visit(ParameterizedQualifiedTypeReference type) {
-        return visit(type, (BlockScope) null);
+        return visit(type);
     }
 
     @Override
     public void endVisit(ParameterizedQualifiedTypeReference type) {
-        endVisit(type, (BlockScope) null);
+        endVisit(type);
     }
 
     @Override
@@ -369,12 +369,12 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     @Override
     public boolean visit(QualifiedTypeReference type) {
-        return visit(type, (BlockScope) null);
+        return visit(type);
     }
 
     @Override
     public void endVisit(QualifiedTypeReference type) {
-        endVisit(type, (BlockScope) null);
+        endVisit(type);
     }
 
     @Override
@@ -390,22 +390,22 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     @Override
     public boolean visit(SingleTypeReference type) {
-        return visit(type, (BlockScope) null);
+        return visit(type);
     }
 
     @Override
     public void endVisit(SingleTypeReference type) {
-        endVisit(type, (BlockScope) null);
+        endVisit(type);
     }
 
     @Override
     public boolean visit(ArrayTypeReference arrayType) {
-    	return visit(arrayType, (BlockScope) null);
+    	return visit(arrayType);
     }
     
     @Override
     public void endVisit(ArrayTypeReference arrayType) {
-    	endVisit(arrayType, (BlockScope) null);
+    	endVisit(arrayType);
     }
 
     @Override
@@ -432,22 +432,22 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
 	@Override
     public boolean visit(TypeDeclaration typeDeclaration) {
-        return visit(typeDeclaration, (BlockScope) null);
+        return visit(typeDeclaration);
     }
 
     @Override
     public void endVisit(TypeDeclaration typeDeclaration) {
-        endVisit(typeDeclaration, (BlockScope) null);
+        endVisit(typeDeclaration);
     }
 
     @Override
     public boolean visit(TypeDeclaration typeDeclaration) {
-        return visit(typeDeclaration, (BlockScope) null);
+        return visit(typeDeclaration);
     }
 
     @Override
     public void endVisit(TypeDeclaration typeDeclaration) {
-        endVisit(typeDeclaration, (BlockScope) null);
+        endVisit(typeDeclaration);
     }
 
     @Override
@@ -471,20 +471,20 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     @Override
     public boolean visit(TypeParameter typeParameter) {
-        return visit(typeParameter, (BlockScope) null);
+        return visit(typeParameter);
     }
 
     @Override
     public void endVisit(TypeParameter typeParameter) {
-        endVisit(typeParameter, (BlockScope) null);
+        endVisit(typeParameter);
     }
 
     @Override
     public boolean visit(TypeParameter typeParameter) {
         push(
                 fASTHelper.convertNode(typeParameter),
-                getSource(typeParameter.sourceStart(), typeParameter.declarationSourceEnd),
-                typeParameter.sourceStart(),
+                getSource(typeParameter.getStartPosition(), typeParameter.declarationSourceEnd),
+                typeParameter.getStartPosition(),
                 typeParameter.declarationSourceEnd);
         return false;
     }
@@ -494,18 +494,14 @@ public class JavaDeclarationConverter extends ASTVisitor {
         pop();
     }
 
+
     @Override
-    public boolean visit(Wildcard type) {
-        return visit(type, (BlockScope) null);
+    public void endVisit(WildcardType type) {
+        endVisit(type);
     }
 
     @Override
-    public void endVisit(Wildcard type) {
-        endVisit(type, (BlockScope) null);
-    }
-
-    @Override
-    public boolean visit(Wildcard type) {
+    public boolean visit(WildcardType type) {
         String bound = "";
         switch (type.kind) {
             case Wildcard.EXTENDS:
@@ -527,7 +523,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     private void visitList(ASTNode[] list) {
         for (ASTNode node : list) {
-            node.traverse(this, null);
+            node.accept(this, null);
         }
     }
 
@@ -538,7 +534,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
         int end = -1;
         push(parentLabel, "", start, end);
         if (isNotEmpty(declarations)) {
-            start = declarations[0].declarationSourceStart;
+            start = declarations[0].declarationgetStartPosition;
             end = declarations[declarations.length - 1].declarationSourceEnd;
             visitList(declarations);
         }
@@ -556,7 +552,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
         int end = -1;
         push(parentLabel, "", start, end);
         if (isNotEmpty(nodes)) {
-            start = nodes[0].sourceStart();
+            start = nodes[0].getStartPosition();
             visitList(nodes);
             end = getLastChildOfCurrentNode().getEntity().getEndPosition();
         }
@@ -596,7 +592,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
     }
 
     private void pushValuedNode(ASTNode node, String value) {
-        push(fASTHelper.convertNode(node), value, node.sourceStart(), node.sourceEnd());
+        push(fASTHelper.convertNode(node), value, node.getStartPosition(), node.sourceEnd());
     }
 
     private void push(EntityType label, String value, int start, int end) {
@@ -612,6 +608,10 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
     private Node getCurrentParent() {
         return fNodeStack.peek();
+    }
+    
+    private int getEndPosition(ASTNode node) {
+    	return node.getStartPosition() + node.getLength();
     }
 
 }

@@ -27,13 +27,26 @@ import java.util.Stack;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.AssertStatement;
+import org.eclipse.jdt.core.dom.Assignment;
+import org.eclipse.jdt.core.dom.Block;
+import org.eclipse.jdt.core.dom.BreakStatement;
+import org.eclipse.jdt.core.dom.CatchClause;
+import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.ContinueStatement;
+import org.eclipse.jdt.core.dom.DoStatement;
+import org.eclipse.jdt.core.dom.EmptyStatement;
+import org.eclipse.jdt.core.dom.EnhancedForStatement;
 import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.ForStatement;
 import org.eclipse.jdt.core.dom.IfStatement;
 import org.eclipse.jdt.core.dom.LabeledStatement;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.PostfixExpression;
+import org.eclipse.jdt.core.dom.PrefixExpression;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SwitchCase;
 import org.eclipse.jdt.core.dom.SwitchStatement;
@@ -41,6 +54,7 @@ import org.eclipse.jdt.core.dom.SynchronizedStatement;
 import org.eclipse.jdt.core.dom.ThrowStatement;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 import org.eclipse.jdt.core.dom.WhileStatement;
 import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
@@ -74,6 +88,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     private Stack<Node[]> fLastCommentNodeTuples;
     private ASTNodeTypeConverter fASTHelper;
 
+    // FIXME: compare to the entity types to make sure we cover all of them
     @Inject
     JavaMethodBodyConverter(ASTNodeTypeConverter astHelper) {
         fNodeStack = new Stack<Node>();
@@ -316,7 +331,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         }
         if (node instanceof TypeDeclaration) {
         	TypeDeclaration method = (TypeDeclaration) node;
-        	return result.replace(method.getJavadoc().toString(), "");}
+        	return result.replace(method.getJavadoc().toString(), "");
         }
         return result;
     }
@@ -333,16 +348,6 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public void endVisit(Assignment assignment) {
         endVisitExpression(assignment);
-    }
-
-    @Override
-    public boolean visit(CompoundAssignment compoundAssignment) {
-        return visitExpression(compoundAssignment);
-    }
-
-    @Override
-    public void endVisit(CompoundAssignment compoundAssignment) {
-        endVisitExpression(compoundAssignment);
     }
 
     @Override
@@ -366,37 +371,17 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(AllocationExpression allocationExpression) {
-        return visitExpression(allocationExpression);
-    }
-
-    @Override
-    public void endVisit(AllocationExpression allocationExpression) {
-        endVisitExpression(allocationExpression);
-    }
-
-    @Override
-    public boolean visit(QualifiedAllocationExpression qualifiedAllocationExpression) {
-        return visitExpression(qualifiedAllocationExpression);
-    }
-
-    @Override
-    public void endVisit(QualifiedAllocationExpression qualifiedAllocationExpression) {
-        endVisitExpression(qualifiedAllocationExpression);
-    }
-
-    @Override
     public boolean visit(AssertStatement assertStatement) {
         preVisit(assertStatement);
-        String value = assertStatement.assertExpression.toString();
-        if (assertStatement.exceptionArgument != null) {
-            value += COLON + assertStatement.exceptionArgument.toString();
+        String value = assertStatement.getExpression().toString();
+        if (assertStatement.getMessage() != null) {
+            value += COLON + assertStatement.getMessage().toString();
         }
         push(
                 fASTHelper.convertNode(assertStatement),
                 value,
                 assertStatement.getStartPosition(),
-                assertStatement.sourceEnd() + 1);
+                getEndPosition(assertStatement) + 1);
         return false;
     }
 
@@ -420,7 +405,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(BreakStatement breakStatement) {
         preVisit(breakStatement);
-        pushValuedNode(breakStatement, breakStatement.label != null ? String.valueOf(breakStatement.label) : "");
+        pushValuedNode(breakStatement, breakStatement.getLabel()  != null ? breakStatement.getLabel().getIdentifier()  : "");
         return false;
     }
 
@@ -431,14 +416,14 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(ExplicitConstructorCall explicitConstructor) {
+    public boolean visit(ClassInstanceCreation explicitConstructor) {
         preVisit(explicitConstructor);
         pushValuedNode(explicitConstructor, explicitConstructor.toString());
         return false;
     }
 
     @Override
-    public void endVisit(ExplicitConstructorCall explicitConstructor) {
+    public void endVisit(ClassInstanceCreation explicitConstructor) {
         pop(explicitConstructor);
         postVisit(explicitConstructor);
     }
@@ -446,8 +431,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(ContinueStatement continueStatement) {
         preVisit(continueStatement);
-        pushValuedNode(continueStatement, continueStatement.label != null
-                ? String.valueOf(continueStatement.label)
+        pushValuedNode(continueStatement, continueStatement.getLabel() != null
+                ? continueStatement.getLabel().getIdentifier()
                 : "");
         return false;
     }
@@ -461,8 +446,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(DoStatement doStatement) {
         preVisit(doStatement);
-        pushValuedNode(doStatement, doStatement.condition.toString());
-        doStatement.action.traverse(this);
+        pushValuedNode(doStatement, doStatement.getExpression().toString());
+        doStatement.getBody().accept(this);
         return false;
     }
 
@@ -486,16 +471,16 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(ForeachStatement foreachStatement) {
+    public boolean visit(EnhancedForStatement foreachStatement) {
         preVisit(foreachStatement);
-        pushValuedNode(foreachStatement, foreachStatement.elementVariable.printAsExpression(0, new StringBuffer())
-                .toString() + COLON + foreachStatement.collection.toString());
-        foreachStatement.action.traverse(this);
+        pushValuedNode(foreachStatement, foreachStatement.getParameter().toString() // I think this does the right thing
+                + COLON + foreachStatement.getExpression().toString());
+        foreachStatement.getBody().accept(this);
         return false;
     }
 
     @Override
-    public void endVisit(ForeachStatement foreachStatement) {
+    public void endVisit(EnhancedForStatement foreachStatement) {
         pop(foreachStatement);
         postVisit(foreachStatement);
     }
@@ -539,44 +524,46 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         postVisit(expression);
     }
 
+	@SuppressWarnings("unchecked")
     @Override
     public boolean visit(ForStatement forStatement) {
         preVisit(forStatement);
         // loop condition
         String value = "";
-        if (forStatement.condition != null) {
-        	value = forStatement.condition.toString();
+        if (forStatement.getExpression() != null) {
+        	value = forStatement.getExpression().toString();
         }
         pushValuedNode(forStatement, value);
-        forStatement.action.traverse(this);
+        forStatement.getBody().accept(this);
        
         // loop init
-        if(forStatement.initializations != null && forStatement.initializations.length > 0) {
-        	for(Statement initStatement : forStatement.initializations) {
+        forStatement.initializers(); // statements or variable declaration expressions
+        if(forStatement.initializers() != null && forStatement.initializers().size() > 0) {
+			List<ASTNode> initializers = forStatement.initializers();
+        	for(ASTNode initStatement : initializers) {
         		push(
         			JavaEntityType.FOR_INIT,
         			initStatement.toString(),
         			initStatement.getStartPosition(),
-        			initStatement.sourceEnd()
+        			getEndPosition(initStatement)
         		);
-        		
-        		initStatement.traverse(this);
-        		
+        		initStatement.accept(this);
         		pop(initStatement);
         	}
         }
         
         // loop afterthought
-        if(forStatement.increments != null && forStatement.increments.length > 0) {
-        	for(Statement incrementStatement : forStatement.increments) {
+        if(forStatement.updaters() != null && forStatement.updaters().size() > 0) {
+            List<Expression> updaters = forStatement.updaters();
+        	for(Expression incrementStatement : updaters) {
         		push(
         			JavaEntityType.FOR_INCR,
         			incrementStatement.toString(),
         			incrementStatement.getStartPosition(),
-        			incrementStatement.sourceEnd()
+        			getEndPosition(incrementStatement)
         		);
         		
-        		incrementStatement.traverse(this);
+        		incrementStatement.accept(this);
         		
         		pop(incrementStatement);
         	}
@@ -594,25 +581,25 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(IfStatement ifStatement) {
         preVisit(ifStatement);
-        String expression = ifStatement.condition.toString();
-        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.getStartPosition(), ifStatement.sourceEnd());
-        if (ifStatement.thenStatement != null) {
+        String expression = ifStatement.getElseStatement().toString();
+        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.getStartPosition(), getEndPosition(ifStatement));
+        if (ifStatement.getThenStatement() != null) {
             push(
                     JavaEntityType.THEN_STATEMENT,
                     expression,
-                    ifStatement.thenStatement.getStartPosition(),
-                    ifStatement.thenStatement.sourceEnd());
-            ifStatement.thenStatement.traverse(this);
-            pop(ifStatement.thenStatement);
+                    ifStatement.getThenStatement().getStartPosition(),
+                    getEndPosition(ifStatement.getThenStatement()));
+            ifStatement.getThenStatement().accept(this);
+            pop(ifStatement.getThenStatement());
         }
-        if (ifStatement.elseStatement != null) {
+        if (ifStatement.getElseStatement() != null) {
             push(
                     JavaEntityType.ELSE_STATEMENT,
                     expression,
-                    ifStatement.elseStatement.getStartPosition(),
-                    ifStatement.elseStatement.sourceEnd());
-            ifStatement.elseStatement.traverse(this);
-            pop(ifStatement.elseStatement);
+                    ifStatement.getElseStatement().getStartPosition(),
+                    getEndPosition(ifStatement.getElseStatement()));
+            ifStatement.getElseStatement().accept(this);
+            pop(ifStatement.getElseStatement());
         }
         return false;
     }
@@ -626,8 +613,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(LabeledStatement labeledStatement) {
         preVisit(labeledStatement);
-        pushValuedNode(labeledStatement, String.valueOf(labeledStatement.label));
-        labeledStatement.statement.accept(this);
+        pushValuedNode(labeledStatement, labeledStatement.getLabel().getIdentifier());
+        labeledStatement.getBody().accept(this);
         return false;
     }
 
@@ -638,21 +625,16 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
-    public boolean visit(LocalDeclaration localDeclaration) {
+    public boolean visit(VariableDeclarationStatement localDeclaration) {
+    	// FIXME: this is one of the methods whose correctness I am least certain of
         preVisit(localDeclaration);
-        int start = localDeclaration.type.getStartPosition();
-        int end = start;
-        if (localDeclaration.initialization != null) {
-        	end = localDeclaration.initialization.sourceEnd();
-        } else {
-        	end = localDeclaration.sourceEnd;
-        }
-        push(fASTHelper.convertNode(localDeclaration), localDeclaration.toString(), start, end + 1);
+        int start = localDeclaration.getType().getStartPosition();
+        push(fASTHelper.convertNode(localDeclaration), localDeclaration.toString(), start, getEndPosition(localDeclaration));
         return false;
     }
 
     @Override
-    public void endVisit(LocalDeclaration localDeclaration) {
+    public void endVisit(VariableDeclarationStatement localDeclaration) {
         pop(localDeclaration);
         postVisit(localDeclaration);
     }
@@ -743,59 +725,42 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     public boolean visit(TryStatement node) {
         preVisit(node);
         pushEmptyNode(node);
-        push(JavaEntityType.BODY, "", node.tryBlock.getStartPosition(), node.tryBlock.sourceEnd());
-        node.tryBlock.traverse(this);
-        pop(node.tryBlock);
+        push(JavaEntityType.BODY, "", node.getBody().getStartPosition(), getEndPosition(node.getBody()));
+        node.getBody().accept(this);
+        pop(node.getBody());
         visitCatchClauses(node);
         visitFinally(node);
         return false;
     }
 
     private void visitFinally(TryStatement node) {
-        if (node.finallyBlock != null) {
-            push(JavaEntityType.FINALLY, "", node.finallyBlock.getStartPosition(), node.finallyBlock.sourceEnd());
-            node.finallyBlock.traverse(this);
-            pop(node.finallyBlock);
+        if (node.getFinally() != null) {
+            push(JavaEntityType.FINALLY, "", node.getFinally().getStartPosition(), getEndPosition(node.getFinally()));
+            node.getFinally().accept(this);
+            pop(node.getFinally());
         }
     }
 
     private void visitCatchClauses(TryStatement node) {
-        if ((node.catchBlocks != null) && (node.catchBlocks.length > 0)) {
-            Block lastCatchBlock = node.catchBlocks[node.catchBlocks.length - 1];
-            push(JavaEntityType.CATCH_CLAUSES, "", node.tryBlock.sourceEnd + 1, lastCatchBlock.sourceEnd);
-            int start = node.tryBlock.sourceEnd();
-            for (int i = 0; i < node.catchArguments.length; i++) {
-                int catchClausegetStartPosition = retrieveStartingCatchPosition(start, node.catchArguments[i].getStartPosition);
+        if ((node.catchClauses() != null) && (node.catchClauses().size() > 0)) {
+            Block lastCatchBlock = ((CatchClause) node.catchClauses().get(node.catchClauses().size() - 1)).getBody();
+            push(JavaEntityType.CATCH_CLAUSES, "", getEndPosition(node.getBody()), getEndPosition(lastCatchBlock));
+            int start = getEndPosition(node.getBody());
+            List<CatchClause> catchClauses = node.catchClauses();
+            for(CatchClause catchClause : catchClauses) {
+                // FIXME: there was a complicated thing here to compute the positions of
+                // catch clauses that I believe to be unecessary when using the jdt dom
+                // but if things go weird, this may be related
                 push(
                         JavaEntityType.CATCH_CLAUSE,
-                        node.catchArguments[i].type.toString(),
-                        catchClausegetStartPosition,
-                        node.catchBlocks[i].sourceEnd);
-                node.catchBlocks[i].traverse(this);
-                pop(node.catchArguments[i].type);
-                start = node.catchBlocks[i].sourceEnd();
+                        catchClause.getException().getType().toString(), 
+                        catchClause.getStartPosition(),
+                        getEndPosition(catchClause));
+                catchClause.getBody().accept(this); 
+                pop(catchClause.getException().getType());
             }
             pop(null);
         }
-    }
-
-    // logic taken from org.eclipse.jdt.core.dom.ASTConverter
-    private int retrieveStartingCatchPosition(int start, int end) {
-        fScanner.resetTo(start, end);
-        try {
-            int token;
-            while ((token = fScanner.getNextToken()) != TerminalTokens.TokenNameEOF) {
-                switch (token) {
-                    case TerminalTokens.TokenNamecatch:// 225
-                        return fScanner.startPosition;
-                }
-            }
-            // CHECKSTYLE:OFF
-        } catch (InvalidInputException e) {
-            // CHECKSTYLE:ON
-            // ignore
-        }
-        return -1;
     }
 
     @Override
