@@ -38,6 +38,7 @@ import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.eclipse.jdt.core.dom.QualifiedType;
 import org.eclipse.jdt.core.dom.SimpleType;
+import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.TypeParameter;
 import org.eclipse.jdt.core.dom.VariableDeclaration;
@@ -88,19 +89,22 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		fNodeStack.clear();
 		fNodeStack.push(root);
 	}
-// FIXME: this one is important, we don't have arguments, how should this be translated?	
-//	@Override
-//	public boolean visit(Argument node) {
-//		boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
-//		pushValuedNode(node, String.valueOf(node.name));
-//		if (isNotParam) {
-//			visitModifiers(node.modifiers);
-//		}
-//		node.type.traverse(this, scope);
-//		return false;
-//	}
-
 	
+	// FIXME: translated argument visit to single variable decl; will it affect
+	// more than we want it to?
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean visit(SingleVariableDeclaration node) {
+		boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
+		pushValuedNode(node, node.getName().getIdentifier());
+		if (isNotParam) {
+			visitModifiers(node.modifiers());
+		}
+		node.getType().accept(this);
+		return false;
+	}
+
+
 	@Override
 	public boolean visit(Block block) {
 		// skip block as it is not interesting
@@ -121,6 +125,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		visitModifiers(fieldDeclaration.modifiers());
 		fieldDeclaration.getType().accept(this);
 		List<VariableDeclarationFragment> fragments = fieldDeclaration.fragments();
+	
 		for(VariableDeclarationFragment frag : fragments) {
 			visitExpression(frag.getInitializer());
 		}
@@ -138,7 +143,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 					fASTHelper.convertNode(expression),
 					expression.toString(),
 					expression.getStartPosition(),
-					getEndPosition(expression),
+					getEndPosition(expression) - 1,
 					expression);
 			pop();
 		}
@@ -301,7 +306,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	
 	@Override
 	public boolean visit(SimpleType type) {
-		push(fASTHelper.convertNode(type), prefixWithNameOfParrentIfInMethodDeclaration() + type.toString(), type.getStartPosition(), getEndPosition(type) - 1, type);
+        pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString());
 		return false;
 	}
 
