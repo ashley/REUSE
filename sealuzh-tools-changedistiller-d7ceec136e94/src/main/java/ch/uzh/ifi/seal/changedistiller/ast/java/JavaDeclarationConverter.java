@@ -36,6 +36,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.PrimitiveType;
+import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.QualifiedType;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
@@ -89,7 +90,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		fNodeStack.clear();
 		fNodeStack.push(root);
 	}
-	
+
 	// FIXME: translated argument visit to single variable decl; will it affect
 	// more than we want it to?
 	@SuppressWarnings("unchecked")
@@ -116,6 +117,21 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		// do nothing pop is not needed (see visit(Block, BlockScope))
 	}
 
+	/*  Original:
+    @Override
+    public boolean visit(FieldDeclaration fieldDeclaration, MethodScope scope) {
+        if (fieldDeclaration.javadoc != null) {
+            fieldDeclaration.javadoc.traverse(this, scope);
+        }
+        visitFieldDeclarationModifiers(fieldDeclaration);
+        fieldDeclaration.type.traverse(this, scope);
+        visitExpression(fieldDeclaration.initialization);
+        return false;
+    }
+	 */ // I suspect that the initialization of a field declaration could
+	// be an argument originally
+	// so the visit expression does the appropriate thing
+	// fragments are different
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean visit(FieldDeclaration fieldDeclaration) {
@@ -125,7 +141,6 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		visitModifiers(fieldDeclaration.modifiers());
 		fieldDeclaration.getType().accept(this);
 		List<VariableDeclarationFragment> fragments = fieldDeclaration.fragments();
-	
 		for(VariableDeclarationFragment frag : fragments) {
 			visitExpression(frag.getInitializer());
 		}
@@ -143,7 +158,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 					fASTHelper.convertNode(expression),
 					expression.toString(),
 					expression.getStartPosition(),
-					getEndPosition(expression) - 1,
+					getEndPosition(expression),
 					expression);
 			pop();
 		}
@@ -154,17 +169,17 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		if(modifiersList != null && !modifiersList.isEmpty()) {
 			Node modifiers = fNodeStack.peek();
 			for(IExtendedModifier mod : modifiersList) {
-			if(mod instanceof Modifier) // FIXME: check this, it's the part about which I'm least certain	
-			{
-				Modifier asMod = (Modifier) mod; // FIXME: previously this checked each type of modifier
-												 // but I think I can just do a toString().  Check me!
-				push(JavaEntityType.MODIFIER,
-						asMod.getKeyword().toString(),
-						asMod.getStartPosition(),
-						getEndPosition(asMod) - 1,
-						asMod); 		
-				pop();
-			}
+				if(mod instanceof Modifier) // FIXME: check this, it's the part about which I'm least certain	
+				{
+					Modifier asMod = (Modifier) mod; // FIXME: previously this checked each type of modifier
+					// but I think I can just do a toString().  Check me!
+					push(JavaEntityType.MODIFIER,
+							asMod.getKeyword().toString(),
+							asMod.getStartPosition(),
+							getEndPosition(asMod),
+							asMod); 		
+					pop();
+				}
 			}
 			setSourceRange(modifiers);
 		}
@@ -224,14 +239,14 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		pop();
 	}
 
-//	public boolean visit(Argument node) {
-//	boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
-//	pushValuedNode(node, String.valueOf(node.name));
-//	if (isNotParam) {
-//		visitModifiers(node.modifiers);
-//	}
-//	node.type.traverse(this, scope);
-//	return false;
+	//	public boolean visit(Argument node) {
+	//	boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
+	//	pushValuedNode(node, String.valueOf(node.name));
+	//	if (isNotParam) {
+	//		visitModifiers(node.modifiers);
+	//	}
+	//	node.type.traverse(this, scope);
+	//	return false;
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public boolean visit(MethodDeclaration methodDeclaration) {
@@ -241,8 +256,8 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		fInMethodDeclaration = true;
 		visitModifiers(methodDeclaration.modifiers());
 		visitReturnType(methodDeclaration);
-		
-		visitAbstractVariableDeclarations(JavaEntityType.TYPE_PARAMETERS, methodDeclaration.typeParameters());
+
+		visitTypeParameterDeclarations(JavaEntityType.TYPE_PARAMETERS, methodDeclaration.typeParameters());
 		visitAbstractVariableDeclarations(JavaEntityType.PARAMETERS, methodDeclaration.parameters());
 		fInMethodDeclaration = false;
 		visitList(JavaEntityType.THROW, methodDeclaration.thrownExceptions());
@@ -260,7 +275,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		int start = type.getStartPosition();
 		int end = getEndPosition(type); 
 		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + getSource(start, end));
-		fNodeStack.peek().getEntity().setEndPosition(end - 1);
+		fNodeStack.peek().getEntity().setEndPosition(end);
 		return false;
 	}
 
@@ -291,7 +306,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	public void endVisit(QualifiedType type) {
 		pop();
 	}
-	
+
 	@Override
 	public boolean visit(PrimitiveType primitiveType) {
 		pushValuedNode(primitiveType, prefixWithNameOfParrentIfInMethodDeclaration() + primitiveType.toString());
@@ -303,10 +318,15 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	public void endVisit(PrimitiveType node) {
 		pop();
 	}
-	
+
 	@Override
 	public boolean visit(SimpleType type) {
-        pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString());
+		String value = prefixWithNameOfParrentIfInMethodDeclaration() + type.toString();
+		if(type.getName() instanceof QualifiedName) {
+			push(JavaEntityType.QUALIFIED_TYPE, value, type.getStartPosition(), getEndPosition(type), type);
+		} else {
+			pushValuedNode(type, value);
+		}
 		return false;
 	}
 
@@ -333,7 +353,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 			typeDeclaration.getJavadoc().accept(this);
 		}
 		visitModifiers(typeDeclaration.modifiers());
-		visitAbstractVariableDeclarations(JavaEntityType.TYPE_PARAMETERS, typeDeclaration.typeParameters());
+		visitTypeParameterDeclarations(JavaEntityType.TYPE_PARAMETERS, typeDeclaration.typeParameters());
 		if (typeDeclaration.getSuperclassType() != null) { 
 			typeDeclaration.getSuperclassType().accept(this);
 		}
@@ -350,7 +370,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	public boolean visit(TypeParameter typeParameter) {
 		push(
 				fASTHelper.convertNode(typeParameter),
-				getSource(typeParameter.getStartPosition(), getEndPosition(typeParameter) - 1),
+				getSource(typeParameter.getStartPosition(), getEndPosition(typeParameter)),
 				typeParameter.getStartPosition(),
 				getEndPosition(typeParameter),
 				typeParameter);
@@ -380,7 +400,21 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		pop();
 	}
 
-	
+	private void visitTypeParameterDeclarations(JavaEntityType parentLabel, List<TypeParameter> declarations) {
+		int start = -1;
+		int end = -1;
+		push(parentLabel, "", start, end, null); // FIXME: not confident about that 
+		if (declarations != null && !declarations.isEmpty()) {
+			start = declarations.get(0).getStartPosition();
+			end = getEndPosition(declarations.get(declarations.size()- 1));
+			for(TypeParameter decl : declarations) {
+				decl.accept(this);
+			}
+		}
+		adjustSourceRangeOfCurrentNode(start, end);
+		pop();
+	}
+
 	private void visitAbstractVariableDeclarations(
 			JavaEntityType parentLabel,
 			List<VariableDeclaration> declarations) {
@@ -412,7 +446,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 			for(ASTNode node : nodes) {
 				node.accept(this);
 			}
-			end = getLastChildOfCurrentNode().getEntity().getEndPosition() - 1;
+			end = getLastChildOfCurrentNode().getEntity().getEndPosition();
 		}
 		adjustSourceRangeOfCurrentNode(start, end);
 		pop();
@@ -424,7 +458,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	}
 
 	private void pushValuedNode(ASTNode node, String value) {
-		push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node) - 1, node);
+		push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node), node);
 	}
 
 	private void push(EntityType label, String value, int start, int end, ASTNode node) {
@@ -443,7 +477,12 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	}
 
 	private int getEndPosition(ASTNode node) {
-		return node.getStartPosition() + node.getLength();
+		int end = node.getStartPosition() + node.getLength();
+		if(fSource.charAt(end) == ' ' ||
+				fSource.charAt(end) == '>' ||
+				fSource.charAt(end) == ',') 
+			return end - 1;
+		return end;
 	}
 
 }

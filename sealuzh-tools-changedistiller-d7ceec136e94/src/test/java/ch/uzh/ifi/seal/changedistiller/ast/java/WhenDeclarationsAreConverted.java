@@ -195,7 +195,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         convertField("aString");
         assertThat(getTreeString(), is("aString { /**\n * A field\n */,,String }"));
         Node javadoc = getFirstChild();
-        assertThat(getSource(javadoc), is("/**\n * A field\n */"));
+        assertThat(getSource(javadoc), is("/**\n * A field\n */\n"));
         assertThat(javadoc.getLabel(), is(JavaEntityType.JAVADOC));
     }
 
@@ -396,7 +396,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         convertMethod("method");
         assertThat(getTreeString(), is("method { /**\n * A method\n */,,method: void,,, }"));
         Node javadoc = getFirstChild();
-        assertThat(getSource(javadoc), is("/**\n * A method\n */"));
+        assertThat(getSource(javadoc), is("/**\n * A method\n */\n"));
         assertThat(javadoc.getLabel(), is(JavaEntityType.JAVADOC));
     }
 
@@ -551,7 +551,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         convertClass("Bar");
         assertThat(getTreeString(), is("Bar { /**\n * A class\n */,,, }"));
         Node javadoc = getFirstChild();
-        assertThat(getSource(javadoc), is("/**\n * A class\n */"));
+        assertThat(getSource(javadoc), is("/**\n * A class\n */\n"));
         assertThat(javadoc.getLabel(), is(JavaEntityType.JAVADOC));
     }
 
