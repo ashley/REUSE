@@ -70,6 +70,20 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
         }
         return true;
     }
+    
+    /*      Old one:
+     *   StringBuffer name = new StringBuffer();
+        name.append(fieldDeclaration.name);
+        name.append(" : ");
+        if (fieldDeclaration.type == null &&  fNodeStack.peek().getType().compareTo(JavaStructureNode.Type.ENUM) == 0) {
+        	name.append(fNodeStack.peek().getName());
+        } else {
+        	fieldDeclaration.type.print(0, name);
+        }
+        push(Type.FIELD, name.toString(), fieldDeclaration);
+        return false;
+    }
+    */
 
     @Override
     public boolean visit(FieldDeclaration fieldDeclaration) {
@@ -145,7 +159,7 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     	}
         push(type, typeDeclaration.getName().getIdentifier(), typeDeclaration);
         fQualifiers.push(typeDeclaration.getName().getIdentifier().toCharArray());
-        return false;
+        return true;
     }
 
     @Override
