@@ -30,6 +30,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.junit.Test;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaDeclarationConverter;
+import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.java.JavaEntityType;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeEntity;
 import ch.uzh.ifi.seal.changedistiller.treedifferencing.Node;
@@ -278,6 +279,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         assertThat(getSource(parameters), is("int anInteger, List<String> aList"));
         assertThat(parameters.getLabel(), is(JavaEntityType.PARAMETERS));
         Node firstParameter = (Node) parameters.getFirstChild();
+        EntityType label = firstParameter.getLabel();
         assertThat(getSource(firstParameter), is("anInteger"));
         assertThat(firstParameter.getLabel(), is(JavaEntityType.PARAMETER));
         Node firstParameterType = (Node) parameters.getFirstLeaf();

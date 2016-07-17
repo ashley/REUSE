@@ -38,6 +38,7 @@ import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.QualifiedType;
+import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
@@ -91,21 +92,26 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		fNodeStack.push(root);
 	}
 
-	// FIXME: translated argument visit to single variable decl; will it affect
-	// more than we want it to?
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean visit(SingleVariableDeclaration node) {
 		boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
-		pushValuedNode(node, node.getName().getIdentifier());
+		push(JavaEntityType.PARAMETER, node.getName().getIdentifier(), node.getName().getStartPosition(), getEndPosition(node.getName()), node.getName());
 		if (isNotParam) {
 			visitModifiers(node.modifiers());
+			node.getType().accept(this);
+		} else { // is a parameter
+			node.getType().accept(this);
 		}
-		node.getType().accept(this);
 		return false;
 	}
 
 
+	public void endVisit(SingleVariableDeclaration node) {
+		pop();
+	}
+	
 	@Override
 	public boolean visit(Block block) {
 		// skip block as it is not interesting
@@ -158,7 +164,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 					fASTHelper.convertNode(expression),
 					expression.toString(),
 					expression.getStartPosition(),
-					getEndPosition(expression),
+					getEndPosition(expression) - 1,
 					expression);
 			pop();
 		}
@@ -169,10 +175,8 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		if(modifiersList != null && !modifiersList.isEmpty()) {
 			Node modifiers = fNodeStack.peek();
 			for(IExtendedModifier mod : modifiersList) {
-				if(mod instanceof Modifier) // FIXME: check this, it's the part about which I'm least certain	
-				{
-					Modifier asMod = (Modifier) mod; // FIXME: previously this checked each type of modifier
-					// but I think I can just do a toString().  Check me!
+				if(mod instanceof Modifier) {
+					Modifier asMod = (Modifier) mod;
 					push(JavaEntityType.MODIFIER,
 							asMod.getKeyword().toString(),
 							asMod.getStartPosition(),
@@ -258,6 +262,11 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		visitReturnType(methodDeclaration);
 
 		visitTypeParameterDeclarations(JavaEntityType.TYPE_PARAMETERS, methodDeclaration.typeParameters());
+		List<SingleVariableDeclaration> parameters = methodDeclaration.parameters();
+	//	push(JavaEntityType.PARAMETERS, "", -1, -1, null); // FIXME: not confident about that 
+		//for(SingleVariableDeclaration decl : parameters) {
+			
+	//	}
 		visitAbstractVariableDeclarations(JavaEntityType.PARAMETERS, methodDeclaration.parameters());
 		fInMethodDeclaration = false;
 		visitList(JavaEntityType.THROW, methodDeclaration.thrownExceptions());
@@ -436,6 +445,23 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		fNodeStack.peek().getEntity().setStartPosition(start);
 		fNodeStack.peek().getEntity().setEndPosition(end);
 	}
+	
+	@Override
+	public boolean visit(SimpleName node) { // in this context, a simple name is almost certainly a type.  Check if this breaks anythning though
+		push(JavaEntityType.SINGLE_TYPE, 
+				prefixWithNameOfParrentIfInMethodDeclaration() + node.getIdentifier(),
+				node.getStartPosition(),
+				getEndPosition(node),
+				node);
+		return false;
+	}
+	
+	@Override
+    public void endVisit(SimpleName node) {
+        pop();
+    }
+
+	
 
 	private void visitList(JavaEntityType parentLabel, List<ASTNode> nodes) {
 		int start = -1;
@@ -478,11 +504,16 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
 	private int getEndPosition(ASTNode node) {
 		int end = node.getStartPosition() + node.getLength();
-		if(fSource.charAt(end) == ' ' ||
-				fSource.charAt(end) == '>' ||
-				fSource.charAt(end) == ',') 
+		char lastChar = fSource.charAt(end); // this is a bit heuristic
+		switch(lastChar) {
+		case ' ':
+		case '>':
+		case ',':
+		case ')':
 			return end - 1;
-		return end;
+		default: 
+				return end;
+		}
 	}
 
 }

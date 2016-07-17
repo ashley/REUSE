@@ -176,7 +176,7 @@ public final class JavaASTNodeTypeConverter implements ASTNodeTypeConverter {
         sConversionMap.put(ParameterizedType.class, PARAMETERIZED_TYPE);
         sConversionMap.put(Javadoc.class, JAVADOC);
         sConversionMap.put(QualifiedType.class, QUALIFIED_TYPE);
-       // sConversionMap.put(Argument.class, PARAMETER); FIXME: how to handle parameters?
+        //sConversionMap.put(Argument.class, PARAMETER); FIXME: how to handle parameters?
         sConversionMap.put(TypeParameter.class, TYPE_PARAMETER);
         sConversionMap.put(WildcardType.class, WILDCARD_TYPE);
         sConversionMap.put(StringLiteral.class, STRING_LITERAL);
