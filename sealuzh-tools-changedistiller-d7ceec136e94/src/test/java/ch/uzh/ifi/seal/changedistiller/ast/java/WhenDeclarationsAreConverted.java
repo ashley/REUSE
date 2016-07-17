@@ -24,6 +24,9 @@ import static org.hamcrest.CoreMatchers.is;
 
 import java.util.Enumeration;
 
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.junit.Test;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaDeclarationConverter;
@@ -605,24 +608,24 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
     private void convertField(String name) {
         createRootNode(JavaEntityType.FIELD_DECLARATION, name);
         FieldDeclaration field = CompilationUtils.findField(fCompilation.getCompilationUnit(), name);
-        field.traverse(getDeclarationconverter(), (MethodScope) null);
+        field.accept(getDeclarationconverter());
     }
 
     private JavaDeclarationConverter getDeclarationconverter() {
-        sDeclarationConverter.initialize(fRoot, fCompilation.getScanner());
+        sDeclarationConverter.initialize(fRoot, fCompilation.getSource());
         return sDeclarationConverter;
     }
 
     private void convertMethod(String name) {
         createRootNode(JavaEntityType.METHOD_DECLARATION, name);
-        AbstractMethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), name);
-        method.traverse(getDeclarationconverter(), (ClassScope) null);
+        MethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), name);
+        method.accept(getDeclarationconverter());
     }
 
     private void convertClass(String name) {
         createRootNode(JavaEntityType.METHOD_DECLARATION, name);
         TypeDeclaration type = CompilationUtils.findType(fCompilation.getCompilationUnit(), name);
-        type.traverse(getDeclarationconverter(), (CompilationUnitScope) null);
+        type.accept(getDeclarationconverter());
     }
 
 }

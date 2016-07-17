@@ -26,13 +26,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import java.util.Enumeration;
 import java.util.List;
 
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
+import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.uzh.ifi.seal.changedistiller.ast.java.Comment;
-import ch.uzh.ifi.seal.changedistiller.ast.java.CommentCleaner;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaMethodBodyConverter;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
@@ -51,20 +49,15 @@ public class WhenCommentsAreAssociatedToSourceCode extends JavaDistillerTestCase
     private static Node sRoot;
 
     @BeforeClass
-    public static void prepareCompilationUnit() throws Exception {
+    public static void prepareCompilationUnit() throws Exception { // FIXME: this may tell me how much I've screwed up comments.
         sCompilation = CompilationUtils.compileFile("src_comments/ClassWithCommentsToAssociate.java");
         List<Comment> comments = CompilationUtils.extractComments(sCompilation);
-        CommentCleaner visitor = new CommentCleaner(sCompilation.getSource());
-        for (Comment comment : comments) {
-            visitor.process(comment);
-        }
-        sComments = visitor.getComments();
         sRoot = new Node(JavaEntityType.METHOD, "foo");
-        sRoot.setEntity(new SourceCodeEntity("foo", JavaEntityType.METHOD, new SourceRange()));
-        AbstractMethodDeclaration method = CompilationUtils.findMethod(sCompilation.getCompilationUnit(), "foo");
+        MethodDeclaration method = CompilationUtils.findMethod(sCompilation.getCompilationUnit(), "foo");
+        sRoot.setEntity(new SourceCodeEntity("foo", JavaEntityType.METHOD, new SourceRange(), method));
         JavaMethodBodyConverter bodyT = sInjector.getInstance(JavaMethodBodyConverter.class);
-        bodyT.initialize(sRoot, method, sComments, sCompilation.getScanner());
-        method.traverse(bodyT, (ClassScope) null);
+        bodyT.initialize(sRoot, method, sComments, sCompilation.getSource());
+        method.accept(bodyT);
     }
 
     @Test

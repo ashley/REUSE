@@ -25,11 +25,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.Comment;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.uzh.ifi.seal.changedistiller.ast.java.Comment;
-import ch.uzh.ifi.seal.changedistiller.ast.java.CommentCleaner;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
 import ch.uzh.ifi.seal.changedistiller.util.CompilationUtils;
 
@@ -38,39 +37,34 @@ public class WhenConsecutiveCommentsAreJoined {
 	private final static String LF = System.getProperty("line.separator");
 
     private static JavaCompilation sCompilationUnit;
-    private static List<Comment> sComments;
+    private static List<Comment> sComments;  // FIXME: this should help me check how broken comments are
 
     @BeforeClass
     public static void prepareCompilationUnit() throws Exception {
         sCompilationUnit = CompilationUtils.compileFile("src_comments/ClassWithConsecutiveComments.java");
-        List<Comment> comments = CompilationUtils.extractComments(sCompilationUnit);
-        CommentCleaner visitor = new CommentCleaner(sCompilationUnit.getSource());
-        for (Comment comment : comments) {
-            visitor.process(comment);
-        }
-        sComments = visitor.getComments();
+        sComments = CompilationUtils.extractComments(sCompilationUnit);
     }
 
     @Test
     public void consecutiveLineCommentsShouldBeJoined() throws Exception {
         assertThat(getCommentString(sComments.get(0)), is("// a simple method invocation" + LF + "        // simple indeed"));
-        assertThat(sComments.get(0).getComment(), is("// a simple method invocation" + LF + "        // simple indeed"));
+        assertThat(sComments.get(0).toString(), is("// a simple method invocation" + LF + "        // simple indeed"));
     }
 
     @Test
     public void consecutiveBlockCommentsShouldNotBeJoined() throws Exception {
         assertThat(getCommentString(sComments.get(1)), is("/* first block comment */"));
-        assertThat(sComments.get(1).getComment(), is("/* first block comment */"));
+        assertThat(sComments.get(1).toString(), is("/* first block comment */"));
         assertThat(getCommentString(sComments.get(2)), is("/* second block comment */"));
-        assertThat(sComments.get(2).getComment(), is("/* second block comment */"));
+        assertThat(sComments.get(2).toString(), is("/* second block comment */"));
     }
 
     @Test
     public void consecutiveBlockAndLineCommentsShouldNotBeJoined() throws Exception {
         assertThat(getCommentString(sComments.get(3)), is("/* no more methods */"));
-        assertThat(sComments.get(3).getComment(), is("/* no more methods */"));
+        assertThat(sComments.get(3).toString(), is("/* no more methods */"));
         assertThat(getCommentString(sComments.get(4)), is("// no more line comments"));
-        assertThat(sComments.get(4).getComment(), is("// no more line comments"));
+        assertThat(sComments.get(4).toString(), is("// no more line comments"));
     }
 
     @Test
@@ -79,7 +73,7 @@ public class WhenConsecutiveCommentsAreJoined {
     }
 
     public String getCommentString(Comment comment) {
-        return sCompilationUnit.getSource().substring(comment.sourceStart(), comment.sourceEnd());
+        return sCompilationUnit.getSource().substring(comment.getStartPosition(), comment.getStartPosition() + comment.getLength());
     }
 
 }

@@ -25,10 +25,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.Comment;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.uzh.ifi.seal.changedistiller.ast.java.Comment;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
 import ch.uzh.ifi.seal.changedistiller.util.CompilationUtils;
 
@@ -38,7 +38,7 @@ import ch.uzh.ifi.seal.changedistiller.util.CompilationUtils;
  * @author Beat Fluri
  */
 public class WhenCommentsAreExtracted {
-	// see https://bitbucket.org/sealuzh/tools-changedistiller/issue/6
+	// see https://bitbucket.org/sealuzh/tools-changedistiller/issue/6 // FIXME: should help me tell how much I've screwed up comments
 	private final static String LF = System.getProperty("line.separator");
 
     private static JavaCompilation sCompilationUnit;
@@ -52,9 +52,9 @@ public class WhenCommentsAreExtracted {
     public void compilationUnitOfClassWithCommentsShouldHaveComments() throws Exception {
         List<Comment> comments = CompilationUtils.extractComments(sCompilationUnit);
         assertThat(comments.size(), is(3));
-        assertThat(comments.get(0).getComment(), is("/**" + LF + " * A class with comments." + LF + " *" + LF + " * @author Beat Fluri" + LF + " */"));
-        assertThat(comments.get(1).getComment(), is("// a simple method invocation"));
-        assertThat(comments.get(2).getComment(), is("/* no more methods */"));
+        assertThat(comments.get(0).toString(), is("/**" + LF + " * A class with comments." + LF + " *" + LF + " * @author Beat Fluri" + LF + " */"));
+        assertThat(comments.get(1).toString(), is("// a simple method invocation"));
+        assertThat(comments.get(2).toString(), is("/* no more methods */"));
     }
 
 }

@@ -74,7 +74,7 @@ public abstract class WhenChangesAreExtracted extends JavaDistillerTestCase {
         Node root = new Node(JavaEntityType.METHOD, methodName);
         root.setEntity(new SourceCodeEntity(methodName, JavaEntityType.METHOD, new SourceRange(
                 method.getStartPosition(),
-                getEndPosition(method), method));
+                getEndPosition(method)), method));
         sDeclarationConverter.initialize(root, compilation.getSource());
         method.accept(sDeclarationConverter);
         return root;
@@ -85,7 +85,7 @@ public abstract class WhenChangesAreExtracted extends JavaDistillerTestCase {
     	Node root = new Node(JavaEntityType.FIELD, fieldName);
     	root.setEntity(new SourceCodeEntity(fieldName, JavaEntityType.FIELD, new SourceRange(
     			field.getStartPosition(),
-    			getEndPosition(field), field)));
+    			getEndPosition(field)), field));
     	sDeclarationConverter.initialize(root, compilation.getSource());
     	field.accept(sDeclarationConverter);
     	return root;
