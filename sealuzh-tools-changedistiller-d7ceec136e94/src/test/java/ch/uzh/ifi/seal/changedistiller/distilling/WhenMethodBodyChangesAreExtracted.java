@@ -47,7 +47,8 @@ public class WhenMethodBodyChangesAreExtracted extends WhenChangesAreExtracted {
         distiller.extractClassifiedSourceCodeChanges(rootLeft, rootRight);
         assertThat(structureEntity.getSourceCodeChanges().isEmpty(), is(true));
     }
-
+    
+    // this is failing right now 100% due to comments and nothing else.
     @Test
     public void changedMethodBodyShouldHaveChanges() throws Exception {
         JavaCompilation compilationLeft = CompilationUtils.compileFile(TEST_DATA + "TestLeft.java");
@@ -57,6 +58,7 @@ public class WhenMethodBodyChangesAreExtracted extends WhenChangesAreExtracted {
         StructureEntityVersion structureEntity = new StructureEntityVersion(JavaEntityType.METHOD, "foo", 0);
         Distiller distiller = getDistiller(structureEntity);
         distiller.extractClassifiedSourceCodeChanges(rootLeft, rootRight);
+        System.out.println(structureEntity.getSourceCodeChanges());
         assertThat(structureEntity.getSourceCodeChanges().size(), is(11));
     }
 
