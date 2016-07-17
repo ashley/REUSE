@@ -165,15 +165,10 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
 
 		push(type, typeDeclaration.getName().getIdentifier(), typeDeclaration);
 		fQualifiers.push(typeDeclaration.getName().getIdentifier().toCharArray());
-		return true;
-	}
-
-	@Override
-	public void endVisit(TypeDeclaration typeDeclaration) {
 		MethodDeclaration[] methods = typeDeclaration.getMethods();
 		boolean hasConstructor = false;
 		for(MethodDeclaration method : methods) {
-			if(method.isConstructor() && method.parameters().isEmpty()) {
+			if(method.isConstructor()) {
 				hasConstructor = true;
 				break;
 			}
@@ -191,6 +186,11 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
 			pop();
 			// FIXME: possibly need to insert a call to super, no?
 		}
+		return true;
+	}
+
+	@Override
+	public void endVisit(TypeDeclaration typeDeclaration) {
 		pop();
 		fQualifiers.pop();
 	}

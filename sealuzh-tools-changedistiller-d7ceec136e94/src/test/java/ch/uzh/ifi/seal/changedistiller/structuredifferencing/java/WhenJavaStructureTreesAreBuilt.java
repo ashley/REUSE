@@ -77,7 +77,7 @@ public class WhenJavaStructureTreesAreBuilt {
     public void structureTreeWithFieldShouldBeCreated() throws Exception {
         fSnippet = getCompilationUnit("private int fInteger = 12;");
         createStructureTree();
-        JavaStructureNode fieldNode = fRoot.getChildren().get(0).getChildren().get(0);
+        JavaStructureNode fieldNode = fRoot.getChildren().get(0).getChildren().get(1);
         assertThat(fieldNode.getType(), is(Type.FIELD));
         assertThat(fieldNode.getName(), is("fInteger : int"));
         assertThat(fieldNode.getFullyQualifiedName(), is("Clazz.fInteger : int"));
