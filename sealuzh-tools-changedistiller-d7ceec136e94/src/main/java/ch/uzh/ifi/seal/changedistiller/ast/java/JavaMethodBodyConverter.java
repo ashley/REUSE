@@ -539,6 +539,51 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         pop(expression);
         postVisit(expression);
     }
+/*
+    public boolean visit(ForStatement forStatement, BlockScope scope) {
+        preVisit(forStatement);
+        // loop condition
+        String value = "";
+        if (forStatement.condition != null) {
+        	value = forStatement.condition.toString();
+        }
+        pushValuedNode(forStatement, value);
+        forStatement.action.traverse(this, scope);
+       
+        // loop init
+        if(forStatement.initializations != null && forStatement.initializations.length > 0) {
+        	for(Statement initStatement : forStatement.initializations) {
+        		push(
+        			JavaEntityType.FOR_INIT,
+        			initStatement.toString(),
+        			initStatement.sourceStart(),
+        			initStatement.sourceEnd()
+        		);
+        		
+        		initStatement.traverse(this, scope);
+        		
+        		pop(initStatement);
+        	}
+        }
+        
+        // loop afterthought
+        if(forStatement.increments != null && forStatement.increments.length > 0) {
+        	for(Statement incrementStatement : forStatement.increments) {
+        		push(
+        			JavaEntityType.FOR_INCR,
+        			incrementStatement.toString(),
+        			incrementStatement.sourceStart(),
+        			incrementStatement.sourceEnd()
+        		);
+        		
+        		incrementStatement.traverse(this, scope);
+        		
+        		pop(incrementStatement);
+        	}
+        }
+        
+        return false;
+    }*/
 
 	@SuppressWarnings("unchecked")
     @Override
