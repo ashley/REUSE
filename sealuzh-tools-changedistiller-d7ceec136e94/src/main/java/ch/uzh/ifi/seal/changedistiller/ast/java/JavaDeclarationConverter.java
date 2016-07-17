@@ -156,7 +156,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 				push(JavaEntityType.MODIFIER,
 						asMod.getKeyword().toString(),
 						asMod.getStartPosition(),
-						getEndPosition(asMod),
+						getEndPosition(asMod) - 1,
 						asMod); 		
 				pop();
 			}
@@ -329,10 +329,10 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		}
 		visitModifiers(typeDeclaration.modifiers());
 		visitAbstractVariableDeclarations(JavaEntityType.TYPE_PARAMETERS, typeDeclaration.typeParameters());
-		if (typeDeclaration.getSuperclass() != null) { 
-			typeDeclaration.getSuperclass().accept(this);
+		if (typeDeclaration.getSuperclassType() != null) { 
+			typeDeclaration.getSuperclassType().accept(this);
 		}
-		visitList(JavaEntityType.SUPER_INTERFACE_TYPES, typeDeclaration.superInterfaces());
+		visitList(JavaEntityType.SUPER_INTERFACE_TYPES, typeDeclaration.superInterfaceTypes());
 		return false;
 	}
 
@@ -345,7 +345,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	public boolean visit(TypeParameter typeParameter) {
 		push(
 				fASTHelper.convertNode(typeParameter),
-				getSource(typeParameter.getStartPosition(), getEndPosition(typeParameter)),
+				getSource(typeParameter.getStartPosition(), getEndPosition(typeParameter) - 1),
 				typeParameter.getStartPosition(),
 				getEndPosition(typeParameter),
 				typeParameter);
@@ -407,7 +407,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 			for(ASTNode node : nodes) {
 				node.accept(this);
 			}
-			end = getLastChildOfCurrentNode().getEntity().getEndPosition();
+			end = getLastChildOfCurrentNode().getEntity().getEndPosition() - 1;
 		}
 		adjustSourceRangeOfCurrentNode(start, end);
 		pop();
@@ -419,7 +419,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	}
 
 	private void pushValuedNode(ASTNode node, String value) {
-		push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node), node);
+		push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node) - 1, node);
 	}
 
 	private void push(EntityType label, String value, int start, int end, ASTNode node) {

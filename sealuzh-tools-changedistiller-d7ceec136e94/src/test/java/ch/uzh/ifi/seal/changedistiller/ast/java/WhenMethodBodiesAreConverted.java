@@ -34,7 +34,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     @Test
     public void assignmentShouldBeConverted() throws Exception {
-        fSnippet = "b = foo.bar();";
+        fSnippet = "b=foo.bar();";
         prepareCompilation();
         convert();
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.ASSIGNMENT));
@@ -334,13 +334,13 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         prepareCompilation();
         convert();
         assertThat(((Node) getFirstChild().getLastChild()).getLabel(), is(JavaEntityType.FINALLY));
-        assertThat(getTreeString(), is("method {  {  { foo.bar(e); }, { cleanup(); } } } "));
+        assertThat(getTreeString(), is("method {  {  { foo.bar(e); }, { cleanup(); } } }"));
         assertSourceRangeCorrectness(getFirstChild());
     }
 
     @Test
-    public void tryStatementWithoutFinallyShouldBeConverted() throws Exception {
-        fSnippet = "try { foo.bar(e); } catch (IOException e) { return 2; } catch (Exception e) { return 3; }";
+    public void tryStatementWithoutFinallyShouldBeConverted() throws Exception { // FIXME: if I get the chance to sort why the last spaces, try to figure it out, seems unimportant
+        fSnippet = "try { foo.bar(e); } catch (IOException e) { return 2; } catch (Exception e) { return 3; } ";
         prepareCompilation();
         convert();
         assertThat(

@@ -382,7 +382,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                 fASTHelper.convertNode(assertStatement),
                 value,
                 assertStatement.getStartPosition(),
-                getEndPosition(assertStatement) + 1,
+                getEndPosition(assertStatement) - 1,
                 assertStatement);
         return false;
     }
@@ -420,7 +420,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(ClassInstanceCreation explicitConstructor) {
         preVisit(explicitConstructor);
-        pushValuedNode(explicitConstructor, explicitConstructor.toString());
+        push(fASTHelper.convertNode(explicitConstructor), explicitConstructor.toString() + ";", explicitConstructor.getStartPosition(), getEndPosition(explicitConstructor), explicitConstructor);
         return false;
     }
 
@@ -582,8 +582,8 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(IfStatement ifStatement) {
         preVisit(ifStatement);
-        String expression = ifStatement.getElseStatement().toString();
-        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.getStartPosition(), getEndPosition(ifStatement), ifStatement);
+        String expression = ifStatement.getExpression().toString();
+        push(JavaEntityType.IF_STATEMENT, expression, ifStatement.getStartPosition(), getEndPosition(ifStatement) - 1, ifStatement);
         if (ifStatement.getThenStatement() != null) {
             push(
                     JavaEntityType.THEN_STATEMENT,
@@ -750,7 +750,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
 	private void visitCatchClauses(TryStatement node) {
         if ((node.catchClauses() != null) && (node.catchClauses().size() > 0)) {
             Block lastCatchBlock = ((CatchClause) node.catchClauses().get(node.catchClauses().size() - 1)).getBody(); // FIXME: it's not clear that the node to pass to the push on the next line should be the last catch block
-            push(JavaEntityType.CATCH_CLAUSES, "", getEndPosition(node.getBody()), getEndPosition(lastCatchBlock), lastCatchBlock);
+            push(JavaEntityType.CATCH_CLAUSES, "", getEndPosition(node.getBody()), getEndPosition(lastCatchBlock) - 1, lastCatchBlock);
             int start = getEndPosition(node.getBody());
             List<CatchClause> catchClauses = node.catchClauses();
             for(CatchClause catchClause : catchClauses) {
@@ -761,7 +761,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                         JavaEntityType.CATCH_CLAUSE,
                         catchClause.getException().getType().toString(), 
                         catchClause.getStartPosition(),
-                        getEndPosition(catchClause),
+                        getEndPosition(catchClause) - 1,
                         catchClause);
                 catchClause.getBody().accept(this); 
                 pop(catchClause.getException().getType());
