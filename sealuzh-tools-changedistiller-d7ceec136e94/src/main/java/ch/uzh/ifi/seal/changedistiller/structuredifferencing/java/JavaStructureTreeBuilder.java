@@ -183,6 +183,7 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
 			methodDeclaration.setName(typeDeclaration.getAST().newSimpleName(typeDeclaration.getName().getIdentifier()));
 			push(Type.CONSTRUCTOR, typeDeclaration.getName().getIdentifier() + "()", methodDeclaration); // FIXME: possibly a bad idea, should I make the actual ASTNode to go here?
 			pop();
+			// FIXME: possibly need to insert a call to super, no?
 		}
 		pop();
 		fQualifiers.pop();
