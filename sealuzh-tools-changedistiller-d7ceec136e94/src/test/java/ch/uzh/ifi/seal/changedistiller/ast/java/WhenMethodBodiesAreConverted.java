@@ -22,8 +22,7 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import static org.hamcrest.CoreMatchers.is;
 
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.junit.Test;
 
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.java.JavaEntityType;
@@ -384,9 +383,9 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     private void convert() {
         createRootNode(JavaEntityType.METHOD, "method");
-        AbstractMethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), "method");
-        sMethodBodyConverter.initialize(fRoot, method, null, fCompilation.getScanner());
-        method.traverse(sMethodBodyConverter, (ClassScope) null);
+        MethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), "method");
+        sMethodBodyConverter.initialize(fRoot, method, null, fCompilation.getSource());
+        method.accept(sMethodBodyConverter);
     }
 
     @Override

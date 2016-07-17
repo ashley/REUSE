@@ -62,7 +62,7 @@ public abstract class WhenChangesAreExtracted extends JavaDistillerTestCase {
         Node root = new Node(JavaEntityType.METHOD, methodName);
         root.setEntity(new SourceCodeEntity(methodName, JavaEntityType.METHOD, new SourceRange(
                 method.getStartPosition(),
-                getEndPosition(method), method));
+                getEndPosition(method)), method));
         List<Comment> comments = CompilationUtils.extractComments(compilation);
         sMethodBodyConverter.initialize(root, method, comments, compilation.getSource());
         method.accept(sMethodBodyConverter);

@@ -69,7 +69,22 @@ public final class JavaCompilationUtils {
 		
         return javaCompilation;
     }
-    
+    private static String getContentOfFile(String filename) {
+        char[] b = new char[1024];
+        StringBuilder sb = new StringBuilder();
+        try {
+            FileReader reader = new FileReader(new File(filename));
+            int n = reader.read(b);
+            while (n > 0) {
+                sb.append(b, 0, n);
+                n = reader.read(b);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+    }
     /**
      * Returns the compiled file as a {@link JavaCompilation}.
      * 
@@ -81,25 +96,8 @@ public final class JavaCompilationUtils {
      * @throws InvalidSyntaxException if the file has syntax errors.
      */
     public static JavaCompilation compile(File file, long version) { // FIXME: do I care about ignoring the version?
-    	StringBuilder fileData = new StringBuilder(1000);
-    	try {
-		BufferedReader reader = new BufferedReader(new FileReader(file));
- 
-		char[] buf = new char[10];
-		int numRead = 0;
-		while ((numRead = reader.read(buf)) != -1) {
-			String readData = String.valueOf(buf, 0, numRead);
-			fileData.append(readData);
-			buf = new char[1024];
-		}
- 
-		reader.close();
-		String source = fileData.toString(); 
+    	String source = getContentOfFile(file.getAbsolutePath()); 
 		return JavaCompilationUtils.compile(source, file.getName());
-    	} catch(IOException e) {
-    		// FIXME: do I care about this?
-    	}
-    	return null;
     }
 
 }
