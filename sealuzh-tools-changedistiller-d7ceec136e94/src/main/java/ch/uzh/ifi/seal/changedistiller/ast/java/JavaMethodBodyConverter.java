@@ -117,7 +117,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         fLastVisitedNode = methodRoot;
         fLastAddedNode = root;
         fNodeStack.push(root);
-        fComments = new LinkedList(comments);
+        fComments = comments == null ? null : new LinkedList(comments);
         fSource = source;
     }
 
@@ -448,7 +448,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     @Override
     public boolean visit(DoStatement doStatement) {
         preVisit(doStatement);
-        pushValuedNode(doStatement, doStatement.getExpression().toString());
+        pushValuedNode(doStatement, "(" + doStatement.getExpression().toString() + ")");
         doStatement.getBody().accept(this);
         return false;
     }
@@ -505,7 +505,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
                 fASTHelper.convertNode(expression),
                 expression.toString() + ';',
                 expression.getStartPosition(),
-                getEndPosition(expression) + 1,
+                getEndPosition(expression),
                 expression);
         return false;
     }
@@ -530,7 +530,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         // loop condition
         String value = "";
         if (forStatement.getExpression() != null) {
-        	value = forStatement.getExpression().toString();
+        	value =  "(" + forStatement.getExpression().toString() + ")" ;
         }
         pushValuedNode(forStatement, value);
         forStatement.getBody().accept(this);
@@ -633,7 +633,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         preVisit(localDeclaration);
         int start = localDeclaration.getType().getStartPosition();
         push(fASTHelper.convertNode(localDeclaration), 
-        		localDeclaration.toString(), start, getEndPosition(localDeclaration),
+        		localDeclaration.toString(), start, getEndPosition(localDeclaration) - 1,
         		localDeclaration);
         return false;
     }
@@ -730,7 +730,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     public boolean visit(TryStatement node) {
         preVisit(node);
         pushEmptyNode(node);
-        push(JavaEntityType.BODY, "", node.getBody().getStartPosition(), getEndPosition(node.getBody()), node.getBody());
+        push(JavaEntityType.BODY, "", node.getBody().getStartPosition(), getEndPosition(node.getBody()) - 1, node.getBody());
         node.getBody().accept(this);
         pop(node.getBody());
         visitCatchClauses(node);
@@ -740,7 +740,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
 
     private void visitFinally(TryStatement node) {
         if (node.getFinally() != null) {
-            push(JavaEntityType.FINALLY, "", node.getFinally().getStartPosition(), getEndPosition(node.getFinally()), node.getFinally());
+            push(JavaEntityType.FINALLY, "", node.getFinally().getStartPosition(), getEndPosition(node.getFinally()) - 2, node.getFinally());
             node.getFinally().accept(this);
             pop(node.getFinally());
         }
@@ -781,9 +781,9 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         preVisit(whileStatement);
         push(
                 fASTHelper.convertNode(whileStatement),
-                whileStatement.getExpression().toString(),
+               "(" + whileStatement.getExpression().toString() +")",
                 whileStatement.getStartPosition(),
-                getEndPosition(whileStatement),
+                getEndPosition(whileStatement) - 1,
                 whileStatement);
         whileStatement.getBody().accept(this);
         return false;
@@ -802,7 +802,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     private void pushValuedNode(ASTNode node, String value) {
-        push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node), node);
+        push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node) - 1, node);
     }
 
     private void pushEmptyNode(ASTNode node) {

@@ -219,6 +219,14 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		pop();
 	}
 
+//	public boolean visit(Argument node) {
+//	boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
+//	pushValuedNode(node, String.valueOf(node.name));
+//	if (isNotParam) {
+//		visitModifiers(node.modifiers);
+//	}
+//	node.type.traverse(this, scope);
+//	return false;
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public boolean visit(MethodDeclaration methodDeclaration) {
@@ -247,7 +255,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		int start = type.getStartPosition();
 		int end = getEndPosition(type); 
 		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + getSource(start, end));
-		fNodeStack.peek().getEntity().setEndPosition(end);
+		fNodeStack.peek().getEntity().setEndPosition(end - 1);
 		return false;
 	}
 
@@ -367,6 +375,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 		pop();
 	}
 
+	
 	private void visitAbstractVariableDeclarations(
 			JavaEntityType parentLabel,
 			List<VariableDeclaration> declarations) {
