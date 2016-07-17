@@ -145,7 +145,7 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
     	}
         push(type, typeDeclaration.getName().getIdentifier(), typeDeclaration);
         fQualifiers.push(typeDeclaration.getName().getIdentifier().toCharArray());
-        return true;
+        return false;
     }
 
     @Override
