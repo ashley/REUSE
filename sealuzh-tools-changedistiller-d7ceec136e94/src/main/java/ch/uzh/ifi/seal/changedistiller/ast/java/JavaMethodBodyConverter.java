@@ -36,6 +36,7 @@ import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.ConstructorInvocation;
 import org.eclipse.jdt.core.dom.ContinueStatement;
 import org.eclipse.jdt.core.dom.DoStatement;
 import org.eclipse.jdt.core.dom.EmptyStatement;
@@ -49,6 +50,7 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.PostfixExpression;
 import org.eclipse.jdt.core.dom.PrefixExpression;
 import org.eclipse.jdt.core.dom.ReturnStatement;
+import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.SwitchCase;
 import org.eclipse.jdt.core.dom.SwitchStatement;
 import org.eclipse.jdt.core.dom.SynchronizedStatement;
@@ -418,6 +420,14 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     }
 
     @Override
+    public boolean visit(ConstructorInvocation node) {
+    	preVisit(node);
+        push(fASTHelper.convertNode(node), node.toString(), node.getStartPosition(), getEndPosition(node) - 1, node);
+
+    	return false;
+    }
+    
+    @Override
     public boolean visit(ClassInstanceCreation explicitConstructor) {
         preVisit(explicitConstructor);
         push(fASTHelper.convertNode(explicitConstructor), explicitConstructor.toString() + ";", explicitConstructor.getStartPosition(), getEndPosition(explicitConstructor), explicitConstructor);
@@ -686,11 +696,15 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         postVisit(caseStatement);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public boolean visit(SwitchStatement switchStatement) {
         preVisit(switchStatement);
         pushValuedNode(switchStatement, switchStatement.getExpression().toString());
-        visitNodes((ASTNode[]) switchStatement.statements().toArray());
+        List<Statement> statements = switchStatement.statements();
+        for (Statement element : statements) {
+            element.accept(this);
+        }
         return false;
     }
 

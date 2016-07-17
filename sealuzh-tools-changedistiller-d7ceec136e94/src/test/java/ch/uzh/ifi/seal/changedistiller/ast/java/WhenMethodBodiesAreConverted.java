@@ -279,12 +279,12 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     @Test
     public void switchStatementShouldBeConverted() throws Exception {
-        fSnippet = "switch (foo) { case ONE: a = 1; break; default: a = 2; }";
+        fSnippet = "switch (foo) { case ONE: a=1; break; default: a=2; }";
         prepareCompilation();
         convert();
         assertThat(getFirstChild().getLabel(), is(JavaEntityType.SWITCH_STATEMENT));
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.SWITCH_CASE));
-        assertThat(getTreeString(), is("method { foo { ONE,a = 1;,,default,a = 2; } }"));
+        assertThat(getTreeString(), is("method { foo { ONE,a=1;,,default,a=2; } }"));
         assertSourceRangeCorrectness(getFirstChild());
     }
 
@@ -324,7 +324,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         assertThat(((Node) getFirstChild().getLastChild()).getLabel(), is(JavaEntityType.FINALLY));
         assertThat(
                 getTreeString(),
-                is("method {  {  { foo.bar(e); }, { IOException { 2; },Exception { 3; } }, { cleanup(); } } }"));
+                is("method {  {  { foo.bar(e); }, { IOException { 2; },Exception { 3; } }, { cleanup(); } } } ")); 
         assertSourceRangeCorrectness(getFirstChild());
     }
 
@@ -334,7 +334,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         prepareCompilation();
         convert();
         assertThat(((Node) getFirstChild().getLastChild()).getLabel(), is(JavaEntityType.FINALLY));
-        assertThat(getTreeString(), is("method {  {  { foo.bar(e); }, { cleanup(); } } }"));
+        assertThat(getTreeString(), is( "method {  {  { foo.bar(e); }, { cleanup(); } } }"));
         assertSourceRangeCorrectness(getFirstChild());
     }
 

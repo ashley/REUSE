@@ -301,7 +301,7 @@ public class JavaDeclarationConverter extends ASTVisitor {
 	
 	@Override
 	public boolean visit(SimpleType type) {
-		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString()); 
+		push(fASTHelper.convertNode(type), prefixWithNameOfParrentIfInMethodDeclaration() + type.toString(), type.getStartPosition(), getEndPosition(type) - 1, type);
 		return false;
 	}
 
