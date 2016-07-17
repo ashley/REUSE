@@ -324,7 +324,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         assertThat(((Node) getFirstChild().getLastChild()).getLabel(), is(JavaEntityType.FINALLY));
         assertThat(
                 getTreeString(),
-                is("method {  {  { foo.bar(e); }, { IOException { 2; },Exception { 3; } }, { cleanup(); } } } ")); 
+                is("method {  {  { foo.bar(e); }, { IOException { 2; },Exception { 3; } }, { cleanup(); } } }")); 
         assertSourceRangeCorrectness(getFirstChild());
     }
 
@@ -340,7 +340,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     @Test
     public void tryStatementWithoutFinallyShouldBeConverted() throws Exception { // FIXME: if I get the chance to sort why the last spaces, try to figure it out, seems unimportant
-        fSnippet = "try { foo.bar(e); } catch (IOException e) { return 2; } catch (Exception e) { return 3; } ";
+        fSnippet = "try { foo.bar(e); } catch (IOException e) { return 2; } catch (Exception e) { return 3; }";
         prepareCompilation();
         convert();
         assertThat(
