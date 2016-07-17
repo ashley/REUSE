@@ -24,9 +24,11 @@ import java.util.List;
 
 import java.util.Stack;
 
+import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.AnnotationTypeDeclaration;
+import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
@@ -178,10 +180,14 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
 		}
 		if(!hasConstructor) {
 			// construct implicit constructor?
-			MethodDeclaration methodDeclaration = typeDeclaration.getAST().newMethodDeclaration();
+			AST myAST = typeDeclaration.getAST();
+			MethodDeclaration methodDeclaration = myAST.newMethodDeclaration();
 			methodDeclaration.setConstructor(true);
-			methodDeclaration.setName(typeDeclaration.getAST().newSimpleName(typeDeclaration.getName().getIdentifier()));
-			push(Type.CONSTRUCTOR, typeDeclaration.getName().getIdentifier() + "()", methodDeclaration); // FIXME: possibly a bad idea, should I make the actual ASTNode to go here?
+			methodDeclaration.setName(myAST.newSimpleName(typeDeclaration.getName().getIdentifier()));
+			Block newBlock = myAST.newBlock();
+			newBlock.statements().add(myAST.newSuperConstructorInvocation());
+			methodDeclaration.setBody(newBlock);
+			push(Type.CONSTRUCTOR, getMethodSignature(methodDeclaration), methodDeclaration);
 			pop();
 			// FIXME: possibly need to insert a call to super, no?
 		}
