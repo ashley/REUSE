@@ -21,6 +21,7 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
  */
 
 import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
@@ -116,7 +117,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         fLastVisitedNode = methodRoot;
         fLastAddedNode = root;
         fNodeStack.push(root);
-        fComments = comments;
+        fComments = new LinkedList(comments);
         fSource = source;
     }
 
