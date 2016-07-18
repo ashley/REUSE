@@ -18,7 +18,9 @@ def firstARFFTest():
 	pickledData("repoCollection",repoCollection)
 
 
-listofRepoID = [19148949]
+listofRepoID = [] #Repo Example: 19148949 or add multiple repoIDs in this array
+userID = int(input("Enter repo ID (example: 19148949): "))
+listofRepoID.append(userID)
 for repo in listofRepoID:
 	storePull(repo)
 
