@@ -15,14 +15,14 @@ public class AnalyzeWork {
 			if(!pull.toString().equals(repoPath + "/.DS_Store")){
 				new Pull(pull.toString());
 				Pull.getChanges();
-			}
 			
-			pullStat.put(pull.toString().split("/")[8], Pull.checkChanges());
-			System.out.println(pullStat);
-			System.out.println("Hashmap: "+ Pull.checkChanges());
+			//pullStat.put(pull.toString().split("/")[8], Pull.checkChanges());
+			//System.out.println(pullStat);
+			//System.out.println("Hashmap: "+ Pull.checkChanges());
 			System.out.println();
+			
+			}
 		}
-		System.out.println(pullStat);
 		
 		int working = 0;
 		int notWorking = 0;

@@ -50,7 +50,7 @@ public class Pull {
 	}
 	
 	public static void getChanges() throws IOException, SerializationException{
-		compatible.clear();
+		//compatible.clear();
 		pullSign.clear();
 		int work = 0;
 		int doesntWork = 0;
@@ -78,13 +78,13 @@ public class Pull {
 				}
 			}
 		}//for
-		compatible.put("Works", work);
-		compatible.put("No", doesntWork);
+		//compatible.put("Works", work);
+		//compatible.put("No", doesntWork);
 		//System.out.println(pullSign);
 		sumSig();
 	}//getChanges
 	
-	public static Map checkChanges(){
+	public static Map<String, Integer> checkChanges(){
 		return compatible;
 	}
 	
