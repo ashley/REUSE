@@ -49,7 +49,7 @@ public class Pull {
 		return (files.length);
 	}
 	
-	public static void getChanges() throws IOException, SerializationException{
+	public static void getChanges(boolean storeChanges) throws IOException, SerializationException{
 		//compatible.clear();
 		pullSign.clear();
 		int work = 0;
@@ -70,7 +70,9 @@ public class Pull {
 					if (!aDistiller.getArrayList().isEmpty()){
 						work++;
 						System.out.println("ARRAYLIST:" + aDistiller.getArrayList());
-						//storeChanges(aDistiller.getArrayList(),i);
+						if (storeChanges){
+							storeChanges(aDistiller.getArrayList(),i);
+						}
 					}
 					else{
 						doesntWork++;
