@@ -602,15 +602,25 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         if(forStatement.initializers() != null && forStatement.initializers().size() > 0) {
 			List<ASTNode> initializers = forStatement.initializers();
         	for(ASTNode initStatement : initializers) {
-        		push(
+        		push( // this weirdness is because, I think, of how for loops are represented in the internal API vs the dom
         			JavaEntityType.FOR_INIT,
-        			initStatement.toString(),
+        			initStatement.toString() + ";",
         			initStatement.getStartPosition(),
-        			getEndPosition(initStatement),
+        			getEndPosition(initStatement) + 1,
         			initStatement
         		);
         		initStatement.accept(this);
-        		pop(initStatement);
+        		push(
+            			JavaEntityType.FOR_INIT,
+            			initStatement.toString() + ";",
+            			initStatement.getStartPosition(),
+            			getEndPosition(initStatement) + 1,
+            			initStatement
+            		);
+            		initStatement.accept(this);
+            		pop(initStatement);
+            		pop(initStatement);
+
         	}
         }
         

@@ -184,7 +184,6 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
 			methodDeclaration.setBody(newBlock);
 			push(Type.CONSTRUCTOR, getMethodSignature(methodDeclaration), methodDeclaration);
 			pop();
-			// FIXME: possibly need to insert a call to super, no?
 		}
 		return true;
 	}
