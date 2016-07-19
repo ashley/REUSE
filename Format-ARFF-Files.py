@@ -47,6 +47,6 @@ file = FormatFile(repoCollection)
 file.formatRelations()
 file.formatAttributes()
 file.getDatafromTxt()
-with io.open('Weka/test.txt', 'w') as f:
+with io.open('Weka/Data-Complete.txt', 'w') as f:
     f.writelines(line + u'\n' for line in file.lines)
 print "done"

@@ -9,9 +9,13 @@ import os #For encoding/decoding special keys
 import collections
 reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
-g = Github(client_id='d59f9312dfce5a0799fe') #Access to Github API //notmypassword1
 shaLength = 9
 buggyFiles = []
+g = Github()
+
+def GithubOAuth(clientID,secretID):
+	#g = Github(client_id=clientID,client_secret=secretID) #Access to Github API //notmypassword1
+	g = Github("yuannc","freemason1")
 
 class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Reverted"
 	def __init__(self, pullObj,repoID): #Inolves information from the pull

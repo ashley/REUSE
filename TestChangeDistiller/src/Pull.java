@@ -49,8 +49,8 @@ public class Pull {
 		return (files.length);
 	}
 	
-	public static void getChanges() throws IOException, SerializationException{
-		compatible.clear();
+	public static void getChanges(boolean storeChanges) throws IOException, SerializationException{
+		//compatible.clear();
 		pullSign.clear();
 		int work = 0;
 		int doesntWork = 0;
@@ -70,7 +70,9 @@ public class Pull {
 					if (!aDistiller.getArrayList().isEmpty()){
 						work++;
 						System.out.println("ARRAYLIST:" + aDistiller.getArrayList());
-						//storeChanges(aDistiller.getArrayList(),i);
+						if (storeChanges){
+							storeChanges(aDistiller.getArrayList(),i);
+						}
 					}
 					else{
 						doesntWork++;
@@ -78,13 +80,13 @@ public class Pull {
 				}
 			}
 		}//for
-		compatible.put("Works", work);
-		compatible.put("No", doesntWork);
+		//compatible.put("Works", work);
+		//compatible.put("No", doesntWork);
 		//System.out.println(pullSign);
 		sumSig();
 	}//getChanges
 	
-	public static Map checkChanges(){
+	public static Map<String, Integer> checkChanges(){
 		return compatible;
 	}
 	

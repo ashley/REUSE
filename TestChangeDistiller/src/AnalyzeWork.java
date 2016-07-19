@@ -9,20 +9,25 @@ public class AnalyzeWork {
 	private static Map <String, Map> pullStat = new HashMap<>();
 	
 	public static void main(String [] args) throws IOException, SerializationException{
-		String repoPath = "/Users/ashleychen/Desktop/REUSE/REUSE/Repos/weex";
+		if (args.length != 2) {
+			System.err.println("arguments: Repo's path, storeChanges(true/false)");
+			return;
+		}
+		String repoPath = args[0]; // Hardwire: "/Users/ashleychen/Desktop/REUSE/REUSE/Repos/weex";
+		boolean storeChanges = Boolean.parseBoolean(args[1]);
 		File [] pulls = new File(repoPath).listFiles();
 		for (File pull: pulls){
 			if(!pull.toString().equals(repoPath + "/.DS_Store")){
 				new Pull(pull.toString());
-				Pull.getChanges();
-			}
+				Pull.getChanges(storeChanges);
 			
-			pullStat.put(pull.toString().split("/")[8], Pull.checkChanges());
-			System.out.println(pullStat);
-			System.out.println("Hashmap: "+ Pull.checkChanges());
+			//pullStat.put(pull.toString().split("/")[8], Pull.checkChanges());
+			//System.out.println(pullStat);
+			//System.out.println("Hashmap: "+ Pull.checkChanges());
 			System.out.println();
+			
+			}
 		}
-		System.out.println(pullStat);
 		
 		int working = 0;
 		int notWorking = 0;
