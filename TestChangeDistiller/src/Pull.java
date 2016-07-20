@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+
+import com.google.common.base.Joiner;
 
 import codemining.util.serialization.ISerializationStrategy.SerializationException;
 
@@ -55,6 +58,9 @@ public class Pull {
 		int work = 0;
 		int doesntWork = 0;
 		Distiller aDistiller = new Distiller();
+		Map<String,Integer> defaultMap = aDistiller.createChangeMap();
+		System.err.println(defaultMap.size());
+		//Map<String,Integer> changeMap;
 		for (int i = 0; i<getFilesCount();i++){
 			if(!files[i].isFile()){
 				if(files[i].listFiles().length >= 2){
@@ -63,6 +69,10 @@ public class Pull {
 					aDistiller.executeDistiller(getFileVersion(i,"before"),getFileVersion(i,"after"));
 					aDistiller.clearArrayList();
 					aDistiller.getChanges();
+					Map<String,Integer> changeMap = aDistiller.getChangeMap();
+					changeMap.forEach((k, v) -> defaultMap.merge(k, v, Integer::sum));
+					System.out.println("CHANGEMAP: " + convertEntitiesToString(changeMap));
+					System.out.println("DEFAULTMAP:" + convertEntitiesToString(defaultMap));
 					pullSign.put(Integer.toString(i),aDistiller.getSigList());
 					//String [] entropy = StoreEntropy.entropyLevel(pull.toString());
 					//aDistiller.getArrayList().add("Entropy: " + entropy[0]);
@@ -80,14 +90,21 @@ public class Pull {
 				}
 			}
 		}//for
-		//compatible.put("Works", work);
-		//compatible.put("No", doesntWork);
-		//System.out.println(pullSign);
-		sumSig();
+		storeInfo(sumSig()+",");
+		storeInfo(convertEntitiesToString(defaultMap));
 	}//getChanges
 	
 	public static Map<String, Integer> checkChanges(){
 		return compatible;
+	}
+	
+	public static String convertEntitiesToString(Map<String,Integer> map){
+		String text;
+		List<Integer> listt = new ArrayList<Integer>(map.values());
+		System.out.println(map.size());
+		System.out.println("LIST COUNT: " + listt.size());
+		text = Joiner.on(",").join(listt);
+		return text;
 	}
 	
 	public static void storeChanges(ArrayList<String> changesInString, int fileNum) throws IOException{
@@ -96,26 +113,28 @@ public class Pull {
 	    Files.write(textFile, lines, Charset.forName("UTF-8"));
 	}
 	
-	public static void sumSig() throws IOException{
+	public static String sumSig() throws IOException{
 		int low=0;
 		int med=0;
 		int high=0;
-		//System.out.println(pullSign);
+		System.out.println(pullSign);
 		for(Map.Entry<String, ArrayList<Integer>> mp: pullSign.entrySet()){
 			low = low + mp.getValue().get(0);
 			med = med + mp.getValue().get(1);
 			high = high + mp.getValue().get(2);
 		}
 		String text = Integer.toString(low) +","+ Integer.toString(med)+","+Integer.toString(high);
-		//System.out.println(text);
-
-		deleteLastLine();
-		Path infoFile = Paths.get(pull.toString()+"/INFO.txt");
+		return text;
+	}
+	public static void storeInfo(String text) throws IOException{
+		System.out.println(text);
+		Path infoFile = Paths.get(pull.toString()+"/"+pull.toString().split("/")[8]+"_INFO.txt");
 		Files.write(infoFile, text.getBytes(), StandardOpenOption.APPEND);
+		System.err.println("Stored");
 	}
 	
 	public static void deleteLastLine() throws IOException{
-		RandomAccessFile f = new RandomAccessFile(pull.toString()+"/INFO.txt", "rw");
+		RandomAccessFile f = new RandomAccessFile(pull.toString()+"/"+pull.toString().split("/")[8]+"_INFO.txt", "rw");
 		long length = f.length() - 1;
 		do {                     
 		  length -= 1;
