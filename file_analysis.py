@@ -26,10 +26,8 @@ if userID == 'd':
 else:
 	listofRepoID.append(int(userID))
 for repo in range(len(listofRepoID)):
-	GithubOAuth(listOfClients[repo],listOfSecrets[repo])
-
-	rates = g.get_rate_limit()
-	print rates
-	storePull(listofRepoID[repo])
+	g = GithubOAuth(listOfClients[repo],listOfSecrets[repo])
+	#g = useGitAuth(None)
+	storePull(listofRepoID[repo],g)
 
 

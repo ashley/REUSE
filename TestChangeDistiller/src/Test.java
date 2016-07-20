@@ -25,8 +25,11 @@ public class Test {
 	public static void main(String[] args) throws IOException, SerializationException{
 		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
 		//SampleTSG.main(arguments);
-		distillAllFiles();
+		//distillAllFiles();
 
+		String [] arguments = {"/Users/ashleychen/Desktop/REUSE/REUSE/Repos/weex","true"};
+		AnalyzeWork.main(arguments);
+		
 		/*
 		StructureNode cu = analyzeDistiller();
 		

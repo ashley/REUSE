@@ -11,11 +11,15 @@ reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
 shaLength = 9
 buggyFiles = []
-g = Github()
 
 def GithubOAuth(clientID,secretID):
-	#g = Github(client_id=clientID,client_secret=secretID) #Access to Github API //notmypassword1
-	g = Github("yuannc","freemason1")
+	g = Github(client_id=clientID,client_secret=secretID) #Access to Github API //notmypassword1
+	#g = Github("yuannc","freemason1")
+	return g
+def useGitAuth(token):
+	#g = Github("96bf3e54424c2da275dd4dfe6ac57969e3689f92")
+	g = Github(client_id='801bea680af08669472f',client_secret='97fc00b28ce6962619732c9bc4d36165c25a6f96')
+	return g
 
 class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Reverted"
 	def __init__(self, pullObj,repoID): #Inolves information from the pull
@@ -58,7 +62,7 @@ class Pull: #Classifies pull reuqests as "Accepted", "Rejected", "Open", and "Re
 			self.result = "Accepted"
 
 	def writePullAttributes(self):
-		filePath = "Repos"+"//"+self.repoName+"//"+str(self.number)+"_"+self.result+"//INFO.txt"
+		filePath = "Repos"+"//"+self.repoName+"//"+str(self.number)+"_"+self.result+"//"+str(self.number)+"_"+self.result+"_"+"INFO.txt"
 		with open(filePath, 'wb') as fo:
 			for key, value in vars(self).items():
 				fo.write('%s:%s\n' % (key, value))
@@ -124,7 +128,7 @@ def samplePull():
 	repo = g.get_repo(17752176)
 	return repo
 
-def storePull(repoID):
+def storePull(repoID,g):
 	repo = g.get_repo(repoID)
 	cloneFiles(repo)
 	storeBuggyFiles()
