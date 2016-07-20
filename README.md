@@ -12,7 +12,7 @@ listofRepoID = [] #Repo Example: 19148949
 
 
 ## Process ChangeDistiller and Entropy to Repos
-1. Be sure that TestChangeDistiller is has [codemining-treelm](msashleychen/codemining-treelm) and [ChangeDistiller](https://bitbucket.org/sealuzh/tools-changedistiller/wiki/Home) as maven dependencies. Also make sure there is a .ser file in [Entropy-model folder] (msashleychen/REUSE/tree/master/Entropy-model) named after the repo.
+1. Be sure that TestChangeDistiller is has [codemining-treelm](https://github.com/msashleychen/codemining-treelm) and [ChangeDistiller](https://bitbucket.org/sealuzh/tools-changedistiller/wiki/Home) as maven dependencies. Also make sure there is a .ser file in [Entropy-model folder] (/Entropy-model) named after the repo.
 2. Run AnalyzeWork's main from TestChangeDistiller. It will ask for two arguments (the repo path and whether you want to store changes). The repo path should be a directory of the repo. To store changes, enter true to add ChangeDistiller's output and entropy to each pull's info file.
 3. While the program runs, it should print change distiller information.
 4. To check if the program succeed, check any pull info.txt file for additional info.
