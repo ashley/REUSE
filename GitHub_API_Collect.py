@@ -12,8 +12,8 @@ sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
 shaLength = 9
 buggyFiles = []
 
-def GithubOAuth(clientID,secretID):
-	g = Github(client_id=clientID,client_secret=secretID) #Access to Github API //notmypassword1
+def GithubOAuth(givenToken):
+	g = Github(login_or_token=givenToken) #Access to Github API //notmypassword1
 	#g = Github("yuannc","freemason1")
 	return g
 def useGitAuth(token):
