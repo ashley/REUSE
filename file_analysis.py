@@ -4,7 +4,7 @@ import os
 def picklingRepos():
 	pas = 0
 
-	if os.path.lexists("/Users/ashleychen/Desktop/REUSE/REUSE/repoID.p") and pas == 1:
+	if os.path.lexists("/Users/ashleychen/Desktop/REUSE/REUSE/repoID.p") and pas == 1: #safety pin
 		print "already pickled files"
 		listofRepoID = openPickledData('repoID.p')
 	else:
@@ -31,8 +31,4 @@ for repo in range(len(listofRepoID)):
 	storePull(listofRepoID[repo],g)
 
 	repoCollection = []
-	for id in listofRepoID:
-		repoCollection.append(createPullClass(id))
-	pickledData("repoCollection",repoCollection)
-
-
+	

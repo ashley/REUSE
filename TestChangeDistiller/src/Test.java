@@ -26,9 +26,6 @@ public class Test {
 		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
 		//SampleTSG.main(arguments);
 		//distillAllFiles();
-
-		String [] arguments = {"/Users/ashleychen/Desktop/REUSE/REUSE/Repos/weex","true"};
-		AnalyzeWork.main(arguments);
 		
 		/*
 		StructureNode cu = analyzeDistiller();

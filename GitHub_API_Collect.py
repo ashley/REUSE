@@ -13,7 +13,7 @@ shaLength = 9
 buggyFiles = []
 
 def GithubOAuth(givenToken):
-	g = Github(login_or_token=givenToken) #Access to Github API //notmypassword1
+	g = Github(login_or_token=givenToken) #Access to Github API //don't use pass
 	#g = Github("yuannc","freemason1")
 	return g
 def useGitAuth(token):
@@ -262,7 +262,7 @@ def storeBuggyFiles():
 	print "There were" + str(len(buggyFiles)) + " files that were not retreived."
 	f = open("BuggyFiles.txt","wb")
 	for line in buggyFiles:
-		f.write(lines + "\n")
+		f.write(line + "\n")
 		f.close()
 
 

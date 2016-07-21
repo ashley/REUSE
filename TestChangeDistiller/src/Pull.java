@@ -15,6 +15,7 @@ import java.util.TreeMap;
 
 import com.google.common.base.Joiner;
 
+import codemining.lm.tsg.tui.TsgEntropy;
 import codemining.util.serialization.ISerializationStrategy.SerializationException;
 
 public class Pull {
@@ -23,11 +24,13 @@ public class Pull {
 	private static String before = "_BEFORE.txt";
 	private static String after = "_AFTER.txt";
 	private static boolean worked;
-	private static Map <String,Integer> compatible = new HashMap<>();
+	private static Map <String,Double> compatible = new HashMap<>();
 	private static Map <String,ArrayList<Integer>> pullSign = new HashMap<>();
+	private static String pullPath;
 	
-	Pull(String repoPath){
-		pull = new File(repoPath);
+	Pull(String pullPathh){
+		pullPath = pullPathh;
+		pull = new File(pullPath);
 		files = pull.listFiles();
 		pull.toString();
 	}
@@ -38,7 +41,8 @@ public class Pull {
 	
 	public static File getFileVersion(int num, String version){
 		if (version.equals("before")) {
-			return (new File(files[num].toString() + "/" + getSha(num) + before));
+			File fi = new File(files[num].toString() + "/" + getSha(num) + before);
+			return (fi);
 		} else {
 			return (new File(files[num].toString() + "/" + getSha(num) + after));
 		}
@@ -46,78 +50,82 @@ public class Pull {
 	}
 	
 	public static String getSha(int num){
-		return (files[num].toString().split("/")[9]);
+		return (files[num].toString().split("/")[files[num].toString().split("/").length-1]);
 	}
 	public static int getFilesCount(){
 		return (files.length);
 	}
 	
-	public static void getChanges(boolean storeChanges) throws IOException, SerializationException{
+	public static void getChanges(boolean storeChanges,String repoName, TsgEntropy te) throws IOException, SerializationException{
 		//compatible.clear();
 		pullSign.clear();
-		int work = 0;
-		int doesntWork = 0;
 		Distiller aDistiller = new Distiller();
-		Map<String,Integer> defaultMap = aDistiller.createChangeMap();
-		System.err.println(defaultMap.size());
+		Map<String,Double> defaultMap = aDistiller.createChangeMap();
+		Map<String,Double> defaultEntropyMap = aDistiller.createEntropyMap();
+
+		double [] entropy = new double [2];
 		//Map<String,Integer> changeMap;
 		for (int i = 0; i<getFilesCount();i++){
+			boolean beforeFile = false;
+			boolean afterFile = false;
 			if(!files[i].isFile()){
-				if(files[i].listFiles().length >= 2){
 					System.out.println(files[i]);
 					worked = false;
-					aDistiller.executeDistiller(getFileVersion(i,"before"),getFileVersion(i,"after"));
+					if(files[i].listFiles().length >= 2){
+						aDistiller.executeDistiller(getFileVersion(i,"before"),getFileVersion(i,"after"));
+						beforeFile = true;
+						afterFile = true;
+					}
+					else if((getFileVersion(i,"after")).exists()){
+						afterFile = true;
+						aDistiller.setFileVersions(getFileVersion(i,"after"), "after");
+					}
+					else if((getFileVersion(i,"before")).exists()){
+						beforeFile = true;
+						aDistiller.setFileVersions(getFileVersion(i,"before"), "before");
+					}
 					aDistiller.clearArrayList();
-					aDistiller.getChanges();
-					Map<String,Integer> changeMap = aDistiller.getChangeMap();
-					changeMap.forEach((k, v) -> defaultMap.merge(k, v, Integer::sum));
-					System.out.println("CHANGEMAP: " + convertEntitiesToString(changeMap));
-					System.out.println("DEFAULTMAP:" + convertEntitiesToString(defaultMap));
+					aDistiller.getChanges(beforeFile, afterFile, repoName, te);
+					Map<String,Double> changeMap = aDistiller.getChangeMap();
+					Map<String,Double> entropyMap = aDistiller.getEntropyMap();
+					changeMap.forEach((k, v) -> defaultMap.merge(k, v, Double::sum));
+					entropyMap.forEach((k, v) -> defaultEntropyMap.merge(k, v, Double::sum));
 					pullSign.put(Integer.toString(i),aDistiller.getSigList());
-					//String [] entropy = StoreEntropy.entropyLevel(pull.toString());
-					//aDistiller.getArrayList().add("Entropy: " + entropy[0]);
-					//aDistiller.getArrayList().add("Cross-Entropy: " + entropy[1]);
-					if (!aDistiller.getArrayList().isEmpty()){
-						work++;
-						System.out.println("ARRAYLIST:" + aDistiller.getArrayList());
-						if (storeChanges){
-							storeChanges(aDistiller.getArrayList(),i);
-						}
-					}
-					else{
-						doesntWork++;
-					}
-				}
+					entropy[0] = 1.1;//StoreEntropy.entropyLevel(pull.toString());
+					aDistiller.getArrayList().add("Entropy: " + entropy[0]);
+					aDistiller.getArrayList().add("Cross-Entropy: " + entropy[1]);
+					System.err.println(aDistiller.getArrayList());
 			}
 		}//for
-		storeInfo(sumSig()+",");
-		storeInfo(convertEntitiesToString(defaultMap));
+		System.out.println(defaultEntropyMap);
+		if (storeChanges){
+			storeInfo(convertEntitiesToString(defaultEntropyMap)+",");
+			storeInfo(sumSig()+",");
+			storeInfo(convertEntitiesToString(defaultMap));
+		}
 	}//getChanges
 	
-	public static Map<String, Integer> checkChanges(){
+	public static Map<String, Double> checkChanges(){
 		return compatible;
 	}
 	
-	public static String convertEntitiesToString(Map<String,Integer> map){
+	public static String convertEntitiesToString(Map<String, Double> map){
 		String text;
-		List<Integer> listt = new ArrayList<Integer>(map.values());
-		System.out.println(map.size());
-		System.out.println("LIST COUNT: " + listt.size());
+		List<Object> listt = new ArrayList<Object>(map.values());
 		text = Joiner.on(",").join(listt);
 		return text;
 	}
 	
-	public static void storeChanges(ArrayList<String> changesInString, int fileNum) throws IOException{
+	public static void storeChanges(ArrayList<String> changesInString) throws IOException{
 		List<String> lines = changesInString;
-	    Path textFile = Paths.get(files[fileNum].toString() + "/" + getSha(fileNum)+"CHANGES.txt");
-	    Files.write(textFile, lines, Charset.forName("UTF-8"));
+		Path infoFile = Paths.get(pullPath+"/"+pullPath.split("/")[pullPath.split("/").length-1]+"_INFO.txt");
+	    Files.write(infoFile, lines, Charset.forName("UTF-8"),StandardOpenOption.APPEND);
 	}
 	
 	public static String sumSig() throws IOException{
 		int low=0;
 		int med=0;
 		int high=0;
-		System.out.println(pullSign);
 		for(Map.Entry<String, ArrayList<Integer>> mp: pullSign.entrySet()){
 			low = low + mp.getValue().get(0);
 			med = med + mp.getValue().get(1);
@@ -127,14 +135,14 @@ public class Pull {
 		return text;
 	}
 	public static void storeInfo(String text) throws IOException{
-		System.out.println(text);
-		Path infoFile = Paths.get(pull.toString()+"/"+pull.toString().split("/")[8]+"_INFO.txt");
+		System.out.println("STORING INFO: " + text);
+		Path infoFile = Paths.get(pullPath+"/"+pullPath.split("/")[pullPath.split("/").length-1]+"_INFO.txt");
 		Files.write(infoFile, text.getBytes(), StandardOpenOption.APPEND);
 		System.err.println("Stored");
 	}
 	
 	public static void deleteLastLine() throws IOException{
-		RandomAccessFile f = new RandomAccessFile(pull.toString()+"/"+pull.toString().split("/")[8]+"_INFO.txt", "rw");
+		RandomAccessFile f = new RandomAccessFile(pullPath+"/"+pullPath.split("/")[pullPath.split("/").length-1]+"_INFO.txt", "rw");
 		long length = f.length() - 1;
 		do {                     
 		  length -= 1;
