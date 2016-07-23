@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1093727a0>
+added:0
+subtractions:23
+title:Remove methods from FramedConnection that are unused
+otherStatus:0
+idNum:71985846
+number:2594
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:0
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2594
+repoName:okhttp
+-4.32479371086959,-17619.20957808271,-4.371968082563359,-18200.50312771126,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10448f368>
+added:0
+subtractions:33
+title:Fix a major bug in our HPACK encoder.
+otherStatus:0
+idNum:76876107
+number:2716
+numOfFiles:7
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:7
+additions:15
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2716
+repoName:okhttp
+-82.17503256428704,-128327.4447904634,-84.58571496629173,-135256.7066072811,0,14,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1054cf5a8>
+added:0
+subtractions:27
+title:Android refactor
+otherStatus:0
+idNum:77702471
+number:811
+numOfFiles:1
+label:alibaba:dev
+repo:53658802
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:5
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/811
+repoName:weex
+-0.37204872936287114,-588.2090411226993,-3.2025602721533026,-5060.045230002218,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

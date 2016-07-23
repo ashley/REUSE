@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e193a28>
+added:0
+subtractions:1
+title:Use Okio 1.4.0 final.
+otherStatus:0
+idNum:35575166
+number:1655
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:1
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1655
+repoName:okhttp
+0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

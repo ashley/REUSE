@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10de857a0>
+added:0
+subtractions:16
+title:Don't get stuck waiting on the connection window.
+otherStatus:0
+idNum:33612378
+number:1570
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:65
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1570
+repoName:okhttp
+-26.500317031749383,-132837.0866948436,-26.606623897535577,-130275.92983340647,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

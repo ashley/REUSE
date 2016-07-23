@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d208830>
+added:0
+subtractions:9
+title:Expose WebSocket.closeConnection() to public API
+otherStatus:0
+idNum:37713319
+number:1702
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:5
+additions:18
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1702
+repoName:okhttp
+-70.29609026142447,-105470.13982408849,-68.64629350905855,-105051.89910897135,15,5,5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

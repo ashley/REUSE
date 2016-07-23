@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f4a8680>
+added:0
+subtractions:1
+title:unsigned short frame length bug fixed
+otherStatus:0
+idNum:30398399
+number:1464
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:2
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1464
+repoName:okhttp
+-5.013355237454485,-7354.59213334573,-4.997423106644347,-7321.224851233968,1,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

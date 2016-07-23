@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x109197d88>
+added:0
+subtractions:42
+title:Teach OkHttp to lookup the X509TrustManagerFactory.
+otherStatus:0
+idNum:57315779
+number:2285
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:123
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2285
+repoName:okhttp
+-20.951659887912648,-31117.372660197194,-21.32148316211343,-28769.712441390322,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10afc66c8>
+added:0
+subtractions:27
+title:Remove some older, deprecated APIs.
+otherStatus:0
+idNum:53519019
+number:2091
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:0
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2091
+repoName:okhttp
+-13.005152001731865,-12521.06145894768,-13.235533306458569,-13062.106589950341,0,0,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

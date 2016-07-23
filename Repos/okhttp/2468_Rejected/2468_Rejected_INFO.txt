@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a5c1ea8>
+added:3
+subtractions:0
+title:Bundle for okcurl and local launcher
+otherStatus:0
+idNum:65886694
+number:2468
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:168
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2468
+repoName:okhttp
+-0.165166468960214,-37.32762198500836,-0.21829018704683253,-37.32762198500836,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

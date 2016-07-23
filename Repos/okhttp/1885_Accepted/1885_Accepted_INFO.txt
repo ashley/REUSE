@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c957a70>
+added:0
+subtractions:13
+title:use URI constructor for encoding
+otherStatus:0
+idNum:46276303
+number:1885
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:19
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1885
+repoName:okhttp
+-20.063258229622342,-326488.06513702316,-20.02256264111931,-325876.51607081026,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

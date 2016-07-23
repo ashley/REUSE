@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c6d3320>
+added:0
+subtractions:8
+title:Fix SSLSocket configuration
+otherStatus:0
+idNum:52776255
+number:2066
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:8
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2066
+repoName:okhttp
+-4.171713034621327,-6053.1556132355445,-4.147755258385132,-6018.392879916827,2,2,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

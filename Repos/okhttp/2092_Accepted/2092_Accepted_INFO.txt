@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b09df80>
+added:0
+subtractions:10
+title:Remove deprecated MWS method. Use url() instead.
+otherStatus:0
+idNum:53519022
+number:2092
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:0
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2092
+repoName:okhttp
+-4.08775590044883,-22568.50032637799,-4.0950470714941565,-22723.416199721076,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

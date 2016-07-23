@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e7307a0>
+added:0
+subtractions:0
+title:Documentation that impls must call close on message payloads.
+otherStatus:0
+idNum:31100307
+number:1493
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:4
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1493
+repoName:okhttp
+-6.032914683194105,-699.8181032505162,-6.032914683194105,-699.8181032505162,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

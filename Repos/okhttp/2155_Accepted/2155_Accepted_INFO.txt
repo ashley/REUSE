@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b4f9680>
+added:3
+subtractions:160
+title:New CookieJar interface.
+otherStatus:0
+idNum:54563863
+number:2155
+numOfFiles:17
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:14
+additions:327
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2155
+repoName:okhttp
+-548.2938286704513,-2406471.8577886103,-434.30775300500886,-2371647.824414257,323,119,34,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,42.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,47.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

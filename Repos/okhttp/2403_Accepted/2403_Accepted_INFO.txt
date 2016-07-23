@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a60aa28>
+added:0
+subtractions:4
+title:Ensure network interceptors always have access to the underlying connection.
+otherStatus:0
+idNum:62674615
+number:2403
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:33
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2403
+repoName:okhttp
+-9.641171619882613,-43116.72920569111,-9.682604085268052,-42436.996297747755,10,2,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

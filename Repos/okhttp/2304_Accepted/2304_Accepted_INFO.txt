@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ae80e18>
+added:3
+subtractions:136
+title:New CertificateAuthorityCouncil class to normalize certificate chains.
+otherStatus:0
+idNum:57777157
+number:2304
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:525
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2304
+repoName:okhttp
+-83.53194496268027,-463346.1350116188,-39.92442055702619,-436352.6333725089,834,84,234,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,27.0,0.0,0.0,0.0,0.0,0.0,0.0,149.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,352.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

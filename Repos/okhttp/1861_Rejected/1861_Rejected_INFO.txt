@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cfdc0e0>
+added:0
+subtractions:0
+title:Add test for AsyncCall failure in application Interceptor
+otherStatus:0
+idNum:45361577
+number:1861
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:11
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1861
+repoName:okhttp
+-2.0676578904065424,-27224.851442982945,-2.0628296826060972,-26990.063567218174,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

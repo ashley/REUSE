@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f49dfc8>
+added:0
+subtractions:3
+title:Fail properly when a port is out of range.
+otherStatus:0
+idNum:29785446
+number:1450
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:16
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1450
+repoName:okhttp
+-13.502868237100317,-44699.27367799698,-13.582695283971798,-44462.80425431859,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

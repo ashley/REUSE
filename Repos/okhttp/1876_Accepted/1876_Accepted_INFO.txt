@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cbfeab8>
+added:0
+subtractions:134
+title:Introduce intermediate storage for frame contents.
+otherStatus:0
+idNum:46093961
+number:1876
+numOfFiles:7
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:7
+additions:181
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1876
+repoName:okhttp
+-115.04218094600257,-128110.89692186953,-117.5202824052048,-125241.90720204831,490,322,119,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,288.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,19.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0

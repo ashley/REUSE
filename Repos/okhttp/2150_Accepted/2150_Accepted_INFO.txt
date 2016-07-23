@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b514c20>
+added:0
+subtractions:224
+title:Sort more imports and wrap documentation at 100 columns.
+otherStatus:0
+idNum:54518095
+number:2150
+numOfFiles:41
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:41
+additions:217
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2150
+repoName:okhttp
+-2257.525276216786,-1285292.5901639361,-2384.9451661757953,-1351672.8419831477,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

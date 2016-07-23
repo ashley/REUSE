@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ae09320>
+added:3
+subtractions:92
+title:Don't build a trust root index on Android.
+otherStatus:0
+idNum:58549760
+number:2324
+numOfFiles:8
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:2
+result:Accepted
+modified:3
+additions:220
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2324
+repoName:okhttp
+-168.84940401464056,-162285.2976937436,-56.17158110700586,-124693.55204004087,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

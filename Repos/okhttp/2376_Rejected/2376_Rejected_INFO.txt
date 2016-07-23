@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x105f81ab8>
+added:0
+subtractions:4
+title:Detect plaintext bodies
+otherStatus:0
+idNum:61002973
+number:2376
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:81
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2376
+repoName:okhttp
+-10.512423033819545,-22027.0112363489,-11.276129197421902,-23036.907652912894,28,32,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,6.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

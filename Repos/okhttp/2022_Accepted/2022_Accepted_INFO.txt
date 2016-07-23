@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ce6bb90>
+added:0
+subtractions:0
+title:Add Call.isExecuted().
+otherStatus:0
+idNum:51467937
+number:2022
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:8
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2022
+repoName:okhttp
+-5.436592097308629,-6942.528108263119,-5.441283584510853,-6888.66501799074,1,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

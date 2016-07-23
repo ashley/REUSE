@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a0d9320>
+added:0
+subtractions:16
+title:Upgrade to Okio 1.8.0.
+otherStatus:0
+idNum:68522074
+number:2529
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:6
+additions:16
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2529
+repoName:okhttp
+-72.80989328086629,-135641.71562346813,-73.28606993649846,-136658.12713738167,18,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

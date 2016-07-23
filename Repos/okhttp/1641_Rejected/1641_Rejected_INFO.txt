@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d6e11b8>
+added:0
+subtractions:7
+title:Make matching of TlsVersion optionally stricter
+otherStatus:0
+idNum:35347591
+number:1641
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:5
+additions:123
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1641
+repoName:okhttp
+-53.202537068307805,-505788.9515932272,-52.39118771891671,-494835.5136261797,70,5,5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

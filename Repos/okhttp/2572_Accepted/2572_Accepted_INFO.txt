@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a1587e8>
+added:0
+subtractions:118
+title:Better documentation and examples on closing response bodies.
+otherStatus:0
+idNum:70962492
+number:2572
+numOfFiles:27
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:27
+additions:204
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2572
+repoName:okhttp
+-978.1978770864849,-355447.9201937618,-1050.835820908995,-367730.084507383,27,0,162,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

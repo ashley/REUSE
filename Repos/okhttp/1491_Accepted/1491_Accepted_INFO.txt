@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e98f320>
+added:0
+subtractions:39
+title:Update cache docs to use Call and CacheControl.
+otherStatus:0
+idNum:31094157
+number:1491
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:64
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1491
+repoName:okhttp
+-4.002437361855661,-11999.30721084327,-4.002437361855661,-11999.30721084327,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

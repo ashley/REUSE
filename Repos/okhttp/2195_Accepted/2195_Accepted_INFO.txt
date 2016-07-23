@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b182830>
+added:0
+subtractions:2
+title:Handle unknown content lengths.
+otherStatus:0
+idNum:55004342
+number:2195
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:24
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2195
+repoName:okhttp
+-10.314265613925762,-27095.35631661808,-10.355210766169442,-26377.222829725433,6,2,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

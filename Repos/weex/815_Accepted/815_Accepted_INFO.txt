@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x105265f38>
+added:6
+subtractions:1046
+title:[jsfm] v0.15.1
+otherStatus:1
+idNum:77758300
+number:815
+numOfFiles:41
+label:alibaba:dev
+repo:53658802
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:33
+additions:1129
+removed:1
+blob:https://api.github.com/repos/alibaba/weex/pulls/815
+repoName:weex
+-87.89047061542021,-152242.3029738112,-62.11465880070549,-107194.55675787045,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

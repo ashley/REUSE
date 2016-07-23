@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e82ab00>
+added:0
+subtractions:10
+title:Fix MockWebServer with SPDY on Android.
+otherStatus:0
+idNum:33252344
+number:1554
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:4
+additions:36
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1554
+repoName:okhttp
+-44.19190082813954,-139099.08960549676,-43.95441140112803,-136686.2652418975,8,0,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

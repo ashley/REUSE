@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10472aab8>
+added:0
+subtractions:17
+title:Fix tests to share a common Dispatcher.
+otherStatus:0
+idNum:75217378
+number:2661
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:13
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2661
+repoName:okhttp
+-11.333129120344303,-31096.008545781344,-12.901264453735948,-32447.330602047594,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

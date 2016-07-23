@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10baa6098>
+added:0
+subtractions:2
+title:Better docs for ResponseBody.
+otherStatus:0
+idNum:54606314
+number:2159
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:28
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2159
+repoName:okhttp
+-11.971916982751292,-4601.2225017806195,-11.971916982751292,-4601.2225017806195,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

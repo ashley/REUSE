@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bf8b128>
+added:0
+subtractions:3
+title:Querying the response content-length never does I/O.
+otherStatus:0
+idNum:54050401
+number:2128
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:3
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2128
+repoName:okhttp
+-22.402304521158946,-19852.456800772063,-22.403515728821123,-19892.847923469337,3,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

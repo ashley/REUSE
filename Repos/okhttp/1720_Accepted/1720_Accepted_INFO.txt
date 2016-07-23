@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10da08878>
+added:0
+subtractions:6
+title:Set default timeouts to ten seconds.
+otherStatus:0
+idNum:38191522
+number:1720
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:13
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1720
+repoName:okhttp
+-14.250309376054247,-29125.1264636803,-14.132043403860216,-28695.980462202046,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

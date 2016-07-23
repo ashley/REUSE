@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10aa73a70>
+added:1
+subtractions:0
+title:Issue template for OkHttp.
+otherStatus:0
+idNum:60094348
+number:2355
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:1
+result:Accepted
+modified:0
+additions:12
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2355
+repoName:okhttp
+0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

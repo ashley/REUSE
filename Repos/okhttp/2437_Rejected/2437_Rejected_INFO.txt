@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a9503b0>
+added:0
+subtractions:0
+title:Add some useful badges with automatic version detection: Maven and Javadoc
+otherStatus:0
+idNum:64150064
+number:2437
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:2
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2437
+repoName:okhttp
+0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

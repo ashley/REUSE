@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10de9ad40>
+added:0
+subtractions:1
+title:Don't return null on call.proceed().
+otherStatus:0
+idNum:33611917
+number:1569
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:21
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1569
+repoName:okhttp
+-12.940781047842128,-41634.19459368747,-12.952303866316132,-41310.094326233884,2,2,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

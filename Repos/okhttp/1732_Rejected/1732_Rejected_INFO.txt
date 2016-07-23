@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10dbdf4d0>
+added:3
+subtractions:272
+title:Split the web socket callback interface into two.
+otherStatus:0
+idNum:38704965
+number:1732
+numOfFiles:15
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:11
+additions:455
+removed:1
+blob:https://api.github.com/repos/square/okhttp/pulls/1732
+repoName:okhttp
+-456.770956363703,-284974.3786781839,-339.83907915790746,-250034.7943966328,780,90,480,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,3.0,3.0,0.0,130.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,264.0,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,114.0,0.0,0.0,0.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

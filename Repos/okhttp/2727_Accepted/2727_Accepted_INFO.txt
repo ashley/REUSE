@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1044506c8>
+added:0
+subtractions:28
+title:Huffman encode string literals to save bytes in HPACK encoder.
+otherStatus:0
+idNum:77556333
+number:2727
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:5
+additions:56
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2727
+repoName:okhttp
+-28.075922293424483,-55384.32112371578,-47.62124275608532,-102017.75628872265,60,20,20,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,34.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

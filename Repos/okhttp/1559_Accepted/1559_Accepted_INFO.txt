@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e4bc9e0>
+added:0
+subtractions:9
+title:Never convert null into an empty request body.
+otherStatus:0
+idNum:33392436
+number:1559
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:5
+additions:21
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1559
+repoName:okhttp
+-63.127847829960075,-164271.18184279633,-63.25094981081414,-162096.89399676328,40,15,5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,29.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

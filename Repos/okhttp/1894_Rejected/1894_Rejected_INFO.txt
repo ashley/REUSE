@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d205e18>
+added:0
+subtractions:0
+title:adding ability to get query & post params from the request
+otherStatus:0
+idNum:46631006
+number:1894
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:172
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1894
+repoName:okhttp
+-14.428512751085432,-20728.68958914836,-11.694961531326495,-10936.779185410058,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

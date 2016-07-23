@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b99a6c8>
+added:0
+subtractions:7
+title:Reduce flakiness in Spdy3ConnectionTest.headersOnlyStreamIsClosedAfterReply
+otherStatus:0
+idNum:54183678
+number:2135
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:7
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2135
+repoName:okhttp
+-26.229494425064516,-146650.5892089741,-26.274657828679395,-146630.56623072157,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

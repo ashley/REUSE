@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a16a248>
+added:1
+subtractions:78
+title:Recover from REFUSED_STREAM errors in HTTP/2.
+otherStatus:0
+idNum:70956720
+number:2571
+numOfFiles:9
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:8
+additions:264
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2571
+repoName:okhttp
+-164.16091128011206,-900579.7538000465,-140.83621169378492,-890606.2315950082,126,18,36,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,27.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,31.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

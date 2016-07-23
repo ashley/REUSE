@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1096a5f80>
+added:0
+subtractions:4
+title:Changed CertificatePinner to ignore case when matching pins.
+otherStatus:0
+idNum:73497145
+number:2617
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:34
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2617
+repoName:okhttp
+-10.736046602903619,-15284.84468558762,-10.716494104543024,-13953.064974372868,4,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

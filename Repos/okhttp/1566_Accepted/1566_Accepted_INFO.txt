@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e462320>
+added:0
+subtractions:0
+title:Add a test for case insensitive content type matching.
+otherStatus:0
+idNum:33549370
+number:1566
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:10
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1566
+repoName:okhttp
+-3.8645726827326228,-8486.60161128084,-3.869538580904732,-8153.11778996627,1,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

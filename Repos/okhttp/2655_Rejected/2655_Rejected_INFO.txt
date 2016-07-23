@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1046e0e18>
+added:0
+subtractions:2
+title:Add encode for asterisk in form fields.
+otherStatus:0
+idNum:75099505
+number:2655
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:2
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2655
+repoName:okhttp
+-10.890892483536575,-37794.798271352236,-10.868105373137853,-37747.64359358575,2,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

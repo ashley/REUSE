@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1096b4ef0>
+added:0
+subtractions:33
+title:Setting default String locale to Locale.US
+otherStatus:0
+idNum:68271730
+number:2523
+numOfFiles:18
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:18
+additions:47
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2523
+repoName:okhttp
+-591.8344347799705,-1641740.6691686374,-611.6087736223212,-1685772.7606752128,90,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,57.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

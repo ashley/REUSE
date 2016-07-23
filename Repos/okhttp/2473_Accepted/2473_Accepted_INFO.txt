@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1094e6b48>
+added:0
+subtractions:19
+title:Don't start the reader thread until after the connection preface.
+otherStatus:0
+idNum:65915772
+number:2473
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:6
+additions:47
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2473
+repoName:okhttp
+-86.43040532433311,-369806.861520509,-86.44433969787852,-368127.9426330016,6,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

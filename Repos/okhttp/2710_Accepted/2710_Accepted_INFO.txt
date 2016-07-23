@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1046185a8>
+added:0
+subtractions:10
+title:Document OkHttpClient best practices.
+otherStatus:0
+idNum:76834815
+number:2710
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:63
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2710
+repoName:okhttp
+-2.365270860981111,-6823.806433930506,-2.364561154226691,-6800.477879555963,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

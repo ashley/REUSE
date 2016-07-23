@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cafda28>
+added:0
+subtractions:26
+title:Shutdown reply executors when web socket closes.
+otherStatus:0
+idNum:46108764
+number:1880
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:29
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1880
+repoName:okhttp
+-37.93182850473583,-104409.68792489861,-38.18752608326256,-104648.83299270611,60,36,28,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,37.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

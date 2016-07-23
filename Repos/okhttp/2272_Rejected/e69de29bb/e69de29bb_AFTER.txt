@@ -1,0 +1,20 @@
+//SHA: e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+//Path: justtest.txt
+//Version: _AFTER.txt
+//File Type: txt
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>503 between bytes timeout</title>
+  </head>
+  <body>
+    <h1>Error 503 between bytes timeout</h1>
+    <p>between bytes timeout</p>
+    <h3>Guru Mediation:</h3>
+    <p>Details: cache-jfk1031-JFK 1469199118 1216347173</p>
+    <hr>
+    <p>Varnish cache server</p>
+  </body>
+</html>

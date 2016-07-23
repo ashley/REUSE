@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a89f5a8>
+added:0
+subtractions:3
+title:Gracefully recover from a failure to rebuild the DiskLruCache journal.
+otherStatus:0
+idNum:61814553
+number:2388
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:220
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2388
+repoName:okhttp
+-17.929377993838834,-118865.8139360583,-18.089826949503433,-108002.08746960221,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

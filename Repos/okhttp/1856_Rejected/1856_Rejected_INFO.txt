@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c38bc20>
+added:0
+subtractions:1
+title:feat: Need expanding 'QUERY_COMPONENT_ENCODE_SET' values in 'okhttp/H…
+otherStatus:0
+idNum:45140434
+number:1856
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:1
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1856
+repoName:okhttp
+-3.7993821370336027,-27423.940265108544,-3.7969855126163994,-27406.64143006517,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

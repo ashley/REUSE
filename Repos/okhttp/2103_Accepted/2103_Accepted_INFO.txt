@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bb03b48>
+added:0
+subtractions:5
+title:Deprecate the Apache shim.
+otherStatus:0
+idNum:53656640
+number:2103
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:3
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2103
+repoName:okhttp
+-4.446590314733735,-5811.693541356991,-4.446590314733735,-5811.693541356991,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

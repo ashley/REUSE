@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ca48170>
+added:0
+subtractions:12
+title:moved all body validations from Request.Builder to Request.validate()
+otherStatus:0
+idNum:52883932
+number:2071
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:5
+additions:112
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2071
+repoName:okhttp
+-58.14010057303547,-155786.41985644677,-58.10486580894871,-152330.71072833455,15,30,5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,23.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

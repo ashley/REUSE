@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c1c1560>
+added:0
+subtractions:51
+title:Change async cancel to cancel the raw socket only.
+otherStatus:0
+idNum:52083364
+number:2048
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:119
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2048
+repoName:okhttp
+-27.697356237967146,-80869.9337758641,-27.74227739715364,-80999.20601949785,33,0,6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,4.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

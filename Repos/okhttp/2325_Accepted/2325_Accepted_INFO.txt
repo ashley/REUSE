@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10adf0d40>
+added:0
+subtractions:1
+title:Support the GMS security provider when searching for the trust manager.
+otherStatus:0
+idNum:58562084
+number:2325
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:12
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2325
+repoName:okhttp
+-4.6012656731621595,-11678.012278485561,-4.610839157449408,-11480.989502049024,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

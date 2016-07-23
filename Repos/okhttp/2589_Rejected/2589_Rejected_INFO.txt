@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10956bd40>
+added:1
+subtractions:0
+title:samples closing cleanly
+otherStatus:0
+idNum:71810935
+number:2589
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:63
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2589
+repoName:okhttp
+-7.994255874767249,-2060.291566800916,-7.994255874767249,-2060.291566800916,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

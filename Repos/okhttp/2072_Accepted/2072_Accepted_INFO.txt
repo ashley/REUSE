@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c3b45a8>
+added:0
+subtractions:55
+title:Prune connections when the max idle limit is exceeded.
+otherStatus:0
+idNum:52935094
+number:2072
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:1
+result:Accepted
+modified:4
+additions:94
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2072
+repoName:okhttp
+-62.12359427183377,-161093.298227388,-61.981351657082286,-155380.06124189397,85,60,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,115.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

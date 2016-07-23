@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cce0710>
+added:0
+subtractions:10
+title:Honor (and thus fail on) reserved close codes defined in the spec.
+otherStatus:0
+idNum:46095873
+number:1877
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:65
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1877
+repoName:okhttp
+-8.479408008340268,-17126.822934654992,-8.571727729807254,-17050.4348962634,10,8,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

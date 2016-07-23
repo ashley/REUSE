@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ae29b48>
+added:0
+subtractions:1
+title:Tweak error copy, add a couple tests
+otherStatus:0
+idNum:56082426
+number:2244
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:21
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2244
+repoName:okhttp
+-9.16036450476145,-17583.665789616924,-9.205465178073101,-17112.261652821,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

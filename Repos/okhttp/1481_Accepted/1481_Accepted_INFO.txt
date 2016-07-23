@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f255170>
+added:0
+subtractions:28
+title:Use the now-generalized reply executor for peer close.
+otherStatus:0
+idNum:30807100
+number:1481
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:56
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1481
+repoName:okhttp
+-39.32065312554688,-85580.88219293562,-39.64558677393113,-83178.49467800745,28,16,40,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,46.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

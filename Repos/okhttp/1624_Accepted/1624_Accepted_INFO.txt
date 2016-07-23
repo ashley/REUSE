@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e0bf5f0>
+added:0
+subtractions:51
+title:Compare and contrast with java.net.URL, java.net.URI.
+otherStatus:0
+idNum:35098825
+number:1624
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:218
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1624
+repoName:okhttp
+-20.69132894042152,-97303.98221959532,-20.450742274938225,-90874.66479207193,39,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

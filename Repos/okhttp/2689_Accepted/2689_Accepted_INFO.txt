@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1046d0368>
+added:0
+subtractions:26
+title:Removed ability to change the HPACK decoder header table size setting.
+otherStatus:0
+idNum:76077548
+number:2689
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:56
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2689
+repoName:okhttp
+-10.453234829344437,-37993.87525355628,-10.543722944051112,-37183.5061602237,14,26,18,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,56.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b3fa248>
+added:1
+subtractions:10
+title:Provide interceptors as list with read-only methods
+otherStatus:0
+idNum:55544065
+number:2221
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:68
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2221
+repoName:okhttp
+-13.273135839959227,-9462.386846203264,-2.983347568697114,-7559.802739078486,4,6,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

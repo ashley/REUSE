@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f5175f0>
+added:0
+subtractions:5
+title:Correctly determine when test code times out.
+otherStatus:0
+idNum:30762747
+number:1480
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:8
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1480
+repoName:okhttp
+-13.47882321973142,-16872.962859265026,-13.457653867137388,-16692.440716791698,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

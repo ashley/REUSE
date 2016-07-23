@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e3aab90>
+added:0
+subtractions:14
+title:Wildcard hostnames support for CertificatePinner
+otherStatus:0
+idNum:34575810
+number:1598
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:199
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1598
+repoName:okhttp
+-28.663887290385546,-17838.355472241346,-26.70837488999674,-11296.510974333407,45,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

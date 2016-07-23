@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ba59b48>
+added:0
+subtractions:71
+title:Restore no-args constructor for OkHttpClient.
+otherStatus:0
+idNum:54895955
+number:2183
+numOfFiles:24
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:24
+additions:75
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2183
+repoName:okhttp
+-929.7643729709796,-2305697.2555873343,-924.8332979980988,-2314476.492559444,144,24,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,80.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

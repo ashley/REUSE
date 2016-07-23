@@ -1,0 +1,22 @@
+//SHA: 0fae519382b359e38a6511f67df98ca57dd05dbf
+//Path: okhttp-twitter/src/main/java/okhttp/twitter/TwurlRc.java
+//Version: _BEFORE.txt 
+//File Type: java
+package okhttp.twitter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
+import java.util.Map;
+
+public class TwurlRc {
+  public Map<String, Map<String, TwitterCredentials>> profiles;
+  public Map<String, List<String>> configuration;
+
+  public List<String> defaultProfile() {
+    return configuration.get("default_profile");
+  }
+
+  public TwitterCredentials readCredentials(String username, String consumerKey) {
+    return profiles.get(username).get(consumerKey);
+  }
+}

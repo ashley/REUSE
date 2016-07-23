@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a144a28>
+added:0
+subtractions:34
+title:Add a simple version dynamic table of HPACK to the writer client.
+otherStatus:0
+idNum:69762427
+number:2552
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:220
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2552
+repoName:okhttp
+-10.55213571757433,-37229.89418906519,-10.669452741569943,-34938.95606704851,70,2,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,68.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

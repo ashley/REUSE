@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1058223f8>
+added:1
+subtractions:1
+title:[doc] added a cheatsheet
+otherStatus:0
+idNum:77240934
+number:781
+numOfFiles:2
+label:alibaba:doc
+repo:53658802
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:139
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/781
+repoName:weex
+-0.28894048909276887,-143.60342307910614,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

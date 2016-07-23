@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f279998>
+added:0
+subtractions:96
+title:Make OkHttpClient and Call final.
+otherStatus:0
+idNum:31964616
+number:1532
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:58
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1532
+repoName:okhttp
+-48.993309721984275,-68594.05598323909,-48.94973317155543,-69693.80577563813,4,0,28,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

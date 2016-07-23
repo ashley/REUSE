@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a073290>
+added:0
+subtractions:1
+title:http age calculations wrong because of phone time fall back
+otherStatus:0
+idNum:64242233
+number:2442
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:3
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2442
+repoName:okhttp
+-4.131074054974867,-5775.241528854865,-4.0936204911272185,-5706.506964631342,0,1,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

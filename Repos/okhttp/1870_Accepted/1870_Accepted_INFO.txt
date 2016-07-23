@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d23fcb0>
+added:0
+subtractions:1
+title:Make AsyncCall handle interceptors that throws an IOException
+otherStatus:0
+idNum:45874444
+number:1870
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:16
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1870
+repoName:okhttp
+-12.856669780156942,-40629.52259538853,-12.757639629783412,-40038.74842225106,4,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

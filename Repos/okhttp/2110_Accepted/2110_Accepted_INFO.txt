@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b623ea8>
+added:0
+subtractions:2
+title:Unused method argument.
+otherStatus:0
+idNum:53662614
+number:2110
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:2
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2110
+repoName:okhttp
+-3.960900025875892,-12140.15857930961,-3.966623043505925,-12177.53274356319,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

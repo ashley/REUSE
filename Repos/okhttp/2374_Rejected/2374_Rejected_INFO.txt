@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a158290>
+added:0
+subtractions:2
+title:bug fix 2368
+otherStatus:0
+idNum:60980078
+number:2374
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:1
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2374
+repoName:okhttp
+-11.605951920994547,-26796.317995976468,-11.60053448841016,-26898.15414158242,2,8,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

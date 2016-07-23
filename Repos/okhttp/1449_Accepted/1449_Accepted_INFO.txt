@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ea858c0>
+added:0
+subtractions:6
+title:Compute the content length of multipart bodies.
+otherStatus:0
+idNum:29783424
+number:1449
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:48
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1449
+repoName:okhttp
+-10.557189051297444,-11939.622442105836,-10.692314190734134,-11240.620618850851,14,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,14.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ca91200>
+added:0
+subtractions:0
+title:New failing test for HTTP/2 connection interference.
+otherStatus:0
+idNum:50045242
+number:1980
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:57
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1980
+repoName:okhttp
+-2.056714120330774,-27932.234468212246,-2.051190786702281,-27235.71126583289,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

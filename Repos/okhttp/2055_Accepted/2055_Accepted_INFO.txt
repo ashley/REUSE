@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10caf69e0>
+added:0
+subtractions:18
+title:Honor the max concurrent streams setting.
+otherStatus:0
+idNum:52342220
+number:2055
+numOfFiles:9
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:3
+result:Accepted
+modified:6
+additions:97
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2055
+repoName:okhttp
+-235.46899599154892,-323257.3842066551,-122.77891696416077,-186981.73261455406,36,45,27,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

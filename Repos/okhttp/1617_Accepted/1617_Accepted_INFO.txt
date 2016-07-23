@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e075290>
+added:0
+subtractions:4204
+title:Cleanup some HttpUrl tests.
+otherStatus:0
+idNum:35061341
+number:1617
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:74
+removed:4
+blob:https://api.github.com/repos/square/okhttp/pulls/1617
+repoName:okhttp
+-33.03294955963847,-96218.27141736465,-53.80004815010975,-110158.98618681476,84,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,77.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

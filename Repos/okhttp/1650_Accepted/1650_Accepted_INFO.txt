@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e0dda70>
+added:0
+subtractions:24
+title:New FormEncodingBuilder.addEncoded() API.
+otherStatus:0
+idNum:35481045
+number:1650
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:47
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1650
+repoName:okhttp
+-24.774588296285234,-80579.46626414219,-25.69145191225524,-80124.52482588854,18,18,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,2.0,2.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

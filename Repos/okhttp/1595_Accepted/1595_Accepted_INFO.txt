@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e4f2560>
+added:2
+subtractions:0
+title:Some initial URL test cases.
+otherStatus:0
+idNum:34517912
+number:1595
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:0
+additions:540
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1595
+repoName:okhttp
+-10.037252891440167,-24040.895966621018,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

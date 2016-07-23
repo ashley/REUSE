@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d20d4d0>
+added:0
+subtractions:1
+title:Avoid extra MediaType.parse() calls by adding charset to MediaType in FormEncodingBuilder
+otherStatus:0
+idNum:44655736
+number:1847
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:1
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1847
+repoName:okhttp
+-4.587741514678541,-1128.5844126109212,-4.52705890751775,-1113.6564912493666,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

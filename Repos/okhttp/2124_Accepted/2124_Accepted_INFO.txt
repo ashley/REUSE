@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bf90c68>
+added:0
+subtractions:57
+title:Change groupid to com.squareup.okhttp3.
+otherStatus:0
+idNum:53918452
+number:2124
+numOfFiles:19
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:19
+additions:57
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2124
+repoName:okhttp
+0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

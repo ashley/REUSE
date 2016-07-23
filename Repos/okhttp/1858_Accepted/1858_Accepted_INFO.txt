@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cfe9680>
+added:0
+subtractions:12
+title:Fix DelegatingSSLSocketFactory for Android
+otherStatus:0
+idNum:45265802
+number:1858
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:6
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1858
+repoName:okhttp
+-3.6869356289381456,-1423.1571527701242,-3.7374371573811906,-1487.4999886377138,6,12,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bb87248>
+added:0
+subtractions:3
+title:Don't do health checks on brand new connections.
+otherStatus:0
+idNum:54870040
+number:2179
+numOfFiles:1
+label:square:okhttp_27
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:13
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2179
+repoName:okhttp
+-5.416477065466034,-8243.878093639303,-5.443174062198548,-8181.090615484417,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d1e19e0>
+added:4
+subtractions:0
+title:Add logging interceptor for simple request and response logging.
+otherStatus:0
+idNum:46059451
+number:1874
+numOfFiles:7
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:597
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1874
+repoName:okhttp
+-37.307511779640684,-75539.64078674362,-9.451551069076062,-18071.36564407343,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

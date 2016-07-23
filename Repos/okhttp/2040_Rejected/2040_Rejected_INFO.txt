@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ca2b710>
+added:0
+subtractions:64
+title:separate socketTimeout and readTimeout
+otherStatus:0
+idNum:51762135
+number:2040
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:4
+additions:91
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2040
+repoName:okhttp
+-48.8953688986618,-100703.55183824021,-49.02014177679498,-99183.54954125738,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

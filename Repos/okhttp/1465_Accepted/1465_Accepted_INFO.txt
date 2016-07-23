@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ec753f8>
+added:0
+subtractions:6
+title:Payload length continuations are unsigned values.
+otherStatus:0
+idNum:30408535
+number:1465
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:5
+additions:37
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1465
+repoName:okhttp
+-68.37863827384042,-88318.54695899585,-68.5471504971669,-87677.53540785535,25,5,10,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,19.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

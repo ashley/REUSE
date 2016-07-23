@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d30bc20>
+added:0
+subtractions:13
+title:Throw UnknownHostException again from HttpURLConnection
+otherStatus:0
+idNum:43647303
+number:1828
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:6
+additions:119
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1828
+repoName:okhttp
+-104.56114836642982,-437175.77783004334,-105.25663898584213,-430645.4631546875,6,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

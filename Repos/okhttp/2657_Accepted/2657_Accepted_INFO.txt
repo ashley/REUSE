@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x109195f38>
+added:1
+subtractions:147
+title:Collapse interceptors into a single chain.
+otherStatus:0
+idNum:75210282
+number:2657
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:5
+additions:165
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2657
+repoName:okhttp
+-85.88812617059547,-187330.95755822875,-68.87434951770415,-189730.11982995993,12,6,36,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,48.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

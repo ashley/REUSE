@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e4d0f80>
+added:0
+subtractions:1
+title:Bugfix - Avoid null pointer when building an empty RequestBody
+otherStatus:0
+idNum:33375607
+number:1558
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:1
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1558
+repoName:okhttp
+-3.942713900935647,-1707.195119105135,-3.8000818782722665,-1615.0347982657133,1,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

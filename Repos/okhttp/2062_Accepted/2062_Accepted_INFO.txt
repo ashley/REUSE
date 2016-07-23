@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c4cce60>
+added:0
+subtractions:8
+title:Don't log gzipped data. It isn't human readable.
+otherStatus:0
+idNum:52630191
+number:2062
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:59
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2062
+repoName:okhttp
+-12.77585170615022,-22128.364984952546,-13.451370990446673,-21160.126590404576,18,54,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,56.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

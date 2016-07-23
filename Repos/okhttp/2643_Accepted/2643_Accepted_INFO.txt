@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x103f66dd0>
+added:0
+subtractions:0
+title:Reduce memory requirements for MockWebServerTest.disconnectHalfway().
+otherStatus:0
+idNum:74648557
+number:2643
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:3
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2643
+repoName:okhttp
+-2.918737014826312,-7746.328037349032,-2.9250983220775915,-7731.034865251075,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

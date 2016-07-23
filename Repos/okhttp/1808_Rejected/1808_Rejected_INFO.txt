@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d3f03f8>
+added:0
+subtractions:97
+title:OAuth 2.0 authorization header support
+otherStatus:0
+idNum:42576573
+number:1808
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:3
+additions:317
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1808
+repoName:okhttp
+-19.175216364788962,-303333.8466577821,-18.27223437758093,-287270.50656673615,3,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

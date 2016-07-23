@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e86a290>
+added:0
+subtractions:16
+title:Provide context on unexpected EOFs.
+otherStatus:0
+idNum:30913030
+number:1487
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:25
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1487
+repoName:okhttp
+-4.499264936973547,-10609.266721383623,-4.500331104040973,-10382.263857022524,5,1,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

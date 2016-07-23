@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bb67ef0>
+added:1
+subtractions:96
+title:Drop the global static shared connection pool.
+otherStatus:0
+idNum:54764891
+number:2174
+numOfFiles:11
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:10
+additions:104
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2174
+repoName:okhttp
+-206.45955661038312,-1226893.806988118,-208.45227487063568,-1236409.6764454986,66,88,77,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,110.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

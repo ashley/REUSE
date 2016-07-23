@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c4ce8c0>
+added:0
+subtractions:64
+title:Turn IncomingStreamHandler into FramedConnection.Listener.
+otherStatus:0
+idNum:52760297
+number:2065
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:74
+removed:1
+blob:https://api.github.com/repos/square/okhttp/pulls/2065
+repoName:okhttp
+-51.13983168833265,-198289.3620931504,-73.12301677869132,-199900.1629313335,5,0,15,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

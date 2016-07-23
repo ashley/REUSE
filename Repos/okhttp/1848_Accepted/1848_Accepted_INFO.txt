@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d221710>
+added:0
+subtractions:3
+title:use application/x-www-form-urlencoded in okcurl
+otherStatus:0
+idNum:44804872
+number:1848
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:3
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1848
+repoName:okhttp
+-11.664097381824739,-15866.43868225886,-11.731313277582625,-15932.892195068716,6,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

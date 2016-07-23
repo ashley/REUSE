@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a632488>
+added:0
+subtractions:1
+title:Add ability to specify X509TrustManager via builder
+otherStatus:0
+idNum:62839291
+number:2405
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:9
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2405
+repoName:okhttp
+-3.1608374262128813,-8663.855385249508,-3.0591833878683192,-8290.386981123145,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

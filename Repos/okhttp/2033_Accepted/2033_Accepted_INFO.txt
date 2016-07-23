@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c54a758>
+added:0
+subtractions:140
+title:Support 204 and 205 'No Content' replies when application interceptor.
+otherStatus:0
+idNum:51724127
+number:2033
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:335
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2033
+repoName:okhttp
+-13.816448717222055,-19405.861599232234,-14.348653337520595,-21617.790451227396,0,2,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

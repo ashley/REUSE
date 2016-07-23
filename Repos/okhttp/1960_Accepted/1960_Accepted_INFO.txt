@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cd54878>
+added:0
+subtractions:3
+title:Add policy for disconnecting request body halfway.
+otherStatus:0
+idNum:49377828
+number:1960
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:32
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1960
+repoName:okhttp
+-19.01249484647261,-38228.56493975276,-19.488142044004153,-37105.20210997811,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

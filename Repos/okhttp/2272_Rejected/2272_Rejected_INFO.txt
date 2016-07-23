@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b3a2b48>
+added:1
+subtractions:0
+title:the first test
+otherStatus:0
+idNum:56851152
+number:2272
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:0
+additions:0
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2272
+repoName:okhttp
+0.0,0.0,0.0,0.0,24,19,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,43.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

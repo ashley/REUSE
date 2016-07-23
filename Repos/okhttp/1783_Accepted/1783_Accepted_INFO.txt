@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d416758>
+added:0
+subtractions:23
+title:IPv6 canonical string.
+otherStatus:0
+idNum:41412078
+number:1783
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:77
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1783
+repoName:okhttp
+-20.44338192373371,-146345.21669800713,-20.511082997794244,-142928.532453718,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

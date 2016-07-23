@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10de6bf38>
+added:0
+subtractions:21
+title:Update reader state on the reader thread.
+otherStatus:0
+idNum:33625669
+number:1571
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:40
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1571
+repoName:okhttp
+-12.434732216386507,-12921.425270873659,-12.153538285267143,-12149.406812172196,24,10,14,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

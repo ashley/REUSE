@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10dd3a3b0>
+added:0
+subtractions:0
+title:Add toMultimap() method to Headers class
+otherStatus:0
+idNum:34760912
+number:1607
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:25
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1607
+repoName:okhttp
+-10.134474245546134,-18327.004259008187,-10.17088497683442,-17421.03402804533,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

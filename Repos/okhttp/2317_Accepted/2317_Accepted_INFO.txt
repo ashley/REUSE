@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ae4d440>
+added:0
+subtractions:13
+title:Defer known-length payload writes when within a segment of completion.
+otherStatus:0
+idNum:58461847
+number:2317
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:79
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2317
+repoName:okhttp
+-21.062547196809028,-33001.32059020925,-21.024860702374223,-29572.194618030233,12,3,9,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

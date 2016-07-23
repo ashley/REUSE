@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e591830>
+added:9
+subtractions:0
+title:Add support for being able to fluently mock responses
+otherStatus:0
+idNum:34280490
+number:1588
+numOfFiles:9
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:0
+additions:839
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1588
+repoName:okhttp
+-333.61958173882124,-131390.4179453851,0.0,0.0,81,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,45.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x104714488>
+added:0
+subtractions:748
+title:Upgrade to Okio 1.9 and use its pipe.
+otherStatus:0
+idNum:76065919
+number:2685
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:11
+removed:3
+blob:https://api.github.com/repos/square/okhttp/pulls/2685
+repoName:okhttp
+-19.130439553872307,-7409.98705138759,-78.22321397123152,-54455.871424441524,18,6,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

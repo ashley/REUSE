@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10571a518>
+added:0
+subtractions:34
+title:html5 enhancement of timer and input
+otherStatus:0
+idNum:77571590
+number:805
+numOfFiles:4
+label:alibaba:dev
+repo:53658802
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:75
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/805
+repoName:weex
+0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

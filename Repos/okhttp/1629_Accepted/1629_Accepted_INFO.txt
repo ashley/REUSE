@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10df4e488>
+added:0
+subtractions:115
+title:Rename username to encodedUsername and decodeUsername to username
+otherStatus:0
+idNum:35186442
+number:1629
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:117
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1629
+repoName:okhttp
+-36.2141959232822,-196425.57500797845,-36.6685737580742,-199320.27114238683,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,9 @@
+//SHA: 7f54a82530ffbb1c9157613ac5ebc7c5442640a7
+//Path: mockwebserver/src/main/java/com/squareup/okhttp/mockwebserver/exchanges/Predicate.java
+//Version: _AFTER.txt
+//File Type: java
+package com.squareup.okhttp.mockwebserver.exchanges;
+
+public interface Predicate<T> {
+  boolean test(T t);
+}

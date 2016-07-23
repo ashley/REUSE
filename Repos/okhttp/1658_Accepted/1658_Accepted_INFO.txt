@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10db04248>
+added:0
+subtractions:11
+title:Fix a race closing MockSpdyPeer.
+otherStatus:0
+idNum:35593809
+number:1658
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:19
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1658
+repoName:okhttp
+-4.792187326401969,-8467.79500575228,-4.8919154149192545,-8463.01366781031,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

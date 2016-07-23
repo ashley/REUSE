@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b38fcb0>
+added:1
+subtractions:2
+title:Add basic URLFilter for HttpURLConnection
+otherStatus:0
+idNum:56968850
+number:2275
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:121
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2275
+repoName:okhttp
+-54.07166978678126,-42957.90524179444,-45.649993722521835,-39929.086415586724,40,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,17.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ae8d5f0>
+added:0
+subtractions:11
+title:Use listeners to observe allocation limit changes.
+otherStatus:0
+idNum:56245724
+number:2251
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:19
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2251
+repoName:okhttp
+-12.047333836768924,-16610.911637602476,-12.050791127921805,-16357.500853926711,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

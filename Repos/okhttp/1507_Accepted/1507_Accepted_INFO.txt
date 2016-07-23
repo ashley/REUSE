@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e0e6998>
+added:0
+subtractions:6
+title:Use Okio when reading cached certificates.
+otherStatus:0
+idNum:31209318
+number:1507
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:7
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1507
+repoName:okhttp
+-3.9758145557726454,-11995.032514766071,-4.017627737974012,-12113.147629991647,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

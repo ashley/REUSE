@@ -1,0 +1,28 @@
+//SHA: 6cf00bad150348e4727c1cd781d6603ca7cb8faa
+//Path: html5/native/index.js
+//Version: _AFTER.txt
+//File Type: js
+import '../shared'
+import runtime from '../runtime'
+import { subversion } from '../../package.json'
+import * as methods from '../default/api/methods'
+
+const { native, transformer } = subversion
+
+// register instance management APIs
+for (const methodName in runtime) {
+  global[methodName] = (...args) => {
+    const ret = runtime[methodName](...args)
+    if (ret instanceof Error) {
+      console.error(ret.toString())
+    }
+    return ret
+  }
+}
+
+// register framework meta info
+global.frameworkVersion = native
+global.transformerVersion = transformer
+
+// register special methods for Weex framework
+global.registerMethods(methods)

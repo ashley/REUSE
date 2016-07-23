@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b09df38>
+added:0
+subtractions:27
+title:Fix some stream leaks.
+otherStatus:0
+idNum:53216663
+number:2080
+numOfFiles:7
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:7
+additions:63
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2080
+repoName:okhttp
+-125.16998009672872,-321439.95923678804,-125.6270169087893,-318693.848711471,84,14,7,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,36.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,24.0,0.0

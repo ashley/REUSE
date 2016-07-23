@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c9a7a70>
+added:2
+subtractions:12
+title:Connection allocations model.
+otherStatus:0
+idNum:50068264
+number:1982
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:448
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1982
+repoName:okhttp
+-35.759242828884226,-35526.09920686658,-5.838120896729949,-7753.024550857372,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

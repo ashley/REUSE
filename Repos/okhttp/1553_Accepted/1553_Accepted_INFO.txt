@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e402a28>
+added:0
+subtractions:0
+title:Expose running and queued call counts for monitoring
+otherStatus:0
+idNum:33211784
+number:1553
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:8
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1553
+repoName:okhttp
+-4.625574893165167,-3603.3228417756654,-4.599975411928928,-3445.381583534767,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

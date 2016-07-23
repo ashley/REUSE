@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c3a1170>
+added:0
+subtractions:44
+title:Don't use the request to build the proxy tunnel.
+otherStatus:0
+idNum:50738641
+number:2000
+numOfFiles:7
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:7
+additions:133
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2000
+repoName:okhttp
+-138.5195563611033,-762807.008242408,-137.8887987759959,-759385.7250525168,105,56,63,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,117.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e5fe290>
+added:0
+subtractions:59
+title:Decode paths, usernames and passwords.
+otherStatus:0
+idNum:34682958
+number:1603
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:163
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1603
+repoName:okhttp
+-21.326487462539845,-75503.84902864654,-21.103849971037683,-67097.47041903526,21,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

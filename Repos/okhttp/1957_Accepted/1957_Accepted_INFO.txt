@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d2679e0>
+added:0
+subtractions:13
+title:Throw the right exception if an interceptor returns null.
+otherStatus:0
+idNum:49349264
+number:1957
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:76
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1957
+repoName:okhttp
+-24.658172765047663,-76241.74333722965,-24.57927714623814,-73223.37165144725,21,9,9,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,12 @@
+//SHA: 66b25823795f14f156576d633294eb8c62382c4a
+//Path: benchmarks/README.md
+//Version: _BEFORE.txt 
+//File Type: md
+OkHttp Benchmarks
+=======================================
+
+This module allows you to test the performance of HTTP clients.
+
+### Running
+  1. If you made modifications to `com.squareup.okhttp.benchmarks.Benchmark` run `mvn compile`.
+  2. Run `mvn exec:exec` to launch a new JVM, which will execute the benchmark.

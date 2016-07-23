@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ea75488>
+added:0
+subtractions:0
+title:Don't crash on shutdown() before start().
+otherStatus:0
+idNum:30708645
+number:1472
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:17
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1472
+repoName:okhttp
+-11.784971515389833,-50837.91508562113,-11.80117228761266,-50520.383895203835,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

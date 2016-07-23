@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a5e41b8>
+added:0
+subtractions:21
+title:Accommodate tunneling proxies that close the connection after an auth challenge.
+otherStatus:0
+idNum:65664554
+number:2467
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:94
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2467
+repoName:okhttp
+-9.708767216704146,-47673.948697974796,-9.912432027617239,-46144.11369623284,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

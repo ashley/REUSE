@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ba2c5f0>
+added:8
+subtractions:0
+title:twitter auth for okcurl
+otherStatus:0
+idNum:54181611
+number:2133
+numOfFiles:11
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:3
+additions:370
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2133
+repoName:okhttp
+-335.0146199234685,-104878.78030332096,-224.54020583335677,-97772.8907645595,55,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

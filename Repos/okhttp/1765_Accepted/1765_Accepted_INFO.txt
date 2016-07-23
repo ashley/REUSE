@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d9749e0>
+added:0
+subtractions:355
+title:Fold MockWebServerRule into MockWebServer.
+otherStatus:0
+idNum:40790430
+number:1765
+numOfFiles:16
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:14
+additions:201
+removed:2
+blob:https://api.github.com/repos/square/okhttp/pulls/1765
+repoName:okhttp
+-334.2489474920235,-2141053.4288538424,-429.0186043607359,-2216001.211316815,32,64,48,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,41.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

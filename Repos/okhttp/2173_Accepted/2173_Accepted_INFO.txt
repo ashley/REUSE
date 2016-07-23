@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bc32fc8>
+added:0
+subtractions:30
+title:Give cookies a builder. Constrain dates to <= Dec 31, 9999.
+otherStatus:0
+idNum:54761067
+number:2173
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:343
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2173
+repoName:okhttp
+-37.00223294313303,-74760.35944712529,-37.25835769553589,-56561.090891205225,160,0,8,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,52.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

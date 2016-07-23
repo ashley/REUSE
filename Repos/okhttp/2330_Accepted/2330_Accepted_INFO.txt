@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10adc1f38>
+added:0
+subtractions:4
+title:Don't pay to clean certificates if we aren't pinning.
+otherStatus:0
+idNum:58768849
+number:2330
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:4
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2330
+repoName:okhttp
+-5.474969256606783,-5097.196377900915,-5.474969256606783,-5097.196377900915,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

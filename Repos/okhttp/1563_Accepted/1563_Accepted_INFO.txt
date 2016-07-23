@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e4a6440>
+added:0
+subtractions:14
+title:Switch Form URL encoding builder and body to use Okio.
+otherStatus:0
+idNum:33477136
+number:1563
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:34
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1563
+repoName:okhttp
+-4.698069053278525,-1291.9689896515943,-5.534064442248048,-1101.2788240073614,7,4,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

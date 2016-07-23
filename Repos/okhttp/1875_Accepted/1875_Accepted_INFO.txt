@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cbf9440>
+added:0
+subtractions:324
+title:Represent WebSocket payload using RequestBody and ResponseBody.
+otherStatus:0
+idNum:46089928
+number:1875
+numOfFiles:12
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:12
+additions:318
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1875
+repoName:okhttp
+-317.39766966763943,-379408.09663780313,-337.9396407373629,-399890.1212079823,996,696,408,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,180.0,0.0,0.0,0.0,60.0,48.0,0.0,273.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,877.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,44.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,112.0,0.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

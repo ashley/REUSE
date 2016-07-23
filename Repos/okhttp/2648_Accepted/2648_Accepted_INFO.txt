@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x103f70290>
+added:0
+subtractions:277
+title:Begin to fold together parts of RealCall and HttpEngine.
+otherStatus:0
+idNum:74723081
+number:2648
+numOfFiles:8
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:8
+additions:211
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2648
+repoName:okhttp
+-132.56364298434283,-242776.27150895383,-138.41362676066316,-249789.85288622652,288,128,296,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,96.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,162.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,62.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,24.0,12.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

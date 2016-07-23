@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10da07368>
+added:0
+subtractions:4
+title:More tests on truncated response bodies.
+otherStatus:0
+idNum:38185966
+number:1718
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:37
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1718
+repoName:okhttp
+-12.5518614779236,-103311.41202265104,-12.548697243830613,-102654.80955111186,2,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

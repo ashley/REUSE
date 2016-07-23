@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a1caea8>
+added:1
+subtractions:342
+title:SslClient/Builder and tests mostly running in JDK 9
+otherStatus:0
+idNum:70083769
+number:2558
+numOfFiles:29
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:28
+additions:556
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2558
+repoName:okhttp
+-1314.6333981425025,-5116721.367609767,-1333.6182449185105,-5130303.858368503,1160,319,29,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,10.0,0.0,156.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,44.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,448.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,117.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a86e128>
+added:0
+subtractions:0
+title:Add javadoc for Response.body()
+otherStatus:0
+idNum:64827239
+number:2454
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:3
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2454
+repoName:okhttp
+-3.9269655741908096,-5344.600146473692,-3.9269655741908096,-5344.600146473692,0,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10dc19a70>
+added:0
+subtractions:9
+title:WIP. Do not merge.
+otherStatus:0
+idNum:35593390
+number:1657
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:3
+additions:36
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1657
+repoName:okhttp
+-24.807006034890605,-102641.05421910738,-24.617585305863155,-101744.55639885322,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

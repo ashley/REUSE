@@ -1,0 +1,59 @@
+//SHA: 2dc79e01e1d974c23a277010609026f58be4bcad
+//Path: okhttp-ws/pom.xml
+//Version: _BEFORE.txt 
+//File Type: xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.squareup.okhttp3</groupId>
+    <artifactId>parent</artifactId>
+    <version>3.1.0-SNAPSHOT</version>
+  </parent>
+
+  <packaging>bundle</packaging>
+  <artifactId>okhttp-ws</artifactId>
+  <name>OkHttp Web Sockets</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <excludePackageNames>okhttp3.internal.*</excludePackageNames>
+          <links>
+            <link>http://square.github.io/okhttp/javadoc/</link>
+          </links>
+        </configuration>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+            <Bundle-Version>${project.version}</Bundle-Version>
+            <Export-Package>
+              !okhttp3.internal.ws.*,
+              okhttp3.ws.*;-noimport:=true
+            </Export-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

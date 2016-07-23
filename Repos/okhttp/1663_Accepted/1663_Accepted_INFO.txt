@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10decfef0>
+added:0
+subtractions:20
+title:Accept ws: URLs in Request.Builder.
+otherStatus:0
+idNum:35686582
+number:1663
+numOfFiles:8
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:1
+result:Accepted
+modified:7
+additions:60
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1663
+repoName:okhttp
+-147.90112503105865,-617733.555709227,-144.88604211955965,-610275.7340600665,40,104,8,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,21.0,0.0,0.0,0.0,0.0,0.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,24.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

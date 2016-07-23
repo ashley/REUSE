@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e3a6050>
+added:0
+subtractions:78
+title:HttpURL parsing.
+otherStatus:0
+idNum:34611250
+number:1601
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:5
+additions:573
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1601
+repoName:okhttp
+-59.20022809661448,-137481.7851254355,-57.318703820305636,-76890.24462354742,445,85,60,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,192.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,287.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,65.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

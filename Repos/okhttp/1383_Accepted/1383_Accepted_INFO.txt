@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ecf3518>
+added:0
+subtractions:1
+title:Throw SSLPeerUnverifiedException when host verification fails, instead of IOException
+otherStatus:0
+idNum:28980336
+number:1383
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:2
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1383
+repoName:okhttp
+-6.387130107624931,-11931.159041043371,-6.400667021431517,-11898.83999284119,1,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

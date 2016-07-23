@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d89df38>
+added:0
+subtractions:49
+title:Call onOpen on the reader thread and force writing on another thread.
+otherStatus:0
+idNum:35998552
+number:1669
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:6
+additions:58
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1669
+repoName:okhttp
+-96.84574705796786,-147455.98907880872,-98.26849326776323,-149586.56011760744,30,30,12,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

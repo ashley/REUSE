@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x104784f38>
+added:0
+subtractions:243
+title:Add connection, cache, and platform subpackages.
+otherStatus:0
+idNum:75251580
+number:2665
+numOfFiles:63
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:30
+result:Accepted
+modified:32
+additions:223
+removed:1
+blob:https://api.github.com/repos/square/okhttp/pulls/2665
+repoName:okhttp
+-6420.948076407265,-1.0254320666506954E7,-3581.502730798488,-6629168.459051699,1953,504,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,135.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,351.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,345.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,53.0,0.0

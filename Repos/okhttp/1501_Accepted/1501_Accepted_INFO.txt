@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e77b560>
+added:0
+subtractions:0
+title:Add a test for interceptors throwing unchecked exceptions.
+otherStatus:0
+idNum:31203907
+number:1501
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:97
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1501
+repoName:okhttp
+-3.0296923585747164,-10894.77372143468,-3.027127777825806,-9465.828561261296,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

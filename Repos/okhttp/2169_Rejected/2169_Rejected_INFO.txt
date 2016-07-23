@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bc5fe60>
+added:0
+subtractions:359
+title:Dropped ProxySelectors.
+otherStatus:0
+idNum:54678146
+number:2169
+numOfFiles:13
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:12
+additions:14
+removed:1
+blob:https://api.github.com/repos/square/okhttp/pulls/2169
+repoName:okhttp
+-299.3930459074343,-917167.286740442,-323.6184185131822,-959868.1840238114,65,52,91,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,70.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,26.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

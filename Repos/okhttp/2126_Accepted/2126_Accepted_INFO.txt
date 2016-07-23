@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bf846c8>
+added:0
+subtractions:190
+title:One authenticate method on the authenticator interface.
+otherStatus:0
+idNum:53979771
+number:2126
+numOfFiles:11
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:11
+additions:174
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2126
+repoName:okhttp
+-208.20997469515143,-407508.3758207617,-234.2107878932863,-416655.5497360609,187,110,121,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,31.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,63.0,9.0,0.0,0.0,0.0,0.0,0.0,93.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,47.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,50.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

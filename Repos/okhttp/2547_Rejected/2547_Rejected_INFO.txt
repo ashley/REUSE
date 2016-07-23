@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x109491fc8>
+added:0
+subtractions:7
+title:update Logging Interceptor to log connection failures
+otherStatus:0
+idNum:69504599
+number:2547
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:35
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2547
+repoName:okhttp
+-10.094927935253134,-21002.59827823874,-10.097216612993321,-20809.6960619615,14,4,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,4.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

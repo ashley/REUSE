@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c49dfc8>
+added:0
+subtractions:24
+title:Remove IOException from source() and streams.
+otherStatus:0
+idNum:53660501
+number:2105
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:6
+additions:21
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2105
+repoName:okhttp
+-86.13760341237294,-185166.17259423077,-86.74083753311595,-185917.4324249705,36,6,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

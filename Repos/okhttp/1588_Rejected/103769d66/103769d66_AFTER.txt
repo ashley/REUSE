@@ -1,0 +1,9 @@
+//SHA: 103769d66bbdcdfd78e57b590fa1a0d64d9007a1
+//Path: mockwebserver/src/main/java/com/squareup/okhttp/mockwebserver/exchanges/Supplier.java
+//Version: _AFTER.txt
+//File Type: java
+package com.squareup.okhttp.mockwebserver.exchanges;
+
+public interface Supplier<T> {
+  T get();
+}

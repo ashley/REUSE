@@ -11,7 +11,7 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class AnalyzeWork {
 	private static Map <String, Map> pullStat = new HashMap<>();
 	public static void main(String [] args) throws IOException, SerializationException{
-		if (args.length != 4) {
+		if (args.length != 5) {
 			System.err.println("arguments: Repo's path, storeChanges(true/false)");
 			return;
 		}
@@ -19,7 +19,7 @@ public class AnalyzeWork {
 		String reposPath = args[2];
 		String repoName = args[0].split("/")[args[0].split("/").length-1];
 		String repoPath = reposPath + "/" + repoName;
-		TsgEntropy te = new TsgEntropy(repoName,reusePath);
+		TsgEntropy te = new TsgEntropy(repoName,reusePath,args[4]);
 		boolean storeChanges = Boolean.parseBoolean(args[1]);
 		File [] pulls = new File(repoPath).listFiles();
 		for (File pull: pulls){

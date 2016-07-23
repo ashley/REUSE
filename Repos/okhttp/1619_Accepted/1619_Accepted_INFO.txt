@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e047710>
+added:0
+subtractions:84
+title:Compose URLs from parts.
+otherStatus:0
+idNum:35069805
+number:1619
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:267
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1619
+repoName:okhttp
+-10.663287592142183,-54752.58226769237,-10.62051569467867,-46460.02588177973,12,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

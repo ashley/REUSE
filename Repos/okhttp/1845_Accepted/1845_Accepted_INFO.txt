@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d12ed40>
+added:0
+subtractions:1
+title:Fix encoding set for query parameters
+otherStatus:0
+idNum:44513261
+number:1845
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:9
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1845
+repoName:okhttp
+-9.947588054256823,-89574.22982181948,-9.93235927854583,-89112.4858502328,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

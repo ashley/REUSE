@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d18cef0>
+added:0
+subtractions:59
+title:Test code refactoring
+otherStatus:0
+idNum:44018140
+number:1835
+numOfFiles:8
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:8
+additions:34
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1835
+repoName:okhttp
+-119.93602393497953,-713189.1956074645,-126.58090499493369,-719146.8208255566,136,144,96,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,109.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

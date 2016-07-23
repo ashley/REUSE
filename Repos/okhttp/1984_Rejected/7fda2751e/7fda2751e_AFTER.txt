@@ -1,0 +1,18 @@
+//SHA: 7fda2751edd1f47cd952a9a59eea2f835e4753c7
+//Path: okhttp/src/main/java/com/squareup/okhttp/CertificatePinner.java
+//Version: _AFTER.txt
+//File Type: java
+package com.squareup.okhttp;
+
+import java.security.cert.Certificate;
+import java.util.List;
+
+import javax.net.ssl.SSLPeerUnverifiedException;
+
+/**
+ * Applies a certain type of certificate pinning.
+ */
+public interface CertificatePinner {
+      void check(String hostname, List<Certificate> peerCertificates)
+          throws SSLPeerUnverifiedException;
+}

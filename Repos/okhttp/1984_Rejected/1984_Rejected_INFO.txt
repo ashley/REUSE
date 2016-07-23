@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c989680>
+added:1
+subtractions:298
+title:Refactor CertificatePinner into an interface and a SHA1-implementation
+otherStatus:0
+idNum:50096850
+number:1984
+numOfFiles:10
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:1
+result:Rejected
+modified:8
+additions:314
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1984
+repoName:okhttp
+-268.326790708363,-366376.3805819926,-201.7591210650145,-312261.00322862796,50,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

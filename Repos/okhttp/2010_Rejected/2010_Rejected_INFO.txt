@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c628680>
+added:0
+subtractions:0
+title:removing auto added "Accept-Encoding: gzip". fix #1927
+otherStatus:0
+idNum:51143387
+number:2010
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:30
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2010
+repoName:okhttp
+-9.497522956277253,-86925.5105582483,-9.47200770944144,-85681.31993822524,4,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

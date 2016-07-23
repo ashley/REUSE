@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e160908>
+added:0
+subtractions:40
+title:Always encode space as %20.
+otherStatus:0
+idNum:35221715
+number:1630
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:31
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1630
+repoName:okhttp
+-22.199770023842426,-85697.19606341189,-22.18117145746131,-86514.25391322539,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10df87680>
+added:1
+subtractions:0
+title:HttpUrl initial API.
+otherStatus:0
+idNum:33823783
+number:1578
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:0
+additions:302
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1578
+repoName:okhttp
+-3.6102665476262668,-3494.7380181022263,0.0,0.0,0,6,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

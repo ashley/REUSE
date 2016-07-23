@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a587128>
+added:0
+subtractions:46
+title:Replace IAE with NPE for null parameters
+otherStatus:0
+idNum:61500583
+number:2382
+numOfFiles:10
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:10
+additions:67
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2382
+repoName:okhttp
+-194.8441988216546,-511982.8648883013,-195.13014329075466,-512201.70611569297,100,20,10,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,42.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

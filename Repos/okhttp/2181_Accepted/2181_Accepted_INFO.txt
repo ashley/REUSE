@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b674638>
+added:0
+subtractions:0
+title:Add an accessor to get a Call's Request.
+otherStatus:0
+idNum:54887787
+number:2181
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:7
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2181
+repoName:okhttp
+-13.209596556469034,-13306.994021300485,-13.38820064229797,-13242.092615999703,4,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

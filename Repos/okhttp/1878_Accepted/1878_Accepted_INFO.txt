@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d24a488>
+added:4
+subtractions:13
+title:Add Autobahn infrastructure for future automated testing.
+otherStatus:0
+idNum:46097213
+number:1878
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:1
+result:Accepted
+modified:1
+additions:619
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1878
+repoName:okhttp
+-21.767358750426236,-23987.62934296971,0.0,0.0,120,96,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,18.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,54.0,0.0,72.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

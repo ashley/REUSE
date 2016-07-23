@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e0d5b90>
+added:0
+subtractions:4
+title:Docs on URL components.
+otherStatus:0
+idNum:35092400
+number:1623
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:99
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1623
+repoName:okhttp
+-4.235508625645906,-20029.72029067949,-4.235508625645906,-20029.72029067949,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

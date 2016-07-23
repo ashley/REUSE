@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x105ec3e60>
+added:0
+subtractions:1
+title:Fix HttpLoggingInterceptor to be cool with newlines.
+otherStatus:0
+idNum:71803711
+number:2586
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:4
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2586
+repoName:okhttp
+-10.066814260883385,-21187.77180086952,-10.044400188815436,-20951.90764843744,2,2,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

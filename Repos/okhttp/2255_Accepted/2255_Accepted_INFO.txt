@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b3f57a0>
+added:0
+subtractions:1
+title:Handle UnsupportedCharsetException in HttpLoggingInterceptor
+otherStatus:0
+idNum:56262733
+number:2255
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:50
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2255
+repoName:okhttp
+-10.6030213296693,-19911.30534804158,-10.563698465459442,-18851.71915435876,12,6,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f485d40>
+added:0
+subtractions:0
+title:create request body with byte[] range
+otherStatus:0
+idNum:29894918
+number:1453
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:20
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1453
+repoName:okhttp
+-3.780991742661502,-1758.1611603375984,-3.8900785766875434,-1443.2191519510786,1,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

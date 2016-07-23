@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10afc6710>
+added:1
+subtractions:198
+title:Create request/response API tests to match some URLConnectionTest tests.
+otherStatus:0
+idNum:56990778
+number:2276
+numOfFiles:14
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:3
+result:Accepted
+modified:10
+additions:333
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2276
+repoName:okhttp
+-282.9392852185945,-1541694.9527614336,-225.04247661218102,-1542384.6838687928,28,0,14,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,22.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

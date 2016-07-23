@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a665830>
+added:0
+subtractions:20
+title:Use X509TrustManagerExtensions on Android 17+.
+otherStatus:0
+idNum:64358684
+number:2445
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:71
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2445
+repoName:okhttp
+-40.080999555924734,-42221.88187744006,-40.29178862875266,-38206.97001253093,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

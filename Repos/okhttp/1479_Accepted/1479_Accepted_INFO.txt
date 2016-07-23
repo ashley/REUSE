@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ec35680>
+added:0
+subtractions:10
+title:Don't attempt to read a source after closing it.
+otherStatus:0
+idNum:30734575
+number:1479
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:8
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1479
+repoName:okhttp
+-4.25101488228076,-22241.30986409294,-4.249309723629205,-22270.63226154066,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

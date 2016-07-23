@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e3a45f0>
+added:7
+subtractions:1
+title:Build a harness for web platform tests.
+otherStatus:0
+idNum:34589926
+number:1600
+numOfFiles:9
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:4755
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1600
+repoName:okhttp
+-69.45788776629416,-44026.76131781856,0.0,0.0,135,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,135.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

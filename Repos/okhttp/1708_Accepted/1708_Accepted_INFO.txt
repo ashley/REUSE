@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d6f6440>
+added:0
+subtractions:374
+title:Rename 'spdy' references to 'framed' where appropriate.
+otherStatus:0
+idNum:37954998
+number:1708
+numOfFiles:42
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:29
+result:Accepted
+modified:13
+additions:375
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1708
+repoName:okhttp
+-4271.497205590521,-5897396.190754267,-1196.1196607662202,-2034812.2877969383,588,420,336,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,46.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,46.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,161.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,115.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -7,10 +7,11 @@ public class MineRepos {
 	public static void main(String[] args) throws IOException, SerializationException{
 		String reusePath = "/Users/ashleychen/Desktop/REUSE/REUSE";
 		String repoPath = reusePath + "/Repos";
+		String iterations = "400";
 		File [] repos = new File(repoPath).listFiles();
 		for (File repo: repos){
 			if(repo.isDirectory()){
-				String [] arguments = {repo.toString(),"true",repoPath,reusePath};
+				String [] arguments = {repo.toString(),"true",repoPath,reusePath,iterations};
 				AnalyzeWork.main(arguments);
 			}
 		}

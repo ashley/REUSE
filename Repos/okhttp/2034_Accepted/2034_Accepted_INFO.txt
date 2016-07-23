@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c549fc8>
+added:0
+subtractions:9
+title:Remote DNS resolving for connections through a SOCKS proxy
+otherStatus:0
+idNum:51726217
+number:2034
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:52
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2034
+repoName:okhttp
+-38.34923257790743,-45446.92431587141,-38.37159591550802,-43059.8648687103,24,8,12,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

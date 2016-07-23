@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bfa1878>
+added:0
+subtractions:28
+title:Remove IOException throws from source() and close() on ResponseBody.
+otherStatus:0
+idNum:40831492
+number:1767
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:3
+additions:19
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1767
+repoName:okhttp
+-25.58560785563131,-26734.98539819363,-25.795931094369735,-27105.299305400258,21,0,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

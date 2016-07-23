@@ -1,0 +1,21 @@
+//SHA: 74c982edba8986ada6a8a11ce9ec78c82f9ecaa4
+//Path: html5/default/config.js
+//Version: _BEFORE.txt 
+//File Type: js
+export default {
+  nativeComponentMap: {
+    text: true,
+    image: true,
+    container: true,
+    slider: {
+      type: 'slider',
+      append: 'tree'
+    },
+    cell: {
+      type: 'cell',
+      append: 'tree'
+    }
+  },
+  customComponentMap: {},
+  debug: false
+}

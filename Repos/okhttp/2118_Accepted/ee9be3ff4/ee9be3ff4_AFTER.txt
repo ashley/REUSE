@@ -1,0 +1,12 @@
+//SHA: ee9be3ff477e818f9f9fa25e43b5c4265b0e6376
+//Path: benchmarks/README.md
+//Version: _AFTER.txt
+//File Type: md
+OkHttp Benchmarks
+=======================================
+
+This module allows you to test the performance of HTTP clients.
+
+### Running
+  1. If you made modifications to `Benchmark` run `mvn compile`.
+  2. Run `mvn exec:exec` to launch a new JVM, which will execute the benchmark.

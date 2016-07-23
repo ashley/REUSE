@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b35fab8>
+added:0
+subtractions:8
+title:Fix order of releases
+otherStatus:0
+idNum:55432278
+number:2215
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:8
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2215
+repoName:okhttp
+-3.284692645545875,-25278.994600121056,-3.284692645545875,-25278.994600121056,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

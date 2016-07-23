@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10be75c68>
+added:0
+subtractions:4
+title:We don't have resource leaks in interceptor crashes anymore.
+otherStatus:0
+idNum:53650285
+number:2100
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:0
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2100
+repoName:okhttp
+-2.790675966658121,-11952.465165196732,-2.790675966658121,-11952.465165196732,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

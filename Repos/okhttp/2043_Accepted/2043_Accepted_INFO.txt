@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bfc30e0>
+added:0
+subtractions:2
+title:Test interaction of Authenticator and transparent Gzip.
+otherStatus:0
+idNum:51947951
+number:2043
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:18
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2043
+repoName:okhttp
+-2.0803275415883915,-30283.328022902217,-2.0808093139075368,-30094.745107044706,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

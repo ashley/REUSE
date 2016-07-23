@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e29e5a8>
+added:0
+subtractions:14
+title:Adds upgrade failed callback to web sockets
+otherStatus:0
+idNum:35323378
+number:1639
+numOfFiles:7
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:7
+additions:132
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1639
+repoName:okhttp
+-143.230806276559,-119956.29229185617,-135.05409715987906,-100735.10587556977,42,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

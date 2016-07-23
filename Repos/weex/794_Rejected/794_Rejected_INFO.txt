@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1057a9998>
+added:2
+subtractions:0
+title:add special-element demo
+otherStatus:0
+idNum:77417376
+number:794
+numOfFiles:3
+label:alibaba:dev
+repo:53658802
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:374
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/794
+repoName:weex
+0.0,0.0,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

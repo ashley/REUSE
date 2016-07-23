@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1057bed88>
+added:0
+subtractions:6
+title:Pass hotreload port as parameter
+otherStatus:0
+idNum:77405719
+number:789
+numOfFiles:1
+label:alibaba:android
+repo:53658802
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:6
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/789
+repoName:weex
+-3.669502995338211,-9004.96035055997,-3.694283852083535,-9261.569617173422,4,13,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,7.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

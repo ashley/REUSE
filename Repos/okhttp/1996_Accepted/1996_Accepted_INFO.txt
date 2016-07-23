@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c392dd0>
+added:0
+subtractions:82
+title:Break apart close states. Try to send close on IOE.
+otherStatus:0
+idNum:50719344
+number:1996
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:265
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1996
+repoName:okhttp
+-21.68833644,-33081.037990733064,-23.046615227776645,-27045.81003297957,141,99,63,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,18.0,0.0,0.0,0.0,22.0,22.0,0.0,51.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,105.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

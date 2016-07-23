@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d638368>
+added:0
+subtractions:0
+title:Add test for "unexpected end of stream" excpetion
+otherStatus:0
+idNum:43039653
+number:1813
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:23
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1813
+repoName:okhttp
+-3.3788500327674744,-78399.45731030371,-3.376004143143874,-78296.28808779272,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

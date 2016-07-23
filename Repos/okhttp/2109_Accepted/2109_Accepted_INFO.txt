@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b633488>
+added:0
+subtractions:6
+title:Drop 'get' prefix on Challenge value type.
+otherStatus:0
+idNum:53662518
+number:2109
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:6
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2109
+repoName:okhttp
+-13.272678353186171,-6196.868620787702,-13.813976162315498,-6457.747610151822,4,4,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

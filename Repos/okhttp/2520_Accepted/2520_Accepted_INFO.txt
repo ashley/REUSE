@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x105fcbf38>
+added:6
+subtractions:331
+title:split out platform and test them based on active profile
+otherStatus:0
+idNum:68081524
+number:2520
+numOfFiles:8
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:539
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2520
+repoName:okhttp
+-110.85571336083646,-48928.433660016875,-30.65305925714017,-80525.58666850723,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

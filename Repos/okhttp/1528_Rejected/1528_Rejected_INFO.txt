@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e941680>
+added:1
+subtractions:0
+title:Upload progress recipe
+otherStatus:0
+idNum:31699252
+number:1528
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:0
+additions:120
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1528
+repoName:okhttp
+-4.816186465134965,-2687.4320475453105,0.0,0.0,1,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

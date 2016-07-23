@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b4f9248>
+added:0
+subtractions:69
+title:Make HttpUrl the blessed URL method of Request.
+otherStatus:0
+idNum:53518746
+number:2089
+numOfFiles:20
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:20
+additions:61
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2089
+repoName:okhttp
+-872.338272419425,-2458116.1525824526,-882.3977920018673,-2475762.69020994,380,100,80,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,35.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,200.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,38.0,0.0,55.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10cb30ab8>
+added:0
+subtractions:3
+title:Add support for WebDAV HTTP methods (RFC 4918)
+otherStatus:0
+idNum:46974966
+number:1901
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:9
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1901
+repoName:okhttp
+-3.758925477774768,-605.1870019217376,-4.089603617169507,-486.6628304431713,3,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

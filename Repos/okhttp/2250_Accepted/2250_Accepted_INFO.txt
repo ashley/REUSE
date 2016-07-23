@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b44d680>
+added:0
+subtractions:43
+title:Add Framed protocol to connections
+otherStatus:0
+idNum:56242491
+number:2250
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:65
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2250
+repoName:okhttp
+-29.707196757182025,-154441.25887938554,-30.010619038032026,-154251.5998039169,4,0,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

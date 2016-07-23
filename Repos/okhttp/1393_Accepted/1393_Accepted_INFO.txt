@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f515e18>
+added:0
+subtractions:4
+title:A way to catch that cleartext HTTP request was attempted.
+otherStatus:0
+idNum:29150741
+number:1393
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:11
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1393
+repoName:okhttp
+-13.836819263421791,-47104.1025049015,-13.83925864894028,-46204.093287415206,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

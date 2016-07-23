@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10add07a0>
+added:3
+subtractions:87
+title:Backport CertificatePinner fixes to the 2.x branch
+otherStatus:0
+idNum:58567295
+number:2326
+numOfFiles:8
+label:square:okhttp_27
+repo:5152285
+merge:True
+state:closed
+renamed:2
+result:Accepted
+modified:3
+additions:225
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2326
+repoName:okhttp
+-193.12647697031596,-123436.25404417666,-30.712348676787425,-63500.17970112461,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

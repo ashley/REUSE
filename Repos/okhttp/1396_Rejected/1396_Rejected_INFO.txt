@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f52e9e0>
+added:0
+subtractions:3
+title:fix authentication issue, 401 response code have never returns
+otherStatus:0
+idNum:29184369
+number:1396
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:9
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1396
+repoName:okhttp
+-15.647380354242838,-37960.02989126825,-15.647523251095386,-37854.86895320127,16,18,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,14.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ca2a098>
+added:0
+subtractions:0
+title:Log level getter.
+otherStatus:0
+idNum:51747917
+number:2038
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:14
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2038
+repoName:okhttp
+-13.4450218551141,-21172.02234332451,-13.478938698432351,-20912.398711939335,2,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

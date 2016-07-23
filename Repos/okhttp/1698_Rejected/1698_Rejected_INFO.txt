@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10dc7d560>
+added:0
+subtractions:6
+title:Update test exception expectations + modify socket timeout exception
+otherStatus:0
+idNum:37456137
+number:1698
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:3
+additions:18
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1698
+repoName:okhttp
+-24.02291120897984,-205074.61219222032,-24.070319348461805,-204478.72361939817,6,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e5045f0>
+added:1
+subtractions:8
+title:Keep track of failures during negotiation for debugging
+otherStatus:0
+idNum:34540606
+number:1596
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:96
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1596
+repoName:okhttp
+-23.404132529287395,-163628.13467250136,-19.711703456118272,-160881.80734943834,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

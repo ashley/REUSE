@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1093e36c8>
+added:0
+subtractions:1
+title:Unblock waiting dispatchers on MockWebServer shutdown.
+otherStatus:0
+idNum:69255413
+number:2539
+numOfFiles:4
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:41
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2539
+repoName:okhttp
+-34.849039715301984,-54799.90313043269,-37.372183275483316,-54023.10746685118,4,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

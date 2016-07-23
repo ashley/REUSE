@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a271878>
+added:0
+subtractions:2
+title:NetworkSecurityPolicy based ConnectionSpec setup
+otherStatus:0
+idNum:67986898
+number:2515
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:2
+additions:35
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2515
+repoName:okhttp
+-11.478409683405614,-30997.103991672728,-11.432142204385036,-30752.665985929943,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e7a3200>
+added:0
+subtractions:0
+title:Interceptor request not returned in response
+otherStatus:0
+idNum:32728944
+number:1548
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:27
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1548
+repoName:okhttp
+-11.404298703002848,-48515.249168421054,-11.435129603620297,-47533.98970417832,2,0,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

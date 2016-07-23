@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ccfe050>
+added:0
+subtractions:1
+title:Fix flakiness in CallTest.cancelTagImmediatelyAfterEnqueue()
+otherStatus:0
+idNum:51177541
+number:2013
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:1
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2013
+repoName:okhttp
+-2.077772355891183,-29701.755827464465,-2.0783241691740333,-29711.72232251198,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

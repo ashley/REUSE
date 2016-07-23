@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10c1c2c68>
+added:1
+subtractions:3
+title:Restore time-based eviction.
+otherStatus:0
+idNum:52784356
+number:2067
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:287
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2067
+repoName:okhttp
+-69.75831613890377,-91659.32106942778,-72.72515729768487,-106068.34497464285,145,35,280,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,119.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,58.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bdca5a8>
+added:0
+subtractions:30
+title:Drop 'get' prefixed on Route value type.
+otherStatus:0
+idNum:53662905
+number:2111
+numOfFiles:10
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:10
+additions:30
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2111
+repoName:okhttp
+-226.47186078282272,-497822.67922522686,-229.28606228604923,-500764.46572033805,40,0,30,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,36.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

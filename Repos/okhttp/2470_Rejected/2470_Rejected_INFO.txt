@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10a2075f0>
+added:1
+subtractions:2
+title:Example of using an European National ID card for client auth
+otherStatus:0
+idNum:65896571
+number:2470
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:85
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2470
+repoName:okhttp
+-13.275432645791101,-7162.576277539749,-2.8377929675537716,-2355.3681630696306,0,4,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

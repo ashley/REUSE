@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10bb3a3f8>
+added:1
+subtractions:0
+title:New API: Response.peekBody
+otherStatus:0
+idNum:54898248
+number:2186
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:133
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2186
+repoName:okhttp
+-10.98007589514137,-12249.1465215805,-7.935812643183553,-9840.407677547606,4,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

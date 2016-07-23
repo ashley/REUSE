@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10dba97a0>
+added:0
+subtractions:2
+title:Add socket policy to disconnect mid-response.
+otherStatus:0
+idNum:38180582
+number:1716
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:32
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1716
+repoName:okhttp
+-21.851991509700685,-74539.30665905173,-22.188897789570998,-73360.91778306526,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

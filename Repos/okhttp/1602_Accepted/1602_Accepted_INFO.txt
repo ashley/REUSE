@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e5f9a70>
+added:0
+subtractions:76
+title:Implement percent encoding.
+otherStatus:0
+idNum:34615676
+number:1602
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:161
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1602
+repoName:okhttp
+-22.37520703645537,-72383.23610046256,-22.9401602014059,-67332.64249523947,198,54,45,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,16.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,6.0,9.0,6.0,0.0,0.0,0.0,0.0,0.0,114.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,33.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0

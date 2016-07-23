@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e904830>
+added:0
+subtractions:7
+title:Make badly-behaving caches cause a checked exception, not NPE
+otherStatus:0
+idNum:31742861
+number:1529
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:82
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1529
+repoName:okhttp
+-23.084469295844002,-142059.86895203823,-23.102826133363234,-139531.85174459976,6,6,6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

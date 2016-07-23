@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10f9f1e18>
+added:0
+subtractions:12
+title:Exceptions from peer closing should not be propagated.
+otherStatus:0
+idNum:30733032
+number:1478
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:32
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1478
+repoName:okhttp
+-23.514830964291697,-33593.583338377895,-23.61407944428947,-32848.52195795458,30,6,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

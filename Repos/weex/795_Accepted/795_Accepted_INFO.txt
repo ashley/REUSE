@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10554f5f0>
+added:0
+subtractions:9
+title:[android] Remove useless parameter 'instanceId' for RenderStatement
+otherStatus:0
+idNum:77421346
+number:795
+numOfFiles:4
+label:alibaba:dev
+repo:53658802
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:4
+additions:5
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/795
+repoName:weex
+-7.5494471400222825,-8738.142006551792,-28.369504738222147,-34674.422791594574,8,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

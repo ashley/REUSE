@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10ba87b00>
+added:2
+subtractions:60
+title:First step in parsing Set-Cookie headers.
+otherStatus:0
+idNum:54624980
+number:2162
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:652
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2162
+repoName:okhttp
+-57.02192787020907,-157377.91568384864,-31.10266678987483,-110063.74681318777,5,0,5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

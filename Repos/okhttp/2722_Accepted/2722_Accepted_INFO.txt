@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x103f49248>
+added:0
+subtractions:2
+title:Inject a leading . for better matching under JavaNetCookieJar
+otherStatus:0
+idNum:77224874
+number:2722
+numOfFiles:3
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:3
+additions:68
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2722
+repoName:okhttp
+-20.956043828832314,-34763.268153409495,-20.806872137691236,-31346.663283649363,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d4232d8>
+added:0
+subtractions:90
+title:Expose internal APIs for pluggable file systems.
+otherStatus:0
+idNum:41406169
+number:1781
+numOfFiles:14
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:1
+result:Accepted
+modified:13
+additions:77
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1781
+repoName:okhttp
+-313.8079880677724,-2681603.0193822365,-269.2038151913091,-2657105.381258957,140,14,84,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,23.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

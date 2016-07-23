@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1044baea8>
+added:0
+subtractions:754
+title:Rename FramedConnection to Http2Connection.
+otherStatus:0
+idNum:76858399
+number:2714
+numOfFiles:49
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:32
+result:Accepted
+modified:16
+additions:709
+removed:1
+blob:https://api.github.com/repos/square/okhttp/pulls/2714
+repoName:okhttp
+-4012.7852758703434,-6508983.257576017,-1249.8755299967352,-1599234.8224298588,2009,1078,784,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,190.0,0.0,0.0,0.0,0.0,0.0,0.0,135.0,0.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,664.0,0.0,0.0,0.0,138.0,0.0,0.0,0.0,0.0,60.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,190.0,0.0,0.0,0.0,186.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

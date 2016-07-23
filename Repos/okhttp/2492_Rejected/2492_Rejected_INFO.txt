@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10954a9e0>
+added:2
+subtractions:0
+title:add fastjson's sample
+otherStatus:0
+idNum:66865715
+number:2492
+numOfFiles:5
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:3
+additions:131
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2492
+repoName:okhttp
+-21.003499083833923,-5430.295545010064,0.0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

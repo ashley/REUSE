@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10e5fdb90>
+added:0
+subtractions:2
+title:Make 'OkHttpClient' and 'Call' non-final again for Quasar integration
+otherStatus:0
+idNum:34024115
+number:1580
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:2
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1580
+repoName:okhttp
+-15.511027032561312,-25150.787263227823,-15.500724967230795,-25151.009264972152,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

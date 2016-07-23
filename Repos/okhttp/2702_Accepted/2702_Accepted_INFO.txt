@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1046526c8>
+added:0
+subtractions:2
+title:Use TreeMap in Headers.toMultimap()
+otherStatus:0
+idNum:76426003
+number:2702
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:11
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2702
+repoName:okhttp
+-9.20505062763942,-19905.806236827368,-9.170701854924243,-19401.208418931303,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

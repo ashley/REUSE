@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10aea13f8>
+added:0
+subtractions:5
+title:Handle 408 responses by retrying the request
+otherStatus:0
+idNum:57742375
+number:2302
+numOfFiles:6
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:6
+additions:138
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2302
+repoName:okhttp
+-57.78833275756805,-738081.8014010801,-57.630293529864474,-731917.2922797306,60,6,18,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,13.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,28.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

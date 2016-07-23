@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10afab170>
+added:0
+subtractions:0
+title:Override the equals() and hashCode() methods of Cookie
+otherStatus:0
+idNum:57295910
+number:2284
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:32
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2284
+repoName:okhttp
+-4.051433836043741,-12292.050258556712,-4.0460694939633965,-12194.853454805678,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

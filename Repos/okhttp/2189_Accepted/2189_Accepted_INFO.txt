@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10af7ca28>
+added:0
+subtractions:6
+title:Add already-implemented interfaces Closeable and Flushable to the cache.
+otherStatus:0
+idNum:54920518
+number:2189
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:9
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2189
+repoName:okhttp
+-11.6851533253537,-45514.79874050756,-11.682910001710477,-45322.707081294335,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

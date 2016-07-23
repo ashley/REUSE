@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10d4f1a70>
+added:0
+subtractions:1
+title:Better docs on new URL exceptions.
+otherStatus:0
+idNum:36159470
+number:1674
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:16
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1674
+repoName:okhttp
+-9.468808961074163,-15703.700783263736,-9.477325738983149,-15703.700783263736,0,0,4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

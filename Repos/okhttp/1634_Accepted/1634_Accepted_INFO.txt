@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10dd1be60>
+added:0
+subtractions:12
+title:Javadoc HttpUrl encoding.
+otherStatus:0
+idNum:35292249
+number:1634
+numOfFiles:1
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:49
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/1634
+repoName:okhttp
+-4.066864621666144,-26341.082154531618,-4.0671675334247235,-26395.917291926457,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

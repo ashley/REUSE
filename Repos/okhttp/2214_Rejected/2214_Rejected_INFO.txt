@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b35fe60>
+added:1
+subtractions:0
+title:Fix OkHostnameVerifier cannot verify SSL certificate issued for IP address
+otherStatus:0
+idNum:55427971
+number:2214
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:False
+state:closed
+renamed:0
+result:Rejected
+modified:1
+additions:293
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2214
+repoName:okhttp
+-10.00477038016771,-13367.105853937508,-4.198198325339272,-4202.396523664611,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

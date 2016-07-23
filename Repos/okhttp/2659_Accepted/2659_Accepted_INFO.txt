@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x105e6d6c8>
+added:0
+subtractions:6
+title:Fix OkHttpURLConnection to not swallow unexpected exceptions.
+otherStatus:0
+idNum:75214707
+number:2659
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:75
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2659
+repoName:okhttp
+-8.824560951208177,-149267.5163701889,-8.830632371088956,-147490.6083975174,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

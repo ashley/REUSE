@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10b0678c0>
+added:0
+subtractions:2
+title:Don't eagerly release pools on cache hits.
+otherStatus:0
+idNum:55294155
+number:2208
+numOfFiles:2
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:2
+additions:20
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2208
+repoName:okhttp
+-11.73265637045783,-83796.01834265095,-11.73859049842769,-83573.15500069394,0,2,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

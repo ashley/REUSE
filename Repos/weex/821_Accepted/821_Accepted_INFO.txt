@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x10566e518>
+added:0
+subtractions:1
+title:* [ios] fix bug when url has chinese character.
+otherStatus:0
+idNum:77787761
+number:821
+numOfFiles:1
+label:alibaba:dev
+repo:53658802
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:4
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/821
+repoName:weex
+-6.026855885662544,-12113.980330181712,-6.072170591569781,-12113.980330181712,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

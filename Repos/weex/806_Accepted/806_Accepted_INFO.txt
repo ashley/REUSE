@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1054cfb90>
+added:0
+subtractions:4
+title:fix typos in doc
+otherStatus:0
+idNum:77582950
+number:806
+numOfFiles:1
+label:alibaba:dev
+repo:53658802
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:1
+additions:4
+removed:0
+blob:https://api.github.com/repos/alibaba/weex/pulls/806
+repoName:weex
+-6.274019712496944,-6286.567751921938,-6.346332437849375,-6359.025102725073,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

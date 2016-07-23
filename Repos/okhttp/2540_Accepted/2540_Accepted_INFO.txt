@@ -1,0 +1,20 @@
+files:<github.PaginatedList.PaginatedList instance at 0x1093d5f38>
+added:0
+subtractions:35
+title:Make logging more consistent throughout OkHttp.
+otherStatus:0
+idNum:69257112
+number:2540
+numOfFiles:13
+label:square:master
+repo:5152285
+merge:True
+state:closed
+renamed:0
+result:Accepted
+modified:13
+additions:46
+removed:0
+blob:https://api.github.com/repos/square/okhttp/pulls/2540
+repoName:okhttp
+-361.96181549456065,-791882.7490581085,-364.6917747758815,-790051.6457226542,39,26,13,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,20.0,0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
