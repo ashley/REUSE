@@ -1,45 +1,5 @@
-@relation 'decision'
+@relation Decision
 @attribute numOfFiles: numeric
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
-@attribute 0
 @attribute additions: numeric
 @attribute subtractions: numeric
 @attribute filesAdded: numeric

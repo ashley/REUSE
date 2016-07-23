@@ -37,7 +37,6 @@ else:
 for repo in range(len(listofRepoID)):
 	g = GithubOAuth(tokens[repo])
 	print g.rate_limiting
-	#g = useGitAuth(None)
 	storePull(listofRepoID[repo],g)
 
 	repoCollection = []

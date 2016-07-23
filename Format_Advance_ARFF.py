@@ -10,6 +10,7 @@ def defaultAttributes():
 
 def allData(f):
 	info = f.read().split("\n")
+	print f
 	specialized = info[19].split(",")
 	listOfData = [info[7][11:],info[15][10:],info[2][13:],info[1][6:],info[16][8:],info[12][8:],info[14][9:],specialized[0],specialized[1],specialized[2],specialized[3],specialized[4],specialized[5],specialized[6],specialized[7],specialized[8],specialized[9],specialized[10],specialized[11],specialized[12],specialized[13],specialized[14],specialized[15],specialized[16],specialized[17],specialized[18],specialized[19],specialized[20],specialized[21],specialized[22],specialized[23],specialized[24],specialized[25],specialized[26],specialized[27],specialized[28],specialized[29],specialized[30],specialized[31],specialized[32],specialized[33],specialized[34],specialized[35],specialized[36],specialized[37],specialized[38],specialized[39],specialized[40],specialized[41],specialized[42],specialized[43],specialized[44],specialized[45],specialized[46],specialized[47],specialized[48],specialized[49],specialized[50],specialized[51],specialized[52],specialized[53],specialized[54],specialized[55],specialized[56],specialized[57],specialized[58],specialized[59],specialized[60],specialized[61],specialized[62],specialized[63],specialized[64],specialized[65],specialized[66],specialized[67],specialized[68],specialized[69],specialized[70],specialized[71],specialized[72],specialized[73],specialized[74],specialized[75],specialized[76],specialized[77],specialized[78],specialized[79],specialized[80],info[13][7:]]
 	return listOfData
@@ -40,7 +41,7 @@ class FormatFile:
 		self.lines = []
 
 	def formatRelations(self):
-		self.lines.append("@relation 'decision'")
+		self.lines.append("@relation Decision")
 
 	def formatAttributes(self):
 		for i in self.attributes:
