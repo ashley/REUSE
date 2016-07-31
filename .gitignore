@@ -1,6 +1,5 @@
-*.pyc
-/ARFF/*
+*.pyc*
 *.ser
 /ProcessedRepos/*
 /Repos/*
-
+*.arff*
