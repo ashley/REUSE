@@ -1,6 +1,9 @@
-
-
 \documentclass[10pt, conference]{IEEEtran}
+
+\usepackage{fancybox}
+\newenvironment{boxedlaw}[1]
+  {\begin{Sbox}\begin{minipage}{#1}\centering}
+  {\end{minipage}\end{Sbox}\begin{center}\shadowbox{\TheSbox}\end{center}}
 
 \ifCLASSINFOpdf
  
@@ -40,7 +43,8 @@ The difference between OSS and software built within a company is the scale of t
 How do developers know if a bug has been fixed? In OSS, pull requests act as patch proposals and are submitted to the core developers of the repository \cite{IEEEhowto:kopka}. The only existing way to determine whether a bug has been fixed is executing the software. Ultimately, 20-25\% of pull requests are reverted [insert reference], which strongly indicates that developers are unable to fully determine whether a patch fixes a bug.
 
 We want to answer the following research questions:
-R1. What structural data behavior is present in accepted pull requests?
+
+\framebox{R1. What structural data behavior is present in accepted pull requests?}\par
 R2. How can this behavior be used to classify and predict pull request acceptance?
 R3. What is the most useful metric for predicting pull request acceptance?
 
