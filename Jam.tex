@@ -1,0 +1,250 @@
+
+
+\documentclass[10pt, conference]{IEEEtran}
+
+\ifCLASSINFOpdf
+ 
+\else
+\fi
+
+\hyphenation{Bug Fix Verification An Analysis of Pull Request Acceptance on the Tree-Structured Level}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{booktabs,caption,fixltx2e}
+\usepackage[flushleft]{threeparttable}
+\usepackage{amstext} 
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Architectural Invariant Inference In ROS Based Systems (Robot Operating System)}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+\author{\IEEEauthorblockN{Jam Marcos Hernandez Quiceno}
+\IEEEauthorblockA{Institute of Software Research\\State University of New York at Potsdam\\jammarch@andrew.cmu.edu}
+}
+\maketitle
+
+
+\begin{abstract}
+Understanding the architectural properties that hold on a ROS (Robot Operating System) system can be difficult as result of the constraints that the framework itself can carry and the extent of complexity in which the program can evolve to. Understanding such complexity in terms of invariants provides to developers a new approach for debugging and validating ROS systems. In this paper we present our approach on recording invariants in subscribers, publishers and service calls. We do this by Launching three nodes that constantly monitor the system's architecture. Two of them monitor the nodes subscribing and/or publishing to certain node/s, the last one is in charge of recording service calls. These nodes report the architectural changes made throughout execution. We boil down the provided data by presenting only properties that hold in the report. We demonstrate the working tool on a functioning Turtlebot. This is exciting because understanding such conditions in a system, can help in the process of debugging and validation. In a future self-adaptive system a tool that provides accurate information regarding the system's invariants can help validate a patch without human intervention. 
+\end{abstract}
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+As the complexity of a system increases the understanding of such decreases. This can be appreciated in ROS (Robot Operating System) based systems, there are many conditions in which the system relies upon in order to have a correct functionality. But not all conditions are explicitly stated by the developers. These unstated conditions may be critical and could be easily violated by unaware contributors to the project. We can assume that this is a constant throughout many projects, not every condition will be explicitly stated. Rather than expecting all these conditions to be reported by the developers we decided to built a tool that constantly reports the state of the system to later be analyzed. \newline  \indent There are many uses for a tool that is capable of reporting candidate invariants of a ROS system. Such report can help developers debug, validate programs and for a future self-adaptive system the understating of its invariants could help validate patches without human intervention. So as a first step approach for completing a tool capable of obtaining relevant information regarding invariants on a system we decided to start with the system's architecture. Identifying the contentions present throughout a program's execution seemed to be the first logical step in discovering relevant conditions that hold on a system.
+\newline  \indent Understanding connections between nodes can provide a clear structure of a ROS program. Generating a set of possible invariants that may not only be present in a one to one relation but in a chain of connections. These chain of connections may depend on each other, and may even be critical for the correct functionality of the system. Yet developers do not provide explicit information about their existence. In many cases developers do not recognize such connections, leaving gaps of knowledge (present invariants) for the future development of the system. These gaps of information about the system can lead to future problems.
+\newline  \indent So we decided to follow a previous line of work that is detecting invariants as the system executes, Daikon for instance [1]. By instrumenting the program and analyzing the output we can infer invariants that are not easy to notice for developers and that expand with an increasing complexity.  
+\newline \indent Section III provides enough background to understand the approach that we took on this research. Section IV divides our approach in stages of the process of invariant inference. Section V presents the tool working on two cases; showcasing the architecture invariant inference on a TurtleBot and showcasing numeric value range and temporal sequence in a small random addition/multiplier tool.
+
+\section{Background}
+
+ \indent Architectural invariants in a ROS systems can be identified as constant relations between topics and nodes. These relations are nodes that published/subscribed to a topic during the execution of the program. The connections that were present during all instances are to be presented as candidate invariants. Nodes can also communicate using services, but there is a difference between both methods. Services do not require confirmation of a receiver, which means that do not require a targeted receiver. The solution to this obstacle is presented in section III .
+\newline \indent  As mentioned before we decided to continue previous work on invariant inference [1]. One of our goals was to extend Daikon to process the output reported by our recording nodes. The following are going to be brief descriptions of the tools and features that we used in order to accomplish our goal:
+
+\subsubsection{Daikon}
+Is a tool that helps us infer invariants by reporting only properties that hold throughout specific program points. Daikon can be extended to find new invariants by introducing templates. We added three templates in this research, furthermore in section IV. In our research we treated nodes that publish/subscribe to a topic and service calls as program points.
+\subsubsection{ROS (Robot Operating System)}
+Is a framework that facilitates the development of robotic applications. From a high level perspective, it enables developers to separate complex actions into pieces of functionality, encapsulated in nodes. Nodes can communicate using topics and services. 
+
+\section{Approach}
+In order to identify and clarify our recording and inference technique, we decided to divide the process into four steps; recording nodes, translation, Daikon extension and filtering. Note that filtering is still in an early stage and only removes invariants which can be safety considered irrelevant to the system. The following are the sections of the process:
+
+
+\subsection{Recording Nodes}
+\indent In order to record the system's architecture, we start four nodes at the launch of the system: subscribers\_recorder, publishers\_recorder, service\_handler and rosbag. Each one of them have their own role in the recording process. We will start by describing their role in the process:
+\subsubsection{rosbag}
+Rosbag is a feature of ROS that could be compared to as a logger. Rosbag must be++ initialized in order to allow our other nodes to report any changes or information to be later analyzed. Take note that rosbag subscribes to all topics that are available. Therefore we must select only the publications of interest, these being the ones made by our recording nodes. \newline \indent
+\subsubsection{subscriber\_recorder \& publishers\_recorder}
+The  nodes take care of reporting the nodes that publish and/or subscribe to a topic. They do so by constantly requesting ROS master for this information. If the list of subscribers or publishers changes they publish to rosbag the updated list of connections. This information is critical when trying to infer architectural invariants on the system. \newline \newline
+
+
+\includegraphics[scale=0.33] {Diagram}
+\scriptsize
+fig. 1. Diagram of service\_hanlder interacting with the system. Node Y calls Service then service\_handler publish the content then it calls Service\_prime. Publishes the response and returns the content to the original caller.
+\newline
+
+\subsubsection{service\_handler}
+\normalsize
+The service\_handler node is more complicated than the previous two, since ROS does not provide a direct way of recording service calls. We solved this problem by using an intermediary in the call process. Meaning that we trick the caller to believe that our node serves the service that they are referring to. The intermediary receives a call, it publishes the data to rosbag then it calls the original receiver and when it gets an answer it publish its and responds to the caller the same response obtained by the original receiver. In order for our node to accomplish such we had to generate a clone for each present service. We modified the source code of ROS to add a flag to the service name. This flag being “\_prime”. We made an exception for loggers, since they do not have an impact on the system's functionality. This flag applies only for services that are not register by service\_handler, and allows us to identify which services have to be cloned. fig. 1 and fig. 2, show the relationship that service\_handler has with other nodes/services (nodes calling services). This approach allows us to have full control of the data flow in service calls, we can obtain information such as time of a call, time intervals between calls and all the data being transmitted.
+
+\begin{table}[h!]
+ \begin{tabular}{l c} 
+/app\_manager/get\_loggers \\
+/app\_manager/set\_logger\_level \\
+/bumper2pointcloud/get\_loggers \\
+/bumper2pointcloud/set\_logger\_level \\
+/capability\_server/establish\_bond \\
+\textbf {/capability\_server/establish\_bond\_prime} \\
+/capability\_server/free\_capability \\
+\textbf {/capability\_server/free\_capability\_prime} \\
+/capability\_server/get\_capability\_spec \\
+\textbf {/capability\_server/get\_capability\_spec\_prime} \\ [1ex] 
+ \end{tabular}
+ \begin{tablenotes}
+	\scriptsize
+      \item fig. 2 List of services showing both original service and clone. Note that loggers do not have a prime
+    \end{tablenotes}
+\end{table}
+
+When a service is called, service\_handler generates a publisher with the same name as the service that was called. This publisher serves for two purposes; one it allows to have a direct channel of communication with rosbag that only reports information related to the service and second it allows our trace translator to treat each call as a program point. 
+\indent The service\_handler node also reports what node is serving a service and any changes throughout the program. This is important because it allows us to identify the amount of nodes that usually provide a service.  This publisher is also reported as a program point. 
+\newline  \indent As mentioned before rosbag subscribes to all publishers meaning that we need to select only the publications that were made by our nodes. Since for every service call made to our services we start a publisher, we must have a list of the publishers generated by us to later be identified in rosbag. So service\_handler generates a list called “traceTranslationComplement” that contains our list of publishers.     
+\subsection{Trace Translation}
+The trace translation has the functionality of reading the rosbag output and retrieving all the publications made by our nodes. Primarily is set to find /rec/arch\_pub, /rec/arch\_sub and /rec/arch\_srvs. But since service\_handler generates more topics we take the list (traceTranslationComplement) of extra topics and add them to the list of important topics. 
+	Trace Translator reports all the information of these topics as program points and formats them into a composition that Daikon can process. An example of a program point after translation would be: 
+
+\begin{table}[h!]
+ \begin{tabular}{ l c} 
+\textbf{/rec/arch\_srvs:::POINT}\\
+data \\
+"\{'capabilities/GetNodeletManagerName': ['/capability\_server'], \\
+'capabilities/StartCapability': ['/capability\_server'],\\
+ 'capabilities/GetProviders': ['/capability\_server']\} "  \\ [1ex] 
+ \end{tabular}
+\end{table}
+
+\subsection{Daikon Extension}
+\normalsize
+We extended Daikon with three templates, each identifying a different type of possible invariant. These being: ArchitectureInvariant, ServiceCallInvariantFrequency and ServiceCallInvariantRangeNumericValues. Note that the last two templates are only for service call cases. While ArchitectureInvariant handles publishers, subscribers and services (node to service relation). We will be describing each of the templates in detail:  
+\subsubsection{ArchitectureInvariant}
+Identifies the minimum and maximum amount of nodes that publish/subscribe to a topic throughout the program's execution. In other words it analyzes all the program points of /rec/arch\_pub, /rec/arch\_sub and /rec/arch\_srvs setting the minimum to the least subscriptions/publications on a topic that were present on the program. And the maximum to the greatest amount of subscriptions/publications on a topic. In the case of node (server) to service relation, the minimum would be the least amount of nodes that provided certain service, while the maximum would be the greatest amount of nodes that provided a service.  An output example for /rec/arch\_srvs (services) would be:
+
+\begin{table}[h!]
+ \begin{tabular}{l c} 
+/rec/arch\_srvs:::POINT \\
+Max: \{'AddTwoInts': '[/add\_two\_ints\_server, /add\_two\_ints\_server2]',\} \\
+Min: \{'AddTwoInts': '[/add\_two\_ints\_server­]',\} \\ [1ex] 
+ \end{tabular}
+ \begin{tablenotes}
+	\scriptsize
+      \item fig. 3 AddTwoInts being the service and next to it the servers that provided such service. 
+    \end{tablenotes}
+\end{table}
+
+\normalsize
+\subsubsection{ServiceCallInvariantFrequency}
+Every service call reported contains a timestamp. This template analyzes the timestamps and reports information such as: number of calls made, sequence time, longest interval, shortest interval and the average interval. An output example:  \newline
+\begin{table}[h!]
+ \begin{tabular}{l c} 
+Milliseconds::: \\
+Number of Calls: 498.0 \\
+Sequence Time: 424262.0 \\
+Longest Interval: 938.0 \\ 
+Shortest Interval: 844.0 \\
+Average Interval: 853.6458752515091 \\ [1ex] 
+ \end{tabular}
+ \begin{tablenotes}
+	\scriptsize
+      \item fig. 4 Output of ServiceCallInvariantFrequency template. Note that the time is in milliseconds  
+    \end{tablenotes}
+\end{table}
+\normalsize
+
+This report is not directly an invariant but it can be useful to detect anomalies in the system, or in the case of a known invariant this data may help identify the source of a problem. 
+\subsubsection{ServiceCallInvariantRangeNumericValues}
+Looks for numeric values in the service calls made. It constantly keeps comparing the values found in the program points to find the minimum and the maximum. Services can have multiple requirements (arguments) and responses. This template looks for both cases and reports for each one of the cases. An output example: 
+\begin{table}[h!]
+
+ \begin{tabular}{|c|c|c|} 
+\hline
+Type::: & Max::: & Min:::  \\
+\hline
+Response:: & - & - \\
+Multiplication: & 8.74290615552E15 &  -5.54820673758E15 \\
+Sum:  & 32194.1181099 &  -38688.8510291  \\ 
+
+Requirements::  & - & -\\
+a: & 9931.93460557  & -9958.61406644\\
+b: & 9962.79277972 & -9994.90205016 \\
+c: & 9998.23701324  & -9986.0259562 \\
+d: & 9996.26538193 & -9980.82872157 \\ [1ex] 
+\hline
+ \end{tabular}
+ \begin{tablenotes}
+	\scriptsize
+      \item table 1. Output of ServiceCallInvariantRangeNumericValues template
+    \end{tablenotes}
+\end{table}
+
+\normalsize
+We can see that in table 2  if you were to add all the maximums or minimums from requirements the result would not add up to the maximum or minimum sum response value.  This is because not all specific values were used in one call, they were possibly used in unrelated calls. So the maximum and minimum values are relatively independent from each other. 
+\subsection{Filtering and Output Classification}
+After obtaining a report from Daikon with the candidate invariants, we want to classify and if possible reduce the output by removing the invariants that are clearly irrelevant to the system's functionality. As mentioned before the filter is in early stages and only removes irrelevant data such as candidate invariants generated by our own implementation.  In other words, the current filter ignores the presence of our nodes, topics and/if present services. Rosbag data is also ignored otherwise we would see that rosbag always subscribes to all topics. 
+\newline \indent The filter also allows the user to add any exception they want to make. If a developer is aware of an irrelevant state, meaning a node or topic, there is a list in which the name can be added in order for it to be ignored. 
+\newline \indent Daikon's output can be somewhat extensive and presents the candidate invariants from a minimum and maximum perspective. This means that identifying a specific topic can be tedious work. Our filter analyzes the data and presents it from a topic perspective. Allowing the localization of specific topics easier.  
+While testing the filter we found that the reports that were generated by ArchitectureInvariant could be classified. We decided to name these classifications or states with the purpose of easy reference and possible correlation with the system's dependency on their correct functionality. These classifications or states are: static, variable and restricted variable. Each one of them represent a specific characteristic of node to topic relation. By classifying them we can understand better their role in the system's architecture. Note that for services we are analyzing the number of servers that offered a specific service. The states definitions and corresponding examples are present in fig. 5 
+\begin{table}[h!]
+ \begin{tabular}{l c} 
+\hline
+\textbf{Static:::} \\
+Minimum and maximum amount of nodes publishing/subscribing to a to- \\
+pic are equal to each other.  \\
+Min = Max \\
+Example:: \\
+turtlebot\_teleop/AddTwoInts:: \\
+Min = Max |  ['/turtlebot\_teleop\_keyboard'] |  1 \\
+\hline
+
+\textbf{Variable:::} \\
+The minimum amount of nodes publishing/subscribing to a topic is zero \\
+and the maximum is greater than zero. \\
+Min = 0 \\
+Max \textgreater \ 0 \\
+Example:: \\
+/rosout\_agg:: \\
+Min: [] | 0 \\
+Max: ['/rosout', '/record\_1469033124769797118'] | 2 \\
+
+\hline
+\textbf{Restricted Variable:::} \\
+The minimum amount of nodes publishing/subscribing to a topic is grea- \\
+ter than zero and the maximum is the minimum plus n number of extra \\
+ nodes. \\
+Min \textgreater \  0 \\
+Max = Min + n \\
+\hline
+ \end{tabular}
+ \begin{tablenotes}
+	\scriptsize
+      \item fig. 5 Definitions of the three states that are present in node to topic relation. In the case of services we analize the server to service relation.
+    \end{tablenotes}
+\end{table}
+
+\section{Evaluation}
+In this section, we will be reviewing the actual evaluations of the approach we took.
+
+
+
+\section{Conclusion}
+
+
+\subsection{Future Work}
+
+
+\section*{Acknowledgment}
+
+The authors would like to thank...
+more thanks here
+
+
+
+\begin{thebibliography}{2}
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\end{thebibliography}
+
+
+% that's all folks
+\end{document}
+
+
