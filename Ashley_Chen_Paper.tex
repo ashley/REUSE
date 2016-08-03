@@ -1,9 +1,18 @@
 \documentclass[10pt, conference]{IEEEtran}
 
-\usepackage{mdframed}
+\usepackage{mdframed,graphicx,booktabs,textcomp,multirow,pgfplots,cite}
 \usepackage{graphicx}
-\graphicspath{ {images/} }
-\usepackage{booktabs}
+
+\pgfplotsset{
+    integral segments/.code={\pgfmathsetmacro\integralsegments{#1}},
+    integral segments=3,
+    integral/.style args={#1:#2}{
+        ybar interval,
+        domain=#1+((#2-#1)/\integralsegments)/2:#2+((#2-#1)/\integralsegments)/2,
+        samples=\integralsegments+1,
+        x filter/.code=\pgfmathparse{\pgfmathresult-((#2-#1)/\integralsegments)/2}
+    }
+}
 
 
 \ifCLASSINFOpdf
@@ -32,7 +41,7 @@
 
 
 \begin{abstract}
-As society becomes more dependent on Open Source Software (OSS), it becomes more important to understand how we fix bugs. Pull requests are patch proposals to OSS and are accepted if it contributes to the OSS project. But is there a way to understand the process of change and pull request acceptance in OSS? To tackle this problem, We wanted to understand what kind of structural data behavior is present in accepted pull requests, and ultimately, how this behavior can be used to classify and predict pull request acceptance. We collected pull request information from Github?s existing pull request system and processed file changes through our analysis. In the recent work around bug identification, we used what is known as naturalness and Change Distiller to mine more information about change in these files. As a result, two primary models were built, one using basic pull request information and the other using data mined from naturalness and Change Distiller. The advanced model reached an overall 64\% accuracy rate at predicting pull request acceptance, which exceeds the basic model?s accuracy rate. This approach has proven that structural analysis can be used to understand behavior of pull request acceptance. Ultimately, this work can be used to further understand what kind of bugs can be fixed automatically in OSS and how we can predict the evolution of OSS contribution.
+As society becomes ~\cite{Yu} more dependent on Open Source Software (OSS), it becomes more important to understand how we fix bugs. Pull requests are patch proposals to OSS and are accepted if it contributes to the OSS project. But is there a way to understand the process of change and pull request acceptance in OSS? To tackle this problem, We wanted to understand what kind of structural data behavior is present in accepted pull requests, and ultimately, how this behavior can be used to classify and predict pull request acceptance. We collected pull request information from Github?s existing pull request system and processed file changes through our analysis. In the recent work around bug identification, we used what is known as naturalness and Change Distiller to mine more information about change in these files. As a result, two primary models were built, one using basic pull request information and the other using data mined from naturalness and Change Distiller. The advanced model reached an overall 64\% accuracy rate at predicting pull request acceptance, which exceeds the basic model?s accuracy rate. This approach has proven that structural analysis can be used to understand behavior of pull request acceptance. Ultimately, this work can be used to further understand what kind of bugs can be fixed automatically in OSS and how we can predict the evolution of OSS contribution.
 \end{abstract}
 \IEEEpeerreviewmaketitle
 
@@ -95,17 +104,19 @@ We created a script that parses through the text files of each pull request. The
 
 \begin{table}[h!]
   \centering
-  \caption{Caption for the table.}
-  \label{tab:table1}
+  \caption{List of Attributes (Metrics of Change)}
+  \label{tab:Figure I}
   \begin{tabular}{|c|c|c|c|c|}
     \hline
     \textbf {Attribute} & \textbf{Origin} & \textbf{Level} & \textbf{Format} & \textbf{Range}\\ %colum names
     \hline
-    \# of files & Github & Pull Request & Numeric Sum & 0-100 \\ %added row
+    \# of files & Github & Pull Request & Numeric Sum & 0 \textminus \space100 \\ %added row
     \hline
-    Entropy - A & Naturalness & File & Numeric Average & -10 \~ -0.003\\
+    Entropy - A & Naturalness & File & Numeric Average & -10 \textminus \space-0.003\\
     \hline
   \end{tabular}
+  \break
+\textbf{Table I:} This figure shows the attributes that are extracted from pull requests and their files. The origin describes where each attribute is derived from. The level depicts where the attribute is measured. The format describes how the attribute is interpreted for each pull request.
 \end{table}
 
 \subsection{Data Collection}
@@ -120,8 +131,78 @@ The pull requests collected are validated based on the repository?s maturity. We
 \subsection{Predictability Accuracy Comparison}
 We apply our approach to the dataset we have collected and built two models: The basic model and advanced model. The basic model encompasses only the attributes from Github, and the advanced model has a combination of the basic model?s attributes, naturalness, and structural changes. Since the basic model serves the baseline for this evaluation, the accuracy of the advanced model will be compared to the basic model. 
 
+\begin{table}[h!]
+  \centering
+  \caption{Accuracy of Models}
+  \label{tab:Figure II}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf {Model} & \textbf{Accuracy} & \textbf{Percision} & \textbf{Recall}\\ %colum names
+    \hline
+    Coin Toss & 00\% & 0.0 & 0.0\\ %added row
+    \hline
+    Basic & 58\% & 0.58 & 0.77\\ %added row
+    \hline
+    Advanced & 70\% & 0.72 & 0.91\\ %added row
+    \hline
+    Basic + Advanced & 69\% & 0.64 & 0.68\\ %added row
+    \hline
+  \end{tabular}
+  \break
+  \break
+\textbf{Table II:} Each model was measured by how accurate it was able to correctly classify pull requests. Precision and recall are also used to evaluate the performance of each model.
+\end{table}
+
 \subsection{Validity of Models}
 To validate the classifying models used, We took five different types of classifier and measured its performance over the AUC. We took the same data from the advanced model and implemented different algorithms along with Random Forest: LMT, PART, Naive Bayes, and ZeroR. We then compare both the accuracy and the ROC Area.
+
+\begin{table}[h!]
+  \centering
+  \caption{Performance of Classifiers}
+  \label{tab:Figure II}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf {Dataset} & \textbf{Classifer} & \textbf{ROC Area}\\
+    \hline
+    \multirow{5}{*}{Basic [6]}
+    				& \multicolumn{1}{l|}{Random Forest} & \multicolumn{1}{l|}{0.70} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{LMT} & \multicolumn{1}{l|}{0.66} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{PART} & \multicolumn{1}{l|}{0.61} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{Naive Bayes} & \multicolumn{1}{l|}{0.53} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{ZeroR} & \multicolumn{1}{l|}{0.50} \\\hline
+    \multirow{5}{*}{Advanced [74]} 
+    				& \multicolumn{1}{l|}{Random Forest} & \multicolumn{1}{l|}{0.00} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{LMT} & \multicolumn{1}{l|}{0.00} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{PART} & \multicolumn{1}{l|}{0.00} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{Naive Bayes} & \multicolumn{1}{l|}{0.00} \\\cline{2-3}
+                                 & \multicolumn{1}{l|}{ZeroR} & \multicolumn{1}{l|}{0.00} \\\hline
+  \end{tabular}
+  \break
+  \break
+\textbf{Table II:} Each model was measured by how accurate it was able to correctly classify pull requests. Precision and recall are also used to evaluate the performance of each model.
+\end{table}
+
+\begin{figure}  
+\begin{center}
+\textbf{Your title}\par\medskip \break
+\begin{tikzpicture}[color=black,/pgf/declare function={f=3*e^(-x)*x^3;}]
+\begin{axis}[
+    domain=0:8.1,
+    samples=100,
+    axis lines=middle
+]
+\addplot [ultra thick] {f};
+\addplot [
+    white,
+    integral segments=4,
+    integral=0:8
+] {f};
+\end{axis}
+\end{tikzpicture}
+\newline \small \textbf{Table II:} Each model was measured by how accurate it was able to correctly classify pull requests. Precision and recall are also used to evaluate the performance of each model.
+\end{center}
+\end{figure}
+
 
 \section{Discussion of Results}
 \subsection{Research Questions \#1}
@@ -153,28 +234,8 @@ more thanks here
 
 
 
-\begin{thebibliography}{2}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
+\bibliography{mybib}{}
+\bibliographystyle{plain}
 
 
 % that's all folks
