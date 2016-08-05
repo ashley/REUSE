@@ -22,7 +22,6 @@
 
 \hyphenation{Bug Fix Verification An Analysis of Pull Request Acceptance on the Tree-Structured Level}
 
-
 \begin{document}
 %
 % paper title
@@ -41,7 +40,7 @@
 
 
 \begin{abstract}
-As society becomes ~\cite{Yu} more dependent on Open Source Software (OSS), it becomes more important to understand how we fix bugs. Pull requests are patch proposals to OSS and are accepted if it contributes to the OSS project. But is there a way to understand the process of change and pull request acceptance in OSS? To tackle this problem, We wanted to understand what kind of structural data behavior is present in accepted pull requests, and ultimately, how this behavior can be used to classify and predict pull request acceptance. We collected pull request information from Github?s existing pull request system and processed file changes through our analysis. In the recent work around bug identification, we used what is known as naturalness and Change Distiller to mine more information about change in these files. As a result, two primary models were built, one using basic pull request information and the other using data mined from naturalness and Change Distiller. The advanced model reached an overall 64\% accuracy rate at predicting pull request acceptance, which exceeds the basic model?s accuracy rate. This approach has proven that structural analysis can be used to understand behavior of pull request acceptance. Ultimately, this work can be used to further understand what kind of bugs can be fixed automatically in OSS and how we can predict the evolution of OSS contribution.
+As society becomes ~\cite{Yu} more dependent on Open Source Software (OSS), it becomes more important to understand how we fix bugs. Pull requests are patch proposals to OSS and are accepted if it contributes to the OSS project. But is there a way to understand the process of change and pull request acceptance in OSS? To tackle this problem, We wanted to understand what kind of structural data behavior is present in accepted pull requests, and ultimately, how this behavior can be used to classify and predict pull request acceptance. We collected pull request information from Github's existing pull request system and processed file changes through our analysis. In the recent work around bug identification, we used what is known as naturalness and Change Distiller to mine more information about change in these files. As a result, two primary models were built, one using basic pull request information and the other using data mined from naturalness and Change Distiller. The advanced model reached an overall 64\% accuracy rate at predicting pull request acceptance, which exceeds the basic model's accuracy rate. This approach has proven that structural analysis can be used to understand behavior of pull request acceptance. Ultimately, this work can be used to further understand what kind of bugs can be fixed automatically in OSS and how we can predict the evolution of OSS contribution.
 \end{abstract}
 \IEEEpeerreviewmaketitle
 
@@ -102,7 +101,7 @@ The data mined with Naturalness and Change Distiller are saved in a text file th
 \subsection{Filtering Performance Metrics}
 We created a script that parses through the text files of each pull request. The script selects the attributes it wants, takes the data, work out some calculation if needed, then formats it into an ARFF file which will be the input for building a model. To answer our research questions, we will be adjusting the metrics used from each database. This is why filtering the performance metrics is important to this approach.
 
-\begin{table}[h!]
+\begin{table}[t]
   \centering
   \caption{List of Attributes (Metrics of Change)}
   \label{tab:Figure I}
@@ -110,9 +109,17 @@ We created a script that parses through the text files of each pull request. The
     \hline
     \textbf {Attribute} & \textbf{Origin} & \textbf{Level} & \textbf{Format} & \textbf{Range}\\ %colum names
     \hline
-    \# of files & Github & Pull Request & Numeric Sum & 0 \textminus \space100 \\ %added row
+    Number of Files [1] & Github & Pull Request & Sum & 0 \textminus \space5,731 \\ %added row
     \hline
-    Entropy - A & Naturalness & File & Numeric Average & -10 \textminus \space-0.003\\
+    Lines of Code [2] & Github & File & Sum, Average & 0 \textminus \space24,882 \\ %added row
+    \hline
+    Files Changed [4] & Github & Pull Request & Sum & 0 \textminus \space300 \\ %added row
+    \hline
+    Naturalness [4] & Naturalness & File & Sum, Average & -1.01 \textminus \space0 \\ %added row
+    \hline
+    Significant Levels [3] & Change Distiller & File & Sum, Average & 0 \textminus \space130,680 \\ %added row
+    \hline
+     Structural Changes [74] & Change Distiller & File & Sum, Average & 0 \textminus \space7,798 \\ %added row
     \hline
   \end{tabular}
   \break
