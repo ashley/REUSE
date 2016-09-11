@@ -1,9 +1,0 @@
-//SHA: 4f642eb2bdb2b74fc4274b6c817ad5b311393409
-//Path: okhttp-twitter/src/main/java/okhttp/twitter/CredentialsStore.java
-//Version: _AFTER.txt
-//File Type: java
-package okhttp.twitter;
-
-public interface CredentialsStore {
-  TwitterCredentials readDefaultCredentials();
-}

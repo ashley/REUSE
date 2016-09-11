@@ -1,8 +1,0 @@
-//SHA: 74c982edba8986ada6a8a11ce9ec78c82f9ecaa4
-//Path: html5/shared/index.js
-//Version: _BEFORE.txt 
-//File Type: js
-import './objectAssign'
-import './setTimeout'
-import './promise'
-import './console'

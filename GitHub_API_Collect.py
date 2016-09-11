@@ -14,7 +14,6 @@ buggyFiles = []
 
 def GithubOAuth(givenToken):
 	g = Github(login_or_token=givenToken) #Access to Github API //don't use pass
-	#g = Github("yuannc","freemason1")
 	return g
 def useGitAuth(token):
 	#g = Github("96bf3e54424c2da275dd4dfe6ac57969e3689f92")

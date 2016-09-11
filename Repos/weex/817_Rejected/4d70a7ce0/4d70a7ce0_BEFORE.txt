@@ -1,6 +1,0 @@
-//SHA: 3b83cb9cd315a5888392e159746571c2d1378ece
-//Path: android/sdk/publish.sh
-//Version: _BEFORE.txt 
-//File Type: sh
-#!/usr/bin/env bash
-./gradlew clean  build -x test publish

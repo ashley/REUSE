@@ -1,6 +1,0 @@
-//SHA: 4d70a7ce006fb728e7c7dfdd3838cc995b5f72b7
-//Path: android/sdk/publish.sh
-//Version: _AFTER.txt
-//File Type: sh
-#!/usr/bin/env bash
-./gradlew clean  assemble publish

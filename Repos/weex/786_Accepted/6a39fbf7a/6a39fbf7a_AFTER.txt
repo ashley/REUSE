@@ -1,5 +1,0 @@
-//SHA: 6a39fbf7a1e0e81113e4b7dcc6ef2ab7c3cfedd2
-//Path: dist/weex-js-framework/index.js
-//Version: _AFTER.txt
-//File Type: js
-import './src/native'
