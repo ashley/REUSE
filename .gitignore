@@ -3,3 +3,4 @@
 /ProcessedRepos/*
 /Repos/*
 *.arff*
+/Entropy-model/*
