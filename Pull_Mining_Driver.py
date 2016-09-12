@@ -10,7 +10,7 @@ def main():
 	apiPulls = repo.get_pulls(state="closed")
 	output = open('pulls.pkl','rb')
 	pulls = pickle.load(output)
-	#pulls = {}
+	pulls = {}
 
 	i = len(pulls)
 	while i < 100 and g.rate_limiting[0] > 20:

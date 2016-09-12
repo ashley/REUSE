@@ -31,8 +31,9 @@ def analyzeTitles(pulls):
 	frequentWord(titlesComb.split(" "))
 
 def formatData(pulls):
-	for pull in pulls:
-		print pull
+	for key, value in pulls.iteritems():
+		print value.title,
+		print value.labels
 
 def main():
 	output = open('pulls.pkl','rb')
