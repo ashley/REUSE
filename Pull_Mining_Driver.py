@@ -10,11 +10,10 @@ def main():
 	apiPulls = repo.get_pulls(state="closed")
 	output = open('pulls.pkl','rb')
 	pulls = pickle.load(output)
-	print apiPulls[1000]
 	#pulls = {}
 
 	i = len(pulls)
-	while apiPulls[i] != apiPulls[-1] and g.rate_limiting[0] > 20:
+	while i < 100 and g.rate_limiting[0] > 20:
 		pullNumber = apiPulls[i].number
 		if pullNumber in pulls.keys():
 			pass
