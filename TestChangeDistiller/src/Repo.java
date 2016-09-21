@@ -11,7 +11,7 @@ public class Repo {
 		for (File i: pulls){
 			System.out.println(repoPath);
 			new Pull(i.toString());
-			Pull.getChanges(false);
+			Pull.getChanges(false, "weex", null);
 			System.out.println();
 		}
 	}

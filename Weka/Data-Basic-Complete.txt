@@ -1,0 +1,10 @@
+@relation 'decision'
+@attribute filesAdded numeric
+@attribute subtractions numeric
+@attribute filesModified numeric
+@attribute additions numeric
+@attribute filesRemoved numeric
+@attribute filesRenamed numeric
+@attribute numOfFiles numeric
+@attribute class {Accepted, Rejected, Reverted}
+@data

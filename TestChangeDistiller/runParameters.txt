@@ -1,0 +1,3 @@
+Loaded default properties at Fri Jul 22 13:47:32 EDT 2016
+Serializer.name=Kryo
+ClassicTsgPosteriorComputer.DoGradientCheck=false

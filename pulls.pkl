@@ -1,0 +1,2740 @@
+(dp0
+I4361
+(iPull
+Pull
+p1
+(dp2
+S'body'
+p3
+S'Notable changes:\r\n\r\n  - Implement the `onBackpressureBuffer` with overflow strategy; change the strategy to plain enum.\r\n  - Additional unit tests from 1.x\r\n  - Implement `publish(Function)` properly to support latecommers.\r\n  - Split `FlowableRedo` into `FlowableRetryWhen` and `FlowableRepeatWhen`.\r\n  - Make sure `take(0)` still triggers upstream subscription that is immediately cancelled.\r\n'
+p4
+sS'title'
+p5
+S'2.x: test sync, fix retryWhen/redoWhen/publish(Function)'
+p6
+sS'labels'
+p7
+(lp8
+S'Cleanup'
+p9
+aS'Enhancement'
+p10
+aS'Test'
+p11
+asS'number'
+p12
+I4361
+sS'comments'
+p13
+(lp14
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4361?src=pr) is 68.59% (diff: 59.65%)\n> Merging [#4361](https://codecov.io/gh/ReactiveX/RxJava/pull/4361?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.07%**\n\n```diff\n@@                2.x      #4361   diff @@\n==========================================\n  Files           439        442     +3   \n  Lines         31116      31488   +372   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       4971       5042    +71   \n==========================================\n+ Hits          21368      21599   +231   \n- Misses         7678       7797   +119   \n- Partials       2070       2092    +22   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [6291f59...febf3e4](https://codecov.io/gh/ReactiveX/RxJava/compare/6291f5908f57e271caba226f0c3dbeaecb602794...febf3e4bac19b00b7d29b671b0b3affd166d5a11?src=pr)'
+p15
+asS'headLabel'
+p16
+S'akarnokd:MissingOps817'
+p17
+sbsI4364
+(iPull
+Pull
+p18
+(dp19
+g3
+S'Just looking at moving some recent 1.x bug fixes and tests over to 2.x.\r\n\r\nThis is my first PR in 2.x so before I proceed adding more tests from 1.x (to this PR) I want to get some feedback on my approach. In particular in the test `testCollectorFailureDoesNotResultInTwoErrorEmissions` is the `Flowable` creation method ok?'
+p20
+sg5
+S'2.x collect - handle post terminal events'
+p21
+sg7
+(lp22
+S'Bug'
+p23
+asg12
+I4364
+sg13
+(lp24
+S"If you'd make it more concise, that would be great. Also note that most Flowable operators have an Observable counterpart so it would be nice if such changes would contain the fix & tests for both."
+p25
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4364?src=pr) is 69.33% (diff: 100%)\n> Merging [#4364](https://codecov.io/gh/ReactiveX/RxJava/pull/4364?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.05%**\n\n```diff\n@@                2.x      #4364   diff @@\n==========================================\n  Files           454        454          \n  Lines         32483      32492     +9   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5204       5207     +3   \n==========================================\n+ Hits          22504      22529    +25   \n+ Misses         7776       7764    -12   \n+ Partials       2203       2199     -4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [7a1a4af...2931f24](https://codecov.io/gh/ReactiveX/RxJava/compare/7a1a4afad2984fb95265ec0af061fd1e87f0b75b...2931f242aa3d305ce5642be7320620d24b3638df?src=pr)'
+p26
+aS">If you'd make it more concise, that would be great. Also note that most Flowable operators have an Observable counterpart so it would be nice if such changes would contain the fix & tests for both.\r\n\r\nCan do."
+p27
+aS'I was trying to avoid this class till now. Will you be able to finish what you wanted till Thursday or may I do it?'
+p28
+aS"@akarnokd I rebased but io.reactivex.Optional disappeared and I was using it in tests. I'll add it back in internal test package."
+p29
+aS'@akarnokd the work is done for `Flowable` and I have done the work for `Observable` as well but is on my laptop at home so will finish PR tonight (in about 11 hours time).'
+p30
+aS"@akarnokd I'm noticing that RxJava 2.x is really slow to compile (2 minutes) in Eclipse 4.5.1 and 4.6 (say after switching branches). Have you noticed that? Got any tips?"
+p31
+aS"Please try without `Optional`. Yes Eclipse is slow if you change `Observable` and `Flowable`, it doesn't like the cycle between the base classes and their implementations. Not sure why, maybe collecting metadata makes is much slower."
+p32
+aS"I've removed `Optional`. Would you like to assess this PR as it stands without the Observable fix that I can do in another PR? You guys are moving fast (as usual) and keeping PRs open a while is a bit of an obstacle."
+p33
+aS':+1:'
+p34
+asg16
+S'davidmoten:2.x-collect-handle-post-terminal-events'
+p35
+sbsI4368
+(iPull
+Pull
+p36
+(dp37
+g3
+S'Notable changes:\r\n\r\n  - implemented `withLatestFrom` with multiple other sources (both `Flowable` and `Observable`)\r\n  - added missing `Exceptions.throwIfFatal()` after catching throwables\r\n  - added `SequentialDisposable` and replaced internal use of `SerialDisposable` with it\r\n  - added `package-info.java` to public packages\r\n  - added javadoc to some interfaces and methods\r\n  - removed `@Experimental` tags and set those methods to `@since 2.0`\r\n  - added `HalfSerializer` to deal with single onNext and multiple onError/onComplete callers'
+p38
+sg5
+S'2.x: add withLatestFrom many, cleanups and other enhancements'
+p39
+sg7
+(lp40
+S'Cleanup'
+p41
+aS'Documentation'
+p42
+aS'Enhancement'
+p43
+asg12
+I4368
+sg13
+(lp44
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4368?src=pr) is 68.45% (diff: 62.87%)\n> Merging [#4368](https://codecov.io/gh/ReactiveX/RxJava/pull/4368?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.12%**\n\n```diff\n@@                2.x      #4368   diff @@\n==========================================\n  Files           442        446     +4   \n  Lines         31488      32154   +666   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5042       5092    +50   \n==========================================\n+ Hits          21595      22012   +417   \n- Misses         7797       8033   +236   \n- Partials       2096       2109    +13   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [4aab4eb...c2df8ed](https://codecov.io/gh/ReactiveX/RxJava/compare/4aab4ebe3bfca585d370d78b1a6493844854181b...c2df8edb8bde789b4bb207ac52420a1a55b39b22?src=pr)'
+p45
+aS':+1:'
+p46
+aS'Thanks @JakeWharton !'
+p47
+asg16
+S'akarnokd:MissingOpsNCleanup818'
+p48
+sbsI4370
+(iPull
+Pull
+p49
+(dp50
+g3
+S'This PR removes the `Try` and `Optional` classes and (re)introduces `Notification<T>`.\r\n\r\nThere are several ways to implement it. This PR uses the abstract class + private subclasses approach that saves on instance size.\r\n\r\nRelated discussion: #4365.'
+p51
+sg5
+S'2.x: remove Try+Optional, introduce Notification'
+p52
+sg7
+(lp53
+S'Enhancement'
+p54
+asg12
+I4370
+sg13
+(lp55
+S'> This PR uses the abstract class + private subclasses approach that saves on instance size.\r\n\r\nThis seems like it would prevent a lot of inlining of the simple "is"ers and "get"ers because the callsites become polymorphic instead of monomorphic.\r\n\r\nWhen I check the object layout having two fields in a root object doesn\'t increase the size because of object padding.\r\n\r\n```\r\n$ cat Notification.java\r\nfinal class Notification<T> {\r\n  private static final Object COMPLETED = new Object();\r\n\r\n  private final T value;\r\n  private final Throwable error;\r\n\r\n  Notification(T value, Throwable error) {\r\n    this.value = value;\r\n    this.error = error;\r\n  }\r\n}\r\n\r\n$ javac Notification.java\r\n\r\n$ java -cp .:/Users/jw/Downloads/jol-cli-0.5-full.jar org.openjdk.jol.Main internals Notification\r\nobjc[95020]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/bin/java and /Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined.\r\n# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope\r\n# Running 64-bit HotSpot VM.\r\n# Using compressed oop with 3-bit shift.\r\n# Using compressed klass with 3-bit shift.\r\n# WARNING | Compressed references base/shifts are guessed by the experiment!\r\n# WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE.\r\n# WARNING | Make sure to attach Serviceability Agent to get the reliable addresses.\r\n# Objects are 8 bytes aligned.\r\n# Field sizes by type: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]\r\n# Array element sizes: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]\r\n\r\nVM fails to invoke the default constructor, falling back to class-only introspection.\r\n\r\nNotification object internals:\r\n OFFSET  SIZE      TYPE DESCRIPTION                    VALUE\r\n      0    12           (object header)                N/A\r\n     12     4    Object Notification.value             N/A\r\n     16     4 Throwable Notification.error             N/A\r\n     20     4           (loss due to the next object alignment)\r\nInstance size: 24 bytes\r\nSpace losses: 0 bytes internal + 4 bytes external = 4 bytes total\r\n```'
+p56
+aS"Oops I wrote my comparison wrong (and left it out of the comment).\r\n\r\nYou're right, the individual classes are only 16 bytes (12 header + 4 field). That said, 24 vs 16 isn't that big of a deal to gain guaranteed monomorphism."
+p57
+aS'There are other ways of doing it, i.e., single object field + private wrapper for Throwables: 16 bytes per onNext and 32 bytes per onError'
+p58
+aS"True. I'll leave it up to you though.\r\n\r\n:+1:"
+p59
+aS'Or getting at least bimorphic by having value == null represent onComplete.'
+p60
+aS'Updated. Now we have the smaller size but an instanceof check for every isOnNext() and getValue calls.'
+p61
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4370?src=pr) is 68.60% (diff: 77.44%)\n> Merging [#4370](https://codecov.io/gh/ReactiveX/RxJava/pull/4370?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.10%**\n\n```diff\n@@                2.x      #4370   diff @@\n==========================================\n  Files           446        443     -3   \n  Lines         32154      32081    -73   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5092       5073    -19   \n==========================================\n- Hits          22026      22010    -16   \n+ Misses         8011       7975    -36   \n+ Partials       2117       2096    -21   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [ec4eb4f...cc0a786](https://codecov.io/gh/ReactiveX/RxJava/compare/ec4eb4f3bcd0a0c2d4e17571c8f4320ee864fd5c...cc0a78632b8e5e1b0141441e75e12d7b906a93b5?src=pr)'
+p62
+aS'Looks good!'
+p63
+asg16
+S'akarnokd:Notification2x'
+p64
+sbsI4371
+(iPull
+Pull
+p65
+(dp66
+g3
+S'This PR removes the `BlockingFlowable` and `BlockingObservable` classes and moves the blocking operators into the respective reactive classes and names prefixed with `blocking`.\r\n\r\nIn addition, many of the mentions of `Flowable` has been replaced with `Observable` in `Observable`.\r\n\r\nRelated: #4366.'
+p67
+sg5
+S'2.x: move blocking operators into the base classes'
+p68
+sg7
+(lp69
+S'Cleanup'
+p70
+aS'Enhancement'
+p71
+asg12
+I4371
+sg13
+(lp72
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4371?src=pr) is 68.58% (diff: 49.66%)\n> Merging [#4371](https://codecov.io/gh/ReactiveX/RxJava/pull/4371?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.03%**\n\n```diff\n@@                2.x      #4371   diff @@\n==========================================\n  Files           443        449     +6   \n  Lines         32081      32123    +42   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5073       5080     +7   \n==========================================\n+ Hits          22015      22031    +16   \n- Misses         7971       7996    +25   \n- Partials       2095       2096     +1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [a6bbf46...58874f6](https://codecov.io/gh/ReactiveX/RxJava/compare/a6bbf4630e9f3678ac56e96f9aa156f3d03ffc56...58874f6d4cf044b1bfea05fea559df4a7efc4db8?src=pr)'
+p73
+aS'LGTM \xf0\x9f\x91\x8d '
+p74
+asg16
+S'akarnokd:InlinedBlockingOps'
+p75
+sbsI4372
+(iPull
+Pull
+p76
+(dp77
+g3
+S''
+p78
+sg5
+S'2.x: Implement ObservableHide for also masking the Disposable.'
+p79
+sg7
+(lp80
+S'Enhancement'
+p81
+asg12
+I4372
+sg13
+(lp82
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4372?src=pr) is 68.60% (diff: 80.95%)\n> Merging [#4372](https://codecov.io/gh/ReactiveX/RxJava/pull/4372?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.02%**\n\n```diff\n@@                2.x      #4372   diff @@\n==========================================\n  Files           449        450     +1   \n  Lines         32123      32143    +20   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5080       5081     +1   \n==========================================\n+ Hits          22030      22052    +22   \n+ Misses         7986       7985     -1   \n+ Partials       2107       2106     -1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [23461ee...64cce97](https://codecov.io/gh/ReactiveX/RxJava/compare/23461ee40ec28b206c435530d53ffc59563087f9...64cce97a97f092c5feb641a2ee626f8d4863ac5f?src=pr)'
+p83
+asg16
+S'JakeWharton:jw/observable-hide'
+p84
+sbsI4375
+(iPull
+Pull
+p85
+(dp86
+g3
+S'Notable changes:\r\n\r\n  - renamed and added safe `create` support to `Observable`, `Single` and `Completable`\r\n  - added some javadoc\r\n  - added `test()` method to `Single` and `Completable`\r\n  - factored out `ErrorMode` into `internal.util` (used by various `concat` operators)'
+p87
+sg5
+S'2.x: added missing ops, cleanup 8/19-1'
+p88
+sg7
+(lp89
+S'Cleanup'
+p90
+aS'Documentation'
+p91
+aS'Enhancement'
+p92
+asg12
+I4375
+sg13
+(lp93
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4375?src=pr) is 68.64% (diff: 62.27%)\n> Merging [#4375](https://codecov.io/gh/ReactiveX/RxJava/pull/4375?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.04%**\n\n```diff\n@@                2.x      #4375   diff @@\n==========================================\n  Files           450        452     +2   \n  Lines         32143      32405   +262   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5081       5129    +48   \n==========================================\n+ Hits          22051      22245   +194   \n- Misses         7988       8020    +32   \n- Partials       2104       2140    +36   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [f0d1d34...d49d30b](https://codecov.io/gh/ReactiveX/RxJava/compare/f0d1d34874980ea508328aba5665a8ba1212e1f8...d49d30b3f83f554f2ed93567b3434b944371cf7c?src=pr)'
+p94
+aS':+1:'
+p95
+asg16
+S'akarnokd:MissingOps819'
+p96
+sbsI4378
+(iPull
+Pull
+p97
+(dp98
+g3
+S'Notable changes:\r\n\r\n  - use JMH 1.13\r\n  - fix javadoc generator exclude pattern\r\n  - add javadoc to many components\r\n  - remove `Observers` and `Subscribers` - all their function is available via subscribe() and/or by implementing the abstract `XObserver`/`XSubscriber` provided\r\n  - remove `Schedulers.immediate()`\r\n  - remove `Single.subscribe(Subscriber)`, `Single.subscribe(Observer)`, `Completable.subscribe(Subscriber)` and `Completable.subscribe(Observer)`\r\n  - remove `CompletableSerializedObserver` and `SingleSerializedObserver` and their parent package\r\n  - implement `Single.takeUntil`, `Single.flatMapCompletable`\r\n  - update the time-shift handling in the default `Scheduler.schedulePeriodically()` to match 1.x\r\n  - fix `Single.subscribeOn` disposable management\r\n  - renamed `Subject.hasSubscribers` to `Subject.hasObservers`'
+p99
+sg5
+S'2.x: implement ops, add javadoc, remove unused components 8/19-2'
+p100
+sg7
+(lp101
+S'Cleanup'
+p102
+aS'Documentation'
+p103
+aS'Enhancement'
+p104
+asg12
+I4378
+sg13
+(lp105
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4378?src=pr) is 69.61% (diff: 76.77%)\n> Merging [#4378](https://codecov.io/gh/ReactiveX/RxJava/pull/4378?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.96%**\n\n```diff\n@@                2.x      #4378   diff @@\n==========================================\n  Files           452        450     -2   \n  Lines         32405      32007   -398   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5129       5108    -21   \n==========================================\n+ Hits          22244      22281    +37   \n+ Misses         8014       7577   -437   \n- Partials       2147       2149     +2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [60bf4fc...dcdf77a](https://codecov.io/gh/ReactiveX/RxJava/compare/60bf4fc559bac80ae5d53793ec008cfee067f29f...dcdf77a7e2fd6bc836ba63e443424b405321ebcc?src=pr)'
+p106
+aS':+1: to code changes. Skimmed the Javadoc for formatting only, not content.'
+p107
+aS"I'm not worried about javadoc; the community is great at finding errors in there that can be trivially fixed."
+p108
+asg16
+S'akarnokd:MissingStuff819_2'
+p109
+sbsI4379
+(iPull
+Pull
+p110
+(dp111
+g3
+g78
+sg5
+S'2.x: Move single-use top-level type to nested class of its only use.'
+p112
+sg7
+(lp113
+S'Cleanup'
+p114
+asg12
+I4379
+sg13
+(lp115
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4379?src=pr) is 69.67% (diff: 100%)\n> Merging [#4379](https://codecov.io/gh/ReactiveX/RxJava/pull/4379?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.03%**\n\n```diff\n@@                2.x      #4379   diff @@\n==========================================\n  Files           450        449     -1   \n  Lines         32007      32006     -1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n- Hits          22311      22299    -12   \n- Misses         7562       7567     +5   \n- Partials       2134       2140     +6   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [fba05ea...2e1f2c7](https://codecov.io/gh/ReactiveX/RxJava/compare/fba05ea81197929e8a66a1db8bdd4a590d5dc7e3...2e1f2c705d4318296c73e017b86c0941df9da4ca?src=pr)'
+p116
+asg16
+S'JakeWharton:jw/remove'
+p117
+sbsI4380
+(iPull
+Pull
+p118
+(dp119
+g3
+S"This method is misleading in that it's a factory next to a bunch of accessor methods to shared resources. The TestScheduler constructor is public and can be used directly."
+p120
+sg5
+S'2.x: Remove test scheduler factory.'
+p121
+sg7
+(lp122
+S'Cleanup'
+p123
+asg12
+I4380
+sg13
+(lp124
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4380?src=pr) is 69.63% (diff: 100%)\n> Merging [#4380](https://codecov.io/gh/ReactiveX/RxJava/pull/4380?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.07%**\n\n```diff\n@@                2.x      #4380   diff @@\n==========================================\n  Files           450        450          \n  Lines         32007      32006     -1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n- Hits          22311      22286    -25   \n- Misses         7562       7577    +15   \n- Partials       2134       2143     +9   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [fba05ea...64dc7fa](https://codecov.io/gh/ReactiveX/RxJava/compare/fba05ea81197929e8a66a1db8bdd4a590d5dc7e3...64dc7fad490da928591e2e2d0feded62f0c2471d?src=pr)'
+p125
+asg16
+S'JakeWharton:jw/drop-test-factory'
+p126
+sbsI4381
+(iPull
+Pull
+p127
+(dp128
+g3
+g78
+sg5
+S'2.x: Correct factory method name for converting an RS Publisher.'
+p129
+sg7
+(lp130
+S'Cleanup'
+p131
+asg12
+I4381
+sg13
+(lp132
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4381?src=pr) is 69.75% (diff: 100%)\n> Merging [#4381](https://codecov.io/gh/ReactiveX/RxJava/pull/4381?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.04%**\n\n```diff\n@@                2.x      #4381   diff @@\n==========================================\n  Files           450        450          \n  Lines         32007      32007          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n+ Hits          22311      22326    +15   \n+ Misses         7562       7545    -17   \n- Partials       2134       2136     +2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [fba05ea...497a394](https://codecov.io/gh/ReactiveX/RxJava/compare/fba05ea81197929e8a66a1db8bdd4a590d5dc7e3...497a3940192db1777c7bb1e90c25a1adef9189cf?src=pr)'
+p133
+asg16
+S'JakeWharton:jw/factory-name'
+p134
+sbsI4382
+(iPull
+Pull
+p135
+(dp136
+g3
+g78
+sg5
+S'2.x: Correctly dereference subscription before comparing against null.'
+p137
+sg7
+(lp138
+S'Bug'
+p139
+asg12
+I4382
+sg13
+(lp140
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4382?src=pr) is 69.72% (diff: 0.00%)\n> Merging [#4382](https://codecov.io/gh/ReactiveX/RxJava/pull/4382?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.04%**\n\n```diff\n@@                2.x      #4382   diff @@\n==========================================\n  Files           449        449          \n  Lines         32005      32005          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n+ Hits          22300      22315    +15   \n+ Misses         7566       7557     -9   \n+ Partials       2139       2133     -6   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [f738a85...76bd1d9](https://codecov.io/gh/ReactiveX/RxJava/compare/f738a85c37e8ffd067dc6b6108823d84a837e773...76bd1d967dfdff341b4a5027f1edd20b913a191b?src=pr)'
+p141
+asg16
+S'JakeWharton:jw/dereference-subscription'
+p142
+sbsI4383
+(iPull
+Pull
+p143
+(dp144
+g3
+S'Also optimize name creation to avoid `StringBuilder` having to expand its underlying `char[]`.'
+p145
+sg5
+S'2.x: Remove double dash on RxThreadFactory thread names.'
+p146
+sg7
+(lp147
+S'Cleanup'
+p148
+asg12
+I4383
+sg13
+(lp149
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4383?src=pr) is 69.64% (diff: 100%)\n> Merging [#4383](https://codecov.io/gh/ReactiveX/RxJava/pull/4383?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.02%**\n\n```diff\n@@                2.x      #4383   diff @@\n==========================================\n  Files           449        449          \n  Lines         32005      32004     -1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n- Hits          22300      22290    -10   \n- Misses         7566       7575     +9   \n  Partials       2139       2139          \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [f738a85...4e3194b](https://codecov.io/gh/ReactiveX/RxJava/compare/f738a85c37e8ffd067dc6b6108823d84a837e773...4e3194beaf708e993046f1e4c233862744df45b0?src=pr)'
+p150
+asg16
+S'JakeWharton:jw/redundant-dash'
+p151
+sbsI4384
+(iPull
+Pull
+p152
+(dp153
+g3
+g78
+sg5
+S'2.x: Do not promise a new instance where we return a singleton.'
+p154
+sg7
+(lp155
+S'Cleanup'
+p156
+asg12
+I4384
+sg13
+(lp157
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4384?src=pr) is 69.63% (diff: 100%)\n> Merging [#4384](https://codecov.io/gh/ReactiveX/RxJava/pull/4384?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.04%**\n\n```diff\n@@                2.x      #4384   diff @@\n==========================================\n  Files           449        449          \n  Lines         32005      32005          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n- Hits          22300      22287    -13   \n  Misses         7566       7566          \n- Partials       2139       2152    +13   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [f738a85...6475742](https://codecov.io/gh/ReactiveX/RxJava/compare/f738a85c37e8ffd067dc6b6108823d84a837e773...6475742db1a55298c9f0aa94f9758a9fb13b4cb7?src=pr)'
+p158
+asg16
+S'JakeWharton:jw/not-new'
+p159
+sbsI4385
+(iPull
+Pull
+p160
+(dp161
+g3
+g78
+sg5
+S'2.x: Free upstream resources when default observer/subscriber is canceled.'
+p162
+sg7
+(lp163
+S'Cleanup'
+p164
+asg12
+I4385
+sg13
+(lp165
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4385?src=pr) is 69.62% (diff: 80.00%)\n> Merging [#4385](https://codecov.io/gh/ReactiveX/RxJava/pull/4385?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                2.x      #4385   diff @@\n==========================================\n  Files           449        449          \n  Lines         32004      32008     +4   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5109     +1   \n==========================================\n+ Hits          22283      22287     +4   \n- Misses         7578       7579     +1   \n+ Partials       2143       2142     -1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [3262f16...76d1bd8](https://codecov.io/gh/ReactiveX/RxJava/compare/3262f16b2b5d00882389d5f2737ae205ca911a14...76d1bd8cb478489b3a4d1686213d5b7dd351d9a2?src=pr)'
+p166
+asg16
+S'JakeWharton:jw/free-upstream'
+p167
+sbsI4386
+(iPull
+Pull
+p168
+(dp169
+g3
+g78
+sg5
+S'2.x: Move error consumer helper to internal API.'
+p170
+sg7
+(lp171
+S'Cleanup'
+p172
+asg12
+I4386
+sg13
+(lp173
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4386?src=pr) is 69.64% (diff: 69.23%)\n> Merging [#4386](https://codecov.io/gh/ReactiveX/RxJava/pull/4386?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.02%**\n\n```diff\n@@                2.x      #4386   diff @@\n==========================================\n  Files           449        449          \n  Lines         32004      32003     -1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n+ Hits          22283      22290     +7   \n+ Misses         7578       7573     -5   \n+ Partials       2143       2140     -3   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [3262f16...6947b0f](https://codecov.io/gh/ReactiveX/RxJava/compare/3262f16b2b5d00882389d5f2737ae205ca911a14...6947b0f74031e388f031756937c4647ed02728e4?src=pr)'
+p174
+asg16
+S'JakeWharton:jw/error-consumer-private'
+p175
+sbsI4387
+(iPull
+Pull
+p176
+(dp177
+g3
+g78
+sg5
+S'2.x: Remove unused test methods from safe observer/subscriber.'
+p178
+sg7
+(lp179
+S'Cleanup'
+p180
+asg12
+I4387
+sg13
+(lp181
+S'I\'m not a huge fan of the word "safe" here. What about calling these `ContractObserver` and `ContractSubscriber` to more accurately describe what they do?'
+p182
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4387?src=pr) is 69.62% (diff: 100%)\n> Merging [#4387](https://codecov.io/gh/ReactiveX/RxJava/pull/4387?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                2.x      #4387   diff @@\n==========================================\n  Files           449        449          \n  Lines         32004      32002     -2   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5108          \n==========================================\n- Hits          22283      22282     -1   \n+ Misses         7578       7575     -3   \n- Partials       2143       2145     +2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [3262f16...294b059](https://codecov.io/gh/ReactiveX/RxJava/compare/3262f16b2b5d00882389d5f2737ae205ca911a14...294b059467b1d5a086cf36c4280d1ef5b51453b8?src=pr)'
+p183
+asg16
+S'JakeWharton:jw/unused-methods'
+p184
+sbsI4388
+(iPull
+Pull
+p185
+(dp186
+g3
+S'This is a very specific use case to provide as a first-party type which can always be added back later should there be sufficient demand.'
+p187
+sg5
+S'2.x: Remove reference counted Disposable public type.'
+p188
+sg7
+(lp189
+S'Cleanup'
+p190
+asg12
+I4388
+sg13
+(lp191
+S"Happy to hear arguments for keeping it, but I couldn't come up with any that were convincing enough."
+p192
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4388?src=pr) is 69.61% (diff: 100%)\n> Merging [#4388](https://codecov.io/gh/ReactiveX/RxJava/pull/4388?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.07%**\n\n```diff\n@@                2.x      #4388   diff @@\n==========================================\n  Files           449        448     -1   \n  Lines         32004      31983    -21   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5105     -3   \n==========================================\n- Hits          22306      22266    -40   \n- Misses         7557       7575    +18   \n- Partials       2141       2142     +1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [e8ff934...a54ad0f](https://codecov.io/gh/ReactiveX/RxJava/compare/e8ff93464ecb83d33596dae1ddd6143b3e590914...a54ad0f07aa62ca8548b9ba615c97cc84c0f97bd?src=pr)'
+p193
+aS'I never saw an use of it; it is a remnant from Rx.NET where it is part of the inner `Observable` management in the `groupBy` and `window` operator. We have inlined custom `Observable`/`Flowable` there.'
+p194
+asg16
+S'JakeWharton:jw/nuke-ref-count-disposable'
+p195
+sbsI4390
+(iPull
+Pull
+p196
+(dp197
+g3
+S'Looks like [the linked comment][1] was misinterpreted (but not in a way that affected the implementation) as Scala considered StackOverflowError as non-fatal but RxJava always considered it fatal. As such, its explicit check was redundant.\r\n\r\n [1]: https://github.com/ReactiveX/RxJava/issues/748#issuecomment-32471495'
+p198
+sg5
+S'1.x: Remove explicit StackOverflow check as its a VirtualMachineError.'
+p199
+sg7
+(lp200
+S'Cleanup'
+p201
+asg12
+I4390
+sg13
+(lp202
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4390?src=pr) is 84.27% (diff: 100%)\n> Merging [#4390](https://codecov.io/gh/ReactiveX/RxJava/pull/4390?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.07%**\n\n```diff\n@@                1.x      #4390   diff @@\n==========================================\n  Files           270        270          \n  Lines         17517      17515     -2   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2678       2677     -1   \n==========================================\n- Hits          14775      14760    -15   \n- Misses         1884       1894    +10   \n- Partials        858        861     +3   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [a57741b...496ceba](https://codecov.io/gh/ReactiveX/RxJava/compare/a57741b5895d775e51753ebc5a67d26f400f49e3...496ceba783df06d1af0307d38b3cd71d4356e43c?src=pr)'
+p203
+asg16
+S'JakeWharton:jw/stack-overflow-v1'
+p204
+sbsI4391
+(iPull
+Pull
+p205
+(dp206
+g3
+S'Looks like [the linked comment][1] was misinterpreted (but not in a way that affected the implementation) as Scala considered StackOverflowError as non-fatal but RxJava always considered it fatal. As such, its explicit check was redundant.\r\n\r\n [1]: https://github.com/ReactiveX/RxJava/issues/748#issuecomment-32471495'
+p207
+sg5
+S'2.x: Remove explicit StackOverflow check as its a VirtualMachineError.'
+p208
+sg7
+(lp209
+S'Cleanup'
+p210
+asg12
+I4391
+sg13
+(lp211
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4391?src=pr) is 69.71% (diff: 0.00%)\n> Merging [#4391](https://codecov.io/gh/ReactiveX/RxJava/pull/4391?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.01%**\n\n```diff\n@@                2.x      #4391   diff @@\n==========================================\n  Files           449        449          \n  Lines         32004      32002     -2   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5107     -1   \n==========================================\n+ Hits          22306      22311     +5   \n+ Misses         7557       7550     -7   \n  Partials       2141       2141          \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [e8ff934...b91d9dc](https://codecov.io/gh/ReactiveX/RxJava/compare/e8ff93464ecb83d33596dae1ddd6143b3e590914...b91d9dc546bb01679deec686f21a5192de6429bf?src=pr)'
+p212
+asg16
+S'JakeWharton:jw/stack-overflow'
+p213
+sbsI4393
+(iPull
+Pull
+p214
+(dp215
+g3
+S'Also should not `cancelled` be renamed to `shouldDispose`? Also the java doc might need a repolish then.'
+p216
+sg5
+S'2.x: Completable.test cancel TestSubscriber when wanted'
+p217
+sg7
+(lp218
+sg12
+I4393
+sg13
+(lp219
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4393?src=pr) is 69.62% (diff: 0.00%)\n> Merging [#4393](https://codecov.io/gh/ReactiveX/RxJava/pull/4393?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.04%**\n\n```diff\n@@                2.x      #4393   diff @@\n==========================================\n  Files           448        448          \n  Lines         31982      31983     +1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5105       5106     +1   \n==========================================\n- Hits          22281      22267    -14   \n- Misses         7561       7572    +11   \n- Partials       2140       2144     +4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [6a6a302...4e3cf88](https://codecov.io/gh/ReactiveX/RxJava/compare/6a6a3022bc3af7c29e9f84ed1fc11c6c8d2c2de9...4e3cf8844e30ae14a8faeda4668c02afc300033e?src=pr)'
+p220
+asg16
+S'vanniktech:2.x_completable_test'
+p221
+sbsI4394
+(iPull
+Pull
+p222
+(dp223
+g3
+g78
+sg5
+S'2.x: Single.test cancel TestSubscriber when wanted'
+p224
+sg7
+(lp225
+S'Cleanup'
+p226
+asg12
+I4394
+sg13
+(lp227
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4394?src=pr) is 69.65% (diff: 0.00%)\n> Merging [#4394](https://codecov.io/gh/ReactiveX/RxJava/pull/4394?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.01%**\n\n```diff\n@@                2.x      #4394   diff @@\n==========================================\n  Files           448        448          \n  Lines         31982      31983     +1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5105       5106     +1   \n==========================================\n- Hits          22281      22277     -4   \n- Misses         7561       7567     +6   \n+ Partials       2140       2139     -1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [6a6a302...32ed1b8](https://codecov.io/gh/ReactiveX/RxJava/compare/6a6a3022bc3af7c29e9f84ed1fc11c6c8d2c2de9...32ed1b82e653088a52be83f80ef93fe45e509701?src=pr)'
+p228
+asg16
+S'vanniktech:2.x_single_test'
+p229
+sbsI4395
+(iPull
+Pull
+p230
+(dp231
+g3
+g78
+sg5
+S'2.x: Completable.test cancel TestSubscriber when wanted'
+p232
+sg7
+(lp233
+S'Cleanup'
+p234
+asg12
+I4395
+sg13
+(lp235
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4395?src=pr) is 69.57% (diff: 0.00%)\n> Merging [#4395](https://codecov.io/gh/ReactiveX/RxJava/pull/4395?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.08%**\n\n```diff\n@@                2.x      #4395   diff @@\n==========================================\n  Files           448        448          \n  Lines         31982      31983     +1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5105       5106     +1   \n==========================================\n- Hits          22281      22253    -28   \n- Misses         7561       7586    +25   \n- Partials       2140       2144     +4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [6a6a302...6485480](https://codecov.io/gh/ReactiveX/RxJava/compare/6a6a3022bc3af7c29e9f84ed1fc11c6c8d2c2de9...64854802b1ecda983ae954e9a2ab9e36004cf566?src=pr)'
+p236
+asg16
+S'vanniktech:2.xcompletable_test'
+p237
+sbsI4396
+(iPull
+Pull
+p238
+(dp239
+g3
+g78
+sg5
+S'2.x: Observable test change dispose to cancel'
+p240
+sg7
+(lp241
+S'Cleanup'
+p242
+asg12
+I4396
+sg13
+(lp243
+S'Oh right cancel does not exist on `TestObserver` yet it should though, right?'
+p244
+aS"Yes, it should be conditionally disposed. Didn't your IDE warn about the missing method?"
+p245
+aS"It did but I somehow managed to ignore it and didn't run the tests locally. Should I create the cancel method on `TestObserver` or just leave it as is and close this PR?"
+p246
+aS'Just use `dispose`.'
+p247
+aS'Alright then this can be closed.'
+p248
+asg16
+S'vanniktech:2.x_observable_dispose_cancel_swap'
+p249
+sbsI4397
+(iPull
+Pull
+p250
+(dp251
+g3
+S"When throttleFirst was operating on a TestScheduler, it delivered all items passed to it untill TestScheduler's time would change to a non-zero value."
+p252
+sg5
+S'1.x: Fix multiple values produced by throttleFirst with TestScheduler'
+p253
+sg7
+(lp254
+S'Bug'
+p255
+asg12
+I4397
+sg13
+(lp256
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4397?src=pr) is 84.29% (diff: 100%)\n> Merging [#4397](https://codecov.io/gh/ReactiveX/RxJava/pull/4397?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.03%**\n\n```diff\n@@                1.x      #4397   diff @@\n==========================================\n  Files           270        270          \n  Lines         17515      17516     +1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2677       2677          \n==========================================\n- Hits          14770      14765     -5   \n- Misses         1885       1897    +12   \n+ Partials        860        854     -6   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [1a7de42...d6014ec](https://codecov.io/gh/ReactiveX/RxJava/compare/1a7de42630959085d9bd89d039dce51c02a4214a...d6014ec7ba5b4132b3ce8be91ed47f379d843453?src=pr)'
+p257
+aS':+1:  and thanks for the fix.'
+p258
+asg16
+S'AntonRutkevich:fix-throttle-first-test-scheduler'
+p259
+sbsI4398
+(iPull
+Pull
+p260
+(dp261
+g3
+S't2 was only initialized if canceling threw an exception. In the happy path it would have never been initialized so when onError threw the call to suppress() would NPE.'
+p262
+sg5
+S'2.x: Avoid potential NPE when onError throws.'
+p263
+sg7
+(lp264
+S'Bug'
+p265
+asg12
+I4398
+sg13
+(lp266
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4398?src=pr) is 69.63% (diff: 0.00%)\n> Merging [#4398](https://codecov.io/gh/ReactiveX/RxJava/pull/4398?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.01%**\n\n```diff\n@@                2.x      #4398   diff @@\n==========================================\n  Files           448        448          \n  Lines         31984      31986     +2   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5107       5108     +1   \n==========================================\n+ Hits          22267      22273     +6   \n+ Misses         7577       7574     -3   \n+ Partials       2140       2139     -1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [e1cec33...eb2d3bd](https://codecov.io/gh/ReactiveX/RxJava/compare/e1cec337e0778adbc75efe6c226242cb7df62d61...eb2d3bda8e2a37ea966458e0f5b5e8fc2391ba71?src=pr)'
+p267
+asg16
+S'JakeWharton:jw/npe'
+p268
+sbsI4403
+(iPull
+Pull
+p269
+(dp270
+g3
+S"Notable changes:\r\n\r\n  - Implement `concatEager` and its variants\r\n  - Implement `onTerminateDetach`\r\n  - Implement `distinctUntilChanged(BiPredicate)`\r\n  - Replace `EmptyDisposable.INSTANCE` with `Disposables.empty()` due to clash with fusion (sending an INSTANCE tells a fusion-enabled source to not expect onNext values yet the test still send those - this was a problem with EmptySubscription.INSTANCE a while back too). Also added javadoc warning about its use\r\n  - add `ObservableScalarXMap` optimization to `Observable.xMap(Function)` and their operator's `subscribeActual`\r\n  - Make `ObservableJust` `ScalarCallable` and sync-fuseable with `ScalarDisposable` (similar to `Flowable.just()`)\r\n  - Make `Observable.bufferSize()` public for convenience.\r\n  - Fix `flatMap` fused `Callable` handling\r\n  - Renamed `Objects` to `ObjectHelper` to avoid accidental bad imports of `java.util.Objects` of Java 8."
+p271
+sg5
+S'2.x: add missing ops, cleanup, fusion fixes'
+p272
+sg7
+(lp273
+S'Bug'
+p274
+aS'Cleanup'
+p275
+aS'Enhancement'
+p276
+asg12
+I4403
+sg13
+(lp277
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4403?src=pr) is 69.30% (diff: 65.89%)\n> Merging [#4403](https://codecov.io/gh/ReactiveX/RxJava/pull/4403?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.32%**\n\n```diff\n@@                2.x      #4403   diff @@\n==========================================\n  Files           448        454     +6   \n  Lines         31986      32483   +497   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5108       5204    +96   \n==========================================\n+ Hits          22274      22513   +239   \n- Misses         7568       7775   +207   \n- Partials       2144       2195    +51   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [5b8845d...7cdb19e](https://codecov.io/gh/ReactiveX/RxJava/compare/5b8845d4cfdbc2d563b90ce27db978b7e383d9e0...7cdb19eedab11edfb2af7afcbf3139939493d01a?src=pr)'
+p278
+asg16
+S'akarnokd:MissingOps822_1'
+p279
+sbsI4410
+(iPull
+Pull
+p280
+(dp281
+g3
+S'Notable changes:\r\n\r\n  - Introduce `Emitter<T>` as a base interface for `FlowableEmitter` and `ObservableEmitter`, use it for the `generate()` operators to be the push surface.\r\n  - Hide fusion-related methods in `TestSubscriber` and `TestObserver`, remove `test()` method overload from the base reactive classes, introduce `SubscriberFusion` and `ObserverFusion` helper in the test source set\r\n  - Enable fusion on `Observable.range()`.\r\n  - Move `Observer`-related tests into the `observers` test package.'
+p282
+sg5
+S'2.x: cleanup, enhancements 8/23-1'
+p283
+sg7
+(lp284
+S'Cleanup'
+p285
+aS'Enhancement'
+p286
+asg12
+I4410
+sg13
+(lp287
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4410?src=pr) is 69.42% (diff: 76.00%)\n> Merging [#4410](https://codecov.io/gh/ReactiveX/RxJava/pull/4410?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.14%**\n\n```diff\n@@                2.x      #4410   diff @@\n==========================================\n  Files           454        454          \n  Lines         32483      32509    +26   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5204       5206     +2   \n==========================================\n+ Hits          22504      22569    +65   \n+ Misses         7776       7740    -36   \n+ Partials       2203       2200     -3   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [7a1a4af...2dbc4fd](https://codecov.io/gh/ReactiveX/RxJava/compare/7a1a4afad2984fb95265ec0af061fd1e87f0b75b...2dbc4fdd3e836118af339a9e00f2deb322369317?src=pr)'
+p288
+aS':+1:'
+p289
+asg16
+S'akarnokd:Cleanup823'
+p290
+sbsI4413
+(iPull
+Pull
+p291
+(dp292
+g3
+S'Notable changes:\r\n\r\n  - delete `concat` 5-9 arguments, use `concat(just(...))` or `concatArray(...)` instead\r\n  - delete `withLatestFrom` 5-8 arguments\r\n  - rename `merge(Publisher...)` into `mergeArray(Publisher...)` to disambiguate\r\n  - rename `merge(int, int, Publisher...)` into `mergeArray(int, int, Publisher...)` to disambiguate\r\n  - delete `merge(int, Publisher...)` overload\r\n  - rename `mergeDelayError(Publisher...)` into `mergeArrayDelayError(Publisher...)` to disambiguate\r\n  - rename `mergeDelayError(int, int, Publisher...)` into `mergeArrayDelayError(int, int, Publisher...)` to disambiguate\r\n  - delete `mergeDelayError(int, Publisher...)` overload\r\n  - delete `takeLatestBuffer` overloads\r\n  '
+p293
+sg5
+S'2.x: API removals and renames'
+p294
+sg7
+(lp295
+S'Cleanup'
+p296
+asg12
+I4413
+sg13
+(lp297
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4413?src=pr) is 69.44% (diff: 100%)\n> Merging [#4413](https://codecov.io/gh/ReactiveX/RxJava/pull/4413?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.11%**\n\n```diff\n@@                2.x      #4413   diff @@\n==========================================\n  Files           454        454          \n  Lines         32518      32359   -159   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5209       5209          \n==========================================\n- Hits          22619      22471   -148   \n+ Misses         7706       7688    -18   \n- Partials       2193       2200     +7   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [7db9f95...3e9ae2c](https://codecov.io/gh/ReactiveX/RxJava/compare/7db9f958bcc4d6a5d4e062d823bbbdd1ecbf9aed...3e9ae2c32ad2b30d5f7a0d9ebe26d5ce4382f4af?src=pr)'
+p298
+aS'\xf0\x9f\x91\x8d '
+p299
+aS'/cc @zsxwing '
+p300
+aS'\xf0\x9f\x91\x8d  \xf0\x9f\x8e\x89 '
+p301
+asg16
+S'akarnokd:APICut823'
+p302
+sbsI4417
+(iPull
+Pull
+p303
+(dp304
+g3
+S"Notable changes:\r\n\r\n  - renamed `amb(sources...)` to `ambArray(sources...)` to be consistent with the naming of other operators with varargs input\r\n  - Renamed some other varargs operators ot `xArray` to be consistent\r\n  - Added `RxJavaPlugins.onAssembly()` to operators, note that no other infrastructure (such as `enableAssemblyTracking` was added; companion libraries may later utilize these hooks to inject the necessary wrapper classes.\r\n  - Extended `RxJavaPlugins.onAssembly()` to support `ConnectableX` operators\r\n  - Renamed `FlowProcessor` into `FlowableProcessor` to avoid future confusion with JDK 9's `Flow.Processor`\r\n  - Removed common value extraction methods from `Subject` and `FlowableProcessor` and left them in the implementations\r\n  - Made common terminal state checking methods of `Subject` and `FlowableProcessor` as abstract since all subtypes can implement them reasonably\r\n  - fixed copy-paste errors in javadocs, such as wrong class named, referencing non-existent backpressure"
+p305
+sg5
+S'2.x: add assembly tracking, minor fixes and cleanup'
+p306
+sg7
+(lp307
+S'Cleanup'
+p308
+aS'Enhancement'
+p309
+asg12
+I4417
+sg13
+(lp310
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4417?src=pr) is 69.44% (diff: 85.17%)\n> Merging [#4417](https://codecov.io/gh/ReactiveX/RxJava/pull/4417?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **<.01%**\n\n```diff\n@@                2.x      #4417   diff @@\n==========================================\n  Files           454        454          \n  Lines         32359      32372    +13   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5209       5214     +5   \n==========================================\n+ Hits          22472      22480     +8   \n- Misses         7691       7694     +3   \n- Partials       2196       2198     +2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [9fb4040...074d187](https://codecov.io/gh/ReactiveX/RxJava/compare/9fb40403385d520b80bf9e1cf491b1f1a197ea56...074d187e44bebaa97cc75413e4b8c0d2ac0d1513?src=pr)'
+p311
+aS'Merged so some fine cleanup can be done before release.'
+p312
+aS':+1:'
+p313
+aS'and i did _just_ get through it'
+p314
+aS"Great concurrency in practice! I'm preparing a cleanup PR with, among other things, that private member checks of IntelliJ."
+p315
+asg16
+S'akarnokd:AssemblyTracking'
+p316
+sbsI4418
+(iPull
+Pull
+p317
+(dp318
+g3
+S'The other `doOnEach` function has the right java doc. Terminal events such as `onCompleted` / `onError` are also included in `doOnEach`.'
+p319
+sg5
+S'1.x: Sync doOnEach java doc'
+p320
+sg7
+(lp321
+S'Documentation'
+p322
+asg12
+I4418
+sg13
+(lp323
+S':+1:'
+p324
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4418?src=pr) is 84.30% (diff: 100%)\n> Merging [#4418](https://codecov.io/gh/ReactiveX/RxJava/pull/4418?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **0.06%**\n\n```diff\n@@                1.x      #4418   diff @@\n==========================================\n  Files           270        270          \n  Lines         17516      17516          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2677       2677          \n==========================================\n+ Hits          14756      14767    +11   \n+ Misses         1896       1886    -10   \n+ Partials        864        863     -1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [3aaed26...2e90948](https://codecov.io/gh/ReactiveX/RxJava/compare/3aaed2673d3732f8c6c015c04576cbb9491cb72b...2e90948f2d90b73e74b611cefa7982ef1a975826?src=pr)'
+p325
+asg16
+S'vanniktech:1.x_dooneach_sync'
+p326
+sbsI4419
+(iPull
+Pull
+p327
+(dp328
+g3
+S'Matches `Observable.extend()`. These are all `@Experimental` (including `Observable`). Perhaps we want to rename them all `to()` to match 2.x?'
+p329
+sg5
+S'1.x: Add extend() for Single and Completable.'
+p330
+sg7
+(lp331
+sg12
+I4419
+sg13
+(lp332
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4419?src=pr) is 84.29% (diff: 100%)\n> Merging [#4419](https://codecov.io/gh/ReactiveX/RxJava/pull/4419?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.15%**\n\n```diff\n@@                1.x      #4419   diff @@\n==========================================\n  Files           270        272     +2   \n  Lines         17516      17528    +12   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2677       2677          \n==========================================\n- Hits          14792      14775    -17   \n- Misses         1869       1898    +29   \n  Partials        855        855          \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [a5c9453...ac3c291](https://codecov.io/gh/ReactiveX/RxJava/compare/a5c945399ff7325d91d109b607fe6406a27ca838...ac3c2912a365ac4d76b196588e20daafefb263de?src=pr)'
+p333
+asg16
+S'JakeWharton:jw/single-completable-extend'
+p334
+sbsI4421
+(iPull
+Pull
+p335
+(dp336
+g3
+S"Changes:\r\n\r\n  - fix spelling mistakes\r\n  - more consistent parameter naming scheme based on #1353 (but incomplete, RC2)\r\n  - fix bugs due to wrong variable naming\r\n  - compact logic expressions\r\n  - fix `Completable.doAfterTerminate` not called the right time\r\n  - `onErrorReturnValue` renamed to `onErrorReturnItem`\r\n\r\n@DavidMGross once this PR has been merged, it would be great you submitted one that has `//TODO` markers on those lines that need attention. The naming scheme you suggested doesn't come intuitively to me so I may skip many of them without the markers."
+p337
+sg5
+S'2.x: fixes, cleanups, renames'
+p338
+sg7
+(lp339
+S'Bug'
+p340
+aS'Cleanup'
+p341
+aS'Documentation'
+p342
+asg12
+I4421
+sg13
+(lp343
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4421?src=pr) is 69.48% (diff: 73.27%)\n> Merging [#4421](https://codecov.io/gh/ReactiveX/RxJava/pull/4421?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.03%**\n\n```diff\n@@                2.x      #4421   diff @@\n==========================================\n  Files           454        454          \n  Lines         32372      32323    -49   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5214       5214          \n==========================================\n- Hits          22482      22459    -23   \n+ Misses         7692       7662    -30   \n- Partials       2198       2202     +4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [35c8da6...b05aa63](https://codecov.io/gh/ReactiveX/RxJava/compare/35c8da6ca2f0c446d9e50d1c5507cc80e5ccb996...b05aa630a9a8eda6007863512395b642cca98a62?src=pr)'
+p344
+aS':+1:'
+p345
+asg16
+S'akarnokd:CleanupIntelliJ'
+p346
+sbsI4422
+(iPull
+Pull
+p347
+(dp348
+g3
+S'This PR adds the `subscribeWith` methods to the base reactive types to mainly help with the 1.x to 2.x changeover as 2.x `subscribe(Subscriber)` return void instead of the resource/cancellation/unsubscription type `Disposable`. See the javadocs and the unit test for example use.\r\n\r\nRelated: #4400'
+p349
+sg5
+S'2.x: add subscribeWith to get back the subscriber/observer fluently'
+p350
+sg7
+(lp351
+S'Enhancement'
+p352
+asg12
+I4422
+sg13
+(lp353
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4422?src=pr) is 69.56% (diff: 100%)\n> Merging [#4422](https://codecov.io/gh/ReactiveX/RxJava/pull/4422?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.04%**\n\n```diff\n@@                2.x      #4422   diff @@\n==========================================\n  Files           454        454          \n  Lines         32323      32331     +8   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5214       5214          \n==========================================\n+ Hits          22470      22491    +21   \n+ Misses         7651       7640    -11   \n+ Partials       2202       2200     -2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [7aa0b34...2f68644](https://codecov.io/gh/ReactiveX/RxJava/compare/7aa0b347cea8aa0e395a7f9ec488d7006647a329...2f686449a6173a80713fe418e95819237fd5b90b?src=pr)'
+p354
+aS':+1:'
+p355
+asg16
+S'akarnokd:SubscribeWith'
+p356
+sbsI4423
+(iPull
+Pull
+p357
+(dp358
+g3
+S'This deprecates extend() on Observable, which is a less powerful version of these functions.'
+p359
+sg5
+S'1.x: Add to() conversion function to all stream types.'
+p360
+sg7
+(lp361
+S'Enhancement'
+p362
+asg12
+I4423
+sg13
+(lp363
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4423?src=pr) is 84.33% (diff: 100%)\n> Merging [#4423](https://codecov.io/gh/ReactiveX/RxJava/pull/4423?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.11%**\n\n```diff\n@@                1.x      #4423   diff @@\n==========================================\n  Files           270        270          \n  Lines         17516      17518     +2   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2677       2677          \n==========================================\n- Hits          14792      14773    -19   \n- Misses         1869       1892    +23   \n+ Partials        855        853     -2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [a5c9453...68ff636](https://codecov.io/gh/ReactiveX/RxJava/compare/a5c945399ff7325d91d109b607fe6406a27ca838...68ff636a5ba3a13c67549e2c70ed3a6e913a44e7?src=pr)'
+p364
+aS':+1:'
+p365
+asg16
+S'JakeWharton:jw/too'
+p366
+sbsI4424
+(iPull
+Pull
+p367
+(dp368
+g3
+S"  - Moved old javadocs under `/1.x/javadoc/version_number`\r\n  - Added `/2.x/javadoc/`\r\n  - Updated `/javadoc` to have the 1.1.9 documentation\r\n\r\nThere was a small hiccup with the 2.x release as the javadoc didn't properly generate (bad link and missing css). I've included the locally generated javadoc here which is titled 2.0.0-DP0-SNAPSHOT at the moment."
+p369
+sg5
+S'Update javadoc 1.1.9, add dirs and 2.0.0-RC1 doc'
+p370
+sg7
+(lp371
+S'Documentation'
+p372
+asg12
+I4424
+sg13
+(lp373
+sg16
+S'akarnokd:Javadoc119and200RC1'
+p374
+sbsI4425
+(iPull
+Pull
+p375
+(dp376
+g3
+S'This is only the `Completable` part of #4420. It does not make `CompletableSubscriber` an abstract class nor create `Single.Operator`.'
+p377
+sg5
+S"1.x: Remove 'Completable' prefix from nested interfaces, move its subscription to top-level."
+p378
+sg7
+(lp379
+S'Enhancement'
+p380
+asg12
+I4425
+sg13
+(lp381
+S'[Compiler error](https://travis-ci.org/ReactiveX/RxJava/builds/155096130#L200).'
+p382
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4425?src=pr) is 84.23% (diff: 68.04%)\n> Merging [#4425](https://codecov.io/gh/ReactiveX/RxJava/pull/4425?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.16%**\n\n```diff\n@@                1.x      #4425   diff @@\n==========================================\n  Files           270        270          \n  Lines         17518      17548    +30   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2677       2677          \n==========================================\n- Hits          14785      14781     -4   \n- Misses         1877       1909    +32   \n- Partials        856        858     +2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [743f164...55bf5e7](https://codecov.io/gh/ReactiveX/RxJava/compare/743f164b1b2f20ed34ae97a48872a0c548375911...55bf5e7a678b67d4d98880529055a78143e502b7?src=pr)'
+p383
+aS'Looks okay. What about the `@Deprecated` markers?'
+p384
+aS"Oh, sure. I'll add them in real quick. I wasn't sure on your stance on them, but I think it'll make migration easier."
+p385
+aS"Yes, having deprecated markers is more forgiveable than lacking the entire type. I don't know how extensively `Completable` is in use by other libraries right now (beyond RxJavaReactiveStreams, Reactor's converter, Retrofit`)."
+p386
+aS'Updated!'
+p387
+aS'https://travis-ci.org/ReactiveX/RxJava/builds/155134046#L200'
+p388
+aS'Compilation issue resolved.'
+p389
+aS'I know,  still waiting for a second approval.'
+p390
+aS"Okay, let's have this. One can complain anytime later."
+p391
+asg16
+S'JakeWharton:jw/start-normalization'
+p392
+sbsI4427
+(iPull
+Pull
+p393
+(dp394
+g3
+S'`fromAsync` did not handle post-terminal events properly when overflow occurs.\r\n\r\nAdded three unit tests that failed on original logic.\r\n'
+p395
+sg5
+S'1.x: fromAsync - handle post-terminal events'
+p396
+sg7
+(lp397
+S'Bug'
+p398
+asg12
+I4427
+sg13
+(lp399
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4427?src=pr) is 84.26% (diff: 73.33%)\n> Merging [#4427](https://codecov.io/gh/ReactiveX/RxJava/pull/4427?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.12%**\n\n```diff\n@@                1.x      #4427   diff @@\n==========================================\n  Files           270        270          \n  Lines         17518      17533    +15   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2677       2680     +3   \n==========================================\n- Hits          14785      14775    -10   \n- Misses         1877       1897    +20   \n- Partials        856        861     +5   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [743f164...ed0dae4](https://codecov.io/gh/ReactiveX/RxJava/compare/743f164b1b2f20ed34ae97a48872a0c548375911...ed0dae4a862d32000c37be648fc06ca71adc4848?src=pr)'
+p400
+asg16
+S'davidmoten:fromAsync-handle-post-terminal-events'
+p401
+sbsI4428
+(iPull
+Pull
+p402
+(dp403
+g3
+S'Post-terminal event handling for `Observable.collect`.\r\n\r\nAdded three unit tests that failed on original logic.'
+p404
+sg5
+S'2.x: collect - handle post terminal events  - Observable'
+p405
+sg7
+(lp406
+S'Bug'
+p407
+aS'Cleanup'
+p408
+asg12
+I4428
+sg13
+(lp409
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4428?src=pr) is 69.51% (diff: 100%)\n> Merging [#4428](https://codecov.io/gh/ReactiveX/RxJava/pull/4428?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.02%**\n\n```diff\n@@                2.x      #4428   diff @@\n==========================================\n  Files           454        454          \n  Lines         32331      32340     +9   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5214       5217     +3   \n==========================================\n+ Hits          22468      22482    +14   \n+ Misses         7664       7653    -11   \n- Partials       2199       2205     +6   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [d37bb20...3b7bea3](https://codecov.io/gh/ReactiveX/RxJava/compare/d37bb20a44fae19b572775deb3abf8fac18efffb...3b7bea3d25c0df72f0b3499bc84e9c3b4203b118?src=pr)'
+p410
+asg16
+S'davidmoten:2.x-collect-handle-post-terminal-events-observable'
+p411
+sbsI4430
+(iPull
+Pull
+p412
+(dp413
+g3
+S'The new tests revealed some bugs (nothing major).'
+p414
+sg5
+S'2.x Improve coverage, fix bugs'
+p415
+sg7
+(lp416
+S'Bug'
+p417
+aS'Test'
+p418
+asg12
+I4430
+sg13
+(lp419
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4430?src=pr) is 70.49% (diff: 60.29%)\n> Merging [#4430](https://codecov.io/gh/ReactiveX/RxJava/pull/4430?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.98%**\n\n```diff\n@@                2.x      #4430   diff @@\n==========================================\n  Files           454        454          \n  Lines         32340      32371    +31   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5217       5223     +6   \n==========================================\n+ Hits          22481      22820   +339   \n+ Misses         7663       7422   -241   \n+ Partials       2196       2129    -67   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [6dbeff4...57eda49](https://codecov.io/gh/ReactiveX/RxJava/compare/6dbeff4b58a7fcfdc088751210aa2b84f0831634...57eda4942c9cd020b4e689d884949d4585666a6d?src=pr)'
+p420
+aS':+1:'
+p421
+aS'Updated those in the first commit in this PR and all other places that used `Exceptions.propagate`.'
+p422
+aS'Looks good'
+p423
+asg16
+S'akarnokd:Coverage826'
+p424
+sbsI4431
+(iPull
+Pull
+p425
+(dp426
+g3
+S'  - updated `Single.cache()` to be lock-free, to allocate less and work properly\r\n  - added test coverage to some classes\r\n  - remove unused internal `EmptyObserver`\r\n  - update `PublishSubject` to support cross-cancellation\r\n  - update `TestHelper.race` to use the current thread for one of the tasks'
+p427
+sg5
+S'2.x: coverage, fixes, cleanup 8/27-1'
+p428
+sg7
+(lp429
+S'Bug'
+p430
+aS'Cleanup'
+p431
+asg12
+I4431
+sg13
+(lp432
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4431?src=pr) is 70.90% (diff: 87.77%)\n> Merging [#4431](https://codecov.io/gh/ReactiveX/RxJava/pull/4431?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.51%**\n\n```diff\n@@                2.x      #4431   diff @@\n==========================================\n  Files           454        453     -1   \n  Lines         32371      32383    +12   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5223       5233    +10   \n==========================================\n+ Hits          22786      22962   +176   \n+ Misses         7447       7303   -144   \n+ Partials       2138       2118    -20   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [0094304...4cce05b](https://codecov.io/gh/ReactiveX/RxJava/compare/0094304aecbbf9cd9b9b6cb1b7fe524a4b2ccb75...4cce05b5d3617517ae6558e84c74de066c2234b0?src=pr)'
+p433
+aS':+1:'
+p434
+asg16
+S'akarnokd:Coverage827_1'
+p435
+sbsI4432
+(iPull
+Pull
+p436
+(dp437
+g3
+g78
+sg5
+S'Fix typo.'
+p438
+sg7
+(lp439
+sg12
+I4432
+sg13
+(lp440
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4432?src=pr) is 84.40% (diff: 100%)\n> Merging [#4432](https://codecov.io/gh/ReactiveX/RxJava/pull/4432?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.01%**\n\n```diff\n@@                1.x      #4432   diff @@\n==========================================\n  Files           270        270          \n  Lines         17533      17533          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2680       2680          \n==========================================\n- Hits          14801      14799     -2   \n+ Misses         1878       1877     -1   \n- Partials        854        857     +3   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [5ac4d2a...877ed4a](https://codecov.io/gh/ReactiveX/RxJava/compare/5ac4d2aed5d8ed93c6835e26ddfb0f0b944d5c89...877ed4ad7c6e533b36fce41e8b4a1b5cd4c131a1?src=pr)'
+p441
+aS'This one is also present in the 2.x branch'
+p442
+aS'Addressed.'
+p443
+asg16
+S'hotchemi:hotchemi/typo'
+p444
+sbsI4433
+(iPull
+Pull
+p445
+(dp446
+g3
+g78
+sg5
+S'Fix typo.'
+p447
+sg7
+(lp448
+sg12
+I4433
+sg13
+(lp449
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4433?src=pr) is 70.97% (diff: 100%)\n> Merging [#4433](https://codecov.io/gh/ReactiveX/RxJava/pull/4433?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.02%**\n\n```diff\n@@                2.x      #4433   diff @@\n==========================================\n  Files           453        453          \n  Lines         32383      32383          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5233       5233          \n==========================================\n+ Hits          22977      22984     +7   \n+ Misses         7288       7285     -3   \n+ Partials       2118       2114     -4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [4c0f93b...c5d9453](https://codecov.io/gh/ReactiveX/RxJava/compare/4c0f93be9e85d77a90ad4dc877e475621fc7ccd3...c5d94538802f35ff0a86a18d76973dbfeda9da8d?src=pr)'
+p450
+asg16
+S'hotchemi:hotchemi/typo2'
+p451
+sbsI4434
+(iPull
+Pull
+p452
+(dp453
+g3
+S'  - Remove unused code\r\n  - Improve coverage of `Single`, `Completable` and `Observable`\r\n  - Fix minor bugs in operators'
+p454
+sg5
+S'2.x: cleanup, bugfixes, coverage 8/27-2'
+p455
+sg7
+(lp456
+S'Bug'
+p457
+aS'Cleanup'
+p458
+aS'Coverage'
+p459
+asg12
+I4434
+sg13
+(lp460
+S':+1:'
+p461
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4434?src=pr) is 73.67% (diff: 92.59%)\n> Merging [#4434](https://codecov.io/gh/ReactiveX/RxJava/pull/4434?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **2.74%**\n\n```diff\n@@                2.x      #4434   diff @@\n==========================================\n  Files           453        453          \n  Lines         32383      32373    -10   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5233       5220    -13   \n==========================================\n+ Hits          22969      23852   +883   \n+ Misses         7300       6437   -863   \n+ Partials       2114       2084    -30   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [70d36fb...ff7d7ff](https://codecov.io/gh/ReactiveX/RxJava/compare/70d36fbdfcb75e607e7512616205ab6fdd557e96...ff7d7ff67123f4d1f0cd80432d8006c1635b90b3?src=pr)'
+p462
+asg16
+S'akarnokd:Coverage827_2'
+p463
+sbsI4435
+(iPull
+Pull
+p464
+(dp465
+g3
+S"  - Add tests\r\n  - fix mistakes in `TestObserver`\r\n  - Combine `DisposableHelper` and its inner `Disposed` enum\r\n  - Compact `NotificationLite` and its inner `Complete` enum\r\n  - Fix NPE in `ListCompositeDisposable` constructor\r\n  - Fix `DeferredScalarObserver` fusion and state management\r\n  - Turned a few empty enums into classes with private constructor: coverage can't cover them 100% otherwise. These empty enums have a constructor in their bytecode which never gets called and thus there's always 10 instructions / 2 method calls missing.\r\n  - Removed `TestObserver.awaitDone()`, one should always await with timeout"
+p466
+sg5
+S'2.x: cleanup, behavior clarifications, fixes, coverage 8/28-1'
+p467
+sg7
+(lp468
+S'Bug'
+p469
+aS'Cleanup'
+p470
+aS'Coverage'
+p471
+aS'Test'
+p472
+asg12
+I4435
+sg13
+(lp473
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4435?src=pr) is 75.11% (diff: 94.80%)\n> Merging [#4435](https://codecov.io/gh/ReactiveX/RxJava/pull/4435?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **1.43%**\n\n```diff\n@@                2.x      #4435   diff @@\n==========================================\n  Files           453        453          \n  Lines         32373      32399    +26   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5220       5216     -4   \n==========================================\n+ Hits          23852      24337   +485   \n+ Misses         6435       6037   -398   \n+ Partials       2086       2025    -61   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [25e78c5...021a001](https://codecov.io/gh/ReactiveX/RxJava/compare/25e78c553a079bd84a4d8ae827c6dad899de625c...021a00180fa307afa4c3af0648bc32120a72be83?src=pr)'
+p474
+aS"> Turned a few empty enums into classes with private constructor\r\n\r\nThis saves methods for Android as well. I wanted to see how many were being added before pressing the issue about this convention, but nice to see there's another motivation for not using enums here."
+p475
+aS':+1:'
+p476
+asg16
+S'akarnokd:Coverage828_1'
+p477
+sbsI4436
+(iPull
+Pull
+p478
+(dp479
+g3
+S'In #4321 I hit on the problem of needing a lazy object that could either be zero or one value. In that issue the idea of switching the return value of `reduce(R, Func2<R,T,R>)` from `Observable<R>` to `Single<R>` because that operator can only ever produce an Observable that emits exactly one value. The problem was that `reduce(Func2<T,T,T>)` could not be changed to `Single<T>` because the source Observable could be empty and therefore not produce one and only one value.\r\n\r\nTo solve this problem I mentioned we could create a lazy type that represents either 1 or no value could fill the gap between `Completable` and `Single<T>`.\r\n\r\nThis PR is for the introduction of the `Maybe<T>` type.'
+p480
+sg5
+S'2.x: Maybe for lazy Optional'
+p481
+sg7
+(lp482
+S'Feature-Request'
+p483
+asg12
+I4436
+sg13
+(lp484
+S'You referenced Java 8 types in your code.'
+p485
+aS'My problem with adding another base type is the increased maintenance cost. Currently we have 3 + 4 types in the major versions and it is likely adding a new operator, overload or making a fix has to be done for all of them. I\'m one-man armying RxJava for a considerable time now but I have my limits. Therefore my suggestion is that you have this `Maybe` as a separate library that depends on RxJava 2 but RxJava 2 doesn\'t depend on it. Since RxJava 2 offers fluent conversion method(s), it should be only a small inconvenience to convert to `Maybe`:\r\n\r\n```java\r\nFlowable<Integer> source = Flowable.range(1, 10);\r\n\r\nMaybe<Integer> mb = source.to(Maybe.reduceFlowable((a, b) -> a + b));\r\n\r\nmb.filter(v -> false).subscribe(\r\n    System.out::println, Throwable::printStackTrace, () -> System.out.println("Done"));\r\n\r\nmb.toFlowable().subscribe(\r\n    System.out::println, Throwable::printStackTrace, () -> System.out.println("Done"));\r\n```'
+p486
+aS'As I mentioned my plans were to greatly increase the coupling between Observable & Flowable to Single & Maybe by having the various operators that return exactly 1 or sometimes 1 value to these two types.'
+p487
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4436?src=pr) is 71.96% (diff: 0.07%)\n> Merging [#4436](https://codecov.io/gh/ReactiveX/RxJava/pull/4436?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **3.14%**\n\n```diff\n@@                2.x      #4436   diff @@\n==========================================\n  Files           453        499     +46   \n  Lines         32399      33691   +1292   \n  Methods           0          0           \n  Messages          0          0           \n  Branches       5216       5299     +83   \n==========================================\n- Hits          24336      24246     -90   \n- Misses         6034       7431   +1397   \n+ Partials       2029       2014     -15   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [f97c50d...118f21a](https://codecov.io/gh/ReactiveX/RxJava/compare/f97c50dadcb40a0f6f41734087a1c52d9df55d08...118f21adcabde87b393bb7155a148308ec20de78?src=pr)'
+p488
+aS"I'm willing to accept `Maybe` as the 5th reactive type but the class needs javadoc and unit tests that verify the most basic behavior of each operator in it.\r\n\r\n/cc @artem-zinnatullin @JakeWharton @zsxwing "
+p489
+aS"How about you just contribute `Maybe` with operators throwing `UnsupportedOperationException` and I'll add optimized implementations and tests for them as I go?"
+p490
+aS'Also Reactor has the [Mono](https://github.com/reactor/reactor-core/blob/master/src/main/java/reactor/core/publisher/Mono.java) type exactly for this purpose, I suggest you try that first.'
+p491
+aS"I'm not strictly opposed because\r\n\r\n> my plans were to greatly increase the coupling between Observable & Flowable to Single & Maybe by having the various operators that return exactly 1 or sometimes 1 value to these two types.\r\n\r\nappeals to me, but I don't have a really strong feeling without using it more."
+p492
+aS"Okay then, let's merge this and see how it works out."
+p493
+aS"Please don't post PRs targeting Maybe - I'm working on cleaning it up a bit (plus a few other classes if I find something wrong); the code copied from an older commit of the other types."
+p494
+asg16
+S'abersnaze:maybe'
+p495
+sbsI4437
+(iPull
+Pull
+p496
+(dp497
+g3
+S'  - open up `verifyPositive` as protected for validation convenience in subclasses\r\n  - improve size and state handling of `DeferredScalarSubscription`\r\n  - enable async-fusion on `AsyncSubject` and `AsyncProcessor`, compact the classes\r\n  - **behavior change** `AsyncX.hasValue()` returns false until the terminal state has been reached\r\n  - compact the classes `PublishSubject`, `PublishProcessor`, `BehaviorSubject`, `BehaviorProcessor`, `ReplaySubject` and `ReplayProcessor`\r\n  - enable async-fusion on `UnicastSubject`, compact the class\r\n  - rename `BaseXQueueDisposable` to `BasicXQueueDisposable` to match `BasicXQueueSubscription`\r\n  - introduce `DeferredScalarDisposable`, refactor `DeferredScalarObserver`\r\n  - adjust tests that asserted on the former parameter names\r\n  - subjects and processors can now be created with newing up their constructor: `new PublishSubject<>()`; there is no mandatory shared state between the `Observer` part and the `Observable` part because both are now stateless on their own.\r\n  '
+p498
+sg5
+S'2.x: Subject/Processor improvements & small cleanup'
+p499
+sg7
+(lp500
+S'Cleanup'
+p501
+aS'Enhancement'
+p502
+asg12
+I4437
+sg13
+(lp503
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4437?src=pr) is 75.02% (diff: 80.16%)\n> Merging [#4437](https://codecov.io/gh/ReactiveX/RxJava/pull/4437?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.08%**\n\n```diff\n@@                2.x      #4437   diff @@\n==========================================\n  Files           453        454     +1   \n  Lines         32399      32271   -128   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5216       5208     -8   \n==========================================\n- Hits          24336      24212   -124   \n- Misses         6034       6039     +5   \n+ Partials       2029       2020     -9   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [f97c50d...09a3448](https://codecov.io/gh/ReactiveX/RxJava/compare/f97c50dadcb40a0f6f41734087a1c52d9df55d08...09a344879852dd2604947429a1656f0b91da271a?src=pr)'
+p504
+aS'thanks :+1:'
+p505
+asg16
+S'akarnokd:CleanupAndImprovements829_1'
+p506
+sbsI4441
+(iPull
+Pull
+p507
+(dp508
+g3
+S'Fix buffered objects not propagated downstream in FlowableOnBackpressureBufferStrategy\r\nFix drop strategy logic in FlowableOnBackpressureBufferStrategy\r\nAdd unit test for FlowableOnBackpressureBufferStrategy, copied from FlowableOnBackpressureBufferTest, there is still some work needed to have a better coverage'
+p509
+sg5
+S'Fix FlowableOnBackpressureBufferStrategy'
+p510
+sg7
+(lp511
+S'Bug'
+p512
+asg12
+I4441
+sg13
+(lp513
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4441?src=pr) is 75.32% (diff: 66.66%)\n> Merging [#4441](https://codecov.io/gh/ReactiveX/RxJava/pull/4441?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.17%**\n\n```diff\n@@                2.x      #4441   diff @@\n==========================================\n  Files           454        454          \n  Lines         32271      32274     +3   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5208       5209     +1   \n==========================================\n+ Hits          24249      24309    +60   \n+ Misses         6002       5928    -74   \n- Partials       2020       2037    +17   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [a856572...1617087](https://codecov.io/gh/ReactiveX/RxJava/compare/a856572327528ee05c1d1ab05426343aa0c5224b...16170870a1c3c051cb759b1e82f95c5a78878439?src=pr)'
+p514
+aS'Thanks! :+1:'
+p515
+asg16
+S'matgabriel:2.x'
+p516
+sbsI4442
+(iPull
+Pull
+p517
+(dp518
+g3
+S'  - Add javadoc to `AsyncEmitter.BackpressureMode` (#4199)\r\n  - Deprecate `Observable.fromAsync`, add `Observable.fromEmitter` instead (#4255)\r\n  - Add `Completable.fromEmitter()` (#4356)\r\n  - Add missing placeholder `@since` tags\r\n  - Fix some generics error `RxJavaHooks`\r\n  - Add race helper to `TestUtil`\r\n  - Fix javadoc warnings'
+p519
+sg5
+S'1.x: cleanup, javadoc, Completable.fromEmitter'
+p520
+sg7
+(lp521
+S'Cleanup'
+p522
+aS'Documentation'
+p523
+aS'Enhancement'
+p524
+asg12
+I4442
+sg13
+(lp525
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4442?src=pr) is 84.19% (diff: 97.50%)\n> Merging [#4442](https://codecov.io/gh/ReactiveX/RxJava/pull/4442?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.05%**\n\n```diff\n@@                1.x      #4442   diff @@\n==========================================\n  Files           270        271     +1   \n  Lines         17563      17599    +36   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2680       2683     +3   \n==========================================\n+ Hits          14797      14817    +20   \n- Misses         1909       1919    +10   \n- Partials        857        863     +6   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [db3ff46...fdba5ed](https://codecov.io/gh/ReactiveX/RxJava/compare/db3ff46c7ad37cca4224f07d517f108357201220...fdba5ed6e1fd8bcd3912394ae14fb9f6664a4c1c?src=pr)'
+p526
+aS':+1:'
+p527
+asg16
+S'akarnokd:Cleanup1x830_1'
+p528
+sbsI4447
+(iPull
+Pull
+p529
+(dp530
+g3
+g78
+sg5
+S"Fix withLatestFrom's tparam"
+p531
+sg7
+(lp532
+S'Bug'
+p533
+asg12
+I4447
+sg13
+(lp534
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4447?src=pr) is 84.23% (diff: 100%)\n> Merging [#4447](https://codecov.io/gh/ReactiveX/RxJava/pull/4447?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **0.03%**\n\n```diff\n@@                1.x      #4447   diff @@\n==========================================\n  Files           271        271          \n  Lines         17599      17599          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2683       2683          \n==========================================\n+ Hits          14818      14825     +7   \n+ Misses         1919       1916     -3   \n+ Partials        862        858     -4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [0ee2e61...c9086eb](https://codecov.io/gh/ReactiveX/RxJava/compare/0ee2e61aa43545a134d9bf210f92df76d3baa045...c9086ebb863910b4ca3f617f117a11e0f1fc9ac1?src=pr)'
+p535
+asg16
+S'zsxwing:withLatestFrom-tparam'
+p536
+sbsI4450
+(iPull
+Pull
+p537
+(dp538
+g3
+S'  - Improve coverage of internal classes\r\n  - Turn more empty enums into classes with private constructors\r\n  - Fix `Single.subscribeOn` and `Completable.subscribeOn` disposable management.\r\n  - Create a compact `FutureSubscriber` and `FutureObserver` classes, drop their former enums\r\n  - Deprecate `Disposables.from` methods, add `Disposables.fromX` methods where X = argument type\r\n  - Fix error management in `Completable.mergeX` operators.\r\n  - Remove unused methods from internal classes'
+p539
+sg5
+S'2.x: fixes, cleanup, coverage 8/31-1'
+p540
+sg7
+(lp541
+S'Bug'
+p542
+aS'Cleanup'
+p543
+aS'Coverage'
+p544
+aS'Test'
+p545
+asg12
+I4450
+sg13
+(lp546
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4450?src=pr) is 75.82% (diff: 69.75%)\n> Merging [#4450](https://codecov.io/gh/ReactiveX/RxJava/pull/4450?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.46%**\n\n```diff\n@@                2.x      #4450   diff @@\n==========================================\n  Files           454        454          \n  Lines         32274      32200    -74   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5209       5178    -31   \n==========================================\n+ Hits          24322      24417    +95   \n+ Misses         5914       5769   -145   \n+ Partials       2038       2014    -24   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [81badc3...0c30b08](https://codecov.io/gh/ReactiveX/RxJava/compare/81badc3aa4732664614c160941eaabbcb668e060...0c30b087277850f637ae156b582bce8858580b17?src=pr)'
+p547
+aS':+1:'
+p548
+asg16
+S'akarnokd:CleanupFixes831'
+p549
+sbsI4452
+(iPull
+Pull
+p550
+(dp551
+g3
+S'`Func1<Throwable,...>` parameter should be `Func1<? super Throwable, ...>`'
+p552
+sg5
+S'enhance generics on onErrorResumeNext and onErrorReturn'
+p553
+sg7
+(lp554
+S'Cleanup'
+p555
+asg12
+I4452
+sg13
+(lp556
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4452?src=pr) is 84.28% (diff: 100%)\n> Merging [#4452](https://codecov.io/gh/ReactiveX/RxJava/pull/4452?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **0.01%**\n\n```diff\n@@                1.x      #4452   diff @@\n==========================================\n  Files           271        271          \n  Lines         17599      17599          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2683       2683          \n==========================================\n+ Hits          14831      14833     +2   \n+ Misses         1916       1910     -6   \n- Partials        852        856     +4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [1be73de...a642def](https://codecov.io/gh/ReactiveX/RxJava/compare/1be73dec2be38ac662b416bccc727b3e49888481...a642def233b6d57e39c6ccd4a7d84d231efa08d0?src=pr)'
+p557
+asg16
+S'davidmoten:on-error-resume-return-generics-fix'
+p558
+sbsI4453
+(iPull
+Pull
+p559
+(dp560
+g3
+S'In its current form, `awaitValueCount()` is the only `TestSubscriber#await*`method that throws a checked exception (that is, `InterruptedException`), whereas the others wrap it with a `IllegalStateException`. This spreads a try-catch disease throughout the entire code base where `awaitValueCount()` is used. One can argue that why not just declaring the exception in the caller method footprint: Because you might be implementing an interface (e.g. `Runnable`) which does not allow any exceptions in its footprint. This patch wraps the `InterruptedException` with an unchecked exception in `TestSubscriber#awaitValueCount()`.'
+p561
+sg5
+S'Wrap InterruptedException with an unchecked exception in TestSubscriber#awaitValueCount().'
+p562
+sg7
+(lp563
+S'Enhancement'
+p564
+asg12
+I4453
+sg13
+(lp565
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4453?src=pr) is 84.25% (diff: 50.00%)\n> Merging [#4453](https://codecov.io/gh/ReactiveX/RxJava/pull/4453?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **0.01%**\n\n```diff\n@@                1.x      #4453   diff @@\n==========================================\n  Files           271        271          \n  Lines         17599      17602     +3   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2683       2683          \n==========================================\n+ Hits          14825      14831     +6   \n  Misses         1915       1915          \n+ Partials        859        856     -3   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [70bb06a...d0294c9](https://codecov.io/gh/ReactiveX/RxJava/compare/70bb06af350a7f6f611985f9b61e48ce200d6219...d0294c9970b7657e90f27684ddcdab3b5c92950a?src=pr)'
+p566
+aS':+1:'
+p567
+asg16
+S'vy:1.x'
+p568
+sbsI4454
+(iPull
+Pull
+p569
+(dp570
+g3
+S"This PR reimplements the `Maybe` with more up-to-date algorithms (the original was a copy-paste of some older Single and Completable code it seems) and adds javadoc and tests along the way. Not all operators have been rewritten yet (and no placeholders). Early adopters should refer to the `toX` methods on the base reactive types. The PR also adds the `RxJavaPlugins` hooks to support `Maybe`.\r\n\r\nIn addition, I've fixed javadoc mistakes in the other base reactive types (referring to the wrong types)."
+p571
+sg5
+S'2.x: start reimplementing Maybe with up-to-date javadoc, tests and algo'
+p572
+sg7
+(lp573
+S'Cleanup'
+p574
+aS'Enhancement'
+p575
+asg12
+I4454
+sg13
+(lp576
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4454?src=pr) is 75.96% (diff: 77.49%)\n> Merging [#4454](https://codecov.io/gh/ReactiveX/RxJava/pull/4454?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **3.26%**\n\n```diff\n@@                2.x      #4454   diff @@\n==========================================\n  Files           499        485     -14   \n  Lines         33620      33041    -579   \n  Methods           0          0           \n  Messages          0          0           \n  Branches       5269       5240     -29   \n==========================================\n+ Hits          24439      25098    +659   \n+ Misses         7181       5907   -1274   \n- Partials       2000       2036     +36   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [b8a3320...cebbe6d](https://codecov.io/gh/ReactiveX/RxJava/compare/b8a3320cb594f291191fa4a6bee6ed12eff62ffe...cebbe6dc7d68da9e6cbd5cc3d6e7e0ec1ecce920?src=pr)'
+p577
+aS':+1:'
+p578
+aS'Thanks @JakeWharton !'
+p579
+asg16
+S'akarnokd:Cleanup901_1'
+p580
+sbsI4458
+(iPull
+Pull
+p581
+(dp582
+g3
+S'#4456 \r\n\r\nCompletable already used .doOnDispose() however I renamed the arguments to match Observable and Single'
+p583
+sg5
+S'2.x: rename Observable and Single #doOnCancel to #doOnDispose'
+p584
+sg7
+(lp585
+S'Cleanup'
+p586
+asg12
+I4458
+sg13
+(lp587
+S"The diff for observable doesn't show but the offline-comparison only lists 30-40 lines changes. Did you run some whitespace cleanup?"
+p588
+aS"@akarnokd Whoops, you're right. Sorry. Auto formatter seems to have changed some whitespaces. I'll revert that."
+p589
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4458?src=pr) is 75.94% (diff: 100%)\n> Merging [#4458](https://codecov.io/gh/ReactiveX/RxJava/pull/4458?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.03%**\n\n```diff\n@@                2.x      #4458   diff @@\n==========================================\n  Files           485        485          \n  Lines         33042      33042          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5240       5240          \n==========================================\n+ Hits          25082      25093    +11   \n+ Misses         5915       5909     -6   \n+ Partials       2045       2040     -5   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [52dc050...04a61cb](https://codecov.io/gh/ReactiveX/RxJava/compare/52dc0500c9e7fea96d614d847f3a04eb1afd91dd...04a61cba0851446919edd312d6c303f7da82f854?src=pr)'
+p590
+aS':+1:'
+p591
+asg16
+S'Mauin:doOnDispose'
+p592
+sbsI4460
+(iPull
+Pull
+p593
+(dp594
+g3
+S"First part of #4457 \r\n\r\nIs it okay that I reused Notification like that?\r\n\r\nAlso are there any Java 6 Generics missing? It would be nice if this project was set up to target Java SDK 6, as my default seems to be Java 8 and I don't get any errors shown in the IDE."
+p595
+sg5
+S'1.x: Completable add doOnEach'
+p596
+sg7
+(lp597
+S'Enhancement'
+p598
+asg12
+I4460
+sg13
+(lp599
+S'Okay but you have [generics problem](https://travis-ci.org/ReactiveX/RxJava/builds/156916384#L166).'
+p600
+aS"Alright it's fixed now."
+p601
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4460?src=pr) is 84.23% (diff: 100%)\n> Merging [#4460](https://codecov.io/gh/ReactiveX/RxJava/pull/4460?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                1.x      #4460   diff @@\n==========================================\n  Files           271        271          \n  Lines         17602      17610     +8   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2683       2684     +1   \n==========================================\n+ Hits          14826      14833     +7   \n- Misses         1918       1921     +3   \n+ Partials        858        856     -2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [30da1aa...eacbf59](https://codecov.io/gh/ReactiveX/RxJava/compare/30da1aa1e38a5ead8965d1784ab8c6df8111d354...eacbf59a11f6758239012c4edd0baa07a502b7fc?src=pr)'
+p602
+aS':+1:'
+p603
+asg16
+S'vanniktech:1.x_completable_do_on_each'
+p604
+sbsI4461
+(iPull
+Pull
+p605
+(dp606
+g3
+S"Really not that happy with `onNotification.call(Notification.<T>createOnNext(t));` do you guys have any other way of doing this? There's no way of creating a Notification that has the `onCompleted` plus a value. A new one could be introduced there though. Also the `doOnEachSuccess` test feels clunky.\r\n\r\nAlso why does Single when using the `do` methods does the job by using an Observable? And later converting it back to a Single again. Is it due to the way Single was implemented in 1.x? With Completable there is no converting of back and forth needed.\r\n\r\nJavadoc will follow once we sorted out the few nits here.\r\n\r\nFixes #4457 "
+p607
+sg5
+S'1.x: Single add doOnEach'
+p608
+sg7
+(lp609
+S'Enhancement'
+p610
+asg12
+I4461
+sg13
+(lp611
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4461?src=pr) is 84.28% (diff: 100%)\n> Merging [#4461](https://codecov.io/gh/ReactiveX/RxJava/pull/4461?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **0.09%**\n\n```diff\n@@                1.x      #4461   diff @@\n==========================================\n  Files           271        272     +1   \n  Lines         17607      17647    +40   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2684       2687     +3   \n==========================================\n+ Hits          14824      14874    +50   \n+ Misses         1923       1913    -10   \n  Partials        860        860          \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [11343ae...0ea399f](https://codecov.io/gh/ReactiveX/RxJava/compare/11343ae031feb01d3d08ba5cd0e5f275ed798e68...0ea399fc6f8f3cab60a2baa3763882ac67d0fd77?src=pr)'
+p612
+aS"I'll continue this on Monday and make all suggested changes"
+p613
+aS"[ExceptionsTest#testOnErrorExceptionIsThrownFromSingleDoOnSuccess](https://github.com/ReactiveX/RxJava/blob/11343ae031feb01d3d08ba5cd0e5f275ed798e68/src/test/java/rx/exceptions/ExceptionsTest.java#L288) fails although I'm not quite sure what the purpose of that test is. Also it seems a bit off to me. Can you give some insights there?"
+p614
+aS'Looks like removing the toObservable.toSingle no longer wraps the subscriber into a SafeSubscriber and the test just crashes with a different exception.'
+p615
+aS'No exception is being thrown at all.'
+p616
+aS'Can you single step the test? In the orginal DoOnEach, it has throwifFatal an throwOrReport you missed btw.'
+p617
+aS':+1:'
+p618
+asg16
+S'vanniktech:1.x_single_do_on_each'
+p619
+sbsI4463
+(iPull
+Pull
+p620
+(dp621
+g3
+g78
+sg5
+S'1.x: Remove some unused fields'
+p622
+sg7
+(lp623
+S'Cleanup'
+p624
+asg12
+I4463
+sg13
+(lp625
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4463?src=pr) is 84.23% (diff: 100%)\n> Merging [#4463](https://codecov.io/gh/ReactiveX/RxJava/pull/4463?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                1.x      #4463   diff @@\n==========================================\n  Files           271        271          \n  Lines         17602      17599     -3   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2683       2683          \n==========================================\n- Hits          14826      14824     -2   \n+ Misses         1918       1917     -1   \n  Partials        858        858          \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [30da1aa...8ec7591](https://codecov.io/gh/ReactiveX/RxJava/compare/30da1aa1e38a5ead8965d1784ab8c6df8111d354...8ec7591cb45121c8f09476d68ef02efb39a56960?src=pr)'
+p626
+asg16
+S'vanniktech:1.x_unused_fields'
+p627
+sbsI4466
+(iPull
+Pull
+p628
+(dp629
+g3
+S'Fix #4462 \r\n\r\nIt might just as well shine some light into which method should be used and explain why there are 2'
+p630
+sg5
+S'1.x: Deprecate Notification.createOnCompleted'
+p631
+sg7
+(lp632
+S'Cleanup'
+p633
+asg12
+I4466
+sg13
+(lp634
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4466?src=pr) is 84.26% (diff: 100%)\n> Merging [#4466](https://codecov.io/gh/ReactiveX/RxJava/pull/4466?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will increase coverage by **0.07%**\n\n```diff\n@@                1.x      #4466   diff @@\n==========================================\n  Files           271        271          \n  Lines         17607      17607          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2684       2684          \n==========================================\n+ Hits          14823      14836    +13   \n+ Misses         1920       1918     -2   \n+ Partials        864        853    -11   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [7593247...561b5df](https://codecov.io/gh/ReactiveX/RxJava/compare/75932471eda6c7c972a40b0560a65c75ffd8cbc2...561b5df99d7a88947ecbe12dac0dee1e9f8b1d8b?src=pr)'
+p635
+asg16
+S'vanniktech:1.x_deprecate'
+p636
+sbsI4467
+(iPull
+Pull
+p637
+(dp638
+g3
+S'  - Move `verifyPositive` into `ObjectHelper`\r\n  - Fix javadoc of `Flowable.subscribe()` and `Observable.subscribe()` mentioning `Subscription` from 1.x\r\n  - `Maybe`: add `amb`, `concat`, `concatArray`, `merge`, `mergeArray`, `concatMap`, `subscribe`, `subscribeWith`, `doOnEvent`'
+p639
+sg5
+S'2.x: add more Maybe operators, fix a few javadoc mistakes'
+p640
+sg7
+(lp641
+S'Documentation'
+p642
+aS'Enhancement'
+p643
+asg12
+I4467
+sg13
+(lp644
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4467?src=pr) is 76.00% (diff: 83.80%)\n> Merging [#4467](https://codecov.io/gh/ReactiveX/RxJava/pull/4467?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.10%**\n\n```diff\n@@                2.x      #4467   diff @@\n==========================================\n  Files           485        493     +8   \n  Lines         33042      33546   +504   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5240       5310    +70   \n==========================================\n+ Hits          25079      25496   +417   \n- Misses         5920       5983    +63   \n- Partials       2043       2067    +24   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [88fafd8...d5bd37a](https://codecov.io/gh/ReactiveX/RxJava/compare/88fafd82aeec802e0e4b2a3595ffd0ba2f6901b6...d5bd37a46a9ad53d5a3f0cffa611af8da4a7098c?src=pr)'
+p645
+aS':+1:'
+p646
+asg16
+S'akarnokd:MaybeOps902_1'
+p647
+sbsI4468
+(iPull
+Pull
+p648
+(dp649
+g3
+S'  - Fixed bugs in `Flowable.sequenceEqual`, `Flowable.zip` when errors are delayed, `Flowable.onBackpressureBuffer` when errors are delayed\r\n  - Fixed mentions of `NbpX` in some places\r\n  - Synchronized unit tests between `Observable` and `Flowable`'
+p650
+sg5
+S'2.x: coverage, bugfixes, 9/03-1'
+p651
+sg7
+(lp652
+S'Bug'
+p653
+aS'Cleanup'
+p654
+aS'Coverage'
+p655
+asg12
+I4468
+sg13
+(lp656
+S'\xf0\x9f\x91\x8d '
+p657
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4468?src=pr) is 76.91% (diff: 79.07%)\n> Merging [#4468](https://codecov.io/gh/ReactiveX/RxJava/pull/4468?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.89%**\n\n```diff\n@@                2.x      #4468   diff @@\n==========================================\n  Files           493        493          \n  Lines         33546      33684   +138   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5310       5315     +5   \n==========================================\n+ Hits          25502      25907   +405   \n+ Misses         5980       5711   -269   \n- Partials       2064       2066     +2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [b15df98...4617b1f](https://codecov.io/gh/ReactiveX/RxJava/compare/b15df9899183ecce0f40b132a47be5700a7c7a32...4617b1fcea50b37fee315155c2eebc2bcc168a74?src=pr)'
+p658
+asg16
+S'akarnokd:Coverage902_2'
+p659
+sbsI4469
+(iPull
+Pull
+p660
+(dp661
+g3
+S'  - enable fusion with `Observable.map`\r\n  - remove impossible branches in some classes\r\n  - add more tests to cover tool classes\r\n  - fix `Observable.range()` entering regular emission if fusion-drain is interrupted\r\n  - fix `FullArbiter` and `ObservableFullArbiter` not cancelling/disposing the incoming Subscription/Disposable in some cases'
+p662
+sg5
+S'2.x: coverage and fixes 9/03-2'
+p663
+sg7
+(lp664
+S'Bug'
+p665
+aS'Cleanup'
+p666
+aS'Coverage'
+p667
+asg12
+I4469
+sg13
+(lp668
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4469?src=pr) is 78.18% (diff: 94.44%)\n> Merging [#4469](https://codecov.io/gh/ReactiveX/RxJava/pull/4469?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **1.17%**\n\n```diff\n@@                2.x      #4469   diff @@\n==========================================\n  Files           493        493          \n  Lines         33684      33629    -55   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5315       5290    -25   \n==========================================\n+ Hits          25939      26293   +354   \n+ Misses         5690       5370   -320   \n+ Partials       2055       1966    -89   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [f59ce00...52dc276](https://codecov.io/gh/ReactiveX/RxJava/compare/f59ce00934a65b880cbe5b7e06436f85e73187d9...52dc27674d2b13f3645b2be92cb8c93a3cb57b13?src=pr)'
+p669
+aS'\xf0\x9f\x91\x8d '
+p670
+asg16
+S'akarnokd:Coverage903_2'
+p671
+sbsI4474
+(iPull
+Pull
+p672
+(dp673
+g3
+S'Update Javadoc 1.1.10 on gh-pages'
+p674
+sg5
+S'1.1.10 javadoc'
+p675
+sg7
+(lp676
+S'Documentation'
+p677
+asg12
+I4474
+sg13
+(lp678
+sg16
+S'akarnokd:Javadoc-1-1-10'
+p679
+sbsI4478
+(iPull
+Pull
+p680
+(dp681
+g3
+g78
+sg5
+S'Fix typo Javadocs TestObserver'
+p682
+sg7
+(lp683
+S'Documentation'
+p684
+asg12
+I4478
+sg13
+(lp685
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4478?src=pr) is 78.14% (diff: 100%)\n> Merging [#4478](https://codecov.io/gh/ReactiveX/RxJava/pull/4478?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.09%**\n\n```diff\n@@                2.x      #4478   diff @@\n==========================================\n  Files           493        493          \n  Lines         33629      33629          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5290       5290          \n==========================================\n- Hits          26312      26280    -32   \n- Misses         5365       5385    +20   \n- Partials       1952       1964    +12   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [ebaeee5...ddcddfb](https://codecov.io/gh/ReactiveX/RxJava/compare/ebaeee5e169063462c1bc55c9b18fe9fa942af57...ddcddfbb9b59cabd9fda2f210c7ec520f6e3dd20?src=pr)'
+p686
+aS'Thanks!'
+p687
+asg16
+S'VictorAlbertos:2.x'
+p688
+sbsI4479
+(iPull
+Pull
+p689
+(dp690
+g3
+g78
+sg5
+S'2.x: Add doOnEvent to Single & Completable'
+p691
+sg7
+(lp692
+S'Enhancement'
+p693
+asg12
+I4479
+sg13
+(lp694
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4479?src=pr) is 78.10% (diff: 78.12%)\n> Merging [#4479](https://codecov.io/gh/ReactiveX/RxJava/pull/4479?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.05%**\n\n```diff\n@@                2.x      #4479   diff @@\n==========================================\n  Files           493        494     +1   \n  Lines         33629      33661    +32   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5290       5290          \n==========================================\n+ Hits          26283      26290     +7   \n- Misses         5383       5401    +18   \n- Partials       1963       1970     +7   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [12ca280...dda26ce](https://codecov.io/gh/ReactiveX/RxJava/compare/12ca280008885611dc342b888c29cbbd11708c82...dda26ce572e21eccf72a7d304ac8f8a5b8b0aa2b?src=pr)'
+p695
+asg16
+S'vanniktech:2.x_do_on_event'
+p696
+sbsI4480
+(iPull
+Pull
+p697
+(dp698
+g3
+S"I've been working on the this for too long in the background and want to get this out for review even though many of the units tests don't pass yet.\r\n\r\nIts a bit rough at the moment but there was a couple of things that I wanted to talk about.\r\n\r\n1. does it make sense to have `ignoreElements` where there is a `toCompletable`.\r\n2. the same goes for `single` when there is a `toSingle`.\r\n3. moved `toFuture` to Single since it seems to fit better."
+p699
+sg5
+S'Integrate Maybe and Single into Observable. *** DO NOT MERGE ***'
+p700
+sg7
+(lp701
+sg12
+I4480
+sg13
+(lp702
+sg16
+S'abersnaze:interop_obs'
+p703
+sbsI4482
+(iPull
+Pull
+p704
+(dp705
+g3
+g78
+sg5
+S'2.x: Fix Generic issue in Single'
+p706
+sg7
+(lp707
+sg12
+I4482
+sg13
+(lp708
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4482?src=pr) is 78.12% (diff: 100%)\n> Merging [#4482](https://codecov.io/gh/ReactiveX/RxJava/pull/4482?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.06%**\n\n```diff\n@@                2.x      #4482   diff @@\n==========================================\n  Files           494        494          \n  Lines         33661      33661          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5290       5290          \n==========================================\n- Hits          26319      26298    -21   \n- Misses         5381       5395    +14   \n- Partials       1961       1968     +7   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [eddc153...e53a337](https://codecov.io/gh/ReactiveX/RxJava/compare/eddc153f936069c7ab94a214d04adc88fd76d93a...e53a33701dc56f98bd81cbaf5f43ab4d1f493173?src=pr)'
+p709
+asg16
+S'vanniktech:2.x_single_generics_fix'
+p710
+sbsI4483
+(iPull
+Pull
+p711
+(dp712
+g3
+g78
+sg5
+S'2.x: Reuse SingleDoOnEvent'
+p713
+sg7
+(lp714
+sg12
+I4483
+sg13
+(lp715
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4483?src=pr) is 78.19% (diff: 100%)\n> Merging [#4483](https://codecov.io/gh/ReactiveX/RxJava/pull/4483?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                2.x      #4483   diff @@\n==========================================\n  Files           494        492     -2   \n  Lines         33661      33632    -29   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5290       5290          \n==========================================\n- Hits          26319      26298    -21   \n+ Misses         5381       5374     -7   \n+ Partials       1961       1960     -1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [eddc153...bce1224](https://codecov.io/gh/ReactiveX/RxJava/compare/eddc153f936069c7ab94a214d04adc88fd76d93a...bce122465f973d9c2087490bcbbc025e44a98bd3?src=pr)'
+p716
+asg16
+S'vanniktech:2.x_reuse_SingleDoOnEvent'
+p717
+sbsI4484
+(iPull
+Pull
+p718
+(dp719
+g3
+S'This PR adds the baseline for changing `Flowable` and `Observable` operators to return `Single`, `Completable` or `Maybe` but in case the user wants to go back to the original type via `toFlowable` or `toObservable` we switch to a natively `Flowable`/`Observable` operator (macro-fusion).\r\n\r\nBenchmark comparison (i7 4790, Windows 7 x64, Java 8u102):\r\n\r\n![image](https://cloud.githubusercontent.com/assets/1269832/18269896/98ffbf80-742a-11e6-91b7-23b03bec8b8c.png)\r\n\r\nNo changes were applied to `Observable` yet hence the roughly same result there. `Flowable.reduce()` has been updated plus there is a new `FlowableReduce` instead of `scan().last()`.'
+p720
+sg5
+S'2.x: Flowable.reduce() to return Single, macro fusion'
+p721
+sg7
+(lp722
+S'Enhancement'
+p723
+aS'Performance'
+p724
+asg12
+I4484
+sg13
+(lp725
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4484?src=pr) is 78.12% (diff: 68.08%)\n> Merging [#4484](https://codecov.io/gh/ReactiveX/RxJava/pull/4484?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.06%**\n\n```diff\n@@                2.x      #4484   diff @@\n==========================================\n  Files           494        496     +2   \n  Lines         33661      33754    +93   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5290       5303    +13   \n==========================================\n+ Hits          26319      26371    +52   \n- Misses         5381       5415    +34   \n- Partials       1961       1968     +7   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [eddc153...b997011](https://codecov.io/gh/ReactiveX/RxJava/compare/eddc153f936069c7ab94a214d04adc88fd76d93a...b99701135c968566115ee471c145e105ebdfb749?src=pr)'
+p726
+aS':+1:'
+p727
+asg16
+S'akarnokd:MacroFuseBack'
+p728
+sbsI4486
+(iPull
+Pull
+p729
+(dp730
+g3
+g78
+sg5
+S'2.x: Completable enhance doOnEvent to reduce allocations'
+p731
+sg7
+(lp732
+S'Enhancement'
+p733
+asg12
+I4486
+sg13
+(lp734
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4486?src=pr) is 78.19% (diff: 70.83%)\n> Merging [#4486](https://codecov.io/gh/ReactiveX/RxJava/pull/4486?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                2.x      #4486   diff @@\n==========================================\n  Files           494        495     +1   \n  Lines         33661      33679    +18   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5290       5290          \n==========================================\n+ Hits          26319      26335    +16   \n+ Misses         5381       5377     -4   \n- Partials       1961       1967     +6   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [eddc153...b8ec13f](https://codecov.io/gh/ReactiveX/RxJava/compare/eddc153f936069c7ab94a214d04adc88fd76d93a...b8ec13fc1ec7cba37a5908b66ea545d90b0a57ea?src=pr)'
+p735
+aS'@akarnokd this is the way it is desired now, correct?'
+p736
+aS'Great! :+1:'
+p737
+asg16
+S'vanniktech:2.x_enhance_completable_do_on'
+p738
+sbsI4488
+(iPull
+Pull
+p739
+(dp740
+g3
+S'This PR adds just the new methods from #4481 to allow a much cleaner change of return types later on.'
+p741
+sg5
+S'2.x: add new methods to Maybe, Observable and Single from 4481'
+p742
+sg7
+(lp743
+S'Enhancement'
+p744
+asg12
+I4488
+sg13
+(lp745
+S':+1:'
+p746
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4488?src=pr) is 77.79% (diff: 8.16%)\n> Merging [#4488](https://codecov.io/gh/ReactiveX/RxJava/pull/4488?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.36%**\n\n```diff\n@@                2.x      #4488   diff @@\n==========================================\n  Files           497        500     +3   \n  Lines         33772      33909   +137   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5303       5325    +22   \n==========================================\n- Hits          26396      26378    -18   \n- Misses         5409       5554   +145   \n- Partials       1967       1977    +10   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [928e437...344af8d](https://codecov.io/gh/ReactiveX/RxJava/compare/928e4379f6ea2086b4418cc64c3382e204a04ae2...344af8dfcb8498b6a590290199bbaf50476d966e?src=pr)'
+p747
+aS'Updated with corrections.'
+p748
+asg16
+S'akarnokd:MaybeOps906_1'
+p749
+sbsI4490
+(iPull
+Pull
+p750
+(dp751
+g3
+S'Renames Observable/Single/CompletableEmitter#isCancelled to #isDisposed.\r\n\r\nThis now causes a bit of a weird situation where most (not all) Emitter classes implement `Disposable` as well, so both interfaces expose the same `#isDisposed` method. Before the `#isCancelled` methods were basically just calling `#isDisposed` or had the same implementation. \r\n\r\nSuggestions on how to improve this?'
+p752
+sg5
+S'2.x: rename emitters #isCancelled to #isDisposed'
+p753
+sg7
+(lp754
+S'Cleanup'
+p755
+asg12
+I4490
+sg13
+(lp756
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4490?src=pr) is 77.91% (diff: 0.00%)\n> Merging [#4490](https://codecov.io/gh/ReactiveX/RxJava/pull/4490?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.07%**\n\n```diff\n@@                2.x      #4490   diff @@\n==========================================\n  Files           500        500          \n  Lines         33909      33905     -4   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5325       5325          \n==========================================\n+ Hits          26392      26416    +24   \n+ Misses         5547       5517    -30   \n- Partials       1970       1972     +2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [ff3c5d0...80ebe35](https://codecov.io/gh/ReactiveX/RxJava/compare/ff3c5d0aa45494c90f3b83505315ed73835f67a9...80ebe3551a00164b73a3ee0ffffa436aff5de3d4?src=pr)'
+p757
+aS"I'm tempted to remove `setDisposable` from the emitter and keep this method named `isCanceled()`. If you want to set a disposable why not use `unsafeCreate` and `ObservableSource` directly?"
+p758
+aS'@JakeWharton these are the safe versions that also manages a resource for you without the need to worry about (and lose) backpressure or cancellation in general from `unsafeCreate`.'
+p759
+aS'Otherwise :+1:'
+p760
+aS"I'm not sure how that is an argument against what I said. Having both `setCancelable` and `setDisposable` in the API is ugly and redundant."
+p761
+aS"If you believe users don't really need the Disposable overload then I'm open to remove them. Also consider dropping Disposables.from variants not in use and adding Cancellables.from."
+p762
+aS'As for `setCancelable` and `setDisposable` I agree with @JakeWharton. Would probably be best to somehow merge them or get rid of one to clean the API. But that would be a separate issue/PR, I guess?'
+p763
+aS"Yes, let's have a separate PR for that."
+p764
+asg16
+S'Mauin:emitters_isDisposed'
+p765
+sbsI4491
+(iPull
+Pull
+p766
+(dp767
+g3
+S'This PR compacts the `blockingX` operators by extending `CountDownLatch` and implementing `SingleObserver`, `CompletableObserver` and `MaybeObserver` with the necessary blocking await mechanics.\r\n\r\nBenchmark comparison (i7 4770, Windows 7 x64, Java 8u102):\r\n\r\n![image](https://cloud.githubusercontent.com/assets/1269832/18291535/868c4d6a-7488-11e6-99f7-43415f79e5e4.png)\r\n\r\nIn addition, the internal package `subscribers.single` and `subscribers.completable` has been removed and the classes moved into `io.reactivex.internal.observers` package. The old blocking enum helpers were removed as well.\r\n\r\nThe `BlockingSingleSubscriber` and `BlockingSingleObserver` abstract classes have been renamed to `BlockingBaseX` to avoid name confusion (they have nothing to do with the `Single` type).'
+p768
+sg5
+S'2.x: reduce blockingX overhead, move internal observers to common pkg'
+p769
+sg7
+(lp770
+S'Cleanup'
+p771
+aS'Performance'
+p772
+asg12
+I4491
+sg13
+(lp773
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4491?src=pr) is 77.88% (diff: 58.49%)\n> Merging [#4491](https://codecov.io/gh/ReactiveX/RxJava/pull/4491?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.03%**\n\n```diff\n@@                2.x      #4491   diff @@\n==========================================\n  Files           500        498     -2   \n  Lines         33905      33875    -30   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5325       5326     +1   \n==========================================\n- Hits          26394      26382    -12   \n+ Misses         5541       5519    -22   \n- Partials       1970       1974     +4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [10f727f...1129263](https://codecov.io/gh/ReactiveX/RxJava/compare/10f727f97efed67e33c4ec5cf6644267a9a9bed6...112926355feb4950ed0ba2850ab6d9db7cab4e9e?src=pr)'
+p774
+aS':+1:'
+p775
+asg16
+S'akarnokd:BlockingXCompact906_1'
+p776
+sbsI4493
+(iPull
+Pull
+p777
+(dp778
+g3
+S'  - minor Javadoc corrections\r\n  - Note: some Maybe operators shifted within the file\r\n  - add to `Maybe`: `concatArrayDelayError`, `concatArrayEager`, `concatEager`, `concatDelayError`, `mergeArrayDelayError`, `mergeDelayError`, `sequenceEqual`, `timer`, `using`, `zip`, `zipArray`\r\n  - improve coverage of `Observable`, `Single` and `Maybe`.\r\n  - Move tests from `ObservableTests` into `ObservableTest` drop the former.'
+p779
+sg5
+S'2.x: more Maybe operators, minor cleanups 9/07-1'
+p780
+sg7
+(lp781
+S'Cleanup'
+p782
+aS'Coverage'
+p783
+aS'Enhancement'
+p784
+asg12
+I4493
+sg13
+(lp785
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4493?src=pr) is 78.02% (diff: 72.61%)\n> Merging [#4493](https://codecov.io/gh/ReactiveX/RxJava/pull/4493?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.16%**\n\n```diff\n@@                2.x      #4493   diff @@\n==========================================\n  Files           498        505     +7   \n  Lines         33875      34357   +482   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5326       5383    +57   \n==========================================\n+ Hits          26373      26806   +433   \n- Misses         5536       5547    +11   \n- Partials       1966       2004    +38   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [1f0a116...2bd7c79](https://codecov.io/gh/ReactiveX/RxJava/compare/1f0a116dc176cdce4e76192edba4b92e3e3a8eb4...2bd7c79f30726b930313902ce3d03e42e0f7bdd3?src=pr)'
+p786
+aS':+1:'
+p787
+asg16
+S'akarnokd:MaybeOps907_1'
+p788
+sbsI4496
+(iPull
+Pull
+p789
+(dp790
+g3
+S'Removed them like this:\r\n\r\n`find . -type f -name "*.java" | xargs sed -i \'\' -e\'s/[ \\t]*$//\' "$1"`\r\n\r\nI think it\'s best to review this locally or by appending `?w=1` to this URL to let GitHub ignore white space changes.'
+p791
+sg5
+S'2.x: Remove trailing whitespace'
+p792
+sg7
+(lp793
+S'Cleanup'
+p794
+asg12
+I4496
+sg13
+(lp795
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4496?src=pr) is 77.97% (diff: 100%)\n> Merging [#4496](https://codecov.io/gh/ReactiveX/RxJava/pull/4496?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.03%**\n\n```diff\n@@                2.x      #4496   diff @@\n==========================================\n  Files           505        505          \n  Lines         34357      34357          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5383       5383          \n==========================================\n- Hits          26802      26790    -12   \n- Misses         5550       5566    +16   \n+ Partials       2005       2001     -4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [d2d7f69...92e1114](https://codecov.io/gh/ReactiveX/RxJava/compare/d2d7f6920b605d7acf90d440d3744e9e7e1249da...92e1114ae07af69482f805de8c80a576b9d9140e?src=pr)'
+p796
+asg16
+S'vanniktech:2.x_trailing_space'
+p797
+sbsI4497
+(iPull
+Pull
+p798
+(dp799
+g3
+S'This will add checkstyle though it should not be executed together with Travis and hence does not fail the PR if there are. Also running `./gradlew checkstyleMain` gives a list of places where trailing whitespace exists.'
+p800
+sg5
+S'2.x: Add Checkstyle for Trailing Whitespace'
+p801
+sg7
+(lp802
+S'Cleanup'
+p803
+asg12
+I4497
+sg13
+(lp804
+S'> it should not be executed together with Travis and hence does not fail the PR\r\n\r\nSeems pointless to add then.'
+p805
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4497?src=pr) is 78.01% (diff: 100%)\n> Merging [#4497](https://codecov.io/gh/ReactiveX/RxJava/pull/4497?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.03%**\n\n```diff\n@@                2.x      #4497   diff @@\n==========================================\n  Files           505        505          \n  Lines         34357      34357          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5383       5383          \n==========================================\n+ Hits          26791      26802    +11   \n- Misses         5551       5561    +10   \n+ Partials       2015       1994    -21   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [35281d5...154fe6b](https://codecov.io/gh/ReactiveX/RxJava/compare/35281d57811dc5fad372b599db57129d40db05f7...154fe6b8cf01da5ff33b9bbb7a068eb66713c3ba?src=pr)'
+p806
+aS"Yeah having the same opinion but David doesn't want it to fail the PR. "
+p807
+aS"Then why fail local builds?\n\nOn Wed, Sep 7, 2016 at 12:57 PM Niklas Baudy <notifications@github.com>\nwrote:\n\n> Yeah having the same opinion but David doesn't want it to fail the PR.\n>\n> \xe2\x80\x94\n> You are receiving this because you commented.\n>\n>\n> Reply to this email directly, view it on GitHub\n> <https://github.com/ReactiveX/RxJava/pull/4497#issuecomment-245347122>,\n> or mute the thread\n> <https://github.com/notifications/unsubscribe-auth/AAEEEfeX4juPXMZcS0vBkp-2p-otHsT0ks5qnuzWgaJpZM4J3Dgb>\n> .\n>\n"
+p808
+aS'For now, just run it with `./gradlew checkstyleMain` sometimes.'
+p809
+aS'Yet it does fail it https://travis-ci.org/ReactiveX/RxJava/builds/158395672#L205'
+p810
+aS'Alright my bad #4505\r\n\r\nI thought the checkstyle tasks would not be executed automatically though `build` executes `check` and `checkstyle` task hooked itself into `check` task.'
+p811
+asg16
+S'vanniktech:2.x_checkstyle'
+p812
+sbsI4499
+(iPull
+Pull
+p813
+(dp814
+g3
+S'I just do a test!\r\ni am so sorry..'
+p815
+sg5
+S'2.x'
+p816
+sg7
+(lp817
+sg12
+I4499
+sg13
+(lp818
+S'What are you testing and why in this repo?'
+p819
+aS'i am learning how to pull request on GitHub.so do that test\r\nmy English is poor so it is very difficult to learn on English web\r\nfinally,  sorry for that and thank you for your generosity.\r\n'
+p820
+asg16
+S'ReactiveX:2.x'
+p821
+sbsI4500
+(iPull
+Pull
+p822
+(dp823
+g3
+S'Dunno whether this is wanted or not in 1.x. If not just close this PR. '
+p824
+sg5
+S'1.x: Remove trailing whitespace'
+p825
+sg7
+(lp826
+S'Cleanup'
+p827
+asg12
+I4500
+sg13
+(lp828
+S"I haven't seen IDEs adding them back but only remove them so let's have this to avoid future unneccessary removals from unrelated changes in files."
+p829
+aS'Alright sounds good and then #4123 can be closed'
+p830
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4500?src=pr) is 84.34% (diff: 65.38%)\n> Merging [#4500](https://codecov.io/gh/ReactiveX/RxJava/pull/4500?src=pr) into [1.x](https://codecov.io/gh/ReactiveX/RxJava/branch/1.x?src=pr) will decrease coverage by **0.08%**\n\n```diff\n@@                1.x      #4500   diff @@\n==========================================\n  Files           272        272          \n  Lines         17647      17647          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       2687       2687          \n==========================================\n- Hits          14899      14884    -15   \n- Misses         1899       1908     +9   \n- Partials        849        855     +6   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [d86cf19...0cf0c02](https://codecov.io/gh/ReactiveX/RxJava/compare/d86cf19e918152ea71d895aef5f1ee2d05f5a67f...0cf0c02155764a47816fedc96de4365e840762c5?src=pr)'
+p831
+asg16
+S'vanniktech:1.x_trailing_space'
+p832
+sbsI4502
+(iPull
+Pull
+p833
+(dp834
+g3
+S'This should be less confusing.'
+p835
+sg5
+S'2.x: Replace `finallyDo` references with `doAfterTerminate`'
+p836
+sg7
+(lp837
+S'Cleanup'
+p838
+aS'Documentation'
+p839
+asg12
+I4502
+sg13
+(lp840
+S'Great, thanks! :+1:'
+p841
+aS'The test failure looks unrelated.'
+p842
+aS"No problem, I've rerun the check."
+p843
+asg16
+S'ikesyo:remove-finallydo-references'
+p844
+sbsI4503
+(iPull
+Pull
+p845
+(dp846
+g3
+S"This PR adds the ability to specify the default thread priorities of `computation()`, `io()`, `newThread()` and `single()` schedulers via system properties. I've added the property names to the `Schedulers` javadoc.\r\n\r\nRelated: #4389."
+p847
+sg5
+S'2.x: add system properties to adjust thread priorities of Schedulers'
+p848
+sg7
+(lp849
+S'Enhancement'
+p850
+asg12
+I4503
+sg13
+(lp851
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4503?src=pr) is 77.97% (diff: 100%)\n> Merging [#4503](https://codecov.io/gh/ReactiveX/RxJava/pull/4503?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.03%**\n\n```diff\n@@                2.x      #4503   diff @@\n==========================================\n  Files           505        505          \n  Lines         34357      34367    +10   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5383       5383          \n==========================================\n- Hits          26800      26797     -3   \n- Misses         5559       5568     +9   \n- Partials       1998       2002     +4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [935ae3c...c4031f7](https://codecov.io/gh/ReactiveX/RxJava/compare/935ae3cc4caae373c83c6ae89550a55999f1231d...c4031f78c6cfb0e24a05fdc42bdfc40e1a7db8bd?src=pr)'
+p852
+aS'Thanks! :+1:'
+p853
+asg16
+S'akarnokd:ThreadFactoryPriority'
+p854
+sbsI4504
+(iPull
+Pull
+p855
+(dp856
+g3
+S'Also any reason the Dispoable is called `s`? Is it still from the Subscription time?\r\n\r\nFixes #4501 '
+p857
+sg5
+S'2.x: Add Disposable Observer for Maybe, Completable & Single'
+p858
+sg7
+(lp859
+S'Enhancement'
+p860
+asg12
+I4504
+sg13
+(lp861
+S'Seems unrelated:\r\n\r\n```\r\nio.reactivex.internal.operators.observable.ObservableRefCountTest > testRepeat FAILED\r\n    java.lang.AssertionError: Error(s) present: [java.lang.IllegalStateException: onSubscribe not called in proper order] (latch = 1, values = 51, errors = 1, completions = 0)\r\n        at io.reactivex.observers.TestObserver.fail(TestObserver.java:363)\r\n        at io.reactivex.observers.TestObserver.assertNoErrors(TestObserver.java:411)\r\n        at io.reactivex.internal.operators.observable.ObservableRefCountTest.testRepeat(ObservableRefCountTest.java:195)\r\n\r\n        Caused by:\r\n        io.reactivex.exceptions.CompositeException\r\n            at io.reactivex.observers.TestObserver.fail(TestObserver.java:364)\r\n            ... 2 more\r\n\r\n            Caused by:\r\n            io.reactivex.exceptions.CompositeException$CompositeExceptionCausalChain: Chain of Causes for CompositeException In Order Received =>\r\n\r\n                Caused by:\r\n                java.lang.IllegalStateException: onSubscribe not called in proper order\r\n```'
+p862
+aS"Yep, I'll fix that next - started to become annoying to me too."
+p863
+asg16
+S'vanniktech:2.x_reactive_disposable_observers'
+p864
+sbsI4505
+(iPull
+Pull
+p865
+(dp866
+g3
+g78
+sg5
+S'2.x: Ignore Checkstyle failures'
+p867
+sg7
+(lp868
+S'Build'
+p869
+asg12
+I4505
+sg13
+(lp870
+sg16
+S'vanniktech:2.x_ignore_checkstyle_failures'
+p871
+sbsI4506
+(iPull
+Pull
+p872
+(dp873
+g3
+S'This PR fixes the operators `refCount` (ensure proper call order to onXXX), disables FindBugs due to out-of-memory kills on Travis and increases the half-time sleep of a flaky unit-test.'
+p874
+sg5
+S'2.x: fix operator RefCount, disable FindBugs (due to Travis OOM)'
+p875
+sg7
+(lp876
+S'Bug'
+p877
+aS'Build'
+p878
+asg12
+I4506
+sg13
+(lp879
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4506?src=pr) is 78.00% (diff: 92.85%)\n\n\n\n\n> No coverage report found for **2.x** at 043f37d.\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [043f37d...c1bdbeb](https://codecov.io/gh/ReactiveX/RxJava/compare/043f37ddc057158788da647ee7a8ebbf172ad21c...c1bdbebdce985072d1dcd4fdc92dbaf56c8f8f3f?src=pr)'
+p880
+asg16
+S'akarnokd:ObservableRefCountFix'
+p881
+sbsI4507
+(iPull
+Pull
+p882
+(dp883
+g3
+S"This PR sets up the build to run TestNG tests as well and adds the Reactive-Streams TCK to allow validating our operators.\r\n\r\nIncluded tests are: `just`, `fromArray`, `fromIterable`, `concat`, `merge`.\r\n\r\nNote that the TCK tests for invalid `request()` amount which, according to the spec, should be reported to the running `Subscriber` via `onError`. Unfortunately, this is a very expensive requirement (requiring half-serialization all the time) and we are not going to support it in RxJava 2. Negative requests are bugs in operators and should be fixed, we only provide a notification about such situations in the `RxJavaPlugins.onError` for those who want to check for such errors. \r\n\r\nTherefore, the `FlowableTCK` has been added with does the required behavior by the TCK and can be used as `FlowableTCK.wrap(flowable)` when returning from the TCK's `createPublisher(long)`."
+p884
+sg5
+S'2.x: add Reactive-Streams TCK infrastructure and couple of tests'
+p885
+sg7
+(lp886
+S'Test'
+p887
+asg12
+I4507
+sg13
+(lp888
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4507?src=pr) is 77.92% (diff: 100%)\n> Merging [#4507](https://codecov.io/gh/ReactiveX/RxJava/pull/4507?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.01%**\n\n```diff\n@@                2.x      #4507   diff @@\n==========================================\n  Files           508        508          \n  Lines         34383      34383          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5387       5387          \n==========================================\n- Hits          26799      26794     -5   \n- Misses         5587       5596     +9   \n+ Partials       1997       1993     -4   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [4ce25cb...3279670](https://codecov.io/gh/ReactiveX/RxJava/compare/4ce25cb968179460f9bc1ef75fd2e071921add01...3279670ff13c81816d788ddea7f8a0390de553ea?src=pr)'
+p889
+asg16
+S'akarnokd:ReactiveStreamsTCK'
+p890
+sbsI4508
+(iPull
+Pull
+p891
+(dp892
+g3
+g78
+sg5
+S'2.x: Add exception message in SingleFromCallable'
+p893
+sg7
+(lp894
+S'Cleanup'
+p895
+asg12
+I4508
+sg13
+(lp896
+S'@akarnokd what do you think about a custom exception that explains why null is not allowed anymore? And if someone goes and wants to emit null that one will be thrown instead of NullPointerException'
+p897
+aS"You mean like\r\n\r\n`The callable returned a null value. Null values are generally not allowed in 2.x operators and sources.`\r\n\r\nIf you manually change all locations then okay, but don't try to factor this out into some parametric method because that extra amount of conditional code might prevent some JIT optimizations due to dept/code size increase."
+p898
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4508?src=pr) is 77.96% (diff: 100%)\n> Merging [#4508](https://codecov.io/gh/ReactiveX/RxJava/pull/4508?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.02%**\n\n```diff\n@@                2.x      #4508   diff @@\n==========================================\n  Files           508        508          \n  Lines         34383      34383          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5387       5387          \n==========================================\n+ Hits          26799      26807     +8   \n+ Misses         5587       5579     -8   \n  Partials       1997       1997          \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [4ce25cb...fa18cff](https://codecov.io/gh/ReactiveX/RxJava/compare/4ce25cb968179460f9bc1ef75fd2e071921add01...fa18cff4e37e9ddd2232f0e2087fc04763c19b5f?src=pr)'
+p899
+asg16
+S'vanniktech:2.x_better_exception_message_SingleFromCallable'
+p900
+sbsI4509
+(iPull
+Pull
+p901
+(dp902
+g3
+g78
+sg5
+S'2.x: Adjust some JavaDoc in Emitters'
+p903
+sg7
+(lp904
+S'Cleanup'
+p905
+asg12
+I4509
+sg13
+(lp906
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4509?src=pr) is 77.99% (diff: 100%)\n\n\n> No coverage report found for **2.x** at eade864.\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [eade864...28df01b](https://codecov.io/gh/ReactiveX/RxJava/compare/eade864d3c167adb4a3384576d533c44f68da123...28df01b862bb124ab69de9a3614f6c7c87b63c47?src=pr)'
+p907
+aS':+1:'
+p908
+asg16
+S'vanniktech:2.x_javadoc'
+p909
+sbsI4513
+(iPull
+Pull
+p910
+(dp911
+g3
+S"Both `switchMap` implementations didn't properly cancel the current inner consumer (but instead cancelled the outer 'connection' only).\r\n\r\nReported in #4512."
+p912
+sg5
+S'2.x: fix switchMap bad cancellation'
+p913
+sg7
+(lp914
+S'Bug'
+p915
+asg12
+I4513
+sg13
+(lp916
+S':+1:'
+p917
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4513?src=pr) is 77.91% (diff: 100%)\n> Merging [#4513](https://codecov.io/gh/ReactiveX/RxJava/pull/4513?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                2.x      #4513   diff @@\n==========================================\n  Files           508        508          \n  Lines         34393      34395     +2   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5387       5387          \n==========================================\n+ Hits          26796      26800     +4   \n- Misses         5597       5600     +3   \n+ Partials       2000       1995     -5   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [939f172...8b55f5d](https://codecov.io/gh/ReactiveX/RxJava/compare/939f172b5fd39fdc83e353fa0b4626a8a61e3ee4...8b55f5dd1b05ebc7a7ea5a63d8f539978bf8de04?src=pr)'
+p918
+asg16
+S'akarnokd:SwitchMapCancelFix'
+p919
+sbsI4516
+(iPull
+Pull
+p920
+(dp921
+g3
+S"I've forgotten to create a branch so the first part of todays coverage work [landed in 2.x direct](https://github.com/ReactiveX/RxJava/commit/1145819b658983807e0cede5ba2c7d5ac1117baa)\r\n\r\n  - removed unused methods from various classes\r\n  - compacted `SpscArrayQueue`\r\n  - added null checks to `SpscLinkedArrayQueue.offer()` and `MpscLinkedQueue.offer()`\r\n  - fixed `ResourceObserver` not calling `onStart`\r\n  - Added direct NotificationLite-emission methods to `AppendOnlyLinkedArrayList`, updated `SerializedObserver` and `SerializedSubscriber` to use it directly instead of the former indirection\r\n  - `TestObserver.isDisposed` now reports true if terminal events were received (#4514)\r\n  - `ResourceSubscriber` to use `SubscriptionHelper`'s deferred Subscription/requesting management\r\n  - added unit tests to cover `DisposableXObserver`s\r\n  - `SerializedObserver` and `SerializedSubscriber` now have proper unit tests each\r\n\r\nThis current PR fixes `Single.using` not properly managing the resource and adds unit tests to verify the behavior along with a few extra coverage improvements."
+p922
+sg5
+S'2.x: fix Single.using, add unit tests and coverage'
+p923
+sg7
+(lp924
+S'Bug'
+p925
+aS'Cleanup'
+p926
+aS'Coverage'
+p927
+asg12
+I4516
+sg13
+(lp928
+S':+1:'
+p929
+aS'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4516?src=pr) is 78.64% (diff: 96.92%)\n> Merging [#4516](https://codecov.io/gh/ReactiveX/RxJava/pull/4516?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.36%**\n\n```diff\n@@                2.x      #4516   diff @@\n==========================================\n  Files           507        507          \n  Lines         34371      34386    +15   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5391       5395     +4   \n==========================================\n+ Hits          26904      27042   +138   \n+ Misses         5480       5374   -106   \n+ Partials       1987       1970    -17   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [1145819...0ee4580](https://codecov.io/gh/ReactiveX/RxJava/compare/1145819b658983807e0cede5ba2c7d5ac1117baa...0ee4580c6235aadd210693bae3cd024add6295df?src=pr)'
+p930
+asg16
+S'akarnokd:Coverage908_2'
+p931
+sbsI4518
+(iPull
+Pull
+p932
+(dp933
+g3
+S'Fixes #4517'
+p934
+sg5
+S'2.x: Add missing Resource Observer for Maybe, Completable & Single and adjust some Javadoc'
+p935
+sg7
+(lp936
+S'Enhancement'
+p937
+asg12
+I4518
+sg13
+(lp938
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4518?src=pr) is 78.60% (diff: 100%)\n> Merging [#4518](https://codecov.io/gh/ReactiveX/RxJava/pull/4518?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.07%**\n\n```diff\n@@                2.x      #4518   diff @@\n==========================================\n  Files           507        510     +3   \n  Lines         34386      34424    +38   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5395       5401     +6   \n==========================================\n+ Hits          27003      27059    +56   \n+ Misses         5411       5401    -10   \n+ Partials       1972       1964     -8   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [4f878d5...120d760](https://codecov.io/gh/ReactiveX/RxJava/compare/4f878d56988d572257309dad1a1d0c9fe601f3d8...120d760b71d46181a7ac36db11a934543f75f53e?src=pr)'
+p939
+aS"It might be worth considering removing the protected `cancel()` methods as they are duplicates of `dispose`. For `ResourceSubscriber` I don't know because it works with `Subscription.cancel()` but also is a `Disposable` so `dispose()` is there as well."
+p940
+aS'So should I remove the `cancel()` method on all `Resource*Observer`?'
+p941
+aS'@JakeWharton your opinion on the removal?'
+p942
+aS"I'm supportive of removing `cancel()`. I much prefer when there's only one way to do something!"
+p943
+aS':+1:'
+p944
+asg16
+S'vanniktech:reactive_resource_observers'
+p945
+sbsI4519
+(iPull
+Pull
+p946
+(dp947
+g3
+S'This PR adds some more `Maybe` operators:\r\n\r\n  - `ambWith`\r\n  - `cache`\r\n  - `concatWith`\r\n  - `contains`\r\n  - `count`\r\n  - `defaultIfEmpty`\r\n  - `delay`\r\n  - `switchIfEmpty`\r\n  - `zipWith`\r\n\r\nPlus a small cleanup and additional `TestHelper` test support (check double onSubscribe calls, dispose() state management).'
+p948
+sg5
+S'2.x: add more Maybe operators 9/09-1'
+p949
+sg7
+(lp950
+S'Enhancement'
+p951
+asg12
+I4519
+sg13
+(lp952
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4519?src=pr) is 78.73% (diff: 98.21%)\n> Merging [#4519](https://codecov.io/gh/ReactiveX/RxJava/pull/4519?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.20%**\n\n```diff\n@@                2.x      #4519   diff @@\n==========================================\n  Files           507        512     +5   \n  Lines         34386      34609   +223   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5395       5425    +30   \n==========================================\n+ Hits          27003      27250   +247   \n+ Misses         5411       5392    -19   \n+ Partials       1972       1967     -5   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [4f878d5...8f8fce7](https://codecov.io/gh/ReactiveX/RxJava/compare/4f878d56988d572257309dad1a1d0c9fe601f3d8...8f8fce7de54c6e356b96b040799125e0771a78b3?src=pr)'
+p953
+aS':+1:'
+p954
+asg16
+S'akarnokd:MaybeOps909_1'
+p955
+sbsI4522
+(iPull
+Pull
+p956
+(dp957
+g3
+S'Fixes #4521 '
+p958
+sg5
+S'Observable/Flowable/Completable/Single.delay should always call onError on the provided Scheduler'
+p959
+sg7
+(lp960
+S'Enhancement'
+p961
+asg12
+I4522
+sg13
+(lp962
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4522?src=pr) is 78.72% (diff: 100%)\n> Merging [#4522](https://codecov.io/gh/ReactiveX/RxJava/pull/4522?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.06%**\n\n```diff\n@@                2.x      #4522   diff @@\n==========================================\n  Files           515        515          \n  Lines         34647      34643     -4   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5431       5431          \n==========================================\n+ Hits          27255      27273    +18   \n+ Misses         5417       5402    -15   \n+ Partials       1975       1968     -7   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [63c4451...4e874a3](https://codecov.io/gh/ReactiveX/RxJava/compare/63c4451dec13ce83665323694883f9b933f779b1...4e874a3ce6abd265488222dd9d035e25208243d7?src=pr)'
+p963
+aS':+1:'
+p964
+aS'Great job applying the changes to all of the base types!'
+p965
+asg16
+S'nsk-mironov:fix-delay'
+p966
+sbsI4525
+(iPull
+Pull
+p967
+(dp968
+g3
+S'Fixes #4524\r\n\r\nTest for combineLatest fill follow'
+p969
+sg5
+S'2.x: Fix Generics T[] in Zip & CombineLatest'
+p970
+sg7
+(lp971
+S'Bug'
+p972
+asg12
+I4525
+sg13
+(lp973
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4525?src=pr) is 78.71% (diff: 100%)\n> Merging [#4525](https://codecov.io/gh/ReactiveX/RxJava/pull/4525?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                2.x      #4525   diff @@\n==========================================\n  Files           515        515          \n  Lines         34643      34644     +1   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5431       5431          \n==========================================\n+ Hits          27268      27269     +1   \n+ Misses         5409       5408     -1   \n- Partials       1966       1967     +1   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [44c5705...4a972f2](https://codecov.io/gh/ReactiveX/RxJava/compare/44c5705b45af3733d8180cd47cdc16146ad9dda2...4a972f2ad4ec11397d6eee147b44bb3e6ab050bb?src=pr)'
+p974
+aS'This should be it now'
+p975
+aS'Single has exactly 1 and Maybe at most 1 item, so there is only 1 latest that can happen thus there is no difference between combineLatest and zip for these sources.'
+p976
+aS':+1:'
+p977
+aS"Yup I immediately noticed it after I wrote my comment :D that's also why I deleted it"
+p978
+asg16
+S'vanniktech:2.x_generics_object_fix'
+p979
+sbsI4526
+(iPull
+Pull
+p980
+(dp981
+g3
+g78
+sg5
+S'2.x: More usage of ObjectHelper'
+p982
+sg7
+(lp983
+sg12
+I4526
+sg13
+(lp984
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4526?src=pr) is 78.76% (diff: 100%)\n> Merging [#4526](https://codecov.io/gh/ReactiveX/RxJava/pull/4526?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.07%**\n\n```diff\n@@                2.x      #4526   diff @@\n==========================================\n  Files           515        515          \n  Lines         34644      34628    -16   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5431       5419    -12   \n==========================================\n+ Hits          27263      27276    +13   \n+ Misses         5413       5391    -22   \n+ Partials       1968       1961     -7   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [9966209...046526a](https://codecov.io/gh/ReactiveX/RxJava/compare/9966209d74fdd33d54f633a444c95c601aa21955...046526ae03c9c1caf118643b2bdca9d1920d0bee?src=pr)'
+p985
+aS':+1:'
+p986
+asg16
+S'vanniktech:2.x_objecthelper'
+p987
+sbsI4527
+(iPull
+Pull
+p988
+(dp989
+g3
+g78
+sg5
+S'2.x: Remove unused declarations'
+p990
+sg7
+(lp991
+S'Cleanup'
+p992
+asg12
+I4527
+sg13
+(lp993
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4527?src=pr) is 78.78% (diff: 100%)\n> Merging [#4527](https://codecov.io/gh/ReactiveX/RxJava/pull/4527?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.05%**\n\n```diff\n@@                2.x      #4527   diff @@\n==========================================\n  Files           515        515          \n  Lines         34628      34615    -13   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5419       5418     -1   \n==========================================\n+ Hits          27263      27272     +9   \n+ Misses         5399       5390     -9   \n+ Partials       1966       1953    -13   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [ca4bba6...4addc15](https://codecov.io/gh/ReactiveX/RxJava/compare/ca4bba69ac5a21045d5e3166fd25b131deef53a7...4addc150d44521fd327c17243d5e2620c86e8198?src=pr)'
+p994
+aS"Thanks! FYI, I'm adding operators to Maybe so please avoid that class and related components until I post the PR."
+p995
+aS"Alright didn't plan creating any other PR today. Tomorrow I have a few things planned though."
+p996
+asg16
+S'vanniktech:2.x_unused'
+p997
+sbsI4528
+(iPull
+Pull
+p998
+(dp999
+g3
+S"  - add `Maybe` operators: `delay`, `hide`, `isEmpty`, `onErrorComplete`, `onErrorResumeNext`, `onExceptionResumeNext`\r\n  - add more fusion interfaces and mark `Maybe.just` and `Maybe.empty` as `ScalarCallable`.\r\n  - added unit test to verify base reactive classes have proper scheduler and backpressure annotations (wherever appropriate)\r\n  - added unit test to verify the javadoc of the main reactive types have the **Backpressure:** and **Scheduler:** sections in them (via scanning the source files if it can find it possible, works for me)\r\n  - added unit test to verify that when **Scheduler:** section mentions a method name, it actually matches the method the javadoc is there for (lots of copy-paste errors were found this way)\r\n  - fix the annotations and documentation errors detected above\r\n  - the backpressure javadoc section checker for 3 types are currently disabled as I'm out of time for tonight.\r\n\r\n"
+p1000
+sg5
+S'2.x: add Maybe operators, add annotation and source code checker tests'
+p1001
+sg7
+(lp1002
+S'Cleanup'
+p1003
+aS'Enhancement'
+p1004
+asg12
+I4528
+sg13
+(lp1005
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4528?src=pr) is 78.76% (diff: 75.13%)\n> Merging [#4528](https://codecov.io/gh/ReactiveX/RxJava/pull/4528?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.04%**\n\n```diff\n@@                2.x      #4528   diff @@\n==========================================\n  Files           515        524     +9   \n  Lines         34615      34980   +365   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5418       5443    +25   \n==========================================\n+ Hits          27280      27552   +272   \n- Misses         5372       5458    +86   \n- Partials       1963       1970     +7   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [15f8054...1727eb6](https://codecov.io/gh/ReactiveX/RxJava/compare/15f805424661af303bf08da4b3eafa856bdcf82d...1727eb65d67337d08adfbaba3a6dad207e0e61c3?src=pr)'
+p1006
+asg16
+S'akarnokd:MaybeOps911_1'
+p1007
+sbsI4529
+(iPull
+Pull
+p1008
+(dp1009
+g3
+S"Also one question why does `CompletableTimer` check `if (!sd.isDisposed()) {` before replacing but SingleTimer does not? I adjusted MaybeTimber to SingleTimer so I didn't add the check there either.\r\n\r\nHowever I feel like this should be consistent, can you elaborate which one is wanted?"
+p1010
+sg5
+S'2.x: Fix MaybeTimber by using scheduler and unit'
+p1011
+sg7
+(lp1012
+S'Enhancement'
+p1013
+asg12
+I4529
+sg13
+(lp1014
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4529?src=pr) is 79.21% (diff: 86.20%)\n> Merging [#4529](https://codecov.io/gh/ReactiveX/RxJava/pull/4529?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.46%**\n\n```diff\n@@                2.x      #4529   diff @@\n==========================================\n  Files           524        527     +3   \n  Lines         34980      35877   +897   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5443       5482    +39   \n==========================================\n+ Hits          27548      28421   +873   \n- Misses         5460       5487    +27   \n+ Partials       1972       1969     -3   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [ebec0b2...3541f13](https://codecov.io/gh/ReactiveX/RxJava/compare/ebec0b29e283130345a96417d19c43c0be6e2c1c...3541f1329ab409dab60f5077e092743f1ae90325?src=pr)'
+p1015
+asg16
+S'vanniktech:2.x_fix_MaybeTimer'
+p1016
+sbsI4530
+(iPull
+Pull
+p1017
+(dp1018
+g3
+S'  - more `Maybe` operators: `onTerminateDetach`, `repeat`, `retry`\r\n  - fixed missing `Backpressure:` entries of the javadoc where the base type uses Flowable/Publisher\r\n  - new base type source parser and check for javadoc mistakes: wrong type mentions, a/an use\r\n  - fixes of those javadoc mistakes'
+p1019
+sg5
+S'2.x: cleanup 9/12-1, more Maybe operators, more source code checking'
+p1020
+sg7
+(lp1021
+S'Cleanup'
+p1022
+aS'Enhancement'
+p1023
+asg12
+I4530
+sg13
+(lp1024
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4530?src=pr) is 78.73% (diff: 61.36%)\n> Merging [#4530](https://codecov.io/gh/ReactiveX/RxJava/pull/4530?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **0.01%**\n\n```diff\n@@                2.x      #4530   diff @@\n==========================================\n  Files           524        525     +1   \n  Lines         34980      35024    +44   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5443       5447     +4   \n==========================================\n+ Hits          27535      27576    +41   \n- Misses         5466       5474     +8   \n+ Partials       1979       1974     -5   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [a588c66...74fede6](https://codecov.io/gh/ReactiveX/RxJava/compare/a588c66271c88ebdce84d4359142bd2cef9bd374...74fede6e0e98525784440c6e762b07c8f7ab57d0?src=pr)'
+p1025
+aS'/cc @DavidMGross do you recall any common mistake pattern in the documentation?'
+p1026
+aS'There could also be a test that checks that every file has a license header.'
+p1027
+aS'How about adding code that checks the headers and adds them when the unit tests are run locally? I usually just run the JUnit tests from Eclipse.'
+p1028
+aS"The parser didn't check the instance methods properly so a bunch of mistakes remained. Posting a new PR shortly."
+p1029
+aS'It\'s been a while since I\'ve worked with the Rx javadocs, but here are some\nthings worth looking out for:\n\n   - parameter names change in the code but the javadocs still refer to the\n   old names\n   - potential exceptions change in the code and the javadocs aren\'t\n   updated to match\n   - missing backpressure / scheduler / since-annotations, and outdated\n   information in each of these\n   - changing things from consonant- to vowel-sound-starting, doing a\n   search-and-replace, and not replacing "a" with "an" or vice-versa to\n   match.  Also, sometimes changing singulars to plurals or vice-versa by\n   search-and-replace, which causes its own set of grammatical headaches.\n   - if you see any documentation that uses the passive voice, you can\n   almost always make it clearer and less prone to misinterpretation by\n   rewriting it in the active voice\n   - URLs for marble diagrams are copy-and-pasted, the name of the operator\n   is changed, but the width/height values in the img tag are not, so that the\n   right image appears but in the wrong dimensions (there were a couple of\n   these in the javadocs last I looked)\n\nI wish I had more time to devote to the Rx docs, but I\'m 99% committed to\nanother project right now.\n\nOn Mon, Sep 12, 2016 at 3:49 AM, David Karnok <notifications@github.com>\nwrote:\n\n> /cc @DavidMGross <https://github.com/DavidMGross> do you recall any\n> common mistake pattern in the documentation?\n>\n> \xe2\x80\x94\n> You are receiving this because you were mentioned.\n> Reply to this email directly, view it on GitHub\n> <https://github.com/ReactiveX/RxJava/pull/4530#issuecomment-246312562>,\n> or mute the thread\n> <https://github.com/notifications/unsubscribe-auth/AESHoInXk6N-vtkdgDLbhJJa4E7mv4W7ks5qpS5LgaJpZM4J6buG>\n> .\n>\n\n\n\n-- \nDavid M. Gross\nPLP Consulting\n'
+p1030
+asg16
+S'akarnokd:ConsistencyFixes912_1'
+p1031
+sbsI4531
+(iPull
+Pull
+p1032
+(dp1033
+g3
+g78
+sg5
+S'2.x: PublishSubject enhance NPE when onNext(null) is called'
+p1034
+sg7
+(lp1035
+S'Cleanup'
+p1036
+asg12
+I4531
+sg13
+(lp1037
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4531?src=pr) is 78.71% (diff: 100%)\n> Merging [#4531](https://codecov.io/gh/ReactiveX/RxJava/pull/4531?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.03%**\n\n```diff\n@@                2.x      #4531   diff @@\n==========================================\n  Files           524        524          \n  Lines         34980      34980          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5443       5443          \n==========================================\n- Hits          27548      27536    -12   \n- Misses         5460       5467     +7   \n- Partials       1972       1977     +5   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [ebec0b2...d6b8c23](https://codecov.io/gh/ReactiveX/RxJava/compare/ebec0b29e283130345a96417d19c43c0be6e2c1c...d6b8c23551222af7efccc322efc912f91857fa04?src=pr)'
+p1038
+asg16
+S'vanniktech:2.x_null_message'
+p1039
+sbsI4533
+(iPull
+Pull
+p1040
+(dp1041
+g3
+S"  - Fix missed javadoc mistakes, fix the checker that hid those mistakes in instance methods' javadoc due to a bug\r\n  - add `Maybe.takeUntil`"
+p1042
+sg5
+S'2.x: more cleanup and fixed checker, Maybe.takeUntil'
+p1043
+sg7
+(lp1044
+S'Cleanup'
+p1045
+aS'Enhancement'
+p1046
+asg12
+I4533
+sg13
+(lp1047
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4533?src=pr) is 78.70% (diff: 59.22%)\n> Merging [#4533](https://codecov.io/gh/ReactiveX/RxJava/pull/4533?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will decrease coverage by **0.01%**\n\n```diff\n@@                2.x      #4533   diff @@\n==========================================\n  Files           525        527     +2   \n  Lines         35024      35127   +103   \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5447       5458    +11   \n==========================================\n+ Hits          27572      27647    +75   \n- Misses         5479       5504    +25   \n- Partials       1973       1976     +3   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [460c79a...8fac37f](https://codecov.io/gh/ReactiveX/RxJava/compare/460c79aaaf7ee0a9bf3ca79e7fd60881777edd1d...8fac37fb3f9226ccd898f7637d1a0e92e7500a34?src=pr)'
+p1048
+aS':+1:'
+p1049
+asg16
+S'akarnokd:CleanupAndMaybe912_2'
+p1050
+sbsI4536
+(iPull
+Pull
+p1051
+(dp1052
+g3
+g78
+sg5
+S'Observable.timeout/Flowable.timeout should unsubscribe from underlying subscription on dispose'
+p1053
+sg7
+(lp1054
+S'Bug'
+p1055
+asg12
+I4536
+sg13
+(lp1056
+S'## [Current coverage](https://codecov.io/gh/ReactiveX/RxJava/pull/4536?src=pr) is 78.72% (diff: 100%)\n> Merging [#4536](https://codecov.io/gh/ReactiveX/RxJava/pull/4536?src=pr) into [2.x](https://codecov.io/gh/ReactiveX/RxJava/branch/2.x?src=pr) will increase coverage by **<.01%**\n\n```diff\n@@                2.x      #4536   diff @@\n==========================================\n  Files           527        527          \n  Lines         35142      35142          \n  Methods           0          0          \n  Messages          0          0          \n  Branches       5457       5457          \n==========================================\n+ Hits          27663      27665     +2   \n  Misses         5509       5509          \n+ Partials       1970       1968     -2   \n```\n\n> Powered by [Codecov](https://codecov.io?src=pr). Last update [56d5586...2dc0132](https://codecov.io/gh/ReactiveX/RxJava/compare/56d5586f5ed8b08576418f6e8c8a2ea9c39ccb46...2dc01325efd52211e52befa59dbaed20f006b741?src=pr)'
+p1057
+aS'Thanks!'
+p1058
+asg16
+S'nsk-mironov:timeout-fix'
+p1059
+sbs.

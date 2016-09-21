@@ -1,0 +1,12 @@
+@relation 'decision-weka.filters.unsupervised.attribute.StringToWordVector-Rfirst-last-W1000000-prune-rate-1.0-N0-L-stemmerweka.core.stemmers.NullStemmer-stopwords-handlerweka.core.stopwords.Null-M1-O-tokenizerweka.core.tokenizers.NGramTokenizer -max 1 -min 1 -delimiters \\W'
+
+@attribute filesAdded numeric
+@attribute subtractions numeric
+@attribute filesModified numeric
+@attribute additions numeric
+@attribute filesRemoved numeric
+@attribute filesRenamed numeric
+@attribute numOfFiles numeric
+@attribute class {Accepted,Rejected,Reverted}
+
+@data
