@@ -87,5 +87,7 @@ public interface StructureNode {
      * @return <code>true</code> if the node is of same type as the other, <code>false</code> otherwise
      */
     boolean isOfSameTypeAs(StructureNode other);
+    
+    String toString();
 
 }

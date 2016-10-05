@@ -26,10 +26,11 @@ public class Test {
 		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
 		//SampleTSG.main(arguments);
 		//distillAllFiles();
+		String [] addresses = {"/Users/ashleychen/Desktop/Circle_BEFORE.java", "/Users/ashleychen/Desktop/Circle_AFTER.java"};
+		CD.main(addresses);
 		
+		//StructureNode cu = analyzeDistiller(args[0],args[1]);
 		/*
-		StructureNode cu = analyzeDistiller();
-		
 		org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
 		
 		final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
@@ -40,15 +41,15 @@ public class Test {
 		System.out.println("Done");
 	}
 	
-	public static StructureNode analyzeDistiller(){
+	public static StructureNode analyzeDistiller(String before, String after){
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
-		File file1 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
-		File file2 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
+		File file1 = new File(before);
+		File file2 = new File(after);
 
 		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
 		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
 		for (SourceCodeChange change: changes){
-			System.out.print(change);
+			System.out.println(change);
 		}
 		return outcome;
 	}

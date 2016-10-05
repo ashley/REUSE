@@ -372,4 +372,9 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
         return cu;
 	}
 
+	public List<Comment> getComments() {
+		// TODO Auto-generated method stub
+		return fComments;
+	}
+
 }
