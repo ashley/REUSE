@@ -26,7 +26,7 @@ public class Test {
 		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
 		//SampleTSG.main(arguments);
 		//distillAllFiles();
-		String [] addresses = {"/Users/ashleychen/Desktop/Circle_BEFORE.java", "/Users/ashleychen/Desktop/Circle_AFTER.java"};
+		String [] addresses = {"testfiles/Circle_BEFORE.java", "testfiles/Circle_AFTER.java"};
 		CD.main(addresses);
 		
 		//StructureNode cu = analyzeDistiller(args[0],args[1]);

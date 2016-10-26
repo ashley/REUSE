@@ -103,6 +103,14 @@ public class FileDistiller {
         fRightASTHelper = fASTHelperFactory.create(right, rightVersion);
         leftComments = fLeftASTHelper.getComments();
         rightComments = fRightASTHelper.getComments();
+        System.out.println("LEFT COMMENTS");
+        for (Comment comment:leftComments){
+        	System.out.print(comment);
+        }
+        System.out.println("RIGHT COMMENTS");
+        for (Comment comment:leftComments){
+        	System.out.print(comment);
+        }
         StructureNode outcome = extractDifferences();
         return outcome;
     }

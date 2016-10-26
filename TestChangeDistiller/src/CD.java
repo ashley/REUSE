@@ -30,8 +30,6 @@ public class CD {
 		        System.out.println();
 			}
 		}
-		System.out.println();
-		System.out.println("Comment changes are : " + distiller.getCommentChanges());
 					
 	}//initialize
 }

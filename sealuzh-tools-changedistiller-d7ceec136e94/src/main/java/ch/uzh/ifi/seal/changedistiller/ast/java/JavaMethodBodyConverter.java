@@ -436,6 +436,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
     
     @Override
     public boolean visit(ClassInstanceCreation explicitConstructor) {
+    	System.err.println("FOUND");
         preVisit(explicitConstructor); // for some reason I'm not handling classinstancecreations inside visitExpression, hence the + 1 (wanna grab the ;) 
         push(fASTHelper.convertNode(explicitConstructor), explicitConstructor.toString() + ";", explicitConstructor.getStartPosition(), getEndPosition(explicitConstructor) + 1, explicitConstructor);
         return false;

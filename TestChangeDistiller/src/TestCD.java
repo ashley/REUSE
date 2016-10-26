@@ -14,9 +14,6 @@ public class TestCD {
 		File left = new File("testfiles/Circle_BEFORE.java");
 		File right = new File("testfiles/Circle_AFTER.java");
 		
-		if (args.length == 2){
-			System.err.println("First Arg should be BEFORE file path. Second Arg should be AFTEr file path");
-		}
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
 		try {
 		    distiller.extractClassifiedSourceCodeChanges(left, right);
@@ -25,8 +22,9 @@ public class TestCD {
 		}
 		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
 		
+		System.out.println();
 		for(SourceCodeChange change: changes){
-			//System.out.println(change);
+			System.out.println(change);
 		}
 		
 	}

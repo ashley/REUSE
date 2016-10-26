@@ -52,8 +52,9 @@ public final class CompilationUtils {
 		Map options = JavaCore.getOptions();
 		JavaCore.setComplianceOptions(JavaCore.VERSION_1_6, options);
 		parser.setCompilerOptions(options);
+		CompilationUnit parsed = (CompilationUnit) parser.createAST(null); //FIXME: AC Where it's not parsing right
 
-		JavaCompilation javaCompilation = new JavaCompilation((CompilationUnit) parser.createAST(null), source);
+		JavaCompilation javaCompilation = new JavaCompilation(parsed, source);
 		return javaCompilation;
 	}
 
@@ -67,7 +68,8 @@ public final class CompilationUtils {
 	 * @return the compilation of the file
 	 */
 	public static JavaCompilation compileFile(String filename) {
-		return CompilationUtils.compileSource(getContentOfFile(TEST_DATA_BASE_DIR + filename));
+		String test = getContentOfFile(TEST_DATA_BASE_DIR + filename);
+		return CompilationUtils.compileSource(test);
 	}
 
 	private static String getContentOfFile(String filename) {
