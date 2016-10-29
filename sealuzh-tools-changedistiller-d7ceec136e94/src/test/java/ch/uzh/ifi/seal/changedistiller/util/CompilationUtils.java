@@ -36,8 +36,13 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.BlockComment;
+import org.eclipse.jdt.core.dom.LineComment;
 
+import ch.uzh.ifi.seal.changedistiller.ast.java.CommentCollector;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
+import ch.uzh.ifi.seal.changedistiller.ast.java.NewComment;
 
 public final class CompilationUtils {
 
@@ -52,8 +57,12 @@ public final class CompilationUtils {
 		Map options = JavaCore.getOptions();
 		JavaCore.setComplianceOptions(JavaCore.VERSION_1_6, options);
 		parser.setCompilerOptions(options);
-		CompilationUnit parsed = (CompilationUnit) parser.createAST(null); //FIXME: AC Where it's not parsing right
-
+		final CompilationUnit parsed = (CompilationUnit) parser.createAST(null);
+		 
+		for (Comment comment : (List<Comment>) parsed.getCommentList()) {
+			comment.accept(new CommentVisitor(parsed, source));
+		}
+		
 		JavaCompilation javaCompilation = new JavaCompilation(parsed, source);
 		return javaCompilation;
 	}
@@ -90,8 +99,11 @@ public final class CompilationUtils {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static List<Comment> extractComments(JavaCompilation sCompilationUnit) {
-		return sCompilationUnit.getCompilationUnit().getCommentList();
+	public static List<NewComment> extractComments(JavaCompilation sCompilationUnit) {
+		CommentCollector collector =
+                new CommentCollector(sCompilationUnit, sCompilationUnit.getSource());
+        collector.collect();
+        return collector.getComments();
 	}
 
 	public static MethodDeclaration findMethod(CompilationUnit cu, String methodName) {
@@ -150,5 +162,32 @@ public final class CompilationUtils {
 	public static File getFile(String filename) {
 		return new File(TEST_DATA_BASE_DIR + filename);
 	}
+}
 
+class CommentVisitor extends ASTVisitor {
+	CompilationUnit cu;
+	String source;
+ 
+	public CommentVisitor(CompilationUnit cu, String source) {
+		super();
+		this.cu = cu;
+		this.source = source;
+	}
+ 
+	public boolean visit(LineComment node) {
+		int start = node.getStartPosition();
+		int end = start + node.getLength();
+		String comment = source.substring(start, end);
+		//System.out.println(comment);
+		return true;
+	}
+ 
+	public boolean visit(BlockComment node) {
+		int start = node.getStartPosition();
+		int end = start + node.getLength();
+		String comment = source.substring(start, end);
+		//System.out.println(comment);
+		return true;
+	}
+ 
 }

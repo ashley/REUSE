@@ -52,12 +52,12 @@ public class WhenCommentsAreExtracted {
     @Test
     //@Ignore("Claire broke comments, FXIME")
     public void compilationUnitOfClassWithCommentsShouldHaveComments() throws Exception {
-        List<Comment> comments = CompilationUtils.extractComments(sCompilationUnit);
+        List<NewComment> comments = CompilationUtils.extractComments(sCompilationUnit);
         assertThat(comments.size(), is(3));
         //assertThat(comments.get(0).toString(), is("/** " + LF + " * A class with comments." + LF +  " * @author Beat Fluri" + LF + " */\n"));
-        //assertThat("// a simple method invocation", is("// a simple method invocation"));
-        //assertThat(comments.get(1).toString(), is("// a simple method invocation"));
-        //assertThat(comments.get(2).toString(), is("/* no more methods */"));
+        assertThat("// a simple method invocation", is("// a simple method invocation"));
+        assertThat(comments.get(1).toString(), is("// a simple method invocation"));
+        assertThat(comments.get(2).toString(), is("/* no more methods */"));
     }
 
 }

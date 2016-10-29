@@ -24,11 +24,15 @@ public class CD {
 		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
 		System.out.println();
 		if (changes != null){
+			System.out.println("CHANGES: ");
 			for(SourceCodeChange change: changes){
 				System.out.println(change);
 				System.out.println(change.getChangedEntity());
 		        System.out.println();
 			}
+		}
+		else{
+			System.out.print("Changes are null");
 		}
 					
 	}//initialize
