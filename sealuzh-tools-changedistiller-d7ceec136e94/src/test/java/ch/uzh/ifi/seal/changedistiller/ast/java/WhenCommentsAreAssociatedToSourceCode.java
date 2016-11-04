@@ -53,12 +53,14 @@ public class WhenCommentsAreAssociatedToSourceCode extends JavaDistillerTestCase
     public static void prepareCompilationUnit() throws Exception { // FIXME: this may tell me how much I've screwed up comments.
         sCompilation = CompilationUtils.compileFile("src_comments/ClassWithCommentsToAssociate.java");
         List<Comment> comments = CompilationUtils.extractComments(sCompilation);
+        System.out.println(sCompilation.getCompilationUnit().types());        
         sRoot = new Node(JavaEntityType.METHOD, "foo");
         MethodDeclaration method = CompilationUtils.findMethod(sCompilation.getCompilationUnit(), "foo");
         sRoot.setEntity(new SourceCodeEntity("foo", JavaEntityType.METHOD, new SourceRange(), method));
         JavaMethodBodyConverter bodyT = sInjector.getInstance(JavaMethodBodyConverter.class);
         bodyT.initialize(sRoot, method, sComments, sCompilation.getSource());
         method.accept(bodyT);
+        displayNode();
     }
 
     @Test
@@ -69,7 +71,7 @@ public class WhenCommentsAreAssociatedToSourceCode extends JavaDistillerTestCase
     }
 
     @Test
-    @Ignore("Claire broke comments, FIXME later.") 
+    //@Ignore("Claire broke comments, FIXME later.") 
     public void undecidedProximityRatingShouldAssociateCommentToNextEntity() throws Exception {
         Node node = findNode("check");
         assertCorrectAssociation(
@@ -114,6 +116,14 @@ public class WhenCommentsAreAssociatedToSourceCode extends JavaDistillerTestCase
             }
         }
         return null;
+    }
+    
+    @SuppressWarnings("unchecked")
+	private static void displayNode(){
+    	Enumeration<Node> e = sRoot.breadthFirstEnumeration();
+        Node node = e.nextElement();
+        node = e.nextElement();
+        node = e.nextElement();
     }
 
 }

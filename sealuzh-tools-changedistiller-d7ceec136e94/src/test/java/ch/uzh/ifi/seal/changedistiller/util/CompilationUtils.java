@@ -99,11 +99,15 @@ public final class CompilationUtils {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static List<NewComment> extractComments(JavaCompilation sCompilationUnit) {
+	public static List<NewComment> extractNComments(JavaCompilation sCompilationUnit) {
 		CommentCollector collector =
                 new CommentCollector(sCompilationUnit, sCompilationUnit.getSource());
         collector.collect();
         return collector.getComments();
+	}
+	
+	public static List<Comment> extractComments(JavaCompilation sCompilationUnit){
+		return sCompilationUnit.getCompilationUnit().getCommentList();
 	}
 
 	public static MethodDeclaration findMethod(CompilationUnit cu, String methodName) {

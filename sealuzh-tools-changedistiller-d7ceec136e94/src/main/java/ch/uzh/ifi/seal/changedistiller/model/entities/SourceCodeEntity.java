@@ -26,7 +26,10 @@ import java.util.List;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 
+import ch.uzh.ifi.seal.changedistiller.ast.java.NewComment;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.ChangeModifier;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.SourceRange;
@@ -61,8 +64,8 @@ public class SourceCodeEntity {
      * @param range
      *            the range
      */
-    public SourceCodeEntity(String uniqueName, EntityType type, SourceRange range, ASTNode originalNode) {
-        this(uniqueName, type, 0, range, originalNode);
+    public SourceCodeEntity(String uniqueName, EntityType type, SourceRange range, ASTNode node) {
+        this(uniqueName, type, 0, range, node);
     }
 
     /**
@@ -77,13 +80,13 @@ public class SourceCodeEntity {
      * @param range
      *            the range
      */
-    public SourceCodeEntity(String uniqueName, EntityType type, int modifiers, SourceRange range, ASTNode originalNode) {
+    public SourceCodeEntity(String uniqueName, EntityType type, int modifiers, SourceRange range, ASTNode astNode) {
         setUniqueName(uniqueName);
         setType(type);
         setModifiers(modifiers);
         setSourceRange(range);
         setAssociatedEntities(new LinkedList<SourceCodeEntity>());
-        setOriginalNode(originalNode);
+        setOriginalNode(astNode);
     }
 
     public String getUniqueName() {
@@ -261,8 +264,8 @@ public class SourceCodeEntity {
                 .isEquals();
     }
     
-    public void setOriginalNode(ASTNode originalNode) {
-    	this.originalNode = originalNode;
+    public void setOriginalNode(ASTNode astNode) {
+    	this.originalNode = astNode;
     }
 
 	public ASTNode getOriginalNode() {
