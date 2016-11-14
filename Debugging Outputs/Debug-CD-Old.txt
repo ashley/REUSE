@@ -1,93 +1,31 @@
-LEFT COMMENTS
-// attributes
-//private double radius=0.0;   
-RIGHT COMMENTS
-// attributes
-//private double radius=0.0;   
-#SNODE L: CU: null
-#SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@40ba3d2c
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@30634e7
-
-#TRAVERSE
-LEFTCHILD: CLASS: Circle
-RIGHTCHILD: CLASS: Circle
-##SNODE L: CLASS: Circle
-##SNODE L: CLASS: Circle
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@76cb771e
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@27f98f80
-
-##TRAVERSE
-LEFTCHILD: null
-RIGHTCHILD: FIELD: radius : double
-###SNODE L: null
-###SNODE L: FIELD: radius : double
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-DIFF IS NOT NULL
-LEFTCHILD: CONSTRUCTOR: Circle()
-RIGHTCHILD: null
-###SNODE L: CONSTRUCTOR: Circle()
-###SNODE L: null
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-DIFF IS NOT NULL
-LEFTCHILD: CONSTRUCTOR: Circle(double)
-RIGHTCHILD: CONSTRUCTOR: Circle(double)
-###SNODE L: CONSTRUCTOR: Circle(double)
-###SNODE L: CONSTRUCTOR: Circle(double)
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-LEFTCHILD: FIELD: PI : double
-RIGHTCHILD: FIELD: PI : double
-###SNODE L: FIELD: PI : double
-###SNODE L: FIELD: PI : double
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-LEFTCHILD: METHOD: getRadius()
-RIGHTCHILD: METHOD: getRadius()
-###SNODE L: METHOD: getRadius()
-###SNODE L: METHOD: getRadius()
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-LEFTCHILD: METHOD: secondForLoop()
-RIGHTCHILD: METHOD: secondForLoop()
-###SNODE L: METHOD: secondForLoop()
-###SNODE L: METHOD: secondForLoop()
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-LEFTCHILD: FIELD: listt : String[]
-RIGHTCHILD: FIELD: listt : String[]
-###SNODE L: FIELD: listt : String[]
-###SNODE L: FIELD: listt : String[]
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-LEFTCHILD: METHOD: forLoop()
-RIGHTCHILD: METHOD: forLoop()
-###SNODE L: METHOD: forLoop()
-###SNODE L: METHOD: forLoop()
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-DIFF IS NOT NULL
-Delete: Circle.Circle()
-METHOD: Circle.Circle()
-
-Insert: Circle.radius : double
-FIELD: Circle.radius : double
+/**
+ */
+public class ClassWithCommentsToAssociate {
+  public ClassWithCommentsToAssociate() {
+    super();
+  }
+  /**
+     * @param   number
+     * @  return
+   */
+  public int foo(int number) {
+    System.out.println("left");
+    boolean check = (number > 0);
+    int a = 0;
+    int b = 2;
+    if (check)
+        {
+          a = (23 + Integer.parseInt("42"));
+          b = Math.round(Math.random());
+          return (a + b);
+        }
+    else
+        {
+          b = Math.abs(number);
+          String.valueOf(true);
+          b = Math.abs(number);
+          return b;
+        }
+  }
+}
 
