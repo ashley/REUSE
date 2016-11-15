@@ -1,4 +1,4 @@
-package ch.uzh.ifi.seal.changedistiller.ast.java;
+package org.eclipse.jdt.core.dom;
 
 /*
  * #%L
@@ -20,38 +20,43 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
  * #L%
  */
 
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+//import org.eclipse.jdt.core.dom.ast.ASTNode;
 
 /**
  * AST node representing any kind of comment.
  * 
  * @author Beat Fluri
+ * 
+ * modified by Ashley Chen
  */
-public class NewComment extends ASTNode {
+public abstract class NewComment extends ASTNode {
 
     private String fComment;
     private NewCommentType fType;
+	private ASTNode alternateRoot = null;
+	private int sourceStart;
+	private int sourceEnd;
 
-    /**
-     * Creates a new comment.
-     * 
-     * @param type
-     *            of the comment
-     * @param sourceStart
-     *            in the source file
-     * @param sourceEnd
-     *            in the source file
-     * @param comment
-     *            as text
-     */
-    public NewComment(NewCommentType type, int sourceStart, int sourceEnd, String comment) {
+    public NewComment(AST ast,NewCommentType type, int sourceStart, int sourceEnd, String comment) {
+    	super(ast);
         fType = type;
         this.sourceStart = sourceStart;
         this.sourceEnd = sourceEnd;
         fComment = comment;
     }
+    
+    NewComment(AST ast) {
+		super(ast);
+	}
+    
+    public void setStart(int i){
+    	sourceStart = i;
+    }
+    
+    public void setEnd(int i){
+    	sourceEnd = i;
+    }
 
-    @Override
     public StringBuffer print(int indent, StringBuffer output) {
         printIndent(indent, output);
         output.append(fComment);
@@ -77,9 +82,9 @@ public class NewComment extends ASTNode {
         JAVA_DOC
     }
 
-    public int getLength() {
+    /*public int getLength() {
         return sourceEnd() - sourceStart();
-    }
+    }*/
 
     public void setComment(String comment) {
         fComment = comment;
@@ -92,5 +97,26 @@ public class NewComment extends ASTNode {
     public boolean isJavadocComment() {
         return getType() == NewCommentType.JAVA_DOC;
     }
+    
+    public final ASTNode getAlternateRoot() {
+		return this.getAlternateRoot();
+	}
+    
+    public final void setAlternateRoot(ASTNode root) {
+		// alternate root is *not* considered a structural property
+		// but we protect them nevertheless
+		checkModifiable();
+		this.alternateRoot  = root;
+	}
+    
+	int memSize() {
+		return BASE_NODE_SIZE + 1 * 4;
+	}
+	
+	public static StringBuffer printIndent(int indent, StringBuffer output) {
+
+		for (int i = indent; i > 0; i--) output.append("  "); //$NON-NLS-1$
+		return output;
+	}
 
 }

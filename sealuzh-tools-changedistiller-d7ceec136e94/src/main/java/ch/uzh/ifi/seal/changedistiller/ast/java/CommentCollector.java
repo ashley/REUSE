@@ -5,10 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.Comment;
-import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-
-import ch.uzh.ifi.seal.changedistiller.ast.java.NewComment.NewCommentType;
+import org.eclipse.jdt.core.dom.NewComment;
+import org.eclipse.jdt.core.dom.NewComment.NewCommentType;
 
 public class CommentCollector {
 
@@ -39,26 +37,16 @@ public class CommentCollector {
         NewComment comment = null;
         int start = oldComment.getStartPosition();
         int end = start + oldComment.getLength();
+        try{
+        comment.setStart(start);
+        }
+        catch(Exception e){
+        	System.out.println(e);
+        }
+        //comment.setEnd(end);
         
         // Javadoc comments have positive end position
-        if (end > 0) {
-            comment = new NewComment(NewCommentType.JAVA_DOC, start, end, fSource.substring(start, end));
-        } else {
-            end = -end;
-            // we cannot know without testing chars again
-            if (start == 0) {
-                if (fSource.charAt(1) == '/') {
-                    comment = new NewComment(NewCommentType.LINE_COMMENT, start, end, fSource.substring(start, end));
-                } else {
-                    comment = new NewComment(NewCommentType.BLOCK_COMMENT, start, end, fSource.substring(start, end));
-                }
-            } else if (start > 0) { // Block comment have positive start position
-                comment = new NewComment(NewCommentType.BLOCK_COMMENT, start, end, fSource.substring(start, end));
-            } else { // Line comment have negative start and end position
-                start = -start;
-                comment = new NewComment(NewCommentType.LINE_COMMENT, start, end, fSource.substring(start, end));
-            }
-        }
+        
         return comment;
     }
 

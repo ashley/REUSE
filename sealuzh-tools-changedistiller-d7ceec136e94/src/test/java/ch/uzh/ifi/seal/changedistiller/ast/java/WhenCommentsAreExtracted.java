@@ -26,6 +26,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.NewComment;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;

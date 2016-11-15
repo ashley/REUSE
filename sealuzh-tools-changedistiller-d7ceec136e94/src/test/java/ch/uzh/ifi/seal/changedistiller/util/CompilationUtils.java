@@ -34,6 +34,7 @@ import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.NewComment;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -42,7 +43,6 @@ import org.eclipse.jdt.core.dom.LineComment;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.CommentCollector;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
-import ch.uzh.ifi.seal.changedistiller.ast.java.NewComment;
 
 public final class CompilationUtils {
 
@@ -104,6 +104,7 @@ public final class CompilationUtils {
                 new CommentCollector(sCompilationUnit, sCompilationUnit.getSource());
         collector.collect();
         return collector.getComments();
+        //return null; //FIXME: AC Need to return actual NewComments
 	}
 	
 	public static List<Comment> extractComments(JavaCompilation sCompilationUnit){
