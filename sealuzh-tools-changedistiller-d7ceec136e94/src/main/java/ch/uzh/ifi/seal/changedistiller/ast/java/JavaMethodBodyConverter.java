@@ -123,7 +123,7 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         fSource = source;
     }
     
-    public void initialize(Node root, ASTNode methodRoot, List<NewComment> comments, String source, String as) {
+    public void initialize(Node root, ASTNode methodRoot, List<Comment> comments, String source, String as) {
     	// FIXME: I am VERY close to killing the source, but to do that I need to figure out
     	// why we need the source for proximity computation, which is clearly required for comment association.
         fNodeStack.clear();

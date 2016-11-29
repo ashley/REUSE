@@ -59,7 +59,7 @@ public class WhenCommentsAreAssociatedToSourceCode extends JavaDistillerTestCase
         SourceCodeEntity sce = new SourceCodeEntity("foo", JavaEntityType.METHOD, new SourceRange(), method);
         sRoot.setEntity(sce);
         JavaMethodBodyConverter bodyT = sInjector.getInstance(JavaMethodBodyConverter.class);
-        List<NewComment> nComments = CompilationUtils.extractNComments(sCompilation);
+        List<Comment> nComments = CompilationUtils.extractNComments(sCompilation);
         bodyT.initialize(sRoot, method, nComments, sCompilation.getSource(),"as"); //suppose to get comments in fComments
         method.accept(bodyT);
         displayNode();

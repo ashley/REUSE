@@ -4,8 +4,10 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.core.dom.NewComment;
+import org.eclipse.jdt.core.dom.NewComment.CommentType;
 import org.eclipse.jdt.core.dom.NewComment.NewCommentType;
 
 public class CommentCollector {
@@ -34,15 +36,17 @@ public class CommentCollector {
 
     // Logic taken from org.eclipse.jdt.core.dom.ASTConverter
     private NewComment createComment(Comment oldComment) {
-        NewComment comment = null;
-        int start = oldComment.getStartPosition();
+        // new NewComment(oldComment.getAST(),comment.getType(), oldComment.getStartPosition(), oldComment.getLength(), " ");
+    	int start = oldComment.getStartPosition();
         int end = start + oldComment.getLength();
+        NewComment comment = null;
         try{
-        comment.setStart(start);
-        }
-        catch(Exception e){
-        	System.out.println(e);
-        }
+    	comment = new NewComment(oldComment.getAST());
+    	}
+    	catch (Exception e){
+    		System.out.println(e);
+    	}
+        //comment.setStart(start);
         //comment.setEnd(end);
         
         // Javadoc comments have positive end position

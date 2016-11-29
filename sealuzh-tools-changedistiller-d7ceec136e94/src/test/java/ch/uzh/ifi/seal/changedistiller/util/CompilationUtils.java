@@ -99,12 +99,14 @@ public final class CompilationUtils {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static List<NewComment> extractNComments(JavaCompilation sCompilationUnit) {
-		CommentCollector collector =
+	public static List<Comment> extractNComments(JavaCompilation sCompilationUnit) {
+		/*CommentCollector collector =
                 new CommentCollector(sCompilationUnit, sCompilationUnit.getSource());
         collector.collect();
         return collector.getComments();
         //return null; //FIXME: AC Need to return actual NewComments
+         */
+		return sCompilationUnit.getCompilationUnit().getCommentList();
 	}
 	
 	public static List<Comment> extractComments(JavaCompilation sCompilationUnit){

@@ -27,18 +27,23 @@ public class Test {
 		//SampleTSG.main(arguments);
 		//distillAllFiles();
 		String [] addresses = {"testfiles/Circle_BEFORE.java", "testfiles/Circle_AFTER.java"};
-		CD.main(addresses);
+		//CD.main(addresses);
 		
-		//StructureNode cu = analyzeDistiller(args[0],args[1]);
+		
+		//StructureNode cu = analyzeDistiller(addresses[0],addresses[1]);
+		
+		//org.eclipse.jdt.core.dom.ASTNode compTree = makeTree(addresses[0]);
+		//org.eclipse.jdt.core.dom.ASTNode changeTree = makeTree(cu);
+		String [] ingredients = {"testfiles/Circle_BEFORE.java","normal","10","testfiles/Circle_AFTER.java"};
+		TestTreeLM.main(ingredients);
 		/*
-		org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
-		
 		final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
 		TreeNode <Integer> treeInt = format.getTree(compTree);
-		
-		TreeNode <Integer> intTree = makeActualTree(); 
-		*/
 		System.out.println("Done");
+		TreeNode <Integer> intTree = makeActualTree(addresses[0]); 
+		
+		System.out.println("Done");
+		*/
 	}
 	
 	public static StructureNode analyzeDistiller(String before, String after){
@@ -48,9 +53,9 @@ public class Test {
 
 		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
 		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
-		for (SourceCodeChange change: changes){
+		/*for (SourceCodeChange change: changes){
 			System.out.println(change);
-		}
+		}*/
 		return outcome;
 	}
 	
@@ -64,7 +69,7 @@ public class Test {
 		}
 	}
 
-	public static org.eclipse.jdt.core.dom.ASTNode makeTree() throws IOException{
+	public static org.eclipse.jdt.core.dom.ASTNode makeTree(String filePath) throws IOException{
 		final int nIterations = Integer.parseInt("1");
 		final AbstractJavaTreeExtractor format;
 		format = new JavaAstTreeExtractor();
@@ -72,12 +77,13 @@ public class Test {
 		final double percentRootsInit = .9;
 		int nFiles = 0;
 		int nNodes = 0;
-		final File fi = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
-				org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
-				//org.eclipse.jdt.core.dom.CompilationUnit compTree = format.getDistillerTree(fi);//insert Distiller Tree here
+		final File fi = new File(filePath);
+				//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
+				org.eclipse.jdt.core.dom.CompilationUnit treeInt = format.getDistillerTree(fi);//insert Distiller Tree here
 				return treeInt;
 	}
-	public static TreeNode <Integer> makeActualTree() throws IOException{
+	
+	public static org.eclipse.jdt.core.dom.ASTNode makeTree(StructureNode jsn) throws IOException{
 		final int nIterations = Integer.parseInt("1");
 		final AbstractJavaTreeExtractor format;
 		format = new JavaAstTreeExtractor();
@@ -85,7 +91,19 @@ public class Test {
 		final double percentRootsInit = .9;
 		int nFiles = 0;
 		int nNodes = 0;
-		final File fi = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
+		//org.eclipse.jdt.core.dom.CompilationUnit treeInt = format.getDistillerTree(jsn);//insert Distiller Tree here
+		org.eclipse.jdt.core.dom.CompilationUnit treeInt = jsn.getASTNode();
+		return treeInt;
+	}
+	public static TreeNode <Integer> makeActualTree(String filePath) throws IOException{
+		final int nIterations = Integer.parseInt("1");
+		final AbstractJavaTreeExtractor format;
+		format = new JavaAstTreeExtractor();
+	
+		final double percentRootsInit = .9;
+		int nFiles = 0;
+		int nNodes = 0;
+		final File fi = new File(filePath);
 				TreeNode <Integer> treeInt = format.getTree(fi);
 				return treeInt;
 	}

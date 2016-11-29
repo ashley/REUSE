@@ -24,6 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 
@@ -138,8 +139,8 @@ public class JavaStructureNode implements StructureNode {
         return super.equals(obj);
     }
 
-    public ASTNode getASTNode() {
-        return fASTNode;
+    public CompilationUnit getASTNode() {
+        return (CompilationUnit) fASTNode;
     }
 
     @Override

@@ -29,7 +29,6 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
-import ch.uzh.ifi.seal.changedistiller.ast.java.NewComment;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.ChangeModifier;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.SourceRange;

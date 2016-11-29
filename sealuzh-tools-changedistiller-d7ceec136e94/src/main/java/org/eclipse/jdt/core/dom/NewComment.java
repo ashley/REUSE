@@ -1,5 +1,13 @@
 package org.eclipse.jdt.core.dom;
 
+import java.util.List;
+
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTMatcher;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.Comment;
+
 /*
  * #%L
  * ChangeDistiller
@@ -29,7 +37,7 @@ package org.eclipse.jdt.core.dom;
  * 
  * modified by Ashley Chen
  */
-public abstract class NewComment extends ASTNode {
+public class NewComment extends Comment {
 
     private String fComment;
     private NewCommentType fType;
@@ -45,9 +53,13 @@ public abstract class NewComment extends ASTNode {
         fComment = comment;
     }
     
-    NewComment(AST ast) {
+    public NewComment(AST ast) {
 		super(ast);
 	}
+    
+    public NewComment(){
+    	super(null);
+    }
     
     public void setStart(int i){
     	sourceStart = i;
@@ -55,6 +67,12 @@ public abstract class NewComment extends ASTNode {
     
     public void setEnd(int i){
     	sourceEnd = i;
+    }
+    
+    public enum CommentType {
+        LINE_COMMENT,
+        BLOCK_COMMENT,
+        JAVA_DOC
     }
 
     public StringBuffer print(int indent, StringBuffer output) {
@@ -89,25 +107,6 @@ public abstract class NewComment extends ASTNode {
     public void setComment(String comment) {
         fComment = comment;
     }
-
-    public boolean isLineComment() {
-        return getType() == NewCommentType.LINE_COMMENT;
-    }
-
-    public boolean isJavadocComment() {
-        return getType() == NewCommentType.JAVA_DOC;
-    }
-    
-    public final ASTNode getAlternateRoot() {
-		return this.getAlternateRoot();
-	}
-    
-    public final void setAlternateRoot(ASTNode root) {
-		// alternate root is *not* considered a structural property
-		// but we protect them nevertheless
-		checkModifiable();
-		this.alternateRoot  = root;
-	}
     
 	int memSize() {
 		return BASE_NODE_SIZE + 1 * 4;
@@ -117,6 +116,42 @@ public abstract class NewComment extends ASTNode {
 
 		for (int i = indent; i > 0; i--) output.append("  "); //$NON-NLS-1$
 		return output;
+	}
+
+	@Override
+	List internalStructuralPropertiesForType(int apiLevel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	int getNodeType0() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	boolean subtreeMatch0(ASTMatcher matcher, Object other) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	ASTNode clone0(AST target) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	void accept0(ASTVisitor visitor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	int treeSize() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
