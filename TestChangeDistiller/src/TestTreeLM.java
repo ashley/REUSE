@@ -128,12 +128,15 @@ public class TestTreeLM {
 			Serializer.getSerializer().serialize(grammarToUse, serializedFile);
 		} catch (final Throwable e) {
 			LOGGER.severe("Failed to serialize grammar: " + ExceptionUtils.getFullStackTrace(e));
+			System.out.println("Failed to serialize grammar: " + ExceptionUtils.getFullStackTrace(e));
+			
 		}
 
 		try {
 			Serializer.getSerializer().serialize(sampler, "tsgSamplerCheckpoint.ser");
 		} catch (final Throwable e) {
 			LOGGER.severe("Failed to checkpoint sampler: " + ExceptionUtils.getFullStackTrace(e));
+			System.out.println("Failed to checkpoint sampler: " + ExceptionUtils.getFullStackTrace(e));
 		}
 
 		// sampler.pruneNonSurprisingRules(1);

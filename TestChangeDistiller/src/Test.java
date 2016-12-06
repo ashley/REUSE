@@ -26,7 +26,7 @@ public class Test {
 		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
 		//SampleTSG.main(arguments);
 		//distillAllFiles();
-		String [] addresses = {"testfiles/Circle_BEFORE.java", "testfiles/Circle_AFTER.java"};
+		//String [] addresses = {"testfiles/Circle_BEFORE.java", "testfiles/Circle_AFTER.java"};
 		//CD.main(addresses);
 		
 		
@@ -34,8 +34,10 @@ public class Test {
 		
 		//org.eclipse.jdt.core.dom.ASTNode compTree = makeTree(addresses[0]);
 		//org.eclipse.jdt.core.dom.ASTNode changeTree = makeTree(cu);
-		String [] ingredients = {"testfiles/Circle_BEFORE.java","normal","10","testfiles/Circle_AFTER.java"};
+		String [] ingredients = {"testfiles/Circle_BEFORE.java","normal","2","testfiles/Circle_AFTER.java"};
 		TestTreeLM.main(ingredients);
+		//String [] tsgIng = {"testfiles","normal","2"};
+		//SampleTSG.main(tsgIng);
 		/*
 		final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
 		TreeNode <Integer> treeInt = format.getTree(compTree);
