@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.eclipse.jdt.core.dom.ASTNode;
 
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
@@ -83,7 +84,7 @@ public class TestTreeLM {
 			int nNodes = 0;
 			try {
 				StructureNode cu = analyzeDistiller(args[0],args[3]);
-				org.eclipse.jdt.core.dom.CompilationUnit treeInt = cu.getASTNode();
+				ASTNode treeInt = cu.getASTNode();
 				//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
 				final TreeNode<TSGNode> ast = TSGNode.convertTree(format.getTree(treeInt), percentRootsInit);
 				nNodes += ast.getTreeSize();

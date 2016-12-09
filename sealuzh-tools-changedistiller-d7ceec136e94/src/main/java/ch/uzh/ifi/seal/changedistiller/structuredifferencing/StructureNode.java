@@ -22,6 +22,7 @@ package ch.uzh.ifi.seal.changedistiller.structuredifferencing;
 
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
 /**
@@ -51,7 +52,7 @@ public interface StructureNode {
      * 
      * @return the name of the node
      */
-    CompilationUnit getASTNode();
+    ASTNode getASTNode();
     /**
      * Returns the Compilation unit fASTNode.
      * 

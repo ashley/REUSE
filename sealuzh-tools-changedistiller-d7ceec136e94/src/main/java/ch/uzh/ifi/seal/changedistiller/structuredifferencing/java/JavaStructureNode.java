@@ -139,8 +139,8 @@ public class JavaStructureNode implements StructureNode {
         return super.equals(obj);
     }
 
-    public CompilationUnit getASTNode() {
-        return (CompilationUnit) fASTNode;
+    public ASTNode getASTNode() {
+    	return fASTNode;
     }
 
     @Override

@@ -5,8 +5,14 @@ import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.eclipse.jdt.core.dom.ASTNode;
 
-import codemining.ast.AbstractTreeExtractor;
+import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
+import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
+import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
+import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
+import codemining.ast.java.AbstractJavaTreeExtractor;
 import codemining.ast.TreeNode;
 import codemining.languagetools.ITokenizer;
 import codemining.lm.tsg.TSGNode;
@@ -32,41 +38,36 @@ public class TestTsgEntropy {
 				.getSerializer().deserializeFrom(reusePath + "/Entropy-model/saved-ser-"+ iterations + "-iters/"+repoName+".ser");
 	}
 	
-	public static void main(String path) throws SerializationException {
+	public static void main(String [] args) throws SerializationException {
 
 		//final File directory = new File(path);
-		final File f = new File(path);
+		//final File f = new File(args[0]);
 
 		//final Collection<File> allFiles = FileUtils.listFiles(directory,new RegexFileFilter(".*\\.txt$"),DirectoryFileFilter.DIRECTORY);
 		grammar = (TSGrammar<TSGNode>) Serializer
-				.getSerializer().deserializeFrom("/Users/ashleychen/Desktop/REUSE/REUSE/Entropy-model/saved-ser-400-iters/weex.ser");
-		final AbstractTreeExtractor treeFormat = grammar.getTreeExtractor();
+				.getSerializer().deserializeFrom("tsg.ser");
+		//final AbstractTreeExtractor treeFormat = grammar.getTreeExtractor();
+		final AbstractJavaTreeExtractor format = (AbstractJavaTreeExtractor) grammar.getTreeExtractor();
 
 		System.out.println("filename,entropy,cross-entropy");
-		//for (final File f : allFiles) {
-			try {
-				System.err.println("FILE:" + f.toString());
-				final TreeNode<Integer> intTree = treeFormat.getTree(f);
-				final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree,
-						0);
+		
+		StructureNode cu = analyzeDistiller(args[0],args[1]); //file 1 and file 2
+			//System.err.println("FILE:" + f.toString());
+			//final TreeNode<Integer> intTree = treeFormat.getTree(f); //old
+			//final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree,0); //old
+			final ASTNode intTree = cu.getASTNode(); //new
+			final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(format.getTree(intTree), 0); //new
 
-				final ITokenizer tokenizer = treeFormat.getTokenizer();
-				final List<String> fileTokens = tokenizer
-						.tokenListFromCode(FileUtils.readFileToString(f)
-								.toCharArray());
+			final ITokenizer tokenizer = format.getTokenizer();
+			//final List<String> fileTokens = tokenizer.tokenListFromCode(FileUtils.readFileToString(f).toCharArray());
 
-				final TreeProbabilityComputer<TSGNode> probabilityComputer = new TreeProbabilityComputer<TSGNode>(
-						grammar, false, TreeProbabilityComputer.TSGNODE_MATCHER);
-				probability = probabilityComputer
-						.getLog2ProbabilityOf(tsgTree);
+			final TreeProbabilityComputer<TSGNode> probabilityComputer = new TreeProbabilityComputer<TSGNode>(
+					grammar, false, TreeProbabilityComputer.TSGNODE_MATCHER);
+			probability = probabilityComputer
+					.getLog2ProbabilityOf(tsgTree);
 
-				crossEntropy = probability / fileTokens.size();
-				System.out.println(f.toString() + "," + probability + ","
-						+ crossEntropy);
-			} catch (final IOException e) {
-				LOGGER.warning(ExceptionUtils.getFullStackTrace(e));
-			}
-		//}
+			//crossEntropy = probability / fileTokens.size();
+			System.out.println("Changes: " + probability);
 
 	}
 	
@@ -77,5 +78,18 @@ public class TestTsgEntropy {
 
 	private static final Logger LOGGER = Logger.getLogger(TsgEntropy.class
 			.getName());
+	
+	public static StructureNode analyzeDistiller(String before, String after){
+		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
+		File file1 = new File(before);
+		File file2 = new File(after);
+
+		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
+		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
+		/*for (SourceCodeChange change: changes){
+			System.out.println(change);
+		}*/
+		return outcome;
+	}
 
 }
