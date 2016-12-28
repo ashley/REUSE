@@ -62,16 +62,32 @@ public class StructureDifferencer {
         if ((left == null) && (right == null)) {
             return;
         }
-        fDifferences = traverse(left, right);
+        fDifferences = traverse(left, right, 0);
     }
 
-    private StructureDiffNode traverse(StructureNode left, StructureNode right) {
+    private StructureDiffNode traverse(StructureNode left, StructureNode right, int n) {
+    	n++;
+    	String space = "";
+    	for (int i=0; i<n;i++){
+    		space += "#";
+    	}
+    	System.out.println(space + "SNODE L: " + left);
+    	System.out.println(space + "SNODE L: " + right);
+
         StructureNode[] leftChildren = getChildren(left);
         StructureNode[] rightChildren = getChildren(right);
+        
+    	System.out.println(space + "SNODE[] L: " + leftChildren);
+    	System.out.println(space + "SNODE[] R: " + rightChildren);
+    	
+    	System.out.println();
+
         StructureDiffNode root = new StructureDiffNode(left, right);
         if ((leftChildren != null) && (rightChildren != null)) {
-            root = traverseChildren(root, leftChildren, rightChildren);
+        	System.out.println(space + "TRAVERSE");
+            root = traverseChildren(root, leftChildren, rightChildren, n);
         } else {
+        	System.out.println(space + "EXTRACT");
             root = extractLeaveChange(root, left, right);
         }
         if (hasChanges(root)) {
@@ -95,6 +111,7 @@ public class StructureDifferencer {
             root.setDiffType(DiffType.DELETION);
         } else {
             if (!contentsEqual(left, right)) {
+            	System.out.println("!!EQUAL!!");
                 root.setLeft(left);
                 root.setRight(right);
                 root.setDiffType(DiffType.CHANGE);
@@ -108,7 +125,7 @@ public class StructureDifferencer {
     private StructureDiffNode traverseChildren(
             StructureDiffNode root,
             StructureNode[] leftChildren,
-            StructureNode[] rightChildren) {
+            StructureNode[] rightChildren,int space) {
         Set<StructureNode> allSet = new HashSet<StructureNode>(20);
         Map<StructureNode, StructureNode> leftSet = new HashMap<StructureNode, StructureNode>(10);
         Map<StructureNode, StructureNode> rightSet = new HashMap<StructureNode, StructureNode>(10);
@@ -122,9 +139,12 @@ public class StructureDifferencer {
         }
         for (StructureNode node : allSet) {
             StructureNode leftChild = leftSet.get(node);
+            System.out.println("LEFTCHILD: " + leftChild);
             StructureNode rightChild = rightSet.get(node);
-            StructureDiffNode diff = traverse(leftChild, rightChild);
+            System.out.println("RIGHTCHILD: " + rightChild);
+            StructureDiffNode diff = traverse(leftChild, rightChild, space);
             if (diff != null) {
+            	System.out.println("DIFF IS NOT NULL");
                 root.addChild(diff);
             }
         }

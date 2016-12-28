@@ -25,6 +25,9 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.ChangeModifier;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
@@ -48,6 +51,7 @@ public class SourceCodeEntity {
     private int fModifiers;
     private List<SourceCodeEntity> fAssociatedEntities;
     private SourceRange fRange;
+    private ASTNode originalNode;
 
     /**
      * Constructor to initialize a source code entity with a unique name and a type.
@@ -59,8 +63,8 @@ public class SourceCodeEntity {
      * @param range
      *            the range
      */
-    public SourceCodeEntity(String uniqueName, EntityType type, SourceRange range) {
-        this(uniqueName, type, 0, range);
+    public SourceCodeEntity(String uniqueName, EntityType type, SourceRange range, ASTNode node) {
+        this(uniqueName, type, 0, range, node);
     }
 
     /**
@@ -75,12 +79,13 @@ public class SourceCodeEntity {
      * @param range
      *            the range
      */
-    public SourceCodeEntity(String uniqueName, EntityType type, int modifiers, SourceRange range) {
+    public SourceCodeEntity(String uniqueName, EntityType type, int modifiers, SourceRange range, ASTNode astNode) {
         setUniqueName(uniqueName);
         setType(type);
         setModifiers(modifiers);
         setSourceRange(range);
         setAssociatedEntities(new LinkedList<SourceCodeEntity>());
+        setOriginalNode(astNode);
     }
 
     public String getUniqueName() {
@@ -257,5 +262,13 @@ public class SourceCodeEntity {
                 .append(getModifiers(), other.getModifiers()).append(getSourceRange(), other.getSourceRange())
                 .isEquals();
     }
+    
+    public void setOriginalNode(ASTNode astNode) {
+    	this.originalNode = astNode;
+    }
+
+	public ASTNode getOriginalNode() {
+		return this.originalNode;
+	}
 
 }

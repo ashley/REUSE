@@ -77,7 +77,7 @@ public abstract class WhenASTsAreConverted extends JavaDistillerTestCase {
 
     protected void createRootNode(EntityType label, String value) {
         fRoot = new Node(label, value);
-        fRoot.setEntity(new SourceCodeEntity(value, label, new SourceRange()));
+        fRoot.setEntity(new SourceCodeEntity(value, label, new SourceRange(), null)); // FIXME: don't know how I feel about this null ASTNode 
     }
 
 }

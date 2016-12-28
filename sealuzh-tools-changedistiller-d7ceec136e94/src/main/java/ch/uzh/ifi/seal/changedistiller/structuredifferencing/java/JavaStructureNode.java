@@ -23,7 +23,8 @@ package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 
@@ -139,7 +140,7 @@ public class JavaStructureNode implements StructureNode {
     }
 
     public ASTNode getASTNode() {
-        return fASTNode;
+    	return fASTNode;
     }
 
     @Override

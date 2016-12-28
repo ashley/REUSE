@@ -23,33 +23,35 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
-		//String [] arguments = {"/Users/ashleychen/Desktop/CS113","normal","1"};
-		//SampleTSG.main(arguments);
-		//distillAllFiles();
+		String [] addresses1 = {"testfiles/TestLeft.java","testfiles/TestRight.java"};	
+		String [] addresses2 = {"testfiles/Circle_BEFORE.java","testfiles/Circle_AFTER.java"};	
+		//StructureNode cu2 = analyzeDistiller(addresses2[0],addresses2[1]);
+		//StructureNode cu1 = analyzeDistiller(addresses1[0],addresses1[1]);
 		
-		/*
-		StructureNode cu = analyzeDistiller();
 		
-		org.eclipse.jdt.core.dom.ASTNode compTree = makeTree();
+		//String [] trainingFiles = {"testfiles/Circle_BEFORE.java","normal","2","testfiles/Circle_AFTER.java"};
+		//TestTreeLM.main(trainingFiles); //Testing modified SampleTSG
+		//TSGEntropy.main("testfiles/Circle_BEFORE.java"); //Testing original Entropy generator
+		System.out.println("----------------------------------------------------------------------------------------------------");
+
+		String [] entropyIng = {"testfiles/TestLeftNoComments.java","testfiles/TestRightNoComments.java"};
+		TestTsgEntropy.main(entropyIng); //Testing modified Entropy generator
 		
-		final AbstractJavaTreeExtractor format = new JavaAstTreeExtractor();
-		TreeNode <Integer> treeInt = format.getTree(compTree);
 		
-		TreeNode <Integer> intTree = makeActualTree(); 
-		*/
-		System.out.println("Done");
+		//String [] tsgIng = {"testfiles","normal","2"};
+		//SampleTSG.main(tsgIng); //Testing original SampleTSG
 	}
 	
-	public static StructureNode analyzeDistiller(){
+	public static StructureNode analyzeDistiller(String before, String after){
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
-		File file1 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
-		File file2 = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
+		File file1 = new File(before);
+		File file2 = new File(after);
 
 		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
 		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
-		for (SourceCodeChange change: changes){
-			System.out.print(change);
-		}
+		/*for (SourceCodeChange change: changes){
+			System.out.println(change);
+		}*/
 		return outcome;
 	}
 	
@@ -63,32 +65,5 @@ public class Test {
 		}
 	}
 
-	public static org.eclipse.jdt.core.dom.ASTNode makeTree() throws IOException{
-		final int nIterations = Integer.parseInt("1");
-		final AbstractJavaTreeExtractor format;
-		format = new JavaAstTreeExtractor();
-	
-		final double percentRootsInit = .9;
-		int nFiles = 0;
-		int nNodes = 0;
-		final File fi = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
-				org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
-				//org.eclipse.jdt.core.dom.CompilationUnit compTree = format.getDistillerTree(fi);//insert Distiller Tree here
-				return treeInt;
-	}
-	public static TreeNode <Integer> makeActualTree() throws IOException{
-		final int nIterations = Integer.parseInt("1");
-		final AbstractJavaTreeExtractor format;
-		format = new JavaAstTreeExtractor();
-	
-		final double percentRootsInit = .9;
-		int nFiles = 0;
-		int nNodes = 0;
-		final File fi = new File("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/CircleImageView/7_Accepted/1b8b0598/1b8b0598_AFTER.txt");
-				TreeNode <Integer> treeInt = format.getTree(fi);
-				return treeInt;
-	}
-	
-	private static final Logger LOGGER = Logger.getLogger(SampleTSG.class.getName());
 
 }

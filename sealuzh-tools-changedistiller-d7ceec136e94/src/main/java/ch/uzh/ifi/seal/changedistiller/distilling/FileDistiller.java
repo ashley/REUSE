@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
 
@@ -56,6 +57,8 @@ public class FileDistiller {
     private ASTHelper<StructureNode> fRightASTHelper;
     private ClassHistory fClassHistory;
     private String fVersion;
+    private List<Comment> leftComments;
+    private List<Comment> rightComments;
 
     @Inject
     FileDistiller(
@@ -98,12 +101,18 @@ public class FileDistiller {
 
     	fLeftASTHelper = fASTHelperFactory.create(left, leftVersion);
         fRightASTHelper = fASTHelperFactory.create(right, rightVersion);
-        
+        leftComments = fLeftASTHelper.getComments();
+        rightComments = fRightASTHelper.getComments();
+        System.out.println("LEFT COMMENTS");
+        for (Comment comment:leftComments){
+        	System.out.print(comment);
+        }
+        System.out.println("RIGHT COMMENTS");
+        for (Comment comment:leftComments){
+        	System.out.print(comment);
+        }
         StructureNode outcome = extractDifferences();
         return outcome;
-        /*for (SourceCodeChange change : fChanges){
-        	System.out.println(change);
-        }*/
     }
 
 	private StructureNode extractDifferences() {
@@ -179,6 +188,22 @@ public class FileDistiller {
 
     public ClassHistory getClassHistory() {
         return fClassHistory;
+    }
+    
+    public boolean getCommentChanges(){
+    	boolean match = true;
+        for (Comment lComment: leftComments){
+        	boolean commentMatch = false;
+        	for (Comment rComment: rightComments){
+        	}
+        		if (lComment.isLineComment()){ //.getComment().equals(rComment.getComment())){
+        			commentMatch = true;
+        		}
+        	if (commentMatch == false){
+        		match = false;
+        	}
+        }
+    	return match;
     }
 
 }

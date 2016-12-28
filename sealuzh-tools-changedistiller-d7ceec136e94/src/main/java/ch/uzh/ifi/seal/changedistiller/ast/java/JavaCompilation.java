@@ -1,5 +1,7 @@
 package ch.uzh.ifi.seal.changedistiller.ast.java;
 
+import org.eclipse.jdt.core.dom.CompilationUnit;
+
 /*
  * #%L
  * ChangeDistiller
@@ -20,18 +22,15 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
  * #L%
  */
 
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-import org.eclipse.jdt.internal.compiler.parser.Scanner;
-
 /**
- * Container for {@link CompilationUnitDeclaration} and the corresponding {@link Scanner}.
+ * Container for {@link CompilationUnitDeclaration} and the corresponding source.
  * 
  * @author Beat Fluri
  */
 public class JavaCompilation {
 
-    private CompilationUnitDeclaration fCompilationUnit;
-    private Scanner fScanner;
+    private CompilationUnit fCompilationUnit;
+    private String originalSource;
 
     /**
      * Create a new Java compilation
@@ -41,20 +40,18 @@ public class JavaCompilation {
      * @param scanner
      *            that produced the compilation
      */
-    public JavaCompilation(CompilationUnitDeclaration compilationUnit, Scanner scanner) {
+    public JavaCompilation(CompilationUnit compilationUnit, String originalSource) {
         fCompilationUnit = compilationUnit;
-        fScanner = scanner;
+        this.originalSource = originalSource;
     }
 
-    public CompilationUnitDeclaration getCompilationUnit() {
+    public CompilationUnit getCompilationUnit() {
         return fCompilationUnit;
     }
 
     public String getSource() {
-        return String.valueOf(fScanner.source);
+        return originalSource; 
     }
 
-    public Scanner getScanner() {
-        return fScanner;
-    }
+
 }

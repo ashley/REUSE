@@ -1,5 +1,7 @@
 package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 
+import java.util.List;
+
 /*
  * #%L
  * ChangeDistiller
@@ -22,18 +24,19 @@ package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 
 import java.util.Stack;
 
-import org.eclipse.jdt.internal.compiler.ASTVisitor;
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.ConstructorDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.MethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.BlockScope;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
-import org.eclipse.jdt.internal.compiler.lookup.MethodScope;
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.AnnotationTypeDeclaration;
+import org.eclipse.jdt.core.dom.Block;
+import org.eclipse.jdt.core.dom.BodyDeclaration;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.EnumDeclaration;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureNode.Type;
 
@@ -44,34 +47,35 @@ import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureN
  */
 public class JavaStructureTreeBuilder extends ASTVisitor {
 
-    private Stack<JavaStructureNode> fNodeStack;
-    private Stack<char[]> fQualifiers;
+	private Stack<JavaStructureNode> fNodeStack;
+	private Stack<char[]> fQualifiers;
 
-    /**
-     * Creates a new Java structure tree builder.
-     * 
-     * @param root
-     *            of the structure tree
-     */
-    public JavaStructureTreeBuilder(JavaStructureNode root) {
-        fNodeStack = new Stack<JavaStructureNode>();
-        fNodeStack.push(root);
-        fQualifiers = new Stack<char[]>();
-    }
+	/**
+	 * Creates a new Java structure tree builder.
+	 * 
+	 * @param root
+	 *            of the structure tree
+	 */
+	public JavaStructureTreeBuilder(JavaStructureNode root) {
+		fNodeStack = new Stack<JavaStructureNode>();
+		fNodeStack.push(root);
+		fQualifiers = new Stack<char[]>();
+	}
 
-    @Override
-    public boolean visit(CompilationUnitDeclaration compilationUnitDeclaration, CompilationUnitScope scope) {
-        if (compilationUnitDeclaration.currentPackage != null) {
-            for (char[] qualifier : compilationUnitDeclaration.currentPackage.tokens) {
-                fQualifiers.push(qualifier);
-            }
-        }
-        return true;
-    }
+	@Override
+	public boolean visit(CompilationUnit compilationUnitDeclaration) {
+		if (compilationUnitDeclaration.getPackage() != null) {
+			String qualifiedName = compilationUnitDeclaration.getPackage().getName().getFullyQualifiedName();
+			String[] qualifiers = qualifiedName.split("\\."); // FIXME: not confident this is how regexes work
+			for (String qualifier : qualifiers)  {
+				fQualifiers.push(qualifier.toCharArray());
+			}
+		}
+		return true;
+	}
 
-    @Override
-    public boolean visit(FieldDeclaration fieldDeclaration, MethodScope scope) {
-        StringBuffer name = new StringBuffer();
+	/*      Old one:
+	 *   StringBuffer name = new StringBuffer();
         name.append(fieldDeclaration.name);
         name.append(" : ");
         if (fieldDeclaration.type == null &&  fNodeStack.peek().getType().compareTo(JavaStructureNode.Type.ENUM) == 0) {
@@ -82,123 +86,153 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
         push(Type.FIELD, name.toString(), fieldDeclaration);
         return false;
     }
-    
-    @Override
-    public void endVisit(FieldDeclaration fieldDeclaration, MethodScope scope) {
-        pop();
-    }
+	 */
 
-    @Override
-    public boolean visit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
-        push(Type.CONSTRUCTOR, getMethodSignature(constructorDeclaration), constructorDeclaration);
-        return false;
-    }
 
-    @Override
-    public void endVisit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
-        pop();
-    }
 
-    @Override
-    public boolean visit(MethodDeclaration methodDeclaration, ClassScope scope) {
-        push(Type.METHOD, getMethodSignature(methodDeclaration), methodDeclaration);
-        return false;
-    }
+	@Override
+	public boolean visit(FieldDeclaration fieldDeclaration) {
+		StringBuffer name = new StringBuffer();
+		List<VariableDeclarationFragment> fragments = fieldDeclaration.fragments();
+		for(VariableDeclarationFragment frag : fragments) {
+			name.append(frag.getName().getIdentifier());
+			name.append(" : ");
+			if (fieldDeclaration.getType() == null &&  fNodeStack.peek().getType().compareTo(JavaStructureNode.Type.ENUM) == 0) {
+				name.append(fNodeStack.peek().getName());
+			} else {
+				name.append(fieldDeclaration.getType().toString()); // FIXME: I'm not sure about what was going on w/print before
+				//	fieldDeclaration.getType().print(0, name);
+			}
+			push(Type.FIELD, name.toString(), fieldDeclaration);
+		}
+		return false;
+	}
 
-    @Override
-    public void endVisit(MethodDeclaration methodDeclaration, ClassScope scope) {
-        pop();
-    }
+	@Override
+	public void endVisit(FieldDeclaration fieldDeclaration) {
+		pop();
+	}
 
-    @Override
-    public boolean visit(TypeDeclaration localTypeDeclaration, BlockScope scope) {
-        return visit(localTypeDeclaration, (CompilationUnitScope) null);
-    }
+	@Override
+	public boolean visit(MethodDeclaration methodDeclaration) {
+		if(methodDeclaration.isConstructor())
+			push(Type.CONSTRUCTOR, getMethodSignature(methodDeclaration), methodDeclaration);
+		else
+			push(Type.METHOD, getMethodSignature(methodDeclaration), methodDeclaration);
+		return false;
+	}
 
-    @Override
-    public void endVisit(TypeDeclaration localTypeDeclaration, BlockScope scope) {
-        endVisit(localTypeDeclaration, (CompilationUnitScope) null);
-    }
+	@Override
+	public void endVisit(MethodDeclaration methodDeclaration) {
+		pop();
+	}
 
-    @Override
-    public boolean visit(TypeDeclaration memberTypeDeclaration, ClassScope scope) {
-        return visit(memberTypeDeclaration, (CompilationUnitScope) null);
-    }
 
-    @Override
-    public void endVisit(TypeDeclaration memberTypeDeclaration, ClassScope scope) {
-        endVisit(memberTypeDeclaration, (CompilationUnitScope) null);
-    }
+	@Override
+	public boolean visit(EnumDeclaration node) {
+		push(Type.ENUM, node.getName().getIdentifier(), node);
+		fQualifiers.push(node.getName().getIdentifier().toCharArray());
+		return true;
+	}
 
-    @Override
-    public boolean visit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
-        int kind = TypeDeclaration.kind(typeDeclaration.modifiers);
-        Type type = null;
-        switch (kind) {
-            case TypeDeclaration.INTERFACE_DECL:
-                type = Type.INTERFACE;
-                break;
-            case TypeDeclaration.CLASS_DECL:
-                type = Type.CLASS;
-                break;
-            case TypeDeclaration.ANNOTATION_TYPE_DECL:
-                type = Type.ANNOTATION;
-                break;
-            case TypeDeclaration.ENUM_DECL:
-                type = Type.ENUM;
-                break;
-            default:
-                assert (false);
-        }
-        push(type, String.valueOf(typeDeclaration.name), typeDeclaration);
-        fQualifiers.push(typeDeclaration.name);
-        return true;
-    }
+	@Override
+	public void endVisit(EnumDeclaration node) {
+		pop();
+		fQualifiers.pop();
+	}
 
-    @Override
-    public void endVisit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
-        pop();
-        fQualifiers.pop();
-    }
+	@Override
+	public boolean visit(AnnotationTypeDeclaration node) {
+		push(Type.ANNOTATION, node.getName().getIdentifier(), node); 
+		fQualifiers.push(node.getName().getIdentifier().toCharArray());
+		return true;
+	}
 
-    private String getMethodSignature(AbstractMethodDeclaration methodDeclaration) {
-        StringBuffer signature = new StringBuffer();
-        signature.append(methodDeclaration.selector);
-        signature.append('(');
-        if (methodDeclaration.arguments != null) {
-            for (int i = 0; i < methodDeclaration.arguments.length; i++) {
-                if (i > 0) {
-                    signature.append(',');
-                }
-                methodDeclaration.arguments[i].type.print(0, signature);
-            }
-        }
-        signature.append(')');
-        return signature.toString();
-    }
+	@Override
+	public void endVisit(AnnotationTypeDeclaration node) {
+		pop();
+		fQualifiers.pop();
+	}
+	@Override
+	public boolean visit(TypeDeclaration typeDeclaration) {
+		Type type = null;
 
-    private void push(Type type, String name, ASTNode astNode) {
-        JavaStructureNode node = new JavaStructureNode(type, getQualifier(), name, astNode);
-        fNodeStack.peek().addChild(node);
-        fNodeStack.push(node);
-    }
+		if(typeDeclaration.isInterface()) {
+			type = Type.INTERFACE;
+		} else {
+			type = Type.CLASS;
+		}
 
-    private String getQualifier() {
-        if (!fQualifiers.isEmpty()) {
-            StringBuilder qualifier = new StringBuilder();
-            for (int i = 0; i < fQualifiers.size(); i++) {
-                qualifier.append(fQualifiers.get(i));
-                if (i < fQualifiers.size() - 1) {
-                    qualifier.append('.');
-                }
-            }
-            return qualifier.toString();
-        }
-        return null;
-    }
+		push(type, typeDeclaration.getName().getIdentifier(), typeDeclaration);
+		fQualifiers.push(typeDeclaration.getName().getIdentifier().toCharArray());
+		MethodDeclaration[] methods = typeDeclaration.getMethods();
+		boolean hasConstructor = false;
+		for(MethodDeclaration method : methods) {
+			if(method.isConstructor()) {
+				hasConstructor = true;
+				break;
+			}
+		}
+		if(!hasConstructor) {
+			// construct implicit constructor?
+			AST myAST = typeDeclaration.getAST();
+			MethodDeclaration methodDeclaration = myAST.newMethodDeclaration();
+			methodDeclaration.setConstructor(true);
+			methodDeclaration.setName(myAST.newSimpleName(typeDeclaration.getName().getIdentifier()));
+			Block newBlock = myAST.newBlock();
+			newBlock.statements().add(myAST.newSuperConstructorInvocation());
+			methodDeclaration.setBody(newBlock);
+			push(Type.CONSTRUCTOR, getMethodSignature(methodDeclaration), methodDeclaration);
+			pop();
+		}
+		return true;
+	}
 
-    private void pop() {
-        fNodeStack.pop();
-    }
+	@Override
+	public void endVisit(TypeDeclaration typeDeclaration) {
+		pop();
+		fQualifiers.pop();
+	}
+
+	private String getMethodSignature(MethodDeclaration methodDeclaration) {
+		StringBuffer signature = new StringBuffer();
+		signature.append(methodDeclaration.getName().getIdentifier());
+		signature.append('(');
+		if (methodDeclaration.parameters() != null) {
+			for (int i = 0; i < methodDeclaration.parameters().size(); i++) {
+				if (i > 0) {
+					signature.append(',');
+				}
+				SingleVariableDeclaration param =  (SingleVariableDeclaration) methodDeclaration.parameters().get(i);
+				signature.append(param.getType().toString());
+			}
+		}
+		signature.append(')');
+		return signature.toString();
+	}
+
+	private void push(Type type, String name, ASTNode astNode) {
+		JavaStructureNode node = new JavaStructureNode(type, getQualifier(), name, astNode);
+		fNodeStack.peek().addChild(node);
+		fNodeStack.push(node);
+	}
+
+	private String getQualifier() {
+		if (!fQualifiers.isEmpty()) {
+			StringBuilder qualifier = new StringBuilder();
+			for (int i = 0; i < fQualifiers.size(); i++) {
+				qualifier.append(fQualifiers.get(i));
+				if (i < fQualifiers.size() - 1) {
+					qualifier.append('.');
+				}
+			}
+			return qualifier.toString();
+		}
+		return null;
+	}
+
+	private void pop() {
+		fNodeStack.pop();
+	}
 
 }

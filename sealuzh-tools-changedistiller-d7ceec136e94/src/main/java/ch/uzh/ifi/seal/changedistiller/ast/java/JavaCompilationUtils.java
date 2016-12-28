@@ -1,5 +1,7 @@
 package ch.uzh.ifi.seal.changedistiller.ast.java;
 
+import java.io.BufferedReader;
+
 /*
  * #%L
  * ChangeDistiller
@@ -21,16 +23,14 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
  */
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Map;
 
-import org.eclipse.jdt.internal.compiler.CompilationResult;
-import org.eclipse.jdt.internal.compiler.DefaultErrorHandlingPolicies;
-import org.eclipse.jdt.internal.compiler.batch.CompilationUnit;
-import org.eclipse.jdt.internal.compiler.classfmt.ClassFileConstants;
-import org.eclipse.jdt.internal.compiler.env.ICompilationUnit;
-import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
-import org.eclipse.jdt.internal.compiler.parser.Parser;
-import org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory;
-import org.eclipse.jdt.internal.compiler.problem.ProblemReporter;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import ch.uzh.ifi.seal.changedistiller.ast.FileUtils;
 import ch.uzh.ifi.seal.changedistiller.ast.InvalidSyntaxException;
@@ -56,19 +56,35 @@ public final class JavaCompilationUtils {
      * @throws InvalidSyntaxException if the file has syntax errors.
      */
     public static JavaCompilation compile(String source, String fileName) {
-        CompilerOptions options = getDefaultCompilerOptions();
-        Parser parser = createCommentRecorderParser(options);
-        ICompilationUnit cu = createCompilationUnit(source, fileName);
-        CompilationResult compilationResult = createDefaultCompilationResult(cu, options);
-        JavaCompilation javaCompilation = new JavaCompilation(parser.parse(cu, compilationResult), parser.scanner);
         
-        if (compilationResult.hasSyntaxError) {
-        	throw new InvalidSyntaxException(new String(compilationResult.getFileName()), compilationResult.toString());
-        }
+        ASTParser parser = ASTParser.newParser(AST.JLS4);  // handles JDK 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6
+        parser.setSource(source.toCharArray());
+        // In order to parse 1.5 code, some compiler options need to be set to 1.5
+        Map options = JavaCore.getOptions();
+        JavaCore.setComplianceOptions(JavaCore.VERSION_1_6, options);
+        parser.setCompilerOptions(options);
+		
+        JavaCompilation javaCompilation = new JavaCompilation((CompilationUnit) parser.createAST(null), source);
+
 		
         return javaCompilation;
     }
-    
+    private static String getContentOfFile(String filename) {
+        char[] b = new char[1024];
+        StringBuilder sb = new StringBuilder();
+        try {
+            FileReader reader = new FileReader(new File(filename));
+            int n = reader.read(b);
+            while (n > 0) {
+                sb.append(b, 0, n);
+                n = reader.read(b);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+    }
     /**
      * Returns the compiled file as a {@link JavaCompilation}.
      * 
@@ -79,45 +95,9 @@ public final class JavaCompilationUtils {
      * @return the compilation of the file
      * @throws InvalidSyntaxException if the file has syntax errors.
      */
-    public static JavaCompilation compile(File file, long version) {
-        CompilerOptions options = getDefaultCompilerOptions(version);
-        Parser parser = createCommentRecorderParser(options);
-        ICompilationUnit cu = createCompilationUnit(FileUtils.getContent(file), file.getName());
-        CompilationResult compilationResult = createDefaultCompilationResult(cu, options);
-        return new JavaCompilation(parser.parse(cu, compilationResult), parser.scanner);
-    }
-
-    private static CompilationResult createDefaultCompilationResult(ICompilationUnit cu, CompilerOptions options) {
-        return new CompilationResult(cu, 0, 0, options.maxProblemsPerUnit);
-    }
-
-    private static ICompilationUnit createCompilationUnit(String source, String filename) {
-        return new CompilationUnit(source.toCharArray(), filename, null);
-    }
-
-    private static CompilerOptions getDefaultCompilerOptions(long version) {
-        CompilerOptions options = new CompilerOptions();
-        options.docCommentSupport = true;
-        options.complianceLevel = version;
-        options.sourceLevel = version;
-        options.targetJDK = version;
-        return options;
-    }
-
-    private static CompilerOptions getDefaultCompilerOptions() {
-        CompilerOptions options = new CompilerOptions();
-        options.docCommentSupport = true;
-        options.complianceLevel = ClassFileConstants.JDK1_6;
-        options.sourceLevel = ClassFileConstants.JDK1_6;
-        options.targetJDK = ClassFileConstants.JDK1_6;
-        return options;
-    }
-
-    private static Parser createCommentRecorderParser(CompilerOptions options) {
-        return new CommentRecorderParser(new ProblemReporter(
-                DefaultErrorHandlingPolicies.proceedWithAllProblems(),
-                options,
-                new DefaultProblemFactory()), false);
+    public static JavaCompilation compile(File file, long version) { // FIXME: do I care about ignoring the version?
+    	String source = getContentOfFile(file.getAbsolutePath()); 
+		return JavaCompilationUtils.compile(source, file.getName());
     }
 
 }

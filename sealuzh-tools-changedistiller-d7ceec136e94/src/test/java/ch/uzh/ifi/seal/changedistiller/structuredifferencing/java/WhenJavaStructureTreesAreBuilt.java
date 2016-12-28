@@ -23,8 +23,7 @@ package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.junit.Test;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
@@ -78,7 +77,7 @@ public class WhenJavaStructureTreesAreBuilt {
     public void structureTreeWithFieldShouldBeCreated() throws Exception {
         fSnippet = getCompilationUnit("private int fInteger = 12;");
         createStructureTree();
-        JavaStructureNode fieldNode = fRoot.getChildren().get(0).getChildren().get(0);
+        JavaStructureNode fieldNode = fRoot.getChildren().get(0).getChildren().get(1);
         assertThat(fieldNode.getType(), is(Type.FIELD));
         assertThat(fieldNode.getName(), is("fInteger : int"));
         assertThat(fieldNode.getFullyQualifiedName(), is("Clazz.fInteger : int"));
@@ -176,9 +175,9 @@ public class WhenJavaStructureTreesAreBuilt {
 
     private void createStructureTree() {
         JavaCompilation compilation = CompilationUtils.compileSource(fSnippet);
-        CompilationUnitDeclaration cu = compilation.getCompilationUnit();
+        CompilationUnit cu = compilation.getCompilationUnit();
         fRoot = new JavaStructureNode(Type.CU, null, null, cu);
-        cu.traverse(new JavaStructureTreeBuilder(fRoot), (CompilationUnitScope) null);
+        cu.accept(new JavaStructureTreeBuilder(fRoot));
     }
 
     private String getCompilationUnit(String snippet) {

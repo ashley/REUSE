@@ -1,5 +1,7 @@
 package ch.uzh.ifi.seal.changedistiller.ast.java;
 
+import java.util.List;
+
 /*
  * #%L
  * ChangeDistiller
@@ -22,33 +24,28 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import java.util.Stack;
 
-import org.eclipse.jdt.core.compiler.InvalidInputException;
-import org.eclipse.jdt.internal.compiler.ASTVisitor;
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.AbstractVariableDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.Argument;
-import org.eclipse.jdt.internal.compiler.ast.ArrayTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.Block;
-import org.eclipse.jdt.internal.compiler.ast.ConstructorDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.Expression;
-import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.Javadoc;
-import org.eclipse.jdt.internal.compiler.ast.MethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.ParameterizedQualifiedTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.ParameterizedSingleTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.QualifiedTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.SingleTypeReference;
-import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.TypeParameter;
-import org.eclipse.jdt.internal.compiler.ast.TypeReference;
-import org.eclipse.jdt.internal.compiler.ast.Wildcard;
-import org.eclipse.jdt.internal.compiler.lookup.BlockScope;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
-import org.eclipse.jdt.internal.compiler.lookup.MethodScope;
-import org.eclipse.jdt.internal.compiler.parser.Scanner;
-import org.eclipse.jdt.internal.compiler.parser.TerminalTokens;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.ArrayType;
+import org.eclipse.jdt.core.dom.Block;
+import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.IExtendedModifier;
+import org.eclipse.jdt.core.dom.Javadoc;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
+import org.eclipse.jdt.core.dom.ParameterizedType;
+import org.eclipse.jdt.core.dom.PrimitiveType;
+import org.eclipse.jdt.core.dom.QualifiedName;
+import org.eclipse.jdt.core.dom.QualifiedType;
+import org.eclipse.jdt.core.dom.SimpleName;
+import org.eclipse.jdt.core.dom.SimpleType;
+import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.core.dom.TypeParameter;
+import org.eclipse.jdt.core.dom.VariableDeclaration;
+import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+import org.eclipse.jdt.core.dom.WildcardType;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
@@ -68,72 +65,65 @@ import com.google.inject.Inject;
  */
 public class JavaDeclarationConverter extends ASTVisitor {
 
-    private static final String COLON_SPACE = ": ";
-    private boolean fEmptyJavaDoc;
-    private Stack<Node> fNodeStack;
-    private boolean fInMethodDeclaration;
-    private String fSource;
-    private ASTNodeTypeConverter fASTHelper;
-    private Scanner fScanner;
+	private static final String COLON_SPACE = ": ";
+	private boolean fEmptyJavaDoc;
+	private Stack<Node> fNodeStack;
+	private boolean fInMethodDeclaration;
+	private String fSource;
+	private ASTNodeTypeConverter fASTHelper;
 
-    @Inject
-    JavaDeclarationConverter(ASTNodeTypeConverter astHelper) {
-        fASTHelper = astHelper;
-        fNodeStack = new Stack<Node>();
-    }
+	@Inject
+	JavaDeclarationConverter(ASTNodeTypeConverter astHelper) {
+		fASTHelper = astHelper;
+		fNodeStack = new Stack<Node>();
+	}
 
-    /**
-     * Initializes the declaration converter.
-     * 
-     * @param root
-     *            of the resulting declaration tree
-     * @param scanner
-     *            of the source file that is traversed
-     */
-    public void initialize(Node root, Scanner scanner) {
-        fScanner = scanner;
-        fSource = String.valueOf(scanner.source);
-        fNodeStack.clear();
-        fNodeStack.push(root);
-    }
+	/**
+	 * Initializes the declaration converter.
+	 * 
+	 * @param root
+	 *            of the resulting declaration tree
+	 * @param scanner
+	 *            of the source file that is traversed
+	 */
+	public void initialize(Node root, String source) {
+		fSource = source; // not confident we need source
+		fNodeStack.clear();
+		fNodeStack.push(root);
+	}
 
-    @Override
-    public boolean visit(Argument argument, ClassScope scope) {
-        return visit(argument, (BlockScope) null);
-    }
 
-    @Override
-    public void endVisit(Argument argument, ClassScope scope) {
-        endVisit(argument, (BlockScope) null);
-    }
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean visit(SingleVariableDeclaration node) {
+		boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
+		push(JavaEntityType.PARAMETER, node.getName().getIdentifier(), node.getName().getStartPosition(), getEndPosition(node.getName()), node.getName());
+		if (isNotParam) {
+			visitModifiers(node.modifiers());
+			node.getType().accept(this);
+		} else { // is a parameter
+			node.getType().accept(this);
+		}
+		return false;
+	}
 
-    @Override
-    public boolean visit(Argument node, BlockScope scope) {
-        boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
-        pushValuedNode(node, String.valueOf(node.name));
-        if (isNotParam) {
-            visitModifiers(node.modifiers);
-        }
-        node.type.traverse(this, scope);
-        return false;
-    }
 
-    @Override
-    public void endVisit(Argument node, BlockScope scope) {
-        pop();
-    }
+	public void endVisit(SingleVariableDeclaration node) {
+		pop();
+	}
+	
+	@Override
+	public boolean visit(Block block) {
+		// skip block as it is not interesting
+		return true;
+	}
 
-    @Override
-    public boolean visit(Block block, BlockScope scope) {
-        // skip block as it is not interesting
-        return true;
-    }
+	@Override
+	public void endVisit(Block block) {
+		// do nothing pop is not needed (see visit(Block, BlockScope))
+	}
 
-    @Override
-    public void endVisit(Block block, BlockScope scope) {
-        // do nothing pop is not needed (see visit(Block, BlockScope))
-    }
-
+	/*  Original:
     @Override
     public boolean visit(FieldDeclaration fieldDeclaration, MethodScope scope) {
         if (fieldDeclaration.javadoc != null) {
@@ -144,497 +134,386 @@ public class JavaDeclarationConverter extends ASTVisitor {
         visitExpression(fieldDeclaration.initialization);
         return false;
     }
-
-    @Override
-    public void endVisit(FieldDeclaration fieldDeclaration, MethodScope scope) {
-        pop();
-    }
-
-    private void visitExpression(Expression expression) {
-        if (expression != null) {
-            push(
-                    fASTHelper.convertNode(expression),
-                    expression.toString(),
-                    expression.sourceStart(),
-                    expression.sourceEnd());
-            pop();
-        }
-    }
-
-    private void visitFieldDeclarationModifiers(FieldDeclaration fieldDeclaration) {
-        fScanner.resetTo(fieldDeclaration.declarationSourceStart, fieldDeclaration.sourceStart());
-        visitModifiers(fieldDeclaration.modifiers);
-    }
-
-    private void visitMethodDeclarationModifiers(AbstractMethodDeclaration methodDeclaration) {
-        fScanner.resetTo(methodDeclaration.declarationSourceStart, methodDeclaration.sourceStart());
-        visitModifiers(methodDeclaration.modifiers);
-    }
-
-    private void visitTypeDeclarationModifiers(TypeDeclaration typeDeclaration) {
-        fScanner.resetTo(typeDeclaration.declarationSourceStart, typeDeclaration.sourceStart());
-        visitModifiers(typeDeclaration.modifiers);
-    }
-
-    // logic partly taken from org.eclipse.jdt.core.dom.ASTConverter
-    private void visitModifiers(int modifierMask) {
-        push(JavaEntityType.MODIFIERS, "", -1, -1);
-        if (modifierMask != 0) {
-            Node modifiers = fNodeStack.peek();
-            fScanner.tokenizeWhiteSpace = false;
-            try {
-                int token;
-                while ((token = fScanner.getNextToken()) != TerminalTokens.TokenNameEOF) {
-                    switch (token) {
-                    	case TerminalTokens.TokenNameabstract:
-                        case TerminalTokens.TokenNamepublic:
-                        case TerminalTokens.TokenNameprotected:
-                        case TerminalTokens.TokenNameprivate:
-                        case TerminalTokens.TokenNamefinal:
-                        case TerminalTokens.TokenNamestatic:
-                        case TerminalTokens.TokenNamevolatile:
-                        case TerminalTokens.TokenNamestrictfp:
-                        case TerminalTokens.TokenNamenative:
-                        case TerminalTokens.TokenNamesynchronized:
-                        case TerminalTokens.TokenNametransient:
-                            push(
-                                    JavaEntityType.MODIFIER,
-                                    fScanner.getCurrentTokenString(),
-                                    fScanner.getCurrentTokenStartPosition(),
-                                    fScanner.getCurrentTokenEndPosition());
-                            pop();
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                // CHECKSTYLE:OFF
-            } catch (InvalidInputException e) {
-                // CHECKSTYLE:ON
-                // ignore
-            }
-            setSourceRange(modifiers);
-        }
-        pop();
-    }
-
-    private void setSourceRange(Node modifiers) {
-        SourceCodeEntity firstModifier = ((Node) modifiers.getFirstLeaf()).getEntity();
-        SourceCodeEntity lastModifier = ((Node) modifiers.getLastLeaf()).getEntity();
-        modifiers.getEntity().setStartPosition(firstModifier.getStartPosition());
-        modifiers.getEntity().setEndPosition(lastModifier.getEndPosition());
-    }
-
-    @Override
-    public boolean visit(Javadoc javadoc, ClassScope scope) {
-        return visit(javadoc, (BlockScope) null);
-    }
-
-    @Override
-    public void endVisit(Javadoc javadoc, ClassScope scope) {
-        endVisit(javadoc, (BlockScope) null);
-    }
-
-    @Override
-    public boolean visit(Javadoc javadoc, BlockScope scope) {
-        String string = null;
-        string = getSource(javadoc);
-        if (isJavadocEmpty(string)) {
-            fEmptyJavaDoc = true;
-        } else {
-            pushValuedNode(javadoc, string);
-        }
-        return false;
-    }
-
-    @Override
-    public void endVisit(Javadoc javadoc, BlockScope scope) {
-        if (!fEmptyJavaDoc) {
-            pop();
-        }
-        fEmptyJavaDoc = false;
-    }
-
-    private boolean isJavadocEmpty(String doc) {
-        String[] splittedDoc = doc.split("/\\*+\\s*");
-        StringBuilder tmp = new StringBuilder();
-        for (String s : splittedDoc) {
-            tmp.append(s);
-        }
-        
-        String result = tmp.toString();
-        
-        try {
-            result = result.split("\\s*\\*/")[0];
-        } catch (ArrayIndexOutOfBoundsException e) {
-            result = result.replace('/', ' ');
-        }
-        
-        result = result.replace('*', ' ').trim();
-
-        return result.equals("");
-    }
-
-    @Override
-    public boolean visit(MethodDeclaration methodDeclaration, ClassScope scope) {
-        visitAbstractMethodDeclaration(methodDeclaration, scope);
-        // ignore body, since only declaration is interesting
-        return false;
-    }
-
-    @Override
-    public void endVisit(MethodDeclaration methodDeclaration, ClassScope scope) {
-        pop();
-    }
-
-    @Override
-    public boolean visit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
-        visitAbstractMethodDeclaration(constructorDeclaration, scope);
-        // ignore body, since only declaration is interesting
-        return false;
-    }
-
-    @Override
-    public void endVisit(ConstructorDeclaration constructorDeclaration, ClassScope scope) {
-        pop();
-    }
-
-    private void visitAbstractMethodDeclaration(AbstractMethodDeclaration methodDeclaration, ClassScope scope) {
-        if (methodDeclaration.javadoc != null) {
-            methodDeclaration.javadoc.traverse(this, scope);
-        }
-        fInMethodDeclaration = true;
-        visitMethodDeclarationModifiers(methodDeclaration);
-        visitReturnType(methodDeclaration, scope);
-        visitAbstractVariableDeclarations(JavaEntityType.TYPE_PARAMETERS, methodDeclaration.typeParameters());
-        visitAbstractVariableDeclarations(JavaEntityType.PARAMETERS, methodDeclaration.arguments);
-        fInMethodDeclaration = false;
-        visitList(JavaEntityType.THROW, methodDeclaration.thrownExceptions);
-    }
-
-    private void visitReturnType(AbstractMethodDeclaration abstractMethodDeclaration, ClassScope scope) {
-        if (abstractMethodDeclaration instanceof MethodDeclaration) {
-            MethodDeclaration methodDeclaration = (MethodDeclaration) abstractMethodDeclaration;
-            if (methodDeclaration.returnType != null) {
-                methodDeclaration.returnType.traverse(this, scope);
-            }
-        }
-    }
-
-    @Override
-    public boolean visit(ParameterizedSingleTypeReference parameterizedSingleTypeReference, ClassScope scope) {
-        return visit(parameterizedSingleTypeReference, (BlockScope) null);
-    }
-
-    @Override
-    public void endVisit(ParameterizedSingleTypeReference type, ClassScope scope) {
-        endVisit(type, (BlockScope) null);
-    }
-
-    @Override
-    public boolean visit(ParameterizedSingleTypeReference type, BlockScope scope) {
-        int start = type.sourceStart();
-        int end = findSourceEndTypeReference(type, type.typeArguments);
-        pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + getSource(start, end));
-        fNodeStack.peek().getEntity().setEndPosition(end);
-        return false;
-    }
-
-    private String getSource(ASTNode node) {
-        return getSource(node.sourceStart(), node.sourceEnd());
-    }
-
-    private String getSource(int start, int end) {
-        return fSource.substring(start, end + 1);
-    }
-
-    private String prefixWithNameOfParrentIfInMethodDeclaration() {
-        return fInMethodDeclaration ? getCurrentParent().getValue() + COLON_SPACE : "";
-    }
-
-    @Override
-    public void endVisit(ParameterizedSingleTypeReference type, BlockScope scope) {
-        pop();
-    }
-
-    @Override
-    public boolean visit(ParameterizedQualifiedTypeReference type, ClassScope scope) {
-        return visit(type, (BlockScope) null);
-    }
-
-    @Override
-    public void endVisit(ParameterizedQualifiedTypeReference type, ClassScope scope) {
-        endVisit(type, (BlockScope) null);
-    }
-
-    @Override
-    public boolean visit(ParameterizedQualifiedTypeReference type, BlockScope scope) {
-        pushValuedNode(type, getSource(type));
-        adjustEndPositionOfParameterizedType(type);
-        return false;
-    }
-
-    private void adjustEndPositionOfParameterizedType(ParameterizedQualifiedTypeReference type) {
-        if (hasTypeParameter(type)) {
-            visitList(JavaEntityType.TYPE_PARAMETERS, type.typeArguments[type.typeArguments.length - 1]);
-            fNodeStack.peek().getEntity().setEndPosition(getLastChildOfCurrentNode().getEntity().getEndPosition() + 1);
-        }
-    }
-
-    private boolean hasTypeParameter(ParameterizedQualifiedTypeReference type) {
-        return type.typeArguments[type.typeArguments.length - 1] != null;
-    }
-
-    @Override
-    public void endVisit(ParameterizedQualifiedTypeReference type, BlockScope scope) {
-        pop();
-    }
-
-    @Override
-    public boolean visit(QualifiedTypeReference type, ClassScope scope) {
-        return visit(type, (BlockScope) null);
-    }
-
-    @Override
-    public void endVisit(QualifiedTypeReference type, ClassScope scope) {
-        endVisit(type, (BlockScope) null);
-    }
-
-    @Override
-    public boolean visit(QualifiedTypeReference type, BlockScope scope) {
-        pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString());
-        return false;
-    }
-
-    @Override
-    public void endVisit(QualifiedTypeReference type, BlockScope scope) {
-        pop();
-    }
-
-    @Override
-    public boolean visit(SingleTypeReference type, ClassScope scope) {
-        return visit(type, (BlockScope) null);
-    }
-
-    @Override
-    public void endVisit(SingleTypeReference type, ClassScope scope) {
-        endVisit(type, (BlockScope) null);
-    }
-
-    @Override
-    public boolean visit(ArrayTypeReference arrayType, ClassScope scope) {
-    	return visit(arrayType, (BlockScope) null);
-    }
-    
-    @Override
-    public void endVisit(ArrayTypeReference arrayType, ClassScope scope) {
-    	endVisit(arrayType, (BlockScope) null);
-    }
-
-    @Override
-    public boolean visit(SingleTypeReference type, BlockScope scope) {
-        pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + String.valueOf(type.token));
-        return false;
-    }
-
-    @Override
-    public void endVisit(SingleTypeReference type, BlockScope scope) {
-        pop();
-    }
-
-    @Override
-	public boolean visit(ArrayTypeReference arrayType, BlockScope scope) {
-    	pushValuedNode(arrayType, prefixWithNameOfParrentIfInMethodDeclaration() + String.valueOf(arrayType.token));
+	 */ // I suspect that the initialization of a field declaration could
+	// be an argument originally
+	// so the visit expression does the appropriate thing
+	// fragments are different
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean visit(FieldDeclaration fieldDeclaration) {
+		if (fieldDeclaration.getJavadoc() != null) {
+			fieldDeclaration.getJavadoc().accept(this);
+		}
+		visitModifiers(fieldDeclaration.modifiers());
+		fieldDeclaration.getType().accept(this);
+		List<VariableDeclarationFragment> fragments = fieldDeclaration.fragments();
+		for(VariableDeclarationFragment frag : fragments) {
+			visitExpression(frag.getInitializer());
+		}
 		return false;
 	}
-    
-    @Override
-    public void endVisit(ArrayTypeReference arrayType, BlockScope scope) {
-    	pop();
-    }
 
 	@Override
-    public boolean visit(TypeDeclaration typeDeclaration, ClassScope scope) {
-        return visit(typeDeclaration, (BlockScope) null);
-    }
+	public void endVisit(FieldDeclaration fieldDeclaration) {
+		pop();
+	}
 
-    @Override
-    public void endVisit(TypeDeclaration typeDeclaration, ClassScope scope) {
-        endVisit(typeDeclaration, (BlockScope) null);
-    }
+	private void visitExpression(Expression expression) {
+		if (expression != null) {
+			push(
+					fASTHelper.convertNode(expression),
+					expression.toString(),
+					expression.getStartPosition(),
+					getEndPosition(expression) - 1,
+					expression);
+			pop();
+		}
+	}
 
-    @Override
-    public boolean visit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
-        return visit(typeDeclaration, (BlockScope) null);
-    }
+	private void visitModifiers(List<IExtendedModifier> modifiersList) {
+		push(JavaEntityType.MODIFIERS, "", -1, -1, null); // FIXME: not confident about that null.  Possibly parent makes more sense?
+		if(modifiersList != null && !modifiersList.isEmpty()) {
+			Node modifiers = fNodeStack.peek();
+			for(IExtendedModifier mod : modifiersList) {
+				if(mod instanceof Modifier) {
+					Modifier asMod = (Modifier) mod;
+					push(JavaEntityType.MODIFIER,
+							asMod.getKeyword().toString(),
+							asMod.getStartPosition(),
+							getEndPosition(asMod),
+							asMod); 		
+					pop();
+				}
+			}
+			setSourceRange(modifiers);
+		}
+		pop();
+	}
 
-    @Override
-    public void endVisit(TypeDeclaration typeDeclaration, CompilationUnitScope scope) {
-        endVisit(typeDeclaration, (BlockScope) null);
-    }
+	private void setSourceRange(Node modifiers) {
+		SourceCodeEntity firstModifier = ((Node) modifiers.getFirstLeaf()).getEntity();
+		SourceCodeEntity lastModifier = ((Node) modifiers.getLastLeaf()).getEntity();
+		modifiers.getEntity().setStartPosition(firstModifier.getStartPosition());
+		modifiers.getEntity().setEndPosition(lastModifier.getEndPosition());
+	}
 
-    @Override
-    public boolean visit(TypeDeclaration typeDeclaration, BlockScope scope) {
-        if (typeDeclaration.javadoc != null) {
-            typeDeclaration.javadoc.traverse(this, scope);
-        }
-        visitTypeDeclarationModifiers(typeDeclaration);
-        visitAbstractVariableDeclarations(JavaEntityType.TYPE_PARAMETERS, typeDeclaration.typeParameters);
-        if (typeDeclaration.superclass != null) {
-            typeDeclaration.superclass.traverse(this, scope);
-        }
-        visitList(JavaEntityType.SUPER_INTERFACE_TYPES, typeDeclaration.superInterfaces);
-        return false;
-    }
+	@Override
+	public boolean visit(Javadoc javadoc) {
+		String string = null;
+		string = getSource(javadoc);
+		if (isJavadocEmpty(string)) {
+			fEmptyJavaDoc = true;
+		} else {
+			pushValuedNode(javadoc, string);
+		}
+		return false;
+	}
 
-    @Override
-    public void endVisit(TypeDeclaration typeDeclaration, BlockScope scope) {
+	@Override
+	public void endVisit(Javadoc javadoc) {
+		if (!fEmptyJavaDoc) {
+			pop();
+		}
+		fEmptyJavaDoc = false;
+	}
+
+	private boolean isJavadocEmpty(String doc) {
+		String[] splittedDoc = doc.split("/\\*+\\s*");
+		StringBuilder tmp = new StringBuilder();
+		for (String s : splittedDoc) {
+			tmp.append(s);
+		}
+
+		String result = tmp.toString();
+
+		try {
+			result = result.split("\\s*\\*/")[0];
+		} catch (ArrayIndexOutOfBoundsException e) {
+			result = result.replace('/', ' ');
+		}
+
+		result = result.replace('*', ' ').trim();
+
+		return result.equals("");
+	}
+
+
+	@Override
+	public void endVisit(MethodDeclaration methodDeclaration) {
+		pop();
+	}
+
+	//	public boolean visit(Argument node) {
+	//	boolean isNotParam = getCurrentParent().getLabel() != JavaEntityType.PARAMETERS;
+	//	pushValuedNode(node, String.valueOf(node.name));
+	//	if (isNotParam) {
+	//		visitModifiers(node.modifiers);
+	//	}
+	//	node.type.traverse(this, scope);
+	//	return false;
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public boolean visit(MethodDeclaration methodDeclaration) {
+		if (methodDeclaration.getJavadoc() != null) {
+			methodDeclaration.getJavadoc().accept(this);
+		}
+		fInMethodDeclaration = true;
+		visitModifiers(methodDeclaration.modifiers());
+		visitReturnType(methodDeclaration);
+
+		visitTypeParameterDeclarations(JavaEntityType.TYPE_PARAMETERS, methodDeclaration.typeParameters());
+		List<SingleVariableDeclaration> parameters = methodDeclaration.parameters();
+	//	push(JavaEntityType.PARAMETERS, "", -1, -1, null); // FIXME: not confident about that 
+		//for(SingleVariableDeclaration decl : parameters) {
+			
+	//	}
+		visitAbstractVariableDeclarations(JavaEntityType.PARAMETERS, methodDeclaration.parameters());
+		fInMethodDeclaration = false;
+		visitList(JavaEntityType.THROW, methodDeclaration.thrownExceptions());
+		return false; // FIXME: I THINK
+	}
+
+	private void visitReturnType(MethodDeclaration methodDeclaration) {
+		if (methodDeclaration.getReturnType2() != null) {
+			methodDeclaration.getReturnType2().accept(this);
+		}
+	}
+
+	@Override
+	public boolean visit(ParameterizedType type) {
+		int start = type.getStartPosition();
+		int end = getEndPosition(type); 
+		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + getSource(start, end));
+		fNodeStack.peek().getEntity().setEndPosition(end);
+		return false;
+	}
+
+	private String getSource(ASTNode node) {
+		return getSource(node.getStartPosition(), getEndPosition(node));
+	}
+
+	private String getSource(int start, int end) {
+		return fSource.substring(start, end + 1);
+	}
+
+	private String prefixWithNameOfParrentIfInMethodDeclaration() {
+		return fInMethodDeclaration ? getCurrentParent().getValue() + COLON_SPACE : "";
+	}
+
+	@Override
+	public void endVisit(ParameterizedType type) {
+		pop();
+	}
+
+	@Override
+	public boolean visit(QualifiedType type) {
+		pushValuedNode(type, prefixWithNameOfParrentIfInMethodDeclaration() + type.toString());
+		return false;
+	}
+
+	@Override
+	public void endVisit(QualifiedType type) {
+		pop();
+	}
+
+	@Override
+	public boolean visit(PrimitiveType primitiveType) {
+		pushValuedNode(primitiveType, prefixWithNameOfParrentIfInMethodDeclaration() + primitiveType.toString());
+		return false;
+
+	}
+
+	@Override
+	public void endVisit(PrimitiveType node) {
+		pop();
+	}
+
+	@Override
+	public boolean visit(SimpleType type) {
+		String value = prefixWithNameOfParrentIfInMethodDeclaration() + type.toString();
+		if(type.getName() instanceof QualifiedName) {
+			push(JavaEntityType.QUALIFIED_TYPE, value, type.getStartPosition(), getEndPosition(type), type);
+		} else {
+			pushValuedNode(type, value);
+		}
+		return false;
+	}
+
+	@Override
+	public void endVisit(SimpleType type) {
+		pop();
+	}
+
+	@Override
+	public boolean visit(ArrayType arrayType) {
+		pushValuedNode(arrayType, prefixWithNameOfParrentIfInMethodDeclaration() + arrayType.toString());
+		return false;
+	}
+
+	@Override
+	public void endVisit(ArrayType arrayType) {
+		pop();
+	}
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public boolean visit(TypeDeclaration typeDeclaration) {
+		if (typeDeclaration.getJavadoc()  != null) {
+			typeDeclaration.getJavadoc().accept(this);
+		}
+		visitModifiers(typeDeclaration.modifiers());
+		visitTypeParameterDeclarations(JavaEntityType.TYPE_PARAMETERS, typeDeclaration.typeParameters());
+		if (typeDeclaration.getSuperclassType() != null) { 
+			typeDeclaration.getSuperclassType().accept(this);
+		}
+		visitList(JavaEntityType.SUPER_INTERFACE_TYPES, typeDeclaration.superInterfaceTypes());
+		return false;
+	}
+
+	@Override
+	public void endVisit(TypeDeclaration typeDeclaration) {
+		pop();
+	}
+
+	@Override
+	public boolean visit(TypeParameter typeParameter) {
+		push(
+				fASTHelper.convertNode(typeParameter),
+				getSource(typeParameter.getStartPosition(), getEndPosition(typeParameter)),
+				typeParameter.getStartPosition(),
+				getEndPosition(typeParameter),
+				typeParameter);
+		return false;
+	}
+
+	@Override
+	public void endVisit(TypeParameter typeParameter) {
+		pop();
+	}
+
+
+	@Override
+	public boolean visit(WildcardType type) {
+		String bound = "";
+		if(type.isUpperBound()) {
+			bound = "extends";
+		} else {
+			bound = "super";
+		}
+		pushValuedNode(type, bound);
+		return true;
+	}
+
+	@Override
+	public void endVisit(WildcardType type) {
+		pop();
+	}
+
+	private void visitTypeParameterDeclarations(JavaEntityType parentLabel, List<TypeParameter> declarations) {
+		int start = -1;
+		int end = -1;
+		push(parentLabel, "", start, end, null); // FIXME: not confident about that 
+		if (declarations != null && !declarations.isEmpty()) {
+			start = declarations.get(0).getStartPosition();
+			end = getEndPosition(declarations.get(declarations.size()- 1));
+			for(TypeParameter decl : declarations) {
+				decl.accept(this);
+			}
+		}
+		adjustSourceRangeOfCurrentNode(start, end);
+		pop();
+	}
+
+	private void visitAbstractVariableDeclarations(
+			JavaEntityType parentLabel,
+			List<VariableDeclaration> declarations) {
+		int start = -1;
+		int end = -1;
+		push(parentLabel, "", start, end, null); // FIXME: not confident about that 
+		if (declarations != null && !declarations.isEmpty()) {
+			start = declarations.get(0).getStartPosition();
+			end = getEndPosition(declarations.get(declarations.size()- 1));
+			for(VariableDeclaration decl : declarations) {
+				decl.accept(this);
+			}
+		}
+		adjustSourceRangeOfCurrentNode(start, end);
+		pop();
+	}
+
+	private void adjustSourceRangeOfCurrentNode(int start, int end) {
+		fNodeStack.peek().getEntity().setStartPosition(start);
+		fNodeStack.peek().getEntity().setEndPosition(end);
+	}
+	
+	@Override
+	public boolean visit(SimpleName node) { // in this context, a simple name is almost certainly a type.  Check if this breaks anythning though
+		push(JavaEntityType.SINGLE_TYPE, 
+				prefixWithNameOfParrentIfInMethodDeclaration() + node.getIdentifier(),
+				node.getStartPosition(),
+				getEndPosition(node),
+				node);
+		return false;
+	}
+	
+	@Override
+    public void endVisit(SimpleName node) {
         pop();
     }
 
-    @Override
-    public boolean visit(TypeParameter typeParameter, ClassScope scope) {
-        return visit(typeParameter, (BlockScope) null);
-    }
+	
 
-    @Override
-    public void endVisit(TypeParameter typeParameter, ClassScope scope) {
-        endVisit(typeParameter, (BlockScope) null);
-    }
+	private void visitList(JavaEntityType parentLabel, List<ASTNode> nodes) {
+		int start = -1;
+		int end = -1;
+		push(parentLabel, "", start, end, null); // FIXME: not confident about the null
+		if (nodes != null && !nodes.isEmpty()) {
+			start = nodes.get(0).getStartPosition();
+			for(ASTNode node : nodes) {
+				node.accept(this);
+			}
+			end = getLastChildOfCurrentNode().getEntity().getEndPosition();
+		}
+		adjustSourceRangeOfCurrentNode(start, end);
+		pop();
+	}
 
-    @Override
-    public boolean visit(TypeParameter typeParameter, BlockScope scope) {
-        push(
-                fASTHelper.convertNode(typeParameter),
-                getSource(typeParameter.sourceStart(), typeParameter.declarationSourceEnd),
-                typeParameter.sourceStart(),
-                typeParameter.declarationSourceEnd);
-        return false;
-    }
 
-    @Override
-    public void endVisit(TypeParameter typeParameter, BlockScope scope) {
-        pop();
-    }
+	private Node getLastChildOfCurrentNode() {
+		return (Node) fNodeStack.peek().getLastChild();
+	}
 
-    @Override
-    public boolean visit(Wildcard type, ClassScope scope) {
-        return visit(type, (BlockScope) null);
-    }
+	private void pushValuedNode(ASTNode node, String value) {
+		push(fASTHelper.convertNode(node), value, node.getStartPosition(), getEndPosition(node), node);
+	}
 
-    @Override
-    public void endVisit(Wildcard type, ClassScope scope) {
-        endVisit(type, (BlockScope) null);
-    }
+	private void push(EntityType label, String value, int start, int end, ASTNode node) {
+		Node n = new Node(label, value.trim());
+		n.setEntity(new SourceCodeEntity(value.trim(), label, new SourceRange(start, end), node));
+		getCurrentParent().add(n);
+		fNodeStack.push(n);
+	}
 
-    @Override
-    public boolean visit(Wildcard type, BlockScope scope) {
-        String bound = "";
-        switch (type.kind) {
-            case Wildcard.EXTENDS:
-                bound = "extends";
-                break;
-            case Wildcard.SUPER:
-                bound = "super";
-                break;
-            default:
-        }
-        pushValuedNode(type, bound);
-        return true;
-    }
+	private void pop() {
+		fNodeStack.pop();
+	}
 
-    @Override
-    public void endVisit(Wildcard type, BlockScope scope) {
-        pop();
-    }
+	private Node getCurrentParent() {
+		return fNodeStack.peek();
+	}
 
-    private void visitList(ASTNode[] list) {
-        for (ASTNode node : list) {
-            node.traverse(this, null);
-        }
-    }
-
-    private void visitAbstractVariableDeclarations(
-            JavaEntityType parentLabel,
-            AbstractVariableDeclaration[] declarations) {
-        int start = -1;
-        int end = -1;
-        push(parentLabel, "", start, end);
-        if (isNotEmpty(declarations)) {
-            start = declarations[0].declarationSourceStart;
-            end = declarations[declarations.length - 1].declarationSourceEnd;
-            visitList(declarations);
-        }
-        adjustSourceRangeOfCurrentNode(start, end);
-        pop();
-    }
-
-    private void adjustSourceRangeOfCurrentNode(int start, int end) {
-        fNodeStack.peek().getEntity().setStartPosition(start);
-        fNodeStack.peek().getEntity().setEndPosition(end);
-    }
-
-    private void visitList(JavaEntityType parentLabel, ASTNode[] nodes) {
-        int start = -1;
-        int end = -1;
-        push(parentLabel, "", start, end);
-        if (isNotEmpty(nodes)) {
-            start = nodes[0].sourceStart();
-            visitList(nodes);
-            end = getLastChildOfCurrentNode().getEntity().getEndPosition();
-        }
-        adjustSourceRangeOfCurrentNode(start, end);
-        pop();
-    }
-
-    private boolean isNotEmpty(ASTNode[] nodes) {
-        return (nodes != null) && (nodes.length > 0);
-    }
-
-    // recursive method that finds the end position of a type reference with type parameters, e.g.,
-    // Foo<T>.List<Bar<T>>
-    private int findSourceEndTypeReference(TypeReference type, TypeReference[] typeParameters) {
-        int end = type.sourceEnd();
-        if (isNotEmpty(typeParameters)) {
-            TypeReference lastNode = typeParameters[typeParameters.length - 1];
-            if (lastNode instanceof ParameterizedQualifiedTypeReference) {
-                TypeReference[][] typeArguments = ((ParameterizedQualifiedTypeReference) lastNode).typeArguments;
-                end = findSourceEndTypeReference(lastNode, typeArguments[typeArguments.length - 1]);
-            } else if (lastNode instanceof ParameterizedSingleTypeReference) {
-                TypeReference[] typeArguments = ((ParameterizedSingleTypeReference) lastNode).typeArguments;
-                end = findSourceEndTypeReference(lastNode, typeArguments);
-            } else {
-                end = typeParameters[typeParameters.length - 1].sourceEnd();
-            }
-            if (end == -1) {
-                end = lastNode.sourceEnd();
-            }
-            end++; // increment end position to the the last '>'
-        }
-        return end;
-    }
-
-    private Node getLastChildOfCurrentNode() {
-        return (Node) fNodeStack.peek().getLastChild();
-    }
-
-    private void pushValuedNode(ASTNode node, String value) {
-        push(fASTHelper.convertNode(node), value, node.sourceStart(), node.sourceEnd());
-    }
-
-    private void push(EntityType label, String value, int start, int end) {
-        Node n = new Node(label, value.trim());
-        n.setEntity(new SourceCodeEntity(value.trim(), label, new SourceRange(start, end)));
-        getCurrentParent().add(n);
-        fNodeStack.push(n);
-    }
-
-    private void pop() {
-        fNodeStack.pop();
-    }
-
-    private Node getCurrentParent() {
-        return fNodeStack.peek();
-    }
+	private int getEndPosition(ASTNode node) {
+		int end = node.getStartPosition() + node.getLength();
+		char lastChar = fSource.charAt(end); // this is a bit heuristic
+		switch(lastChar) {
+		case ' ':
+		case '>':
+		case ',':
+		case ')':
+			return end - 1;
+		default: 
+				return end;
+		}
+	}
 
 }

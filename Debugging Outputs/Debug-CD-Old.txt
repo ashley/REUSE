@@ -1,0 +1,31 @@
+/**
+ */
+public class ClassWithCommentsToAssociate {
+  public ClassWithCommentsToAssociate() {
+    super();
+  }
+  /**
+     * @param   number
+     * @  return
+   */
+  public int foo(int number) {
+    System.out.println("left");
+    boolean check = (number > 0);
+    int a = 0;
+    int b = 2;
+    if (check)
+        {
+          a = (23 + Integer.parseInt("42"));
+          b = Math.round(Math.random());
+          return (a + b);
+        }
+    else
+        {
+          b = Math.abs(number);
+          String.valueOf(true);
+          b = Math.abs(number);
+          return b;
+        }
+  }
+}
+

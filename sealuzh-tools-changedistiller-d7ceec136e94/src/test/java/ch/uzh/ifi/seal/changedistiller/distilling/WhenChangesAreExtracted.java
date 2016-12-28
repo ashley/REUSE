@@ -22,13 +22,12 @@ package ch.uzh.ifi.seal.changedistiller.distilling;
 
 import java.util.List;
 
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
-import org.eclipse.jdt.internal.compiler.lookup.MethodScope;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.junit.BeforeClass;
 
-import ch.uzh.ifi.seal.changedistiller.ast.java.Comment;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaDeclarationConverter;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaDistillerTestCase;
@@ -55,26 +54,29 @@ public abstract class WhenChangesAreExtracted extends JavaDistillerTestCase {
         return sInjector.getInstance(DistillerFactory.class).create(structureEntity);
     }
 
+    private int getEndPosition(ASTNode node) {
+    	return node.getStartPosition() + node.getLength();
+    }
     public Node convertMethodBody(String methodName, JavaCompilation compilation) {
-        AbstractMethodDeclaration method = CompilationUtils.findMethod(compilation.getCompilationUnit(), methodName);
+    	MethodDeclaration method = CompilationUtils.findMethod(compilation.getCompilationUnit(), methodName);
         Node root = new Node(JavaEntityType.METHOD, methodName);
         root.setEntity(new SourceCodeEntity(methodName, JavaEntityType.METHOD, new SourceRange(
-                method.declarationSourceStart,
-                method.declarationSourceEnd)));
+                method.getStartPosition(),
+                getEndPosition(method)), method));
         List<Comment> comments = CompilationUtils.extractComments(compilation);
-        sMethodBodyConverter.initialize(root, method, comments, compilation.getScanner());
-        method.traverse(sMethodBodyConverter, (ClassScope) null);
+        sMethodBodyConverter.initialize(root, method, comments, compilation.getSource());
+        method.accept(sMethodBodyConverter);
         return root;
     }
 
     public Node convertMethodDeclaration(String methodName, JavaCompilation compilation) {
-        AbstractMethodDeclaration method = CompilationUtils.findMethod(compilation.getCompilationUnit(), methodName);
+        MethodDeclaration method = CompilationUtils.findMethod(compilation.getCompilationUnit(), methodName);
         Node root = new Node(JavaEntityType.METHOD, methodName);
         root.setEntity(new SourceCodeEntity(methodName, JavaEntityType.METHOD, new SourceRange(
-                method.declarationSourceStart,
-                method.declarationSourceEnd)));
-        sDeclarationConverter.initialize(root, compilation.getScanner());
-        method.traverse(sDeclarationConverter, (ClassScope) null);
+                method.getStartPosition(),
+                getEndPosition(method)), method));
+        sDeclarationConverter.initialize(root, compilation.getSource());
+        method.accept(sDeclarationConverter);
         return root;
     }
 
@@ -82,10 +84,10 @@ public abstract class WhenChangesAreExtracted extends JavaDistillerTestCase {
     	FieldDeclaration field = CompilationUtils.findField(compilation.getCompilationUnit(), fieldName);
     	Node root = new Node(JavaEntityType.FIELD, fieldName);
     	root.setEntity(new SourceCodeEntity(fieldName, JavaEntityType.FIELD, new SourceRange(
-    			field.declarationSourceStart,
-    			field.declarationSourceEnd)));
-    	sDeclarationConverter.initialize(root, compilation.getScanner());
-    	field.traverse(sDeclarationConverter, (MethodScope) null);
+    			field.getStartPosition(),
+    			getEndPosition(field)), field));
+    	sDeclarationConverter.initialize(root, compilation.getSource());
+    	field.accept(sDeclarationConverter);
     	return root;
     }
 }

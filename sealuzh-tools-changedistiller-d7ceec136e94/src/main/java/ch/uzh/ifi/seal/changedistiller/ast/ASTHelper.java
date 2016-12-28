@@ -1,6 +1,10 @@
 package ch.uzh.ifi.seal.changedistiller.ast;
 
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
+
+import java.util.List;
+
+import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 
 /*
  * #%L
@@ -196,8 +200,10 @@ public interface ASTHelper<T extends StructureNode> {
      */
     Node createDeclarationTree(T node, String qualifiedName);
 
-    CompilationUnitDeclaration returnCU();
+    CompilationUnit returnCU();
 
 	JavaStructureNode createMyTree();
+
+	List<Comment> getComments();
 
 }

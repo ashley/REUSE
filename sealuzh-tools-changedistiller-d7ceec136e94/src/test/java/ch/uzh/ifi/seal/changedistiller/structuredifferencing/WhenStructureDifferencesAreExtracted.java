@@ -26,8 +26,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Collections;
 
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.junit.Test;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
@@ -166,9 +165,9 @@ public class WhenStructureDifferencesAreExtracted {
 
     private JavaStructureNode createStructureTree(String source) {
         JavaCompilation compilation = CompilationUtils.compileSource(source);
-        CompilationUnitDeclaration cu = compilation.getCompilationUnit();
+        CompilationUnit cu = compilation.getCompilationUnit();
         JavaStructureNode root = new JavaStructureNode(Type.CU, null, null, cu);
-        cu.traverse(new JavaStructureTreeBuilder(root), (CompilationUnitScope) null);
+        cu.accept(new JavaStructureTreeBuilder(root));
         return root;
     }
 

@@ -22,8 +22,7 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 
 import static org.hamcrest.CoreMatchers.is;
 
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.junit.Test;
 
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.java.JavaEntityType;
@@ -35,7 +34,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     @Test
     public void assignmentShouldBeConverted() throws Exception {
-        fSnippet = "b = foo.bar();";
+        fSnippet = "b=foo.bar();";
         prepareCompilation();
         convert();
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.ASSIGNMENT));
@@ -45,7 +44,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     @Test
     public void compoundAssignmentShouldBeConverted() throws Exception {
-        fSnippet = "b += foo.bar();";
+        fSnippet = "b+=foo.bar();";
         prepareCompilation();
         convert();
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.ASSIGNMENT));
@@ -55,7 +54,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     @Test
     public void postfixExpressionShouldBeConverted() throws Exception {
-        fSnippet = "b ++;";
+        fSnippet = "b++;";
         prepareCompilation();
         convert();
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.POSTFIX_EXPRESSION));
@@ -65,7 +64,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     @Test
     public void prefixExpressionShouldBeConverted() throws Exception {
-        fSnippet = "++ b;";
+        fSnippet = "++b;";
         prepareCompilation();
         convert();
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.PREFIX_EXPRESSION));
@@ -169,7 +168,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         prepareCompilation();
         convert();
         assertThat(getFirstChild().getLabel(), is(JavaEntityType.DO_STATEMENT));
-        assertThat(getTreeString(), is("method { (! list.isEmpty()) { System.out.print('.'); } }"));
+        assertThat(getTreeString(), is("method { (!list.isEmpty()) { System.out.print('.'); } }"));
         assertSourceRangeCorrectness(getFirstChild());
     }
 
@@ -189,7 +188,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         prepareCompilation();
         convert();
         assertThat(getFirstChild().getLabel(), is(JavaEntityType.FOR_STATEMENT));
-        assertThat(getTreeString(), is("method { (i < list.size()) { System.out.print('.');,int i = 0; { int i = 0; },i ++ { i ++; } } }"));
+        assertThat(getTreeString(), is("method { (i < list.size()) { System.out.print('.');,int i=0; { int i=0; },i++ { i++; } } }"));
         assertSourceRangeCorrectness(getFirstChild());
     }
 
@@ -234,13 +233,13 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         prepareCompilation();
         convert();
         assertThat(getFirstChild().getLabel(), is(JavaEntityType.LABELED_STATEMENT));
-        assertThat(getTreeString(), is("method { label { a = 24; } }"));
+        assertThat(getTreeString(), is("method { label { a=24; } }")); // FIXME: do the spaces matter?
         assertSourceRangeCorrectness(getFirstChild());
     }
 
     @Test
     public void localDeclarationShouldBeConverted() throws Exception {
-        fSnippet = "float a = 24.0f;";
+        fSnippet = "float a=24.0f;";
         prepareCompilation();
         convert();
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.VARIABLE_DECLARATION_STATEMENT));
@@ -274,18 +273,18 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         prepareCompilation();
         convert();
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.RETURN_STATEMENT));
-        assertThat(getTreeString(), is("method { Math.min(a, b); }"));
+        assertThat(getTreeString(), is("method { Math.min(a,b); }"));
         assertSourceRangeCorrectness();
     }
 
     @Test
     public void switchStatementShouldBeConverted() throws Exception {
-        fSnippet = "switch (foo) { case ONE: a = 1; break; default: a = 2; }";
+        fSnippet = "switch (foo) { case ONE: a=1; break; default: a=2; }";
         prepareCompilation();
         convert();
         assertThat(getFirstChild().getLabel(), is(JavaEntityType.SWITCH_STATEMENT));
         assertThat(getFirstLeaf().getLabel(), is(JavaEntityType.SWITCH_CASE));
-        assertThat(getTreeString(), is("method { foo { ONE,a = 1;,,default,a = 2; } }"));
+        assertThat(getTreeString(), is("method { foo { ONE,a=1;,,default,a=2; } }"));
         assertSourceRangeCorrectness(getFirstChild());
     }
 
@@ -325,7 +324,7 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         assertThat(((Node) getFirstChild().getLastChild()).getLabel(), is(JavaEntityType.FINALLY));
         assertThat(
                 getTreeString(),
-                is("method {  {  { foo.bar(e); }, { IOException { 2; },Exception { 3; } }, { cleanup(); } } }"));
+                is("method {  {  { foo.bar(e); }, { IOException { 2; },Exception { 3; } }, { cleanup(); } } }")); 
         assertSourceRangeCorrectness(getFirstChild());
     }
 
@@ -335,12 +334,12 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
         prepareCompilation();
         convert();
         assertThat(((Node) getFirstChild().getLastChild()).getLabel(), is(JavaEntityType.FINALLY));
-        assertThat(getTreeString(), is("method {  {  { foo.bar(e); }, { cleanup(); } } }"));
+        assertThat(getTreeString(), is( "method {  {  { foo.bar(e); }, { cleanup(); } } }"));
         assertSourceRangeCorrectness(getFirstChild());
     }
 
     @Test
-    public void tryStatementWithoutFinallyShouldBeConverted() throws Exception {
+    public void tryStatementWithoutFinallyShouldBeConverted() throws Exception { // FIXME: if I get the chance to sort why the last spaces, try to figure it out, seems unimportant
         fSnippet = "try { foo.bar(e); } catch (IOException e) { return 2; } catch (Exception e) { return 3; }";
         prepareCompilation();
         convert();
@@ -384,9 +383,9 @@ public class WhenMethodBodiesAreConverted extends WhenASTsAreConverted {
 
     private void convert() {
         createRootNode(JavaEntityType.METHOD, "method");
-        AbstractMethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), "method");
-        sMethodBodyConverter.initialize(fRoot, method, null, fCompilation.getScanner());
-        method.traverse(sMethodBodyConverter, (ClassScope) null);
+        MethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), "method");
+        sMethodBodyConverter.initialize(fRoot, method, null, fCompilation.getSource());
+        method.accept(sMethodBodyConverter);
     }
 
     @Override

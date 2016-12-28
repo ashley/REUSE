@@ -1,0 +1,1102 @@
+Nov 28, 2016 8:04:55 PM codemining.util.SettingsLoader <init>
+INFO: Configuration file not found. Loading defaults.
+LEFT COMMENTS
+//
+//
+RIGHT COMMENTS
+//
+//
+#SNODE L: CU: null
+#SNODE L: CU: null
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@dd05255
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6a78afa0
+
+#TRAVERSE
+LEFTCHILD: CLASS: Circle
+RIGHTCHILD: CLASS: Circle
+##SNODE L: CLASS: Circle
+##SNODE L: CLASS: Circle
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@2f4948e4
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@1f2586d6
+
+##TRAVERSE
+LEFTCHILD: FIELD: listt : String[]
+RIGHTCHILD: FIELD: listt : String[]
+###SNODE L: FIELD: listt : String[]
+###SNODE L: FIELD: listt : String[]
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: CONSTRUCTOR: Circle(double)
+RIGHTCHILD: CONSTRUCTOR: Circle(double)
+###SNODE L: CONSTRUCTOR: Circle(double)
+###SNODE L: CONSTRUCTOR: Circle(double)
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: PI : double
+RIGHTCHILD: FIELD: PI : double
+###SNODE L: FIELD: PI : double
+###SNODE L: FIELD: PI : double
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: METHOD: forLoop()
+RIGHTCHILD: METHOD: forLoop()
+###SNODE L: METHOD: forLoop()
+###SNODE L: METHOD: forLoop()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: METHOD: getRadius()
+RIGHTCHILD: METHOD: getRadius()
+###SNODE L: METHOD: getRadius()
+###SNODE L: METHOD: getRadius()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: radius : double
+RIGHTCHILD: FIELD: radius : double
+###SNODE L: FIELD: radius : double
+###SNODE L: FIELD: radius : double
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+POSTVISIT:java
+POSTVISIT:util
+POSTVISIT:java.util
+POSTVISIT:import java.util.*;
+
+POSTVISIT:Circle
+POSTVISIT:Shape
+POSTVISIT:Shape
+POSTVISIT:final
+POSTVISIT:double
+POSTVISIT:PI
+POSTVISIT:3.1416
+POSTVISIT:PI=3.1416
+POSTVISIT:final double PI=3.1416;
+
+POSTVISIT:private
+POSTVISIT:double
+POSTVISIT:radius
+POSTVISIT:0.0
+POSTVISIT:radius=0.0
+POSTVISIT:private double radius=0.0;
+
+POSTVISIT:private
+POSTVISIT:String
+POSTVISIT:String
+POSTVISIT:String[]
+POSTVISIT:listt
+POSTVISIT:"a"
+POSTVISIT:"b"
+POSTVISIT:"c"
+POSTVISIT:"d"
+POSTVISIT:{"a","b","c","d"}
+POSTVISIT:listt={"a","b","c","d"}
+POSTVISIT:private String[] listt={"a","b","c","d"};
+
+POSTVISIT:Circle
+POSTVISIT:double
+POSTVISIT:r
+POSTVISIT:double r
+POSTVISIT:setRadius
+POSTVISIT:r
+POSTVISIT:setRadius(r)
+POSTVISIT:setRadius(r);
+
+POSTVISIT:name
+POSTVISIT:"Circle"
+POSTVISIT:name="Circle"
+POSTVISIT:name="Circle";
+
+POSTVISIT:{
+  setRadius(r);
+  name="Circle";
+}
+
+POSTVISIT:Circle(double r){
+  setRadius(r);
+  name="Circle";
+}
+
+POSTVISIT:public
+POSTVISIT:void
+POSTVISIT:forLoop
+POSTVISIT:String
+POSTVISIT:String
+POSTVISIT:item
+POSTVISIT:String item
+POSTVISIT:listt
+POSTVISIT:System
+POSTVISIT:out
+POSTVISIT:System.out
+POSTVISIT:println
+POSTVISIT:item
+POSTVISIT:System.out.println(item)
+POSTVISIT:System.out.println(item);
+
+POSTVISIT:{
+  System.out.println(item);
+}
+
+POSTVISIT:for (String item : listt) {
+  System.out.println(item);
+}
+
+POSTVISIT:{
+  for (  String item : listt) {
+    System.out.println(item);
+  }
+}
+
+POSTVISIT:public void forLoop(){
+  for (  String item : listt) {
+    System.out.println(item);
+  }
+}
+
+POSTVISIT:int
+POSTVISIT:i
+POSTVISIT:0
+POSTVISIT:i=0
+POSTVISIT:int i=0;
+
+POSTVISIT:i
+POSTVISIT:1
+POSTVISIT:i < 1
+POSTVISIT:{
+}
+
+POSTVISIT:while (i < 1) {
+}
+
+POSTVISIT:i
+POSTVISIT:1
+POSTVISIT:i < 1
+POSTVISIT:i
+POSTVISIT:i++
+POSTVISIT:i++;
+
+POSTVISIT:{
+  i++;
+}
+
+POSTVISIT:if (i < 1) {
+  i++;
+}
+
+POSTVISIT:{
+  int i=0;
+  while (i < 1) {
+  }
+  if (i < 1) {
+    i++;
+  }
+}
+
+POSTVISIT:{
+  int i=0;
+  while (i < 1) {
+  }
+  if (i < 1) {
+    i++;
+  }
+}
+
+POSTVISIT:public
+POSTVISIT:double
+POSTVISIT:getRadius
+POSTVISIT:System
+POSTVISIT:out
+POSTVISIT:System.out
+POSTVISIT:println
+POSTVISIT:"Test"
+POSTVISIT:System.out.println("Test")
+POSTVISIT:System.out.println("Test");
+
+POSTVISIT:radius
+POSTVISIT:return radius;
+
+POSTVISIT:{
+  System.out.println("Test");
+  return radius;
+}
+
+POSTVISIT:public double getRadius(){
+  System.out.println("Test");
+  return radius;
+}
+
+POSTVISIT:Circle
+POSTVISIT:double
+POSTVISIT:r
+POSTVISIT:double r
+POSTVISIT:radius
+POSTVISIT:r
+POSTVISIT:radius=r
+POSTVISIT:radius=r;
+
+POSTVISIT:{
+  radius=r;
+}
+
+POSTVISIT:Circle(double r){
+  radius=r;
+}
+
+POSTVISIT:class Circle extends Shape {
+  final double PI=3.1416;
+  private double radius=0.0;
+  private String[] listt={"a","b","c","d"};
+  Circle(  double r){
+    setRadius(r);
+    name="Circle";
+  }
+  public void forLoop(){
+    for (    String item : listt) {
+      System.out.println(item);
+    }
+  }
+{
+    int i=0;
+    while (i < 1) {
+    }
+    if (i < 1) {
+      i++;
+    }
+  }
+  public double getRadius(){
+    System.out.println("Test");
+    return radius;
+  }
+  Circle(  double r){
+    radius=r;
+  }
+}
+
+POSTVISIT:import java.util.*;
+class Circle extends Shape {
+  final double PI=3.1416;
+  private double radius=0.0;
+  private String[] listt={"a","b","c","d"};
+  Circle(  double r){
+    setRadius(r);
+    name="Circle";
+  }
+  public void forLoop(){
+    for (    String item : listt) {
+      System.out.println(item);
+    }
+  }
+{
+    int i=0;
+    while (i < 1) {
+    }
+    if (i < 1) {
+      i++;
+    }
+  }
+  public double getRadius(){
+    System.out.println("Test");
+    return radius;
+  }
+  Circle(  double r){
+    radius=r;
+  }
+}
+
+Nov 28, 2016 8:04:56 PM TestTreeLM main
+INFO: Loaded 1 files containing 110 nodes
+=======Iteration 0==============
+Log-Prob: -10.24 (110 nodes with avg log-prob -0.093)
+Size Stats: 1-5:1 6-15:0 16-30:1 >30:1
+Avg Tree Size: 37.33
+=======Iteration 1==============
+Log-Prob: -13.01 (110 nodes with avg log-prob -0.118)
+Size Stats: 1-5:3 6-15:0 16-30:0 >30:1
+Avg Tree Size: 28.25
+=======Iteration 2==============
+Log-Prob: -13.06 (110 nodes with avg log-prob -0.119)
+Size Stats: 1-5:3 6-15:0 16-30:0 >30:1
+Avg Tree Size: 28.25
+=======Iteration 3==============
+Log-Prob: -6.38 (110 nodes with avg log-prob -0.058)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 55.50
+=======Iteration 4==============
+Log-Prob: -16.66 (110 nodes with avg log-prob -0.151)
+Size Stats: 1-5:3 6-15:0 16-30:1 >30:1
+Avg Tree Size: 22.80
+=======Iteration 5==============
+Log-Prob: -20.06 (110 nodes with avg log-prob -0.182)
+Size Stats: 1-5:2 6-15:3 16-30:0 >30:1
+Avg Tree Size: 19.17
+=======Iteration 6==============
+Log-Prob: -10.08 (110 nodes with avg log-prob -0.092)
+Size Stats: 1-5:1 6-15:0 16-30:1 >30:1
+Avg Tree Size: 37.33
+=======Iteration 7==============
+Log-Prob: -6.76 (110 nodes with avg log-prob -0.061)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 55.50
+=======Iteration 8==============
+Log-Prob: -3.46 (110 nodes with avg log-prob -0.031)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 110.00
+=======Iteration 9==============
+Log-Prob: -15.44 (110 nodes with avg log-prob -0.140)
+Size Stats: 1-5:4 6-15:0 16-30:0 >30:1
+Avg Tree Size: 22.80
+Nov 28, 2016 8:04:56 PM TestTreeLM main
+INFO: Sampling complete. Outputing burnin grammar...
+Nov 28, 2016 8:04:56 PM codemining.util.serialization.KryoSerialization serialize
+INFO: Serializing object of type codemining.lm.tsg.FormattedTSGrammar to tsg.ser
+Nov 28, 2016 8:04:56 PM codemining.util.serialization.KryoSerialization serialize
+INFO: Serializing object of type codemining.lm.tsg.samplers.CollapsedGibbsSampler to tsgSamplerCheckpoint.ser
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.ArrayType.setComponentType(ArrayType.java:310)
+	at org.eclipse.jdt.core.dom.ArrayType.internalGetSetChildProperty(ArrayType.java:200)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1736)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:538)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.SingleVariableDeclaration.internalGetSetIntProperty(SingleVariableDeclaration.java:295)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.SingleVariableDeclaration.internalGetSetIntProperty(SingleVariableDeclaration.java:295)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.MethodDeclaration.setExtraDimensions(MethodDeclaration.java:1070)
+	at org.eclipse.jdt.core.dom.MethodDeclaration.internalGetSetIntProperty(MethodDeclaration.java:414)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.SingleVariableDeclaration.internalGetSetIntProperty(SingleVariableDeclaration.java:295)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.ArrayType.setComponentType(ArrayType.java:310)
+	at org.eclipse.jdt.core.dom.ArrayType.internalGetSetChildProperty(ArrayType.java:200)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1736)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:538)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.SingleVariableDeclaration.internalGetSetIntProperty(SingleVariableDeclaration.java:295)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.SingleVariableDeclaration.internalGetSetIntProperty(SingleVariableDeclaration.java:295)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.VariableDeclarationFragment.internalGetSetIntProperty(VariableDeclarationFragment.java:176)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.MethodDeclaration.setExtraDimensions(MethodDeclaration.java:1070)
+	at org.eclipse.jdt.core.dom.MethodDeclaration.internalGetSetIntProperty(MethodDeclaration.java:414)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.VariableDeclaration.internalSetExtraDimensions(VariableDeclaration.java:307)
+	at org.eclipse.jdt.core.dom.SingleVariableDeclaration.internalGetSetIntProperty(SingleVariableDeclaration.java:295)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1716)
+	at codemining.ast.java.JavaAstTreeExtractor.addSimplePropertyToASTNode(JavaAstTreeExtractor.java:201)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:562)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:499)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+Nov 28, 2016 8:04:56 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: Failed to get ASTNode for subtree null java.lang.IllegalArgumentException
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:108)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:496)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:66)
+	at codemining.lm.tsg.FormattedTSGrammar.toString(FormattedTSGrammar.java:112)
+	at TestTreeLM.main(TestTreeLM.java:141)
+	at Test.main(Test.java:38)
+
+********
+Type : 26 Simple Props: [onDemand:true, static:false, ] Child Props: [name, ]:
+----------------------------------------
+Type : ImportDeclaration Simple Props: [onDemand:true, static:false, ] Child Props: [name, ]
+-(0)Type : QualifiedName Child Props: [qualifier, name, ]
+_________________________________
+import DUMMY_QNAME.DUMMY.*;
+
+>Prob 1.0 (1)
+********
+Type : 40 Child Props: [qualifier, name, ]:
+----------------------------------------
+Type : QualifiedName Child Props: [qualifier, name, ]
+-(0)Type : SimpleName Simple Props: [identifier:java, ]
+-(1)Type : SimpleName Simple Props: [identifier:util, ]
+_________________________________
+java.util
+>Prob 1.0 (1)
+********
+Type : 15 Child Props: [imports, package, types, ]:
+----------------------------------------
+Type : CompilationUnit Child Props: [imports, package, types, ]
+-(0)Type : ImportDeclaration Simple Props: [onDemand:true, static:false, ] Child Props: [name, ]
+-(0)-(0)Type : QualifiedName Child Props: [qualifier, name, ]
+-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:java, ]
+-(0)-(0)-(1)Type : SimpleName Simple Props: [identifier:util, ]
+-(2)Type : TypeDeclaration Simple Props: [interface:false, ] Child Props: [javadoc, modifiers, name, superclass, superInterfaces, superclassType, superInterfaceTypes, typeParameters, bodyDeclarations, ]
+-(2)-(2)Type : SimpleName Simple Props: [identifier:Circle, ]
+-(2)-(5)Type : SimpleType Child Props: [annotations, name, ]
+-(2)-(5)-(1)Type : SimpleName Simple Props: [identifier:Shape, ]
+-(2)-(8)Type : FieldDeclaration Child Props: [javadoc, modifiers, type, fragments, ]
+-(2)-(8)-(1)Type : Modifier Simple Props: [keyword:final, ]
+-(2)-(8)-(2)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(2)-(8)-(3)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(2)-(8)-(3)-(0)Type : SimpleName Simple Props: [identifier:PI, ]
+-(2)-(8)-(3)-(2)Type : NumberLiteral Simple Props: [token:3.1416, ]
+-(2)-(8)Type : FieldDeclaration Child Props: [javadoc, modifiers, type, fragments, ]
+-(2)-(8)-(1)Type : Modifier Simple Props: [keyword:private, ]
+-(2)-(8)-(2)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(2)-(8)-(3)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(2)-(8)-(3)-(0)Type : SimpleName Simple Props: [identifier:radius, ]
+-(2)-(8)-(3)-(2)Type : NumberLiteral Simple Props: [token:0.0, ]
+-(2)-(8)Type : FieldDeclaration Child Props: [javadoc, modifiers, type, fragments, ]
+-(2)-(8)-(1)Type : Modifier Simple Props: [keyword:private, ]
+-(2)-(8)-(2)Type : ArrayType Child Props: [componentType, elementType, dimensions, ]
+-(2)-(8)-(2)-(0)Type : SimpleType Child Props: [annotations, name, ]
+-(2)-(8)-(2)-(0)-(1)Type : SimpleName Simple Props: [identifier:String, ]
+-(2)-(8)-(3)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(2)-(8)-(3)-(0)Type : SimpleName Simple Props: [identifier:listt, ]
+-(2)-(8)-(3)-(2)Type : ArrayInitializer Child Props: [expressions, ]
+-(2)-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"a", ]
+-(2)-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"b", ]
+-(2)-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"c", ]
+-(2)-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"d", ]
+-(2)-(8)Type : MethodDeclaration Simple Props: [constructor:true, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(2)-(8)-(2)Type : SimpleName Simple Props: [identifier:Circle, ]
+-(2)-(8)-(7)Type : SingleVariableDeclaration Simple Props: [extraDimensions:0, varargs:false, ] Child Props: [modifiers, type, varargsAnnotations, name, extraDimensions2, initializer, ]
+-(2)-(8)-(7)-(1)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(2)-(8)-(7)-(3)Type : SimpleName Simple Props: [identifier:r, ]
+-(2)-(8)-(12)Type : Block Child Props: [statements, ]
+-(2)-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(2)-(8)-(12)-(0)-(0)Type : MethodInvocation Child Props: [expression, typeArguments, name, arguments, ]
+-(2)-(8)-(12)-(0)-(0)-(2)Type : SimpleName Simple Props: [identifier:setRadius, ]
+-(2)-(8)-(12)-(0)-(0)-(3)Type : SimpleName Simple Props: [identifier:r, ]
+-(2)-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(2)-(8)-(12)-(0)-(0)Type : Assignment Simple Props: [operator:=, ] Child Props: [leftHandSide, rightHandSide, ]
+-(2)-(8)-(12)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:name, ]
+-(2)-(8)-(12)-(0)-(0)-(1)Type : StringLiteral Simple Props: [escapedValue:"Circle", ]
+-(2)-(8)Type : MethodDeclaration Simple Props: [constructor:false, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(2)-(8)-(1)Type : Modifier Simple Props: [keyword:public, ]
+-(2)-(8)-(2)Type : SimpleName Simple Props: [identifier:forLoop, ]
+-(2)-(8)-(4)Type : PrimitiveType Simple Props: [primitiveTypeCode:void, ] Child Props: [annotations, ]
+-(2)-(8)-(12)Type : Block Child Props: [statements, ]
+-(2)-(8)-(12)-(0)Type : EnhancedForStatement Child Props: [parameter, expression, body, ]
+-(2)-(8)-(12)-(0)-(0)Type : SingleVariableDeclaration Simple Props: [extraDimensions:0, varargs:false, ] Child Props: [modifiers, type, varargsAnnotations, name, extraDimensions2, initializer, ]
+-(2)-(8)-(12)-(0)-(0)-(1)Type : SimpleType Child Props: [annotations, name, ]
+-(2)-(8)-(12)-(0)-(0)-(1)-(1)Type : SimpleName Simple Props: [identifier:String, ]
+-(2)-(8)-(12)-(0)-(0)-(3)Type : SimpleName Simple Props: [identifier:item, ]
+-(2)-(8)-(12)-(0)-(1)Type : SimpleName Simple Props: [identifier:listt, ]
+-(2)-(8)-(12)-(0)-(2)Type : Block Child Props: [statements, ]
+-(2)-(8)-(12)-(0)-(2)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)Type : MethodInvocation Child Props: [expression, typeArguments, name, arguments, ]
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)Type : QualifiedName Child Props: [qualifier, name, ]
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:System, ]
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)-(1)Type : SimpleName Simple Props: [identifier:out, ]
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(2)Type : SimpleName Simple Props: [identifier:println, ]
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(3)Type : SimpleName Simple Props: [identifier:item, ]
+-(2)-(8)Type : Initializer Child Props: [javadoc, modifiers, body, ]
+-(2)-(8)-(2)Type : Block Child Props: [statements, ]
+-(2)-(8)-(2)-(0)Type : VariableDeclarationStatement Child Props: [modifiers, type, fragments, ]
+-(2)-(8)-(2)-(0)-(1)Type : PrimitiveType Simple Props: [primitiveTypeCode:int, ] Child Props: [annotations, ]
+-(2)-(8)-(2)-(0)-(2)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(2)-(8)-(2)-(0)-(2)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(2)-(8)-(2)-(0)-(2)-(2)Type : NumberLiteral Simple Props: [token:0, ]
+-(2)-(8)-(2)-(0)Type : WhileStatement Child Props: [expression, body, ]
+-(2)-(8)-(2)-(0)-(0)Type : InfixExpression Simple Props: [operator:<, ] Child Props: [leftOperand, rightOperand, extendedOperands, ]
+-(2)-(8)-(2)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(2)-(8)-(2)-(0)-(0)-(1)Type : NumberLiteral Simple Props: [token:1, ]
+-(2)-(8)-(2)-(0)-(1)Type : Block Child Props: [statements, ]
+-(2)-(8)-(2)-(0)Type : IfStatement Child Props: [expression, thenStatement, elseStatement, ]
+-(2)-(8)-(2)-(0)-(0)Type : InfixExpression Simple Props: [operator:<, ] Child Props: [leftOperand, rightOperand, extendedOperands, ]
+-(2)-(8)-(2)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(2)-(8)-(2)-(0)-(0)-(1)Type : NumberLiteral Simple Props: [token:1, ]
+-(2)-(8)-(2)-(0)-(1)Type : Block Child Props: [statements, ]
+-(2)-(8)-(2)-(0)-(1)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)Type : PostfixExpression Simple Props: [operator:++, ] Child Props: [operand, ]
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(2)-(8)Type : MethodDeclaration Simple Props: [constructor:false, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(2)-(8)-(1)Type : Modifier Simple Props: [keyword:public, ]
+-(2)-(8)-(2)Type : SimpleName Simple Props: [identifier:getRadius, ]
+-(2)-(8)-(4)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(2)-(8)-(12)Type : Block Child Props: [statements, ]
+-(2)-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(2)-(8)-(12)-(0)-(0)Type : MethodInvocation Child Props: [expression, typeArguments, name, arguments, ]
+-(2)-(8)-(12)-(0)-(0)-(0)Type : QualifiedName Child Props: [qualifier, name, ]
+-(2)-(8)-(12)-(0)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:System, ]
+-(2)-(8)-(12)-(0)-(0)-(0)-(1)Type : SimpleName Simple Props: [identifier:out, ]
+-(2)-(8)-(12)-(0)-(0)-(2)Type : SimpleName Simple Props: [identifier:println, ]
+-(2)-(8)-(12)-(0)-(0)-(3)Type : StringLiteral Simple Props: [escapedValue:"Test", ]
+-(2)-(8)-(12)-(0)Type : ReturnStatement Child Props: [expression, ]
+-(2)-(8)-(12)-(0)-(0)Type : SimpleName Simple Props: [identifier:radius, ]
+-(2)-(8)Type : MethodDeclaration Simple Props: [constructor:true, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(2)-(8)-(2)Type : SimpleName Simple Props: [identifier:Circle, ]
+-(2)-(8)-(7)Type : SingleVariableDeclaration Simple Props: [extraDimensions:0, varargs:false, ] Child Props: [modifiers, type, varargsAnnotations, name, extraDimensions2, initializer, ]
+-(2)-(8)-(7)-(1)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(2)-(8)-(7)-(3)Type : SimpleName Simple Props: [identifier:r, ]
+-(2)-(8)-(12)Type : Block Child Props: [statements, ]
+-(2)-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(2)-(8)-(12)-(0)-(0)Type : Assignment Simple Props: [operator:=, ] Child Props: [leftHandSide, rightHandSide, ]
+-(2)-(8)-(12)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:radius, ]
+-(2)-(8)-(12)-(0)-(0)-(1)Type : SimpleName Simple Props: [identifier:r, ]
+_________________________________
+Cannot get AST representation of rule
+>Prob 0.5 (1)
+----------------------------------------
+Type : CompilationUnit Child Props: [imports, package, types, ]
+-(0)Type : ImportDeclaration Simple Props: [onDemand:true, static:false, ] Child Props: [name, ]
+-(2)Type : TypeDeclaration Simple Props: [interface:false, ] Child Props: [javadoc, modifiers, name, superclass, superInterfaces, superclassType, superInterfaceTypes, typeParameters, bodyDeclarations, ]
+_________________________________
+import MISSING.MISSING.*;
+class MISSING {
+}
+
+>Prob 0.5 (1)
+********
+Type : 55 Simple Props: [interface:false, ] Child Props: [javadoc, modifiers, name, superclass, superInterfaces, superclassType, superInterfaceTypes, typeParameters, bodyDeclarations, ]:
+----------------------------------------
+Type : TypeDeclaration Simple Props: [interface:false, ] Child Props: [javadoc, modifiers, name, superclass, superInterfaces, superclassType, superInterfaceTypes, typeParameters, bodyDeclarations, ]
+-(2)Type : SimpleName Simple Props: [identifier:Circle, ]
+-(5)Type : SimpleType Child Props: [annotations, name, ]
+-(5)-(1)Type : SimpleName Simple Props: [identifier:Shape, ]
+-(8)Type : FieldDeclaration Child Props: [javadoc, modifiers, type, fragments, ]
+-(8)-(1)Type : Modifier Simple Props: [keyword:final, ]
+-(8)-(2)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(8)-(3)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(8)-(3)-(0)Type : SimpleName Simple Props: [identifier:PI, ]
+-(8)-(3)-(2)Type : NumberLiteral Simple Props: [token:3.1416, ]
+-(8)Type : FieldDeclaration Child Props: [javadoc, modifiers, type, fragments, ]
+-(8)-(1)Type : Modifier Simple Props: [keyword:private, ]
+-(8)-(2)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(8)-(3)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(8)-(3)-(0)Type : SimpleName Simple Props: [identifier:radius, ]
+-(8)-(3)-(2)Type : NumberLiteral Simple Props: [token:0.0, ]
+-(8)Type : FieldDeclaration Child Props: [javadoc, modifiers, type, fragments, ]
+-(8)-(1)Type : Modifier Simple Props: [keyword:private, ]
+-(8)-(2)Type : ArrayType Child Props: [componentType, elementType, dimensions, ]
+-(8)-(2)-(0)Type : SimpleType Child Props: [annotations, name, ]
+-(8)-(2)-(0)-(1)Type : SimpleName Simple Props: [identifier:String, ]
+-(8)-(3)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(8)-(3)-(0)Type : SimpleName Simple Props: [identifier:listt, ]
+-(8)-(3)-(2)Type : ArrayInitializer Child Props: [expressions, ]
+-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"a", ]
+-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"b", ]
+-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"c", ]
+-(8)-(3)-(2)-(0)Type : StringLiteral Simple Props: [escapedValue:"d", ]
+-(8)Type : MethodDeclaration Simple Props: [constructor:true, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(8)-(2)Type : SimpleName Simple Props: [identifier:Circle, ]
+-(8)-(7)Type : SingleVariableDeclaration Simple Props: [extraDimensions:0, varargs:false, ] Child Props: [modifiers, type, varargsAnnotations, name, extraDimensions2, initializer, ]
+-(8)-(7)-(1)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(8)-(7)-(3)Type : SimpleName Simple Props: [identifier:r, ]
+-(8)-(12)Type : Block Child Props: [statements, ]
+-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(8)-(12)-(0)-(0)Type : MethodInvocation Child Props: [expression, typeArguments, name, arguments, ]
+-(8)-(12)-(0)-(0)-(2)Type : SimpleName Simple Props: [identifier:setRadius, ]
+-(8)-(12)-(0)-(0)-(3)Type : SimpleName Simple Props: [identifier:r, ]
+-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(8)-(12)-(0)-(0)Type : Assignment Simple Props: [operator:=, ] Child Props: [leftHandSide, rightHandSide, ]
+-(8)-(12)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:name, ]
+-(8)-(12)-(0)-(0)-(1)Type : StringLiteral Simple Props: [escapedValue:"Circle", ]
+-(8)Type : MethodDeclaration Simple Props: [constructor:false, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(8)-(1)Type : Modifier Simple Props: [keyword:public, ]
+-(8)-(2)Type : SimpleName Simple Props: [identifier:forLoop, ]
+-(8)-(4)Type : PrimitiveType Simple Props: [primitiveTypeCode:void, ] Child Props: [annotations, ]
+-(8)-(12)Type : Block Child Props: [statements, ]
+-(8)-(12)-(0)Type : EnhancedForStatement Child Props: [parameter, expression, body, ]
+-(8)-(12)-(0)-(0)Type : SingleVariableDeclaration Simple Props: [extraDimensions:0, varargs:false, ] Child Props: [modifiers, type, varargsAnnotations, name, extraDimensions2, initializer, ]
+-(8)-(12)-(0)-(0)-(1)Type : SimpleType Child Props: [annotations, name, ]
+-(8)-(12)-(0)-(0)-(1)-(1)Type : SimpleName Simple Props: [identifier:String, ]
+-(8)-(12)-(0)-(0)-(3)Type : SimpleName Simple Props: [identifier:item, ]
+-(8)-(12)-(0)-(1)Type : SimpleName Simple Props: [identifier:listt, ]
+-(8)-(12)-(0)-(2)Type : Block Child Props: [statements, ]
+-(8)-(12)-(0)-(2)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(8)-(12)-(0)-(2)-(0)-(0)Type : MethodInvocation Child Props: [expression, typeArguments, name, arguments, ]
+-(8)-(12)-(0)-(2)-(0)-(0)-(0)Type : QualifiedName Child Props: [qualifier, name, ]
+-(8)-(12)-(0)-(2)-(0)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:System, ]
+-(8)-(12)-(0)-(2)-(0)-(0)-(0)-(1)Type : SimpleName Simple Props: [identifier:out, ]
+-(8)-(12)-(0)-(2)-(0)-(0)-(2)Type : SimpleName Simple Props: [identifier:println, ]
+-(8)-(12)-(0)-(2)-(0)-(0)-(3)Type : SimpleName Simple Props: [identifier:item, ]
+-(8)Type : Initializer Child Props: [javadoc, modifiers, body, ]
+-(8)-(2)Type : Block Child Props: [statements, ]
+-(8)-(2)-(0)Type : VariableDeclarationStatement Child Props: [modifiers, type, fragments, ]
+-(8)-(2)-(0)-(1)Type : PrimitiveType Simple Props: [primitiveTypeCode:int, ] Child Props: [annotations, ]
+-(8)-(2)-(0)-(2)Type : VariableDeclarationFragment Simple Props: [extraDimensions:0, ] Child Props: [name, extraDimensions2, initializer, ]
+-(8)-(2)-(0)-(2)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(8)-(2)-(0)-(2)-(2)Type : NumberLiteral Simple Props: [token:0, ]
+-(8)-(2)-(0)Type : WhileStatement Child Props: [expression, body, ]
+-(8)-(2)-(0)-(0)Type : InfixExpression Simple Props: [operator:<, ] Child Props: [leftOperand, rightOperand, extendedOperands, ]
+-(8)-(2)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(8)-(2)-(0)-(0)-(1)Type : NumberLiteral Simple Props: [token:1, ]
+-(8)-(2)-(0)-(1)Type : Block Child Props: [statements, ]
+-(8)-(2)-(0)Type : IfStatement Child Props: [expression, thenStatement, elseStatement, ]
+-(8)-(2)-(0)-(0)Type : InfixExpression Simple Props: [operator:<, ] Child Props: [leftOperand, rightOperand, extendedOperands, ]
+-(8)-(2)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(8)-(2)-(0)-(0)-(1)Type : NumberLiteral Simple Props: [token:1, ]
+-(8)-(2)-(0)-(1)Type : Block Child Props: [statements, ]
+-(8)-(2)-(0)-(1)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(8)-(2)-(0)-(1)-(0)-(0)Type : PostfixExpression Simple Props: [operator:++, ] Child Props: [operand, ]
+-(8)-(2)-(0)-(1)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:i, ]
+-(8)Type : MethodDeclaration Simple Props: [constructor:false, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(8)-(1)Type : Modifier Simple Props: [keyword:public, ]
+-(8)-(2)Type : SimpleName Simple Props: [identifier:getRadius, ]
+-(8)-(4)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(8)-(12)Type : Block Child Props: [statements, ]
+-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(8)-(12)-(0)-(0)Type : MethodInvocation Child Props: [expression, typeArguments, name, arguments, ]
+-(8)-(12)-(0)-(0)-(0)Type : QualifiedName Child Props: [qualifier, name, ]
+-(8)-(12)-(0)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:System, ]
+-(8)-(12)-(0)-(0)-(0)-(1)Type : SimpleName Simple Props: [identifier:out, ]
+-(8)-(12)-(0)-(0)-(2)Type : SimpleName Simple Props: [identifier:println, ]
+-(8)-(12)-(0)-(0)-(3)Type : StringLiteral Simple Props: [escapedValue:"Test", ]
+-(8)-(12)-(0)Type : ReturnStatement Child Props: [expression, ]
+-(8)Type : MethodDeclaration Simple Props: [constructor:true, extraDimensions:0, ] Child Props: [javadoc, modifiers, name, returnType, returnType2, extraDimensions2, typeParameters, parameters, receiverType, receiverQualifier, thrownExceptions, thrownExceptionTypes, body, ]
+-(8)-(2)Type : SimpleName Simple Props: [identifier:Circle, ]
+-(8)-(7)Type : SingleVariableDeclaration Simple Props: [extraDimensions:0, varargs:false, ] Child Props: [modifiers, type, varargsAnnotations, name, extraDimensions2, initializer, ]
+-(8)-(7)-(1)Type : PrimitiveType Simple Props: [primitiveTypeCode:double, ] Child Props: [annotations, ]
+-(8)-(7)-(3)Type : SimpleName Simple Props: [identifier:r, ]
+-(8)-(12)Type : Block Child Props: [statements, ]
+-(8)-(12)-(0)Type : ExpressionStatement Child Props: [expression, ]
+-(8)-(12)-(0)-(0)Type : Assignment Simple Props: [operator:=, ] Child Props: [leftHandSide, rightHandSide, ]
+-(8)-(12)-(0)-(0)-(0)Type : SimpleName Simple Props: [identifier:radius, ]
+-(8)-(12)-(0)-(0)-(1)Type : SimpleName Simple Props: [identifier:r, ]
+_________________________________
+Cannot get AST representation of rule
+>Prob 1.0 (1)
+********
+Type : 41 Child Props: [expression, ]:
+----------------------------------------
+Type : ReturnStatement Child Props: [expression, ]
+-(0)Type : SimpleName Simple Props: [identifier:radius, ]
+_________________________________
+return radius;
+
+>Prob 1.0 (1)
+

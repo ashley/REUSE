@@ -23,14 +23,14 @@ package ch.uzh.ifi.seal.changedistiller.ast.java;
 import java.io.File;
 import java.util.List;
 
-import org.eclipse.jdt.internal.compiler.ast.ASTNode;
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
-import org.eclipse.jdt.internal.compiler.classfmt.ClassFileConstants;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.Comment;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTHelper;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.ChangeModifier;
@@ -70,41 +70,18 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
             JavaASTNodeTypeConverter astHelper,
             JavaDeclarationConverter declarationConverter,
             JavaMethodBodyConverter bodyConverter) {
-    	long versionNumber;
-    	switch (javaVersion) {
-    	case "1.1": versionNumber = ClassFileConstants.JDK1_1;break;
-    	case "1.2": versionNumber = ClassFileConstants.JDK1_2;break;
-    	case "1.3": versionNumber = ClassFileConstants.JDK1_3;break;
-    	case "1.4": versionNumber = ClassFileConstants.JDK1_4;break;
-    	case "1.5": versionNumber = ClassFileConstants.JDK1_5;break;
-    	case "1.6": versionNumber = ClassFileConstants.JDK1_6;break;
-    	case "1.7": versionNumber = ClassFileConstants.JDK1_7;break;
-    	default: versionNumber = ClassFileConstants.JDK1_6;
-    	}
-        fCompilation = JavaCompilationUtils.compile(file, versionNumber);
+        fCompilation = JavaCompilationUtils.compile(file, AST.JLS4);
         prepareComments();
         fASTHelper = astHelper;
         fDeclarationConverter = declarationConverter;
         fBodyConverter = bodyConverter;
     }
     
-    private void prepareComments() {
-        cleanComments(collectComments());
+    @SuppressWarnings("unchecked")
+	private void prepareComments() {
+        fComments = fCompilation.getCompilationUnit().getCommentList(); 
     }
 
-    private void cleanComments(List<Comment> comments) {
-        CommentCleaner visitor = new CommentCleaner(fCompilation.getSource());
-        for (Comment comment : comments) {
-            visitor.process(comment);
-        }
-        fComments = visitor.getComments();
-    }
-
-    private List<Comment> collectComments() {
-        CommentCollector collector = new CommentCollector(fCompilation.getCompilationUnit(), fCompilation.getSource());
-        collector.collect();
-        return collector.getComments();
-    }
 
     @Override
     public Node createDeclarationTree(JavaStructureNode node) {
@@ -114,13 +91,13 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     }
 
     private Node createDeclarationTree(ASTNode astNode, Node root) {
-        fDeclarationConverter.initialize(root, fCompilation.getScanner());
+        fDeclarationConverter.initialize(root, fCompilation.getSource());
         if (astNode instanceof TypeDeclaration) {
-            ((TypeDeclaration) astNode).traverse(fDeclarationConverter, (ClassScope) null);
-        } else if (astNode instanceof AbstractMethodDeclaration) {
-            ((AbstractMethodDeclaration) astNode).traverse(fDeclarationConverter, (ClassScope) null);
+            ((TypeDeclaration) astNode).accept(fDeclarationConverter);
+        } else if (astNode instanceof MethodDeclaration) {
+            ((MethodDeclaration) astNode).accept(fDeclarationConverter);
         } else if (astNode instanceof FieldDeclaration) {
-            ((FieldDeclaration) astNode).traverse(fDeclarationConverter, null);
+            ((FieldDeclaration) astNode).accept(fDeclarationConverter);
         }
         return root;
     }
@@ -142,10 +119,10 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     @Override
     public Node createMethodBodyTree(JavaStructureNode node) {
         ASTNode astNode = node.getASTNode();
-        if (astNode instanceof AbstractMethodDeclaration) {
+        if (astNode instanceof MethodDeclaration) {
             Node root = createRootNode(node, astNode);
-            fBodyConverter.initialize(root, astNode, fComments, fCompilation.getScanner());
-            ((AbstractMethodDeclaration) astNode).traverse(fBodyConverter, (ClassScope) null);
+            fBodyConverter.initialize(root, astNode, fComments, fCompilation.getSource());
+            ((MethodDeclaration) astNode).accept(fBodyConverter);
             return root;
         }
         return null;
@@ -153,9 +130,9 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
 
     @Override
     public JavaStructureNode createStructureTree() {
-        CompilationUnitDeclaration cu = fCompilation.getCompilationUnit();
+        CompilationUnit cu = fCompilation.getCompilationUnit();
         JavaStructureNode node = new JavaStructureNode(Type.CU, null, null, cu);
-        cu.traverse(new JavaStructureTreeBuilder(node), (CompilationUnitScope) null);
+        cu.accept(new JavaStructureTreeBuilder(node));
         return node;
     }
     
@@ -169,23 +146,15 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
                 node.getFullyQualifiedName(),
                 convertType(node),
                 extractModifier(node.getASTNode()),
-                createSourceRange(node.getASTNode()));
+                createSourceRange(node.getASTNode()),
+                node.getASTNode());
     }
 
+    private int getEndPosition(ASTNode node) {
+    	return node.getStartPosition() + node.getLength();
+    }
     private SourceRange createSourceRange(ASTNode astNode) {
-        if (astNode instanceof TypeDeclaration) {
-            TypeDeclaration type = (TypeDeclaration) astNode;
-            return new SourceRange(type.declarationSourceStart, type.declarationSourceEnd);
-        }
-        if (astNode instanceof AbstractMethodDeclaration) {
-            AbstractMethodDeclaration method = (AbstractMethodDeclaration) astNode;
-            return new SourceRange(method.declarationSourceStart, method.declarationSourceEnd);
-        }
-        if (astNode instanceof FieldDeclaration) {
-            FieldDeclaration field = (FieldDeclaration) astNode;
-            return new SourceRange(field.declarationSourceStart, field.declarationSourceEnd);
-        }
-        return new SourceRange(astNode.sourceStart(), astNode.sourceEnd());
+        return new SourceRange(astNode.getStartPosition(), getEndPosition(astNode)); 
     }
 
     @Override
@@ -206,13 +175,13 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     }
 
     private int extractModifier(ASTNode node) {
-        int ecjModifer = -1;
-        if (node instanceof AbstractMethodDeclaration) {
-            ecjModifer = ((AbstractMethodDeclaration) node).modifiers;
+        int ecjModifer = -1; // important FIXME: I think I did this conversion properly, but check
+        if (node instanceof MethodDeclaration) {
+            ecjModifer = ((MethodDeclaration) node).getModifiers(); 
         } else if (node instanceof FieldDeclaration) {
-            ecjModifer = ((FieldDeclaration) node).modifiers;
+            ecjModifer = ((FieldDeclaration) node).getModifiers();
         } else if (node instanceof TypeDeclaration) {
-            ecjModifer = ((TypeDeclaration) node).modifiers;
+            ecjModifer = ((TypeDeclaration) node).getModifiers();
         }
         if (ecjModifer > -1) {
             return convertECJModifier(ecjModifer);
@@ -259,48 +228,48 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
     }
     
     private boolean isNative(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccNative) != 0;
+    	return Modifier.isNative(ecjModifier); 
     }
     
     private boolean isStatic(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccStatic) != 0;
+    	return Modifier.isStatic(ecjModifier);
     }
     
     private boolean isStrictFP(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccStrictfp) != 0;
+    	return Modifier.isStrictfp(ecjModifier); 
     }
 
     private boolean isSynchronized(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccSynchronized) != 0;
+    	return Modifier.isSynchronized(ecjModifier);
     }
 
     private boolean isTransient(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccTransient) != 0;
+    	return Modifier.isTransient(ecjModifier);
     }
 
     private boolean isVolatile(int ecjModifier) {
-    	return (ecjModifier & ClassFileConstants.AccVolatile) != 0;
+    	return Modifier.isVolatile(ecjModifier); 
     }
     
 
     private boolean isAbstract(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccAbstract) != 0;
+        return Modifier.isAbstract(ecjModifier);
     }
     
     private boolean isPrivate(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccPrivate) != 0;
+        return Modifier.isPrivate(ecjModifier); 
     }
 
     private boolean isProtected(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccProtected) != 0;
+        return Modifier.isProtected(ecjModifier);
     }
 
     private boolean isPublic(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccPublic) != 0;
+        return Modifier.isPublic(ecjModifier); 
     }
 
     private boolean isFinal(int ecjModifier) {
-        return (ecjModifier & ClassFileConstants.AccFinal) != 0;
+        return Modifier.isFinal(ecjModifier);
     }
 
     @Override
@@ -398,9 +367,14 @@ public class JavaASTHelper implements ASTHelper<JavaStructureNode> {
 	}
 
 	@Override
-	public CompilationUnitDeclaration returnCU() {
-        CompilationUnitDeclaration cu = fCompilation.getCompilationUnit();
+	public CompilationUnit returnCU() {
+        CompilationUnit cu = fCompilation.getCompilationUnit();
         return cu;
+	}
+
+	public List<Comment> getComments() {
+		// TODO Auto-generated method stub
+		return fComments;
 	}
 
 }

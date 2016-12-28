@@ -24,15 +24,13 @@ import static org.hamcrest.CoreMatchers.is;
 
 import java.util.Enumeration;
 
-import org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.FieldDeclaration;
-import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
-import org.eclipse.jdt.internal.compiler.lookup.ClassScope;
-import org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope;
-import org.eclipse.jdt.internal.compiler.lookup.MethodScope;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.junit.Test;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaDeclarationConverter;
+import ch.uzh.ifi.seal.changedistiller.model.classifiers.EntityType;
 import ch.uzh.ifi.seal.changedistiller.model.classifiers.java.JavaEntityType;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeEntity;
 import ch.uzh.ifi.seal.changedistiller.treedifferencing.Node;
@@ -198,7 +196,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         convertField("aString");
         assertThat(getTreeString(), is("aString { /**\n * A field\n */,,String }"));
         Node javadoc = getFirstChild();
-        assertThat(getSource(javadoc), is("/**\n * A field\n */"));
+        assertThat(getSource(javadoc), is("/**\n * A field\n */\n"));
         assertThat(javadoc.getLabel(), is(JavaEntityType.JAVADOC));
     }
 
@@ -281,6 +279,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         assertThat(getSource(parameters), is("int anInteger, List<String> aList"));
         assertThat(parameters.getLabel(), is(JavaEntityType.PARAMETERS));
         Node firstParameter = (Node) parameters.getFirstChild();
+        EntityType label = firstParameter.getLabel();
         assertThat(getSource(firstParameter), is("anInteger"));
         assertThat(firstParameter.getLabel(), is(JavaEntityType.PARAMETER));
         Node firstParameterType = (Node) parameters.getFirstLeaf();
@@ -399,7 +398,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         convertMethod("method");
         assertThat(getTreeString(), is("method { /**\n * A method\n */,,method: void,,, }"));
         Node javadoc = getFirstChild();
-        assertThat(getSource(javadoc), is("/**\n * A method\n */"));
+        assertThat(getSource(javadoc), is("/**\n * A method\n */\n"));
         assertThat(javadoc.getLabel(), is(JavaEntityType.JAVADOC));
     }
 
@@ -554,7 +553,7 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
         convertClass("Bar");
         assertThat(getTreeString(), is("Bar { /**\n * A class\n */,,, }"));
         Node javadoc = getFirstChild();
-        assertThat(getSource(javadoc), is("/**\n * A class\n */"));
+        assertThat(getSource(javadoc), is("/**\n * A class\n */\n"));
         assertThat(javadoc.getLabel(), is(JavaEntityType.JAVADOC));
     }
 
@@ -611,24 +610,24 @@ public class WhenDeclarationsAreConverted extends WhenASTsAreConverted {
     private void convertField(String name) {
         createRootNode(JavaEntityType.FIELD_DECLARATION, name);
         FieldDeclaration field = CompilationUtils.findField(fCompilation.getCompilationUnit(), name);
-        field.traverse(getDeclarationconverter(), (MethodScope) null);
+        field.accept(getDeclarationconverter());
     }
 
     private JavaDeclarationConverter getDeclarationconverter() {
-        sDeclarationConverter.initialize(fRoot, fCompilation.getScanner());
+        sDeclarationConverter.initialize(fRoot, fCompilation.getSource());
         return sDeclarationConverter;
     }
 
     private void convertMethod(String name) {
         createRootNode(JavaEntityType.METHOD_DECLARATION, name);
-        AbstractMethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), name);
-        method.traverse(getDeclarationconverter(), (ClassScope) null);
+        MethodDeclaration method = CompilationUtils.findMethod(fCompilation.getCompilationUnit(), name);
+        method.accept(getDeclarationconverter());
     }
 
     private void convertClass(String name) {
         createRootNode(JavaEntityType.METHOD_DECLARATION, name);
         TypeDeclaration type = CompilationUtils.findType(fCompilation.getCompilationUnit(), name);
-        type.traverse(getDeclarationconverter(), (CompilationUnitScope) null);
+        type.accept(getDeclarationconverter());
     }
 
 }
