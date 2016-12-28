@@ -38,7 +38,7 @@ public class TestTsgEntropy {
 				.getSerializer().deserializeFrom(reusePath + "/Entropy-model/saved-ser-"+ iterations + "-iters/"+repoName+".ser");
 	}
 	
-	public static void main(String [] args) throws SerializationException {
+	public static void main(String [] args) throws SerializationException, IOException {
 
 		//final File directory = new File(path);
 		//final File f = new File(args[0]);
@@ -52,11 +52,9 @@ public class TestTsgEntropy {
 		System.out.println("filename,entropy,cross-entropy");
 		
 		StructureNode cu = analyzeDistiller(args[0],args[1]); //file 1 and file 2
-			//System.err.println("FILE:" + f.toString());
-			//final TreeNode<Integer> intTree = treeFormat.getTree(f); //old
-			//final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree,0); //old
-			final ASTNode intTree = cu.getASTNode(); //new
-			final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(format.getTree(intTree), 0); //new
+			final ASTNode astTree = cu.getASTNode(); //new
+			final TreeNode<Integer> intTree = format.getTree(astTree);
+			final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree, 0); //new
 
 			final ITokenizer tokenizer = format.getTokenizer();
 			//final List<String> fileTokens = tokenizer.tokenListFromCode(FileUtils.readFileToString(f).toCharArray());

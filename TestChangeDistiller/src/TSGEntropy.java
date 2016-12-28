@@ -46,7 +46,7 @@ public class TSGEntropy {
 
 		//final Collection<File> allFiles = FileUtils.listFiles(directory,new RegexFileFilter(".*\\.txt$"),DirectoryFileFilter.DIRECTORY);
 		grammar = (TSGrammar<TSGNode>) Serializer
-				.getSerializer().deserializeFrom("/Users/ashleychen/Desktop/REUSE/REUSE/Entropy-model/saved-ser-400-iters/glide.ser");
+				.getSerializer().deserializeFrom("tsg1.ser");
 		final AbstractTreeExtractor treeFormat = grammar.getTreeExtractor();
 
 		System.out.println("filename,entropy,cross-entropy");
