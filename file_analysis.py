@@ -22,7 +22,7 @@ g = GithubOAuth('93e8006bc59db0802284441fb9cfe4b278003005')
 
 unformatTime = int(g.rate_limiting_resettime)#.strftime('%H:%M:%S')
 currentTime = int(datetime.datetime.now().strftime("%s")) #datetime.datetime.fromtimestamp
-userInputPath = input("Paste the path here: ") #/Users/ashleychen/Desktop/REUSE/REUSE/Repos/elasticsearch/
+userInputPath = input("Paste the path here: ") #/Users/ashleychen/Desktop/REUSE/REUSE/Repos/
 path, dirs, files = os.walk(str(userInputPath)).next()
 file_count = len(dirs) - 1
 #print file_count
@@ -43,7 +43,7 @@ else:
 for repo in range(len(listofRepoID)):
 	g = GithubOAuth(tokens[repo])
 	print g.rate_limiting
-	storePull(listofRepoID[repo],g,start,stop)
+	storePull(listofRepoID[repo],g)
 
 	repoCollection = []
 

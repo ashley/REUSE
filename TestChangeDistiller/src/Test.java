@@ -29,12 +29,12 @@ public class Test {
 		//StructureNode cu1 = analyzeDistiller(addresses1[0],addresses1[1]);
 		
 		
-		//String [] trainingFiles = {"testfiles/Circle_BEFORE.java","normal","2","testfiles/Circle_AFTER.java"};
-		//TestTreeLM.main(trainingFiles); //Testing modified SampleTSG
+		String [] trainingFiles = {"beforeFiles","normal","5","afterFiles"};
+		TestTreeLM.main(trainingFiles); //Testing modified SampleTSG
 		//TSGEntropy.main("testfiles/Circle_BEFORE.java"); //Testing original Entropy generator
 		System.out.println("----------------------------------------------------------------------------------------------------");
 
-		String [] entropyIng = {"testfiles/TestLeftNoComments.java","testfiles/TestRightNoComments.java"};
+		String [] entropyIng = {"testfiles/CrossEntropyLeftTest.txt","testfiles/CrossEntropyRightTest.txt"};
 		TestTsgEntropy.main(entropyIng); //Testing modified Entropy generator
 		
 		

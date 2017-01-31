@@ -57,15 +57,19 @@ public class TestTsgEntropy {
 			final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree, 0); //new
 
 			final ITokenizer tokenizer = format.getTokenizer();
-			//final List<String> fileTokens = tokenizer.tokenListFromCode(FileUtils.readFileToString(f).toCharArray());
+			final List<String> fileTokensLeft = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[0])).toCharArray());
+			final List<String> fileTokensRight = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[1])).toCharArray());
 
 			final TreeProbabilityComputer<TSGNode> probabilityComputer = new TreeProbabilityComputer<TSGNode>(
 					grammar, false, TreeProbabilityComputer.TSGNODE_MATCHER);
 			probability = probabilityComputer
 					.getLog2ProbabilityOf(tsgTree);
 
-			//crossEntropy = probability / fileTokens.size();
 			System.out.println("Changes: " + probability);
+			System.out.println("CROSS-ENTROPY-LEFT: " + probability / fileTokensLeft.size());
+			System.out.println("CROSS-ENTROPY-RIGHT: " + probability / fileTokensRight.size());
+			System.out.println("CROSS-ENTROPY-AVG: " + probability / (fileTokensLeft.size()+fileTokensRight.size()/2));
+
 
 	}
 	

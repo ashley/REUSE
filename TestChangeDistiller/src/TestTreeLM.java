@@ -82,19 +82,26 @@ public class TestTreeLM {
 			final double percentRootsInit = .9;
 			int nFiles = 0;
 			int nNodes = 0;
-			try {
-				StructureNode cu = analyzeDistiller(args[0],args[3]);
-				ASTNode treeInt = cu.getASTNode();
-				//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
-				final TreeNode<TSGNode> ast = TSGNode.convertTree(format.getTree(treeInt), percentRootsInit);
-				nNodes += ast.getTreeSize();
-				nFiles++;
-				sampler.addTree(ast);
-			} catch (final Exception e) {
-				LOGGER.warning(
-						"Failed to get AST for " + args[0] + " " + ExceptionUtils.getFullStackTrace(e));
+			
+			File[] beforeDirectory = new File(args[0]).listFiles();
+			File[] afterDirectory = new File(args[3]).listFiles();
+			
+			for (int i=0;i<10;i++) {
+				try {
+					StructureNode cu = analyzeDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
+					ASTNode treeInt = cu.getASTNode();
+					//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
+					final TreeNode<TSGNode> ast = TSGNode.convertTree(format.getTree(treeInt), percentRootsInit);
+					nNodes += ast.getTreeSize();
+					nFiles++;
+					sampler.addTree(ast);
+				} catch (final Exception e) {
+					LOGGER.warning(
+							"Failed to get AST for " + args[0] + " " + ExceptionUtils.getFullStackTrace(e));
+				}
 			}
-			LOGGER.info("Loaded " + nFiles + " files containing " + nNodes + " nodes");
+			LOGGER.info("Loaded " + nFiles + " files containing " + nNodes
+					+ " nodes");
 			sampler.lockSamplerData();
 		}
 
