@@ -129,7 +129,7 @@ public class FileDistiller {
         } else {
         	fChanges = Collections.emptyList();
         }
-        return fLeftAST;
+        return (StructureNode) structureDiff;
 	}
 
     public void extractClassifiedSourceCodeChanges(File left, File right, String version) {

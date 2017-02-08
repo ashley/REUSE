@@ -15,6 +15,7 @@ import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
+import clegoues.genprog4java.treelm.GrammarUtils;
 import codemining.ast.TreeNode;
 import codemining.ast.java.AbstractJavaTreeExtractor;
 import codemining.ast.java.BinaryJavaAstTreeExtractor;
@@ -86,15 +87,21 @@ public class TestTreeLM {
 			File[] beforeDirectory = new File(args[0]).listFiles();
 			File[] afterDirectory = new File(args[3]).listFiles();
 			
-			for (int i=0;i<10;i++) {
+			for (int i=0;i<beforeDirectory.length;i++) {
 				try {
 					StructureNode cu = analyzeDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
-					ASTNode treeInt = cu.getASTNode();
-					//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
-					final TreeNode<TSGNode> ast = TSGNode.convertTree(format.getTree(treeInt), percentRootsInit);
-					nNodes += ast.getTreeSize();
-					nFiles++;
-					sampler.addTree(ast);
+					if (cu != null){
+						ASTNode treeInt = cu.getASTNode();
+						GrammarUtils.prepareAST(treeInt);
+						//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
+						final TreeNode<TSGNode> ast = TSGNode.convertTree(format.getTree(treeInt), percentRootsInit);
+						nNodes += ast.getTreeSize();
+						nFiles++;
+						sampler.addTree(ast);
+					}
+					else{
+						System.err.println("Tree Expression is null");
+					}
 				} catch (final Exception e) {
 					LOGGER.warning(
 							"Failed to get AST for " + args[0] + " " + ExceptionUtils.getFullStackTrace(e));
@@ -162,7 +169,7 @@ public class TestTreeLM {
 		File file2 = new File(after);
 
 		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
-		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
+		//List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
 		/*for (SourceCodeChange change: changes){
 			System.out.println(change);
 		}*/

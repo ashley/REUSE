@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.eclipse.cdt.core.dom.rewrite.ASTRewrite;
 import org.eclipse.jdt.core.dom.ASTNode;
 
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
@@ -12,6 +13,7 @@ import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
+import clegoues.genprog4java.treelm.GrammarUtils;
 import codemining.ast.java.AbstractJavaTreeExtractor;
 import codemining.ast.TreeNode;
 import codemining.languagetools.ITokenizer;
@@ -52,24 +54,29 @@ public class TestTsgEntropy {
 		System.out.println("filename,entropy,cross-entropy");
 		
 		StructureNode cu = analyzeDistiller(args[0],args[1]); //file 1 and file 2
-			final ASTNode astTree = cu.getASTNode(); //new
-			final TreeNode<Integer> intTree = format.getTree(astTree);
-			final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree, 0); //new
-
-			final ITokenizer tokenizer = format.getTokenizer();
-			final List<String> fileTokensLeft = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[0])).toCharArray());
-			final List<String> fileTokensRight = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[1])).toCharArray());
-
-			final TreeProbabilityComputer<TSGNode> probabilityComputer = new TreeProbabilityComputer<TSGNode>(
-					grammar, false, TreeProbabilityComputer.TSGNODE_MATCHER);
-			probability = probabilityComputer
-					.getLog2ProbabilityOf(tsgTree);
-
-			System.out.println("Changes: " + probability);
-			System.out.println("CROSS-ENTROPY-LEFT: " + probability / fileTokensLeft.size());
-			System.out.println("CROSS-ENTROPY-RIGHT: " + probability / fileTokensRight.size());
-			System.out.println("CROSS-ENTROPY-AVG: " + probability / (fileTokensLeft.size()+fileTokensRight.size()/2));
-
+			if (cu != null){
+				final ASTNode astTree = cu.getASTNode(); //new
+				GrammarUtils.prepareAST(astTree);
+				final TreeNode<Integer> intTree = format.getTree(astTree);
+				final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree, 0); //new
+	
+				final ITokenizer tokenizer = format.getTokenizer();
+				final List<String> fileTokensLeft = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[0])).toCharArray());
+				final List<String> fileTokensRight = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[1])).toCharArray());
+	
+				final TreeProbabilityComputer<TSGNode> probabilityComputer = new TreeProbabilityComputer<TSGNode>(
+						grammar, false, TreeProbabilityComputer.TSGNODE_MATCHER);
+				probability = probabilityComputer
+						.getLog2ProbabilityOf(tsgTree);
+	
+				System.out.println("Changes: " + probability);
+				System.out.println("CROSS-ENTROPY-LEFT: " + probability / fileTokensLeft.size());
+				System.out.println("CROSS-ENTROPY-RIGHT: " + probability / fileTokensRight.size());
+				System.out.println("CROSS-ENTROPY-AVG: " + probability / (fileTokensLeft.size()+fileTokensRight.size()/2));
+			}
+			else{
+				System.err.println("Test Tree Expression is NULL");
+			}
 
 	}
 	
@@ -87,7 +94,7 @@ public class TestTsgEntropy {
 		File file2 = new File(after);
 
 		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
-		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
+		//List<SourceCodeChange> changes = distiller.getSourceCodeChanges();  To print changes for debugging
 		/*for (SourceCodeChange change: changes){
 			System.out.println(change);
 		}*/

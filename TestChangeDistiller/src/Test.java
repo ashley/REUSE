@@ -34,7 +34,7 @@ public class Test {
 		//TSGEntropy.main("testfiles/Circle_BEFORE.java"); //Testing original Entropy generator
 		System.out.println("----------------------------------------------------------------------------------------------------");
 
-		String [] entropyIng = {"testfiles/CrossEntropyLeftTest.txt","testfiles/CrossEntropyRightTest.txt"};
+		String [] entropyIng = {"testfiles/Circle_AFTER.java","testfiles/Circle_BEFORE.java"};
 		TestTsgEntropy.main(entropyIng); //Testing modified Entropy generator
 		
 		
