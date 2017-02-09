@@ -1,227 +1,1078 @@
-Feb 07, 2017 10:01:44 PM codemining.util.SettingsLoader <init>
+Feb 09, 2017 6:42:30 PM codemining.util.SettingsLoader <init>
 INFO: Configuration file not found. Loading defaults.
 LEFT COMMENTS
 RIGHT COMMENTS
 #SNODE L: CU: null
 #SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@55fe41ea
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@198b6731
 #SNODE[] R: null
 
 #EXTRACT
 !!EQUAL!!
-Feb 07, 2017 10:01:45 PM TestTreeLM main
-WARNING: Failed to get AST for beforeFiles java.lang.ClassCastException: ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode cannot be cast to ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractDifferences(FileDistiller.java:132)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:114)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:83)
-	at TestTreeLM.analyzeDistiller(TestTreeLM.java:171)
-	at TestTreeLM.main(TestTreeLM.java:92)
-	at Test.main(Test.java:33)
+TREE 44
+-(0)3
+-(0)-(0)2
+-(0)-(0)-(0)0
+-(0)-(0)-(1)1
+-(2)43
+-(2)-(2)4
+-(2)-(8)42
+-(2)-(8)-(1)5
+-(2)-(8)-(1)6
+-(2)-(8)-(2)8
+-(2)-(8)-(4)7
+-(2)-(8)-(7)13
+-(2)-(8)-(7)-(1)11
+-(2)-(8)-(7)-(1)-(0)10
+-(2)-(8)-(7)-(1)-(0)-(1)9
+-(2)-(8)-(7)-(3)12
+-(2)-(8)-(12)36
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)10
+-(2)-(8)-(12)-(0)-(1)-(1)14
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)15
+-(2)-(8)-(12)-(0)-(2)-(2)18
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)10
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)14
+-(2)-(8)-(12)-(0)-(2)-(2)-(4)2
+-(2)-(8)-(12)-(0)-(2)-(2)-(4)-(0)16
+-(2)-(8)-(12)-(0)-(2)-(2)-(4)-(1)17
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)22
+-(2)-(8)-(12)-(0)-(2)-(2)23
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)24
+-(2)-(8)-(12)-(0)-(2)-(2)25
+-(2)-(8)-(12)-(0)37
+-(2)-(8)-(12)-(0)-(0)27
+-(2)-(8)-(12)-(0)-(0)-(0)22
+-(2)-(8)-(12)-(0)-(0)-(1)26
+-(2)-(8)-(12)-(0)-(1)36
+-(2)-(8)-(12)-(0)-(1)-(0)32
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)2
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(0)16
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(1)28
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(2)29
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(3)30
+-(2)-(8)-(12)-(0)-(1)-(0)20
+-(2)-(8)-(12)-(0)-(1)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(0)33
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)31
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(0)15
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(2)34
+-(2)-(8)-(12)-(0)-(1)-(0)32
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)35
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)24
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)33
+-(2)-(8)-(12)-(0)-(1)-(0)32
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)35
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)22
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)23
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)38
+-(2)-(8)-(12)-(0)-(2)-(2)41
+-(2)-(8)-(12)-(0)-(2)-(2)-(0)24
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)40
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)39
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(0)22
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(1)23
 
 LEFT COMMENTS
+//
+//
 RIGHT COMMENTS
+//
+//
 #SNODE L: CU: null
 #SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@24313fcc
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@7d20d0b
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6a370f4
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@2abf4075
 
 #TRAVERSE
-LEFTCHILD: CLASS: ObservableDistinctUntilChangedTest
-RIGHTCHILD: null
-##SNODE L: CLASS: ObservableDistinctUntilChangedTest
+LEFTCHILD: null
+RIGHTCHILD: CLASS: Average
 ##SNODE L: null
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@77f1baf5
+##SNODE L: CLASS: Average
+##SNODE[] L: null
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@770d3326
+
+##EXTRACT
+DIFF IS NOT NULL
+LEFTCHILD: CLASS: CharStringDemo
+RIGHTCHILD: null
+##SNODE L: CLASS: CharStringDemo
+##SNODE L: null
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@4cc8eb05
 ##SNODE[] R: null
 
 ##EXTRACT
 DIFF IS NOT NULL
+TREE 44
+-(2)43
+-(2)-(2)45
+-(2)-(8)42
+-(2)-(8)-(1)5
+-(2)-(8)-(1)6
+-(2)-(8)-(2)8
+-(2)-(8)-(4)7
+-(2)-(8)-(7)46
+-(2)-(8)-(7)-(1)10
+-(2)-(8)-(7)-(1)-(1)9
+-(2)-(8)-(7)-(3)12
+-(2)-(8)-(12)36
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)10
+-(2)-(8)-(12)-(0)-(1)-(1)9
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)47
+-(2)-(8)-(12)-(0)-(2)-(2)48
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)49
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)50
+-(2)-(8)-(12)-(0)-(2)-(2)31
+-(2)-(8)-(12)-(0)-(2)-(2)-(0)47
+-(2)-(8)-(12)-(0)-(2)-(2)-(2)51
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)25
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(0)2
+-(2)-(8)-(12)-(0)-(0)-(0)-(0)16
+-(2)-(8)-(12)-(0)-(0)-(0)-(1)28
+-(2)-(8)-(12)-(0)-(0)-(2)29
+-(2)-(8)-(12)-(0)-(0)-(3)54
+-(2)-(8)-(12)-(0)-(0)-(3)-(0)52
+-(2)-(8)-(12)-(0)-(0)-(3)-(1)47
+-(2)-(8)-(12)-(0)-(0)-(3)-(2)53
+-(2)-(8)-(12)-(0)-(0)-(3)-(2)50
+-(2)-(8)-(12)-(0)60
+-(2)-(8)-(12)-(0)-(0)56
+-(2)-(8)-(12)-(0)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(0)-(2)-(0)55
+-(2)-(8)-(12)-(0)-(0)-(2)-(2)25
+-(2)-(8)-(12)-(0)-(1)58
+-(2)-(8)-(12)-(0)-(1)-(0)55
+-(2)-(8)-(12)-(0)-(1)-(1)31
+-(2)-(8)-(12)-(0)-(1)-(1)-(0)47
+-(2)-(8)-(12)-(0)-(1)-(1)-(2)57
+-(2)-(8)-(12)-(0)-(2)59
+-(2)-(8)-(12)-(0)-(2)-(0)55
+-(2)-(8)-(12)-(0)-(3)32
+-(2)-(8)-(12)-(0)-(3)-(0)31
+-(2)-(8)-(12)-(0)-(3)-(0)-(0)2
+-(2)-(8)-(12)-(0)-(3)-(0)-(0)-(0)16
+-(2)-(8)-(12)-(0)-(3)-(0)-(0)-(1)28
+-(2)-(8)-(12)-(0)-(3)-(0)-(2)29
+-(2)-(8)-(12)-(0)-(3)-(0)-(3)31
+-(2)-(8)-(12)-(0)-(3)-(0)-(3)-(0)47
+-(2)-(8)-(12)-(0)-(3)-(0)-(3)-(2)51
+-(2)-(8)-(12)-(0)-(3)-(0)-(3)-(3)55
+
+LEFT COMMENTS
+//
+//
+/** 
+ * when Panel is finished, add to the Frame, then add a label 
+ */
+//
+RIGHT COMMENTS
+//
+//
+/** 
+ * when Panel is finished, add to the Frame, then add a label 
+ */
+//
+#SNODE L: CU: null
+#SNODE L: CU: null
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@20f5239f
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@57af006c
+
+#TRAVERSE
 LEFTCHILD: null
-RIGHTCHILD: CLASS: FlowableDistinctUntilChanged
+RIGHTCHILD: CLASS: CharStringDemo
 ##SNODE L: null
-##SNODE L: CLASS: FlowableDistinctUntilChanged
+##SNODE L: CLASS: CharStringDemo
 ##SNODE[] L: null
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@41a2befb
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6bedbc4d
 
 ##EXTRACT
 DIFF IS NOT NULL
-Feb 07, 2017 10:01:45 PM TestTreeLM main
-WARNING: Failed to get AST for beforeFiles java.lang.ClassCastException: ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode cannot be cast to ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractDifferences(FileDistiller.java:132)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:114)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:83)
-	at TestTreeLM.analyzeDistiller(TestTreeLM.java:171)
-	at TestTreeLM.main(TestTreeLM.java:92)
-	at Test.main(Test.java:33)
-
-LEFT COMMENTS
-RIGHT COMMENTS
-#SNODE L: CU: null
-#SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@43c1b556
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@587e5365
-
-#TRAVERSE
-LEFTCHILD: CLASS: ObservableDistinctUntilChanged
+LEFTCHILD: CLASS: ClassQuiz
 RIGHTCHILD: null
-##SNODE L: CLASS: ObservableDistinctUntilChanged
+##SNODE L: CLASS: ClassQuiz
 ##SNODE L: null
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@22fcf7ab
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@932bc4a
 ##SNODE[] R: null
 
 ##EXTRACT
 DIFF IS NOT NULL
-LEFTCHILD: null
-RIGHTCHILD: CLASS: ObservableDistinctUntilChangedTest
-##SNODE L: null
-##SNODE L: CLASS: ObservableDistinctUntilChangedTest
-##SNODE[] L: null
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@2de23121
+TREE 44
+-(0)3
+-(0)-(0)2
+-(0)-(0)-(0)61
+-(0)-(0)-(1)62
+-(0)3
+-(0)-(0)2
+-(0)-(0)-(0)0
+-(0)-(0)-(1)63
+-(0)3
+-(0)-(0)2
+-(0)-(0)-(0)2
+-(0)-(0)-(0)-(0)0
+-(0)-(0)-(0)-(1)63
+-(0)-(0)-(1)64
+-(2)43
+-(2)-(1)5
+-(2)-(2)65
+-(2)-(5)10
+-(2)-(5)-(1)66
+-(2)-(6)10
+-(2)-(6)-(1)67
+-(2)-(8)72
+-(2)-(8)-(1)68
+-(2)-(8)-(1)69
+-(2)-(8)-(2)21
+-(2)-(8)-(3)19
+-(2)-(8)-(3)-(0)70
+-(2)-(8)-(3)-(2)71
+-(2)-(8)72
+-(2)-(8)-(1)68
+-(2)-(8)-(1)69
+-(2)-(8)-(2)21
+-(2)-(8)-(3)19
+-(2)-(8)-(3)-(0)73
+-(2)-(8)-(3)-(2)71
+-(2)-(8)72
+-(2)-(8)-(1)68
+-(2)-(8)-(2)10
+-(2)-(8)-(2)-(1)74
+-(2)-(8)-(3)19
+-(2)-(8)-(3)-(0)47
+-(2)-(8)72
+-(2)-(8)-(1)68
+-(2)-(8)-(2)10
+-(2)-(8)-(2)-(1)75
+-(2)-(8)-(3)19
+-(2)-(8)-(3)-(0)76
+-(2)-(8)-(3)19
+-(2)-(8)-(3)-(0)77
+-(2)-(8)72
+-(2)-(8)-(1)68
+-(2)-(8)-(2)10
+-(2)-(8)-(2)-(1)9
+-(2)-(8)-(3)19
+-(2)-(8)-(3)-(0)78
+-(2)-(8)-(3)-(2)79
+-(2)-(8)105
+-(2)-(8)-(1)5
+-(2)-(8)-(2)65
+-(2)-(8)-(12)36
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(2)80
+-(2)-(8)-(12)-(0)-(0)-(3)81
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(2)82
+-(2)-(8)-(12)-(0)-(0)-(3)70
+-(2)-(8)-(12)-(0)-(0)-(3)73
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(2)83
+-(2)-(8)-(12)-(0)-(0)-(3)2
+-(2)-(8)-(12)-(0)-(0)-(3)-(0)66
+-(2)-(8)-(12)-(0)-(0)-(3)-(1)84
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(2)85
+-(2)-(8)-(12)-(0)-(0)-(3)18
+-(2)-(8)-(12)-(0)-(0)-(3)-(3)10
+-(2)-(8)-(12)-(0)-(0)-(3)-(3)-(1)86
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)10
+-(2)-(8)-(12)-(0)-(1)-(1)87
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)88
+-(2)-(8)-(12)-(0)-(2)-(2)18
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)10
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)87
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)92
+-(2)-(8)-(12)-(0)-(0)-(0)47
+-(2)-(8)-(12)-(0)-(0)-(1)18
+-(2)-(8)-(12)-(0)-(0)-(1)-(3)10
+-(2)-(8)-(12)-(0)-(0)-(1)-(3)-(1)74
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)89
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)23
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)90
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)2
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)-(0)74
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)-(1)91
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(0)88
+-(2)-(8)-(12)-(0)-(0)-(2)93
+-(2)-(8)-(12)-(0)-(0)-(3)47
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(2)93
+-(2)-(8)-(12)-(0)-(0)-(3)88
+-(2)-(8)-(12)-(0)-(0)-(3)2
+-(2)-(8)-(12)-(0)-(0)-(3)-(0)86
+-(2)-(8)-(12)-(0)-(0)-(3)-(1)94
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)10
+-(2)-(8)-(12)-(0)-(1)-(1)87
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)95
+-(2)-(8)-(12)-(0)-(2)-(2)18
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)10
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)87
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(0)95
+-(2)-(8)-(12)-(0)-(0)-(2)85
+-(2)-(8)-(12)-(0)-(0)-(3)18
+-(2)-(8)-(12)-(0)-(0)-(3)-(3)10
+-(2)-(8)-(12)-(0)-(0)-(3)-(3)-(1)96
+-(2)-(8)-(12)-(0)-(0)-(3)-(4)23
+-(2)-(8)-(12)-(0)-(0)-(3)-(4)97
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)92
+-(2)-(8)-(12)-(0)-(0)-(0)76
+-(2)-(8)-(12)-(0)-(0)-(1)18
+-(2)-(8)-(12)-(0)-(0)-(1)-(3)10
+-(2)-(8)-(12)-(0)-(0)-(1)-(3)-(1)75
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)98
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)92
+-(2)-(8)-(12)-(0)-(0)-(0)77
+-(2)-(8)-(12)-(0)-(0)-(1)18
+-(2)-(8)-(12)-(0)-(0)-(1)-(3)10
+-(2)-(8)-(12)-(0)-(0)-(1)-(3)-(1)75
+-(2)-(8)-(12)-(0)-(0)-(1)-(4)99
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(0)95
+-(2)-(8)-(12)-(0)-(0)-(2)93
+-(2)-(8)-(12)-(0)-(0)-(3)77
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(0)95
+-(2)-(8)-(12)-(0)-(0)-(2)93
+-(2)-(8)-(12)-(0)-(0)-(3)76
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(2)93
+-(2)-(8)-(12)-(0)-(0)-(3)95
+-(2)-(8)-(12)-(0)-(0)-(3)2
+-(2)-(8)-(12)-(0)-(0)-(3)-(0)86
+-(2)-(8)-(12)-(0)-(0)-(3)-(1)100
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(0)76
+-(2)-(8)-(12)-(0)-(0)-(2)101
+-(2)-(8)-(12)-(0)-(0)-(3)102
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(0)77
+-(2)-(8)-(12)-(0)-(0)-(2)101
+-(2)-(8)-(12)-(0)-(0)-(3)102
+-(2)-(8)-(12)-(0)32
+-(2)-(8)-(12)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(0)-(2)103
+-(2)-(8)-(12)-(0)-(0)-(3)104
+-(2)-(8)42
+-(2)-(8)-(1)5
+-(2)-(8)-(2)106
+-(2)-(8)-(4)7
+-(2)-(8)-(7)13
+-(2)-(8)-(7)-(1)10
+-(2)-(8)-(7)-(1)-(1)107
+-(2)-(8)-(7)-(3)108
+-(2)-(8)-(12)36
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)10
+-(2)-(8)-(12)-(0)-(1)-(1)109
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)110
+-(2)-(8)-(12)-(0)-(2)-(2)31
+-(2)-(8)-(12)-(0)-(2)-(2)-(0)108
+-(2)-(8)-(12)-(0)-(2)-(2)-(2)111
+-(2)-(8)-(12)-(0)115
+-(2)-(8)-(12)-(0)-(0)112
+-(2)-(8)-(12)-(0)-(0)-(0)110
+-(2)-(8)-(12)-(0)-(0)-(1)76
+-(2)-(8)-(12)-(0)-(1)36
+-(2)-(8)-(12)-(0)-(1)-(0)32
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)47
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(2)113
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(3)114
+-(2)-(8)121
+-(2)-(8)-(2)36
+-(2)-(8)-(2)-(0)32
+-(2)-(8)-(2)-(0)-(0)92
+-(2)-(8)-(2)-(0)-(0)-(0)78
+-(2)-(8)-(2)-(0)-(0)-(1)31
+-(2)-(8)-(2)-(0)-(0)-(1)-(0)47
+-(2)-(8)-(2)-(0)-(0)-(1)-(2)116
+-(2)-(8)-(2)-(0)115
+-(2)-(8)-(2)-(0)-(0)118
+-(2)-(8)-(2)-(0)-(0)-(0)31
+-(2)-(8)-(2)-(0)-(0)-(0)-(0)78
+-(2)-(8)-(2)-(0)-(0)-(0)-(2)117
+-(2)-(8)-(2)-(0)-(1)36
+-(2)-(8)-(2)-(0)-(1)-(0)20
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)10
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)-(1)119
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)19
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)-(0)120
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)18
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)-(3)10
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)-(3)-(1)119
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)-(4)78
+-(2)-(8)-(2)-(0)-(1)-(0)20
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)10
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)-(1)9
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)19
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)-(0)114
+-(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)79
+-(2)-(8)-(2)-(0)-(1)-(0)32
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)31
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)-(0)47
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)-(2)113
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)-(3)114
 
-##EXTRACT
-DIFF IS NOT NULL
-Feb 07, 2017 10:01:45 PM TestTreeLM main
-WARNING: Failed to get AST for beforeFiles java.lang.ClassCastException: ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode cannot be cast to ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractDifferences(FileDistiller.java:132)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:114)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:83)
-	at TestTreeLM.analyzeDistiller(TestTreeLM.java:171)
-	at TestTreeLM.main(TestTreeLM.java:92)
-	at Test.main(Test.java:33)
-
-LEFT COMMENTS
-RIGHT COMMENTS
-#SNODE L: CU: null
-#SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@5aebe890
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@65d09a04
-
-#TRAVERSE
-LEFTCHILD: null
-RIGHTCHILD: CLASS: ObservableDistinctUntilChanged
-##SNODE L: null
-##SNODE L: CLASS: ObservableDistinctUntilChanged
-##SNODE[] L: null
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@33c911a1
-
-##EXTRACT
-DIFF IS NOT NULL
-LEFTCHILD: CLASS: OperatorGroupBy
-RIGHTCHILD: null
-##SNODE L: CLASS: OperatorGroupBy
-##SNODE L: null
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@75db5df9
-##SNODE[] R: null
-
-##EXTRACT
-DIFF IS NOT NULL
-Feb 07, 2017 10:01:45 PM TestTreeLM main
-WARNING: Failed to get AST for beforeFiles java.lang.ClassCastException: ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode cannot be cast to ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractDifferences(FileDistiller.java:132)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:114)
-	at ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller.extractClassifiedSourceCodeChanges(FileDistiller.java:83)
-	at TestTreeLM.analyzeDistiller(TestTreeLM.java:171)
-	at TestTreeLM.main(TestTreeLM.java:92)
-	at Test.main(Test.java:33)
-
-Feb 07, 2017 10:01:45 PM TestTreeLM main
-INFO: Loaded 0 files containing 0 nodes
+Feb 09, 2017 6:42:31 PM TestTreeLM main
+INFO: Loaded 3 files containing 374 nodes
 =======Iteration 0==============
-Log-Prob: 0.00 (0 nodes with avg log-prob NaN)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:0
-Avg Tree Size: NaN
+Log-Prob: -16.54 (61 nodes with avg log-prob -0.271)
+Size Stats: 1-5:2 6-15:2 16-30:0 >30:1
+Avg Tree Size: 13.00
 =======Iteration 1==============
-Log-Prob: 0.00 (0 nodes with avg log-prob NaN)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:0
-Avg Tree Size: NaN
+Log-Prob: -17.26 (61 nodes with avg log-prob -0.283)
+Size Stats: 1-5:1 6-15:3 16-30:1 >30:0
+Avg Tree Size: 13.00
 =======Iteration 2==============
-Log-Prob: 0.00 (0 nodes with avg log-prob NaN)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:0
-Avg Tree Size: NaN
+Log-Prob: -10.24 (61 nodes with avg log-prob -0.168)
+Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
+Avg Tree Size: 21.00
 =======Iteration 3==============
-Log-Prob: 0.00 (0 nodes with avg log-prob NaN)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:0
-Avg Tree Size: NaN
+Log-Prob: -15.35 (61 nodes with avg log-prob -0.252)
+Size Stats: 1-5:4 6-15:0 16-30:0 >30:1
+Avg Tree Size: 13.00
 =======Iteration 4==============
-Log-Prob: 0.00 (0 nodes with avg log-prob NaN)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:0
-Avg Tree Size: NaN
-Feb 07, 2017 10:01:45 PM TestTreeLM main
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 5==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 6==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 7==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 8==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 9==============
+Log-Prob: -10.34 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 10==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 11==============
+Log-Prob: -6.91 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 12==============
+Log-Prob: -6.78 (61 nodes with avg log-prob -0.111)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 13==============
+Log-Prob: -10.38 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:0 6-15:2 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 14==============
+Log-Prob: -6.78 (61 nodes with avg log-prob -0.111)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 15==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 16==============
+Log-Prob: -13.63 (61 nodes with avg log-prob -0.223)
+Size Stats: 1-5:1 6-15:1 16-30:1 >30:1
+Avg Tree Size: 16.00
+=======Iteration 17==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 18==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:0 16-30:1 >30:1
+Avg Tree Size: 31.00
+=======Iteration 19==============
+Couldn't open cc.mallet.util.MalletLogger resources/logging.properties file.
+ Perhaps the 'resources' directories weren't copied into the 'class' directory.
+ Continuing.
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 0, cost = -70.75151039221905
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 1, cost = -70.65112157975165
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+WARNING: Reverting back to GA
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 2, cost = -70.58080934199378
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+WARNING: Reverting back to GA
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 3, cost = -70.51060240162417
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 4, cost = -70.44863844993014
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 5, cost = -70.42287044591114
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 6, cost = -70.41449634649996
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 7, cost = -70.41438197056692
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient converged: old value= -70.41438197056692 new value= -70.41435515065533 tolerance=1.0E-6
+Feb 09, 2017 6:42:31 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
+INFO: Converged at: 10.0, 0.03224295050699486
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 20==============
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 21==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 22==============
+Log-Prob: -10.26 (61 nodes with avg log-prob -0.168)
+Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 23==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 24==============
+Log-Prob: -6.53 (61 nodes with avg log-prob -0.107)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 25==============
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 26==============
+Log-Prob: -6.83 (61 nodes with avg log-prob -0.112)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 27==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 28==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 29==============
+Log-Prob: -6.78 (61 nodes with avg log-prob -0.111)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 30==============
+Log-Prob: -10.36 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 31==============
+Log-Prob: -6.83 (61 nodes with avg log-prob -0.112)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 32==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 33==============
+Log-Prob: -6.82 (61 nodes with avg log-prob -0.112)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 34==============
+Log-Prob: -11.97 (61 nodes with avg log-prob -0.196)
+Size Stats: 1-5:3 6-15:0 16-30:0 >30:1
+Avg Tree Size: 16.00
+=======Iteration 35==============
+Log-Prob: -11.99 (61 nodes with avg log-prob -0.197)
+Size Stats: 1-5:2 6-15:1 16-30:0 >30:1
+Avg Tree Size: 16.00
+=======Iteration 36==============
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 37==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 38==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 39==============
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 0, cost = -65.45948272977878
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+WARNING: Reverting back to GA
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 1, cost = -65.1541861352353
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+WARNING: Reverting back to GA
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 2, cost = -65.03212128984238
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 3, cost = -65.02933044352906
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.BackTrackLineSearch optimize
+WARNING: EXITING BACKTRACK: Jump too small (alamin=3.01185170236281E-7). Exiting and using xold. Value=-65.02933044352906
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient converged: old value= -65.02933044352906 new value= -65.02933044352906 tolerance=1.0E-6
+Feb 09, 2017 6:42:31 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
+INFO: Converged at: 10.0, 0.016643743221360266
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 40==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 41==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 42==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 43==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 44==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 45==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 46==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 47==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 48==============
+Log-Prob: -10.38 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:0 6-15:2 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 49==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 50==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 51==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 52==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 53==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 54==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 55==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:0 16-30:1 >30:1
+Avg Tree Size: 31.00
+=======Iteration 56==============
+Log-Prob: -6.87 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 57==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 58==============
+Log-Prob: -6.87 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 59==============
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 0, cost = -70.93820669744653
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+WARNING: Reverting back to GA
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 1, cost = -70.62873267183538
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 2, cost = -70.55933499020121
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 3, cost = -70.48048415179211
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 4, cost = -70.44625827647769
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 5, cost = -70.4183166704634
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 6, cost = -70.41532970647738
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 7, cost = -70.41435822419996
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.BackTrackLineSearch optimize
+WARNING: EXITING BACKTRACK: Jump too small (alamin=9.487574817466052E-7). Exiting and using xold. Value=-70.41435822419996
+Feb 09, 2017 6:42:31 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient converged: old value= -70.41435822419996 new value= -70.41435822419996 tolerance=1.0E-6
+Feb 09, 2017 6:42:31 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
+INFO: Converged at: 10.0, 0.0323068105776538
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 60==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 61==============
+Log-Prob: -10.31 (61 nodes with avg log-prob -0.169)
+Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 62==============
+Log-Prob: -10.19 (61 nodes with avg log-prob -0.167)
+Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 63==============
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 64==============
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 65==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 66==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 67==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 68==============
+Log-Prob: -6.83 (61 nodes with avg log-prob -0.112)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 69==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 70==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 71==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 72==============
+Log-Prob: -6.82 (61 nodes with avg log-prob -0.112)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 73==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 74==============
+Log-Prob: -10.38 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:0 6-15:1 16-30:2 >30:0
+Avg Tree Size: 21.00
+=======Iteration 75==============
+Log-Prob: -6.53 (61 nodes with avg log-prob -0.107)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 76==============
+Log-Prob: -10.61 (61 nodes with avg log-prob -0.174)
+Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 77==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 78==============
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 79==============
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 0, cost = -70.41435822419996
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.BackTrackLineSearch optimize
+WARNING: EXITING BACKTRACK: Jump too small (alamin=7.170113147625668E-7). Exiting and using xold. Value=-70.41435822419996
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient converged: old value= -70.41435822419996 new value= -70.41435822419996 tolerance=1.0E-6
+Feb 09, 2017 6:42:32 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
+INFO: Converged at: 10.0, 0.0323068105776538
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 80==============
+Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 81==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 82==============
+Log-Prob: -10.34 (61 nodes with avg log-prob -0.169)
+Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 83==============
+Log-Prob: -6.83 (61 nodes with avg log-prob -0.112)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 84==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 85==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 86==============
+Log-Prob: -6.82 (61 nodes with avg log-prob -0.112)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 87==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 88==============
+Log-Prob: -10.38 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:0 6-15:2 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 89==============
+Log-Prob: -8.54 (61 nodes with avg log-prob -0.140)
+Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 90==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 91==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 92==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 93==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 94==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 95==============
+Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
+Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
+Avg Tree Size: 61.00
+=======Iteration 96==============
+Log-Prob: -10.35 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 97==============
+Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
+Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
+Avg Tree Size: 31.00
+=======Iteration 98==============
+Log-Prob: -10.36 (61 nodes with avg log-prob -0.170)
+Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
+Avg Tree Size: 21.00
+=======Iteration 99==============
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 0, cost = -75.36637608339385
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+WARNING: Reverting back to GA
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 1, cost = -75.12554855836717
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 2, cost = -75.07877905342944
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient: At iteration 3, cost = -75.06794219758886
+Feb 09, 2017 6:42:32 PM cc.mallet.optimize.ConjugateGradient optimize
+INFO: ConjugateGradient converged: old value= -75.06794219758886 new value= -75.06793140121896 tolerance=1.0E-6
+Feb 09, 2017 6:42:32 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
+INFO: Converged at: 10.0, 0.04760707836080048
+Log-Prob: -6.79 (61 nodes with avg log-prob -0.111)
+Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
+Avg Tree Size: 31.00
+Feb 09, 2017 6:42:32 PM TestTreeLM main
 INFO: Sampling complete. Outputing burnin grammar...
-Feb 07, 2017 10:01:45 PM codemining.util.serialization.KryoSerialization serialize
+Feb 09, 2017 6:42:32 PM codemining.util.serialization.KryoSerialization serialize
 INFO: Serializing object of type codemining.lm.tsg.FormattedTSGrammar to tsg.ser
-Feb 07, 2017 10:01:45 PM codemining.util.serialization.KryoSerialization serialize
+Feb 09, 2017 6:42:32 PM TestTreeLM main
+INFO: Serialize grammar complete
+Feb 09, 2017 6:42:32 PM codemining.util.serialization.KryoSerialization serialize
 INFO: Serializing object of type codemining.lm.tsg.samplers.CollapsedGibbsSampler to tsgSamplerCheckpoint.ser
-
+Working: 
 ----------------------------------------------------------------------------------------------------
-Feb 07, 2017 10:01:45 PM codemining.util.serialization.KryoSerialization deserializeFrom
+Feb 09, 2017 6:42:32 PM codemining.util.serialization.KryoSerialization deserializeFrom
 INFO: Deserializing object from tsg.ser
 filename,entropy,cross-entropy
 LEFT COMMENTS
-//
-//
 RIGHT COMMENTS
-//
-//
 #SNODE L: CU: null
 #SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@196a42c3
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@4c60d6e9
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@d3e3085
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@2ba42204
 
 #TRAVERSE
-LEFTCHILD: CLASS: Circle
-RIGHTCHILD: CLASS: Circle
-##SNODE L: CLASS: Circle
-##SNODE L: CLASS: Circle
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@15043a2f
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@4a83a74a
+LEFTCHILD: CLASS: Average
+RIGHTCHILD: CLASS: Average
+##SNODE L: CLASS: Average
+##SNODE L: CLASS: Average
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@285005b8
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@5b1efaaf
 
 ##TRAVERSE
-LEFTCHILD: FIELD: listt : String[]
-RIGHTCHILD: FIELD: listt : String[]
-###SNODE L: FIELD: listt : String[]
-###SNODE L: FIELD: listt : String[]
+LEFTCHILD: METHOD: main(String[])
+RIGHTCHILD: METHOD: main(String[])
+###SNODE L: METHOD: main(String[])
+###SNODE L: METHOD: main(String[])
 ###SNODE[] L: null
 ###SNODE[] R: null
 
 ###EXTRACT
-LEFTCHILD: CONSTRUCTOR: Circle(double)
-RIGHTCHILD: CONSTRUCTOR: Circle(double)
-###SNODE L: CONSTRUCTOR: Circle(double)
-###SNODE L: CONSTRUCTOR: Circle(double)
+!!EQUAL!!
+DIFF IS NOT NULL
+LEFTCHILD: CONSTRUCTOR: Average()
+RIGHTCHILD: CONSTRUCTOR: Average()
+###SNODE L: CONSTRUCTOR: Average()
+###SNODE L: CONSTRUCTOR: Average()
 ###SNODE[] L: null
 ###SNODE[] R: null
 
 ###EXTRACT
-LEFTCHILD: FIELD: PI : double
-RIGHTCHILD: FIELD: PI : double
-###SNODE L: FIELD: PI : double
-###SNODE L: FIELD: PI : double
-###SNODE[] L: null
-###SNODE[] R: null
+DIFF IS NOT NULL
+TREE 44
+-(0)3
+-(0)-(0)2
+-(0)-(0)-(0)0
+-(0)-(0)-(1)1
+-(2)43
+-(2)-(2)4
+-(2)-(8)42
+-(2)-(8)-(1)5
+-(2)-(8)-(1)6
+-(2)-(8)-(2)8
+-(2)-(8)-(4)7
+-(2)-(8)-(7)13
+-(2)-(8)-(7)-(1)11
+-(2)-(8)-(7)-(1)-(0)10
+-(2)-(8)-(7)-(1)-(0)-(1)9
+-(2)-(8)-(7)-(3)12
+-(2)-(8)-(12)36
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)10
+-(2)-(8)-(12)-(0)-(1)-(1)14
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)15
+-(2)-(8)-(12)-(0)-(2)-(2)18
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)10
+-(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)14
+-(2)-(8)-(12)-(0)-(2)-(2)-(4)2
+-(2)-(8)-(12)-(0)-(2)-(2)-(4)-(0)16
+-(2)-(8)-(12)-(0)-(2)-(2)-(4)-(1)17
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)22
+-(2)-(8)-(12)-(0)-(2)-(2)23
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)24
+-(2)-(8)-(12)-(0)-(2)-(2)25
+-(2)-(8)-(12)-(0)37
+-(2)-(8)-(12)-(0)-(0)27
+-(2)-(8)-(12)-(0)-(0)-(0)22
+-(2)-(8)-(12)-(0)-(0)-(1)26
+-(2)-(8)-(12)-(0)-(1)36
+-(2)-(8)-(12)-(0)-(1)-(0)32
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)31
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)2
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(0)16
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(1)28
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(2)29
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(3)30
+-(2)-(8)-(12)-(0)-(1)-(0)20
+-(2)-(8)-(12)-(0)-(1)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(0)33
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)31
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(0)15
+-(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(2)34
+-(2)-(8)-(12)-(0)-(1)-(0)32
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)35
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)24
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)33
+-(2)-(8)-(12)-(0)-(1)-(0)32
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)35
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)22
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)23
+-(2)-(8)-(12)-(0)20
+-(2)-(8)-(12)-(0)-(1)21
+-(2)-(8)-(12)-(0)-(2)19
+-(2)-(8)-(12)-(0)-(2)-(0)38
+-(2)-(8)-(12)-(0)-(2)-(2)41
+-(2)-(8)-(12)-(0)-(2)-(2)-(0)24
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)40
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)39
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(0)22
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(1)23
 
-###EXTRACT
-LEFTCHILD: METHOD: forLoop()
-RIGHTCHILD: METHOD: forLoop()
-###SNODE L: METHOD: forLoop()
-###SNODE L: METHOD: forLoop()
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-LEFTCHILD: METHOD: getRadius()
-RIGHTCHILD: METHOD: getRadius()
-###SNODE L: METHOD: getRadius()
-###SNODE L: METHOD: getRadius()
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-LEFTCHILD: FIELD: radius : double
-RIGHTCHILD: FIELD: radius : double
-###SNODE L: FIELD: radius : double
-###SNODE L: FIELD: radius : double
-###SNODE[] L: null
-###SNODE[] R: null
-
-###EXTRACT
-Test Tree Expression is NULL
+Changes: -172.46176659758697
+CROSS-ENTROPY-LEFT: -1.8951842483251315
+CROSS-ENTROPY-RIGHT: -1.474032193141769
+CROSS-ENTROPY-AVG: -1.1574615207891743

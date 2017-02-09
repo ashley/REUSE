@@ -25,21 +25,16 @@ public class Test {
 	public static void main(String[] args) throws IOException, SerializationException{
 		String [] addresses1 = {"testfiles/TestLeft.java","testfiles/TestRight.java"};	
 		String [] addresses2 = {"testfiles/Circle_BEFORE.java","testfiles/Circle_AFTER.java"};	
-		//StructureNode cu2 = analyzeDistiller(addresses2[0],addresses2[1]);
-		//StructureNode cu1 = analyzeDistiller(addresses1[0],addresses1[1]);
 		
 		
-		String [] trainingFiles = {"beforeFiles","normal","5","afterFiles"};
+		String [] trainingFiles = {"beforeFiles","normal","100","afterFiles"};
 		TestTreeLM.main(trainingFiles); //Testing modified SampleTSG
-		//TSGEntropy.main("testfiles/Circle_BEFORE.java"); //Testing original Entropy generator
+		
 		System.out.println("----------------------------------------------------------------------------------------------------");
-
-		String [] entropyIng = {"testfiles/Circle_AFTER.java","testfiles/Circle_BEFORE.java"};
+		//String [] entropyIng = {"testfiles/Circle_AFTER.java","testfiles/Circle_BEFORE.java"};
+		String [] entropyIng = {"beforeFiles/test1.java","afterFiles/test1.java"};
 		TestTsgEntropy.main(entropyIng); //Testing modified Entropy generator
 		
-		
-		//String [] tsgIng = {"testfiles","normal","2"};
-		//SampleTSG.main(tsgIng); //Testing original SampleTSG
 	}
 	
 	public static StructureNode analyzeDistiller(String before, String after){

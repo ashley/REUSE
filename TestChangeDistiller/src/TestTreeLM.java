@@ -139,8 +139,11 @@ public class TestTreeLM {
 			LOGGER.warning("Sampling not complete. Outputing sample grammar...");
 			grammarToUse = (FormattedTSGrammar) sampler.getSampleGrammar();
 		}
+		
+		
 		try {
 			Serializer.getSerializer().serialize(grammarToUse, serializedFile);
+			LOGGER.info("Serialize grammar complete");
 		} catch (final Throwable e) {
 			LOGGER.severe("Failed to serialize grammar: " + ExceptionUtils.getFullStackTrace(e));
 			System.out.println("Failed to serialize grammar: " + ExceptionUtils.getFullStackTrace(e));
@@ -156,7 +159,7 @@ public class TestTreeLM {
 
 		// sampler.pruneNonSurprisingRules(1);
 		sampler.pruneRareTrees((int) (AbstractTSGSampler.BURN_IN_PCT * nIterations) - 10);
-		System.out.println(grammarToUse.toString());
+		System.out.println("Working: " + grammarToUse.toString());
 		finished.set(true); // we have finished and thus the shutdown hook can
 		// now stop waiting for us.
 	}

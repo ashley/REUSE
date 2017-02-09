@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.Comment;
 import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;
 import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
@@ -37,6 +38,7 @@ import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDifferencer;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
+import clegoues.genprog4java.treelm.GrammarUtils;
 
 import com.google.inject.Inject;
 
@@ -129,7 +131,7 @@ public class FileDistiller {
         } else {
         	fChanges = Collections.emptyList();
         }
-        return (StructureNode) structureDiff;
+        return fLeftAST;
 	}
 
     public void extractClassifiedSourceCodeChanges(File left, File right, String version) {

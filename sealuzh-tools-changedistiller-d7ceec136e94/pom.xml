@@ -144,6 +144,11 @@
 			<artifactId>org.eclipse.equinox.preferences</artifactId>
 			<version>3.4.1</version>
 		</dependency>
+		<dependency>
+			<groupId>GenProg4Java</groupId>
+			<artifactId>GenProg4Java</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
