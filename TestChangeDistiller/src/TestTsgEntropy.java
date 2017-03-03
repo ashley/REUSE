@@ -7,13 +7,14 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.eclipse.cdt.core.dom.rewrite.ASTRewrite;
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.Javadoc;
 
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
-import clegoues.genprog4java.treelm.GrammarUtils;
 import codemining.ast.java.AbstractJavaTreeExtractor;
 import codemining.ast.TreeNode;
 import codemining.languagetools.ITokenizer;
@@ -56,7 +57,7 @@ public class TestTsgEntropy {
 		StructureNode cu = analyzeDistiller(args[0],args[1]); //file 1 and file 2
 			if (cu != null){
 				final ASTNode astTree = cu.getASTNode(); //new
-				GrammarUtils.prepareAST(astTree);
+				prepareAST(astTree);
 				final TreeNode<Integer> intTree = format.getTree(astTree);
 				final TreeNode<TSGNode> tsgTree = TSGNode.convertTree(intTree, 0); //new
 	
@@ -99,6 +100,15 @@ public class TestTsgEntropy {
 			System.out.println(change);
 		}*/
 		return outcome;
+	}
+	
+	public static void prepareAST( ASTNode node ) {
+		node.accept( new ASTVisitor() {
+			@Override
+			public void endVisit( Javadoc node ) {
+				node.delete();
+			}
+		} );
 	}
 
 }

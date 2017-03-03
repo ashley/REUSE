@@ -38,7 +38,6 @@ import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDifferencer;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
-import clegoues.genprog4java.treelm.GrammarUtils;
 
 import com.google.inject.Inject;
 

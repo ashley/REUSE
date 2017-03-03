@@ -1,4 +1,4 @@
-Loaded default properties at Thu Feb 09 18:42:31 EST 2017
+Loaded default properties at Fri Mar 03 14:15:55 EST 2017
 AbstractTSGSampler.LogProbCalculationInteval=1.0
 AbstractTSGSampler.CalculateLogProb=true
 AbstractTSGSampler.CalculateStats=true

@@ -9,13 +9,14 @@ import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.Javadoc;
 
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
-import clegoues.genprog4java.treelm.GrammarUtils;
 import codemining.ast.TreeNode;
 import codemining.ast.java.AbstractJavaTreeExtractor;
 import codemining.ast.java.BinaryJavaAstTreeExtractor;
@@ -92,7 +93,7 @@ public class TestTreeLM {
 					StructureNode cu = analyzeDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
 					if (cu != null){
 						ASTNode treeInt = cu.getASTNode();
-						GrammarUtils.prepareAST(treeInt);
+						prepareAST(treeInt);
 						//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
 						final TreeNode<TSGNode> ast = TSGNode.convertTree(format.getTree(treeInt), percentRootsInit);
 						nNodes += ast.getTreeSize();
@@ -177,5 +178,14 @@ public class TestTreeLM {
 			System.out.println(change);
 		}*/
 		return outcome;
+	}
+	
+	public static void prepareAST( ASTNode node ) {
+		node.accept( new ASTVisitor() {
+			@Override
+			public void endVisit( Javadoc node ) {
+				node.delete();
+			}
+		} );
 	}
 }
