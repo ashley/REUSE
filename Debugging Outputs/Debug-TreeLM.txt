@@ -1,1068 +1,333 @@
-Mar 03, 2017 2:15:55 PM codemining.util.SettingsLoader <init>
-INFO: Configuration file not found. Loading defaults.
-LEFT COMMENTS
-RIGHT COMMENTS
-#SNODE L: CU: null
-#SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@139982de
-#SNODE[] R: null
-
-#EXTRACT
-!!EQUAL!!
-TREE 44
--(0)3
--(0)-(0)2
--(0)-(0)-(0)0
--(0)-(0)-(1)1
--(2)43
--(2)-(2)4
--(2)-(8)42
--(2)-(8)-(1)5
--(2)-(8)-(1)6
--(2)-(8)-(2)8
--(2)-(8)-(4)7
--(2)-(8)-(7)13
--(2)-(8)-(7)-(1)11
--(2)-(8)-(7)-(1)-(0)10
--(2)-(8)-(7)-(1)-(0)-(1)9
--(2)-(8)-(7)-(3)12
--(2)-(8)-(12)36
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)10
--(2)-(8)-(12)-(0)-(1)-(1)14
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)15
--(2)-(8)-(12)-(0)-(2)-(2)18
--(2)-(8)-(12)-(0)-(2)-(2)-(3)10
--(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)14
--(2)-(8)-(12)-(0)-(2)-(2)-(4)2
--(2)-(8)-(12)-(0)-(2)-(2)-(4)-(0)16
--(2)-(8)-(12)-(0)-(2)-(2)-(4)-(1)17
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)21
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)22
--(2)-(8)-(12)-(0)-(2)-(2)23
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)21
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)24
--(2)-(8)-(12)-(0)-(2)-(2)25
--(2)-(8)-(12)-(0)37
--(2)-(8)-(12)-(0)-(0)27
--(2)-(8)-(12)-(0)-(0)-(0)22
--(2)-(8)-(12)-(0)-(0)-(1)26
--(2)-(8)-(12)-(0)-(1)36
--(2)-(8)-(12)-(0)-(1)-(0)32
--(2)-(8)-(12)-(0)-(1)-(0)-(0)31
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)2
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(0)16
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(1)28
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(2)29
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(3)30
--(2)-(8)-(12)-(0)-(1)-(0)20
--(2)-(8)-(12)-(0)-(1)-(0)-(1)21
--(2)-(8)-(12)-(0)-(1)-(0)-(2)19
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(0)33
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)31
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(0)15
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(2)34
--(2)-(8)-(12)-(0)-(1)-(0)32
--(2)-(8)-(12)-(0)-(1)-(0)-(0)35
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)24
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)33
--(2)-(8)-(12)-(0)-(1)-(0)32
--(2)-(8)-(12)-(0)-(1)-(0)-(0)35
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)22
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)23
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)21
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)38
--(2)-(8)-(12)-(0)-(2)-(2)41
--(2)-(8)-(12)-(0)-(2)-(2)-(0)24
--(2)-(8)-(12)-(0)-(2)-(2)-(1)40
--(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)39
--(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(0)22
--(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(1)23
-
-LEFT COMMENTS
-//
-//
-RIGHT COMMENTS
-//
-//
-#SNODE L: CU: null
-#SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@152aa092
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@44a7bfbc
-
-#TRAVERSE
-LEFTCHILD: null
-RIGHTCHILD: CLASS: Average
-##SNODE L: null
-##SNODE L: CLASS: Average
-##SNODE[] L: null
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@4ef37659
-
-##EXTRACT
-DIFF IS NOT NULL
-LEFTCHILD: CLASS: CharStringDemo
-RIGHTCHILD: null
-##SNODE L: CLASS: CharStringDemo
-##SNODE L: null
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@776b83cc
-##SNODE[] R: null
-
-##EXTRACT
-DIFF IS NOT NULL
-TREE 44
--(2)43
--(2)-(2)45
--(2)-(8)42
--(2)-(8)-(1)5
--(2)-(8)-(1)6
--(2)-(8)-(2)8
--(2)-(8)-(4)7
--(2)-(8)-(7)46
--(2)-(8)-(7)-(1)10
--(2)-(8)-(7)-(1)-(1)9
--(2)-(8)-(7)-(3)12
--(2)-(8)-(12)36
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)10
--(2)-(8)-(12)-(0)-(1)-(1)9
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)47
--(2)-(8)-(12)-(0)-(2)-(2)48
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)49
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)50
--(2)-(8)-(12)-(0)-(2)-(2)31
--(2)-(8)-(12)-(0)-(2)-(2)-(0)47
--(2)-(8)-(12)-(0)-(2)-(2)-(2)51
--(2)-(8)-(12)-(0)-(2)-(2)-(3)25
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(0)2
--(2)-(8)-(12)-(0)-(0)-(0)-(0)16
--(2)-(8)-(12)-(0)-(0)-(0)-(1)28
--(2)-(8)-(12)-(0)-(0)-(2)29
--(2)-(8)-(12)-(0)-(0)-(3)54
--(2)-(8)-(12)-(0)-(0)-(3)-(0)52
--(2)-(8)-(12)-(0)-(0)-(3)-(1)47
--(2)-(8)-(12)-(0)-(0)-(3)-(2)53
--(2)-(8)-(12)-(0)-(0)-(3)-(2)50
--(2)-(8)-(12)-(0)60
--(2)-(8)-(12)-(0)-(0)56
--(2)-(8)-(12)-(0)-(0)-(1)21
--(2)-(8)-(12)-(0)-(0)-(2)19
--(2)-(8)-(12)-(0)-(0)-(2)-(0)55
--(2)-(8)-(12)-(0)-(0)-(2)-(2)25
--(2)-(8)-(12)-(0)-(1)58
--(2)-(8)-(12)-(0)-(1)-(0)55
--(2)-(8)-(12)-(0)-(1)-(1)31
--(2)-(8)-(12)-(0)-(1)-(1)-(0)47
--(2)-(8)-(12)-(0)-(1)-(1)-(2)57
--(2)-(8)-(12)-(0)-(2)59
--(2)-(8)-(12)-(0)-(2)-(0)55
--(2)-(8)-(12)-(0)-(3)32
--(2)-(8)-(12)-(0)-(3)-(0)31
--(2)-(8)-(12)-(0)-(3)-(0)-(0)2
--(2)-(8)-(12)-(0)-(3)-(0)-(0)-(0)16
--(2)-(8)-(12)-(0)-(3)-(0)-(0)-(1)28
--(2)-(8)-(12)-(0)-(3)-(0)-(2)29
--(2)-(8)-(12)-(0)-(3)-(0)-(3)31
--(2)-(8)-(12)-(0)-(3)-(0)-(3)-(0)47
--(2)-(8)-(12)-(0)-(3)-(0)-(3)-(2)51
--(2)-(8)-(12)-(0)-(3)-(0)-(3)-(3)55
-
-LEFT COMMENTS
-//
-//
-/** 
- * when Panel is finished, add to the Frame, then add a label 
- */
-//
-RIGHT COMMENTS
-//
-//
-/** 
- * when Panel is finished, add to the Frame, then add a label 
- */
-//
-#SNODE L: CU: null
-#SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@1e6454ec
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@2accdbb5
-
-#TRAVERSE
-LEFTCHILD: null
-RIGHTCHILD: CLASS: CharStringDemo
-##SNODE L: null
-##SNODE L: CLASS: CharStringDemo
-##SNODE[] L: null
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@b62d79
-
-##EXTRACT
-DIFF IS NOT NULL
-LEFTCHILD: CLASS: ClassQuiz
-RIGHTCHILD: null
-##SNODE L: CLASS: ClassQuiz
-##SNODE L: null
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6631f5ca
-##SNODE[] R: null
-
-##EXTRACT
-DIFF IS NOT NULL
-TREE 44
--(0)3
--(0)-(0)2
--(0)-(0)-(0)61
--(0)-(0)-(1)62
--(0)3
--(0)-(0)2
--(0)-(0)-(0)0
--(0)-(0)-(1)63
--(0)3
--(0)-(0)2
--(0)-(0)-(0)2
--(0)-(0)-(0)-(0)0
--(0)-(0)-(0)-(1)63
--(0)-(0)-(1)64
--(2)43
--(2)-(1)5
--(2)-(2)65
--(2)-(5)10
--(2)-(5)-(1)66
--(2)-(6)10
--(2)-(6)-(1)67
--(2)-(8)72
--(2)-(8)-(1)68
--(2)-(8)-(1)69
--(2)-(8)-(2)21
--(2)-(8)-(3)19
--(2)-(8)-(3)-(0)70
--(2)-(8)-(3)-(2)71
--(2)-(8)72
--(2)-(8)-(1)68
--(2)-(8)-(1)69
--(2)-(8)-(2)21
--(2)-(8)-(3)19
--(2)-(8)-(3)-(0)73
--(2)-(8)-(3)-(2)71
--(2)-(8)72
--(2)-(8)-(1)68
--(2)-(8)-(2)10
--(2)-(8)-(2)-(1)74
--(2)-(8)-(3)19
--(2)-(8)-(3)-(0)47
--(2)-(8)72
--(2)-(8)-(1)68
--(2)-(8)-(2)10
--(2)-(8)-(2)-(1)75
--(2)-(8)-(3)19
--(2)-(8)-(3)-(0)76
--(2)-(8)-(3)19
--(2)-(8)-(3)-(0)77
--(2)-(8)72
--(2)-(8)-(1)68
--(2)-(8)-(2)10
--(2)-(8)-(2)-(1)9
--(2)-(8)-(3)19
--(2)-(8)-(3)-(0)78
--(2)-(8)-(3)-(2)79
--(2)-(8)105
--(2)-(8)-(1)5
--(2)-(8)-(2)65
--(2)-(8)-(12)36
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(2)80
--(2)-(8)-(12)-(0)-(0)-(3)81
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(2)82
--(2)-(8)-(12)-(0)-(0)-(3)70
--(2)-(8)-(12)-(0)-(0)-(3)73
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(2)83
--(2)-(8)-(12)-(0)-(0)-(3)2
--(2)-(8)-(12)-(0)-(0)-(3)-(0)66
--(2)-(8)-(12)-(0)-(0)-(3)-(1)84
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(2)85
--(2)-(8)-(12)-(0)-(0)-(3)18
--(2)-(8)-(12)-(0)-(0)-(3)-(3)10
--(2)-(8)-(12)-(0)-(0)-(3)-(3)-(1)86
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)10
--(2)-(8)-(12)-(0)-(1)-(1)87
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)88
--(2)-(8)-(12)-(0)-(2)-(2)18
--(2)-(8)-(12)-(0)-(2)-(2)-(3)10
--(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)87
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)92
--(2)-(8)-(12)-(0)-(0)-(0)47
--(2)-(8)-(12)-(0)-(0)-(1)18
--(2)-(8)-(12)-(0)-(0)-(1)-(3)10
--(2)-(8)-(12)-(0)-(0)-(1)-(3)-(1)74
--(2)-(8)-(12)-(0)-(0)-(1)-(4)89
--(2)-(8)-(12)-(0)-(0)-(1)-(4)23
--(2)-(8)-(12)-(0)-(0)-(1)-(4)90
--(2)-(8)-(12)-(0)-(0)-(1)-(4)2
--(2)-(8)-(12)-(0)-(0)-(1)-(4)-(0)74
--(2)-(8)-(12)-(0)-(0)-(1)-(4)-(1)91
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(0)88
--(2)-(8)-(12)-(0)-(0)-(2)93
--(2)-(8)-(12)-(0)-(0)-(3)47
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(2)93
--(2)-(8)-(12)-(0)-(0)-(3)88
--(2)-(8)-(12)-(0)-(0)-(3)2
--(2)-(8)-(12)-(0)-(0)-(3)-(0)86
--(2)-(8)-(12)-(0)-(0)-(3)-(1)94
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)10
--(2)-(8)-(12)-(0)-(1)-(1)87
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)95
--(2)-(8)-(12)-(0)-(2)-(2)18
--(2)-(8)-(12)-(0)-(2)-(2)-(3)10
--(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)87
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(0)95
--(2)-(8)-(12)-(0)-(0)-(2)85
--(2)-(8)-(12)-(0)-(0)-(3)18
--(2)-(8)-(12)-(0)-(0)-(3)-(3)10
--(2)-(8)-(12)-(0)-(0)-(3)-(3)-(1)96
--(2)-(8)-(12)-(0)-(0)-(3)-(4)23
--(2)-(8)-(12)-(0)-(0)-(3)-(4)97
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)92
--(2)-(8)-(12)-(0)-(0)-(0)76
--(2)-(8)-(12)-(0)-(0)-(1)18
--(2)-(8)-(12)-(0)-(0)-(1)-(3)10
--(2)-(8)-(12)-(0)-(0)-(1)-(3)-(1)75
--(2)-(8)-(12)-(0)-(0)-(1)-(4)98
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)92
--(2)-(8)-(12)-(0)-(0)-(0)77
--(2)-(8)-(12)-(0)-(0)-(1)18
--(2)-(8)-(12)-(0)-(0)-(1)-(3)10
--(2)-(8)-(12)-(0)-(0)-(1)-(3)-(1)75
--(2)-(8)-(12)-(0)-(0)-(1)-(4)99
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(0)95
--(2)-(8)-(12)-(0)-(0)-(2)93
--(2)-(8)-(12)-(0)-(0)-(3)77
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(0)95
--(2)-(8)-(12)-(0)-(0)-(2)93
--(2)-(8)-(12)-(0)-(0)-(3)76
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(2)93
--(2)-(8)-(12)-(0)-(0)-(3)95
--(2)-(8)-(12)-(0)-(0)-(3)2
--(2)-(8)-(12)-(0)-(0)-(3)-(0)86
--(2)-(8)-(12)-(0)-(0)-(3)-(1)100
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(0)76
--(2)-(8)-(12)-(0)-(0)-(2)101
--(2)-(8)-(12)-(0)-(0)-(3)102
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(0)77
--(2)-(8)-(12)-(0)-(0)-(2)101
--(2)-(8)-(12)-(0)-(0)-(3)102
--(2)-(8)-(12)-(0)32
--(2)-(8)-(12)-(0)-(0)31
--(2)-(8)-(12)-(0)-(0)-(2)103
--(2)-(8)-(12)-(0)-(0)-(3)104
--(2)-(8)42
--(2)-(8)-(1)5
--(2)-(8)-(2)106
--(2)-(8)-(4)7
--(2)-(8)-(7)13
--(2)-(8)-(7)-(1)10
--(2)-(8)-(7)-(1)-(1)107
--(2)-(8)-(7)-(3)108
--(2)-(8)-(12)36
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)10
--(2)-(8)-(12)-(0)-(1)-(1)109
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)110
--(2)-(8)-(12)-(0)-(2)-(2)31
--(2)-(8)-(12)-(0)-(2)-(2)-(0)108
--(2)-(8)-(12)-(0)-(2)-(2)-(2)111
--(2)-(8)-(12)-(0)115
--(2)-(8)-(12)-(0)-(0)112
--(2)-(8)-(12)-(0)-(0)-(0)110
--(2)-(8)-(12)-(0)-(0)-(1)76
--(2)-(8)-(12)-(0)-(1)36
--(2)-(8)-(12)-(0)-(1)-(0)32
--(2)-(8)-(12)-(0)-(1)-(0)-(0)31
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)47
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(2)113
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(3)114
--(2)-(8)121
--(2)-(8)-(2)36
--(2)-(8)-(2)-(0)32
--(2)-(8)-(2)-(0)-(0)92
--(2)-(8)-(2)-(0)-(0)-(0)78
--(2)-(8)-(2)-(0)-(0)-(1)31
--(2)-(8)-(2)-(0)-(0)-(1)-(0)47
--(2)-(8)-(2)-(0)-(0)-(1)-(2)116
--(2)-(8)-(2)-(0)115
--(2)-(8)-(2)-(0)-(0)118
--(2)-(8)-(2)-(0)-(0)-(0)31
--(2)-(8)-(2)-(0)-(0)-(0)-(0)78
--(2)-(8)-(2)-(0)-(0)-(0)-(2)117
--(2)-(8)-(2)-(0)-(1)36
--(2)-(8)-(2)-(0)-(1)-(0)20
--(2)-(8)-(2)-(0)-(1)-(0)-(1)10
--(2)-(8)-(2)-(0)-(1)-(0)-(1)-(1)119
--(2)-(8)-(2)-(0)-(1)-(0)-(2)19
--(2)-(8)-(2)-(0)-(1)-(0)-(2)-(0)120
--(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)18
--(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)-(3)10
--(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)-(3)-(1)119
--(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)-(4)78
--(2)-(8)-(2)-(0)-(1)-(0)20
--(2)-(8)-(2)-(0)-(1)-(0)-(1)10
--(2)-(8)-(2)-(0)-(1)-(0)-(1)-(1)9
--(2)-(8)-(2)-(0)-(1)-(0)-(2)19
--(2)-(8)-(2)-(0)-(1)-(0)-(2)-(0)114
--(2)-(8)-(2)-(0)-(1)-(0)-(2)-(2)79
--(2)-(8)-(2)-(0)-(1)-(0)32
--(2)-(8)-(2)-(0)-(1)-(0)-(0)31
--(2)-(8)-(2)-(0)-(1)-(0)-(0)-(0)47
--(2)-(8)-(2)-(0)-(1)-(0)-(0)-(2)113
--(2)-(8)-(2)-(0)-(1)-(0)-(0)-(3)114
-
-Mar 03, 2017 2:15:55 PM TestTreeLM main
-INFO: Loaded 3 files containing 374 nodes
-=======Iteration 0==============
-Log-Prob: -10.24 (61 nodes with avg log-prob -0.168)
-Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 1==============
-Log-Prob: -9.68 (61 nodes with avg log-prob -0.159)
-Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 2==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 3==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 4==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 5==============
-Log-Prob: -10.37 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:0 6-15:2 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 6==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 7==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 8==============
-Log-Prob: -13.74 (61 nodes with avg log-prob -0.225)
-Size Stats: 1-5:2 6-15:1 16-30:0 >30:1
-Avg Tree Size: 16.00
-=======Iteration 9==============
-Log-Prob: -6.89 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 10==============
-Log-Prob: -6.80 (61 nodes with avg log-prob -0.111)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 11==============
-Log-Prob: -10.34 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 12==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 13==============
-Log-Prob: -6.78 (61 nodes with avg log-prob -0.111)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 14==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 15==============
-Log-Prob: -13.78 (61 nodes with avg log-prob -0.226)
-Size Stats: 1-5:2 6-15:1 16-30:0 >30:1
-Avg Tree Size: 16.00
-=======Iteration 16==============
-Log-Prob: -14.03 (61 nodes with avg log-prob -0.230)
-Size Stats: 1-5:2 6-15:1 16-30:0 >30:1
-Avg Tree Size: 16.00
-=======Iteration 17==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 18==============
-Log-Prob: -10.37 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:0 6-15:1 16-30:2 >30:0
-Avg Tree Size: 21.00
-=======Iteration 19==============
-Couldn't open cc.mallet.util.MalletLogger resources/logging.properties file.
- Perhaps the 'resources' directories weren't copied into the 'class' directory.
- Continuing.
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 0, cost = -75.0734384871064
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 1, cost = -75.06809035612335
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 2, cost = -75.06798401086658
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient converged: old value= -75.06798401086658 new value= -75.06793125797171 tolerance=1.0E-6
-Mar 03, 2017 2:15:56 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
-INFO: Converged at: 10.0, 0.04761962482166301
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 20==============
-Log-Prob: -6.79 (61 nodes with avg log-prob -0.111)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 21==============
-Log-Prob: -10.63 (61 nodes with avg log-prob -0.174)
-Size Stats: 1-5:0 6-15:2 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 22==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 23==============
-Log-Prob: -8.50 (61 nodes with avg log-prob -0.139)
-Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 24==============
-Log-Prob: -13.27 (61 nodes with avg log-prob -0.218)
-Size Stats: 1-5:2 6-15:1 16-30:0 >30:1
-Avg Tree Size: 16.00
-=======Iteration 25==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 26==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 27==============
-Log-Prob: -6.89 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 28==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:0 16-30:1 >30:1
-Avg Tree Size: 31.00
-=======Iteration 29==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 30==============
-Log-Prob: -6.79 (61 nodes with avg log-prob -0.111)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 31==============
-Log-Prob: -6.78 (61 nodes with avg log-prob -0.111)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 32==============
-Log-Prob: -10.22 (61 nodes with avg log-prob -0.167)
-Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 33==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 34==============
-Log-Prob: -6.79 (61 nodes with avg log-prob -0.111)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 35==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 36==============
-Log-Prob: -10.35 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 37==============
-Log-Prob: -10.23 (61 nodes with avg log-prob -0.168)
-Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 38==============
-Log-Prob: -6.44 (61 nodes with avg log-prob -0.106)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 39==============
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 0, cost = -70.67563132236131
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 1, cost = -70.59387851012094
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 2, cost = -70.54843551789958
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 3, cost = -70.45619981367435
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 4, cost = -70.42841313368277
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 5, cost = -70.41474587883857
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 6, cost = -70.41451886190035
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 7, cost = -70.4143832256456
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient converged: old value= -70.4143832256456 new value= -70.41435672247516 tolerance=1.0E-6
-Mar 03, 2017 2:15:56 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
-INFO: Converged at: 10.0, 0.032294487211092626
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 40==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 41==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 42==============
-Log-Prob: -6.56 (61 nodes with avg log-prob -0.108)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 43==============
-Log-Prob: -10.38 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:0 6-15:2 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 44==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 45==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 46==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 47==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 48==============
-Log-Prob: -6.82 (61 nodes with avg log-prob -0.112)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 49==============
-Log-Prob: -6.82 (61 nodes with avg log-prob -0.112)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 50==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 51==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 52==============
-Log-Prob: -10.36 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 53==============
-Log-Prob: -6.83 (61 nodes with avg log-prob -0.112)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 54==============
-Log-Prob: -11.97 (61 nodes with avg log-prob -0.196)
-Size Stats: 1-5:3 6-15:0 16-30:0 >30:1
-Avg Tree Size: 16.00
-=======Iteration 55==============
-Log-Prob: -12.00 (61 nodes with avg log-prob -0.197)
-Size Stats: 1-5:2 6-15:0 16-30:1 >30:1
-Avg Tree Size: 16.00
-=======Iteration 56==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 57==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 58==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 59==============
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 0, cost = -70.41435672247518
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.BackTrackLineSearch optimize
-WARNING: EXITING BACKTRACK: Jump too small (alamin=9.592533023362588E-7). Exiting and using xold. Value=-70.41435672247518
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient converged: old value= -70.41435672247518 new value= -70.41435672247518 tolerance=1.0E-6
-Mar 03, 2017 2:15:56 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
-INFO: Converged at: 10.0, 0.032294487211092626
-Log-Prob: -10.35 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 60==============
-Log-Prob: -10.24 (61 nodes with avg log-prob -0.168)
-Size Stats: 1-5:2 6-15:0 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 61==============
-Log-Prob: -6.83 (61 nodes with avg log-prob -0.112)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 62==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 63==============
-Log-Prob: -6.90 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 64==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 65==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 66==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 67==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:0 16-30:1 >30:1
-Avg Tree Size: 31.00
-=======Iteration 68==============
-Log-Prob: -6.87 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 69==============
-Log-Prob: -6.53 (61 nodes with avg log-prob -0.107)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 70==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 71==============
-Log-Prob: -6.82 (61 nodes with avg log-prob -0.112)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 72==============
-Log-Prob: -6.78 (61 nodes with avg log-prob -0.111)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 73==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 74==============
-Log-Prob: -11.97 (61 nodes with avg log-prob -0.196)
-Size Stats: 1-5:3 6-15:0 16-30:0 >30:1
-Avg Tree Size: 16.00
-=======Iteration 75==============
-Log-Prob: -10.28 (61 nodes with avg log-prob -0.169)
-Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 76==============
-Log-Prob: -6.92 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:0 6-15:1 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 77==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 78==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 79==============
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 0, cost = -65.46178844523556
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 1, cost = -65.15348292783227
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 2, cost = -65.0319779653584
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 3, cost = -65.02995286439184
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-WARNING: Reverting back to GA
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 4, cost = -65.029169085131
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.BackTrackLineSearch optimize
-WARNING: EXITING BACKTRACK: Jump too small (alamin=3.409587026913833E-7). Exiting and using xold. Value=-65.029169085131
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient converged: old value= -65.029169085131 new value= -65.029169085131 tolerance=1.0E-6
-Mar 03, 2017 2:15:56 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
-INFO: Converged at: 10.0, 0.016447354880737508
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 80==============
-Log-Prob: -6.91 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 81==============
-Log-Prob: -6.87 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 82==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 83==============
-Log-Prob: -6.87 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 84==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 85==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 86==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 87==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 88==============
-Log-Prob: -10.37 (61 nodes with avg log-prob -0.170)
-Size Stats: 1-5:1 6-15:0 16-30:1 >30:1
-Avg Tree Size: 21.00
-=======Iteration 89==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 90==============
-Log-Prob: -10.34 (61 nodes with avg log-prob -0.169)
-Size Stats: 1-5:1 6-15:1 16-30:0 >30:1
-Avg Tree Size: 21.00
-=======Iteration 91==============
-Log-Prob: -6.84 (61 nodes with avg log-prob -0.112)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 92==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 93==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 94==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 95==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 96==============
-Log-Prob: -6.91 (61 nodes with avg log-prob -0.113)
-Size Stats: 1-5:1 6-15:0 16-30:0 >30:1
-Avg Tree Size: 31.00
-=======Iteration 97==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 98==============
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-=======Iteration 99==============
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient: At iteration 0, cost = -65.029169085131
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.BackTrackLineSearch optimize
-WARNING: EXITING BACKTRACK: Jump too small (alamin=3.409587026913833E-7). Exiting and using xold. Value=-65.029169085131
-Mar 03, 2017 2:15:56 PM cc.mallet.optimize.ConjugateGradient optimize
-INFO: ConjugateGradient converged: old value= -65.029169085131 new value= -65.029169085131 tolerance=1.0E-6
-Mar 03, 2017 2:15:56 PM codemining.lm.tsg.samplers.ClassicTsgPosteriorComputer optimizeHyperparameters
-INFO: Converged at: 10.0, 0.016447354880737508
-Log-Prob: -3.46 (61 nodes with avg log-prob -0.057)
-Size Stats: 1-5:0 6-15:0 16-30:0 >30:1
-Avg Tree Size: 61.00
-Mar 03, 2017 2:15:56 PM TestTreeLM main
-INFO: Sampling complete. Outputing burnin grammar...
-Mar 03, 2017 2:15:56 PM codemining.util.serialization.KryoSerialization serialize
-INFO: Serializing object of type codemining.lm.tsg.FormattedTSGrammar to tsg.ser
-Mar 03, 2017 2:15:56 PM TestTreeLM main
-INFO: Serialize grammar complete
-Mar 03, 2017 2:15:56 PM codemining.util.serialization.KryoSerialization serialize
-INFO: Serializing object of type codemining.lm.tsg.samplers.CollapsedGibbsSampler to tsgSamplerCheckpoint.ser
-Working: 
 ----------------------------------------------------------------------------------------------------
-Mar 03, 2017 2:15:56 PM codemining.util.serialization.KryoSerialization deserializeFrom
+Mar 16, 2017 10:49:17 PM codemining.util.SettingsLoader <init>
+INFO: Configuration file not found. Loading defaults.
+Mar 16, 2017 10:49:17 PM codemining.util.serialization.KryoSerialization deserializeFrom
 INFO: Deserializing object from tsg.ser
-filename,entropy,cross-entropy
-LEFT COMMENTS
-RIGHT COMMENTS
-#SNODE L: CU: null
-#SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@5f36c8e3
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@4da39ca9
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: java
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: util
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,qualifier]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,name]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ImportDeclaration,name]
+SPID: onDemand
+sp: SimpleProperty[org.eclipse.jdt.core.dom.ImportDeclaration,onDemand]
+spValue: true
+GOOD
+SPID: static
+sp: SimpleProperty[org.eclipse.jdt.core.dom.ImportDeclaration,static]
+spValue: false
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: Average
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: keyword
+ASTNODE FOR TREENODE SUCCESS
+SPID: keyword
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: main
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: primitiveTypeCode
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: String
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SimpleType,name]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ArrayType,componentType]
+Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: 64: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
+	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
+	at org.eclipse.jdt.core.dom.ArrayType.setComponentType(ArrayType.java:310)
+	at org.eclipse.jdt.core.dom.ArrayType.internalGetSetChildProperty(ArrayType.java:200)
+	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1736)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:552)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
+	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
+	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
+	at Test.main(Test.java:39)
 
-#TRAVERSE
-LEFTCHILD: CLASS: Average
-RIGHTCHILD: CLASS: Average
-##SNODE L: CLASS: Average
-##SNODE L: CLASS: Average
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6a9344f5
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@5584d9c6
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: argv
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SingleVariableDeclaration,type]
+Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: 62: Failed to get ASTNode for subtree null java.lang.NullPointerException
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:553)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
+	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
+	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
+	at Test.main(Test.java:39)
 
-##TRAVERSE
-LEFTCHILD: METHOD: main(String[])
-RIGHTCHILD: METHOD: main(String[])
-###SNODE L: METHOD: main(String[])
-###SNODE L: METHOD: main(String[])
-###SNODE[] L: null
-###SNODE[] R: null
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: Scanner
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SimpleType,name]
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: sc
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: Scanner
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SimpleType,name]
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: System
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: in
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,qualifier]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,name]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ClassInstanceCreation,type]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
+ASTNODE FOR TREENODE SUCCESS
+SPID: primitiveTypeCode
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: counter
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: token
+sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
+spValue: 1
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
+ASTNODE FOR TREENODE SUCCESS
+SPID: primitiveTypeCode
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: total
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: token
+sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
+spValue: 0
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: counter
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: token
+sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
+spValue: 3
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,leftOperand]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,rightOperand]
+SPID: operator
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: System
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: out
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,qualifier]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,name]
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: println
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: escapedValue
+sp: SimpleProperty[org.eclipse.jdt.core.dom.StringLiteral,escapedValue]
+spValue: "enter a number: "
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,expression]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,name]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ExpressionStatement,expression]
+ASTNODE FOR TREENODE SUCCESS
+SPID: primitiveTypeCode
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: number
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: sc
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: nextInt
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,expression]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,name]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: total
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: number
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,leftHandSide]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,rightHandSide]
+SPID: operator
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ExpressionStatement,expression]
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: counter
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: token
+sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
+spValue: 1
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,leftHandSide]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,rightHandSide]
+SPID: operator
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ExpressionStatement,expression]
+ASTNODE FOR TREENODE SUCCESS
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.WhileStatement,expression]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.WhileStatement,body]
+ASTNODE FOR TREENODE SUCCESS
+SPID: primitiveTypeCode
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: average
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: total
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: identifier
+sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
+spValue: counter
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+SPID: token
+sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
+spValue: 1
+GOOD
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,leftOperand]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,rightOperand]
+SPID: operator
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ParenthesizedExpression,expression]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,leftOperand]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,rightOperand]
+SPID: operator
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
+ASTNODE FOR TREENODE SUCCESS
+ASTNODE FOR TREENODE SUCCESS
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodDeclaration,name]
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodDeclaration,returnType2]
+Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: 2: Failed to get ASTNode for subtree null java.lang.NullPointerException
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:561)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
+	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
+	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
+	at Test.main(Test.java:39)
 
-###EXTRACT
-!!EQUAL!!
-DIFF IS NOT NULL
-LEFTCHILD: CONSTRUCTOR: Average()
-RIGHTCHILD: CONSTRUCTOR: Average()
-###SNODE L: CONSTRUCTOR: Average()
-###SNODE L: CONSTRUCTOR: Average()
-###SNODE[] L: null
-###SNODE[] R: null
+DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.TypeDeclaration,name]
+Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: 1: Failed to get ASTNode for subtree null java.lang.NullPointerException
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:561)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
+	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
+	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
+	at Test.main(Test.java:39)
 
-###EXTRACT
-DIFF IS NOT NULL
-TREE 44
--(0)3
--(0)-(0)2
--(0)-(0)-(0)0
--(0)-(0)-(1)1
--(2)43
--(2)-(2)4
--(2)-(8)42
--(2)-(8)-(1)5
--(2)-(8)-(1)6
--(2)-(8)-(2)8
--(2)-(8)-(4)7
--(2)-(8)-(7)13
--(2)-(8)-(7)-(1)11
--(2)-(8)-(7)-(1)-(0)10
--(2)-(8)-(7)-(1)-(0)-(1)9
--(2)-(8)-(7)-(3)12
--(2)-(8)-(12)36
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)10
--(2)-(8)-(12)-(0)-(1)-(1)14
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)15
--(2)-(8)-(12)-(0)-(2)-(2)18
--(2)-(8)-(12)-(0)-(2)-(2)-(3)10
--(2)-(8)-(12)-(0)-(2)-(2)-(3)-(1)14
--(2)-(8)-(12)-(0)-(2)-(2)-(4)2
--(2)-(8)-(12)-(0)-(2)-(2)-(4)-(0)16
--(2)-(8)-(12)-(0)-(2)-(2)-(4)-(1)17
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)21
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)22
--(2)-(8)-(12)-(0)-(2)-(2)23
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)21
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)24
--(2)-(8)-(12)-(0)-(2)-(2)25
--(2)-(8)-(12)-(0)37
--(2)-(8)-(12)-(0)-(0)27
--(2)-(8)-(12)-(0)-(0)-(0)22
--(2)-(8)-(12)-(0)-(0)-(1)26
--(2)-(8)-(12)-(0)-(1)36
--(2)-(8)-(12)-(0)-(1)-(0)32
--(2)-(8)-(12)-(0)-(1)-(0)-(0)31
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)2
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(0)16
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)-(1)28
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(2)29
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(3)30
--(2)-(8)-(12)-(0)-(1)-(0)20
--(2)-(8)-(12)-(0)-(1)-(0)-(1)21
--(2)-(8)-(12)-(0)-(1)-(0)-(2)19
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(0)33
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)31
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(0)15
--(2)-(8)-(12)-(0)-(1)-(0)-(2)-(2)-(2)34
--(2)-(8)-(12)-(0)-(1)-(0)32
--(2)-(8)-(12)-(0)-(1)-(0)-(0)35
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)24
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)33
--(2)-(8)-(12)-(0)-(1)-(0)32
--(2)-(8)-(12)-(0)-(1)-(0)-(0)35
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)22
--(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)23
--(2)-(8)-(12)-(0)20
--(2)-(8)-(12)-(0)-(1)21
--(2)-(8)-(12)-(0)-(2)19
--(2)-(8)-(12)-(0)-(2)-(0)38
--(2)-(8)-(12)-(0)-(2)-(2)41
--(2)-(8)-(12)-(0)-(2)-(2)-(0)24
--(2)-(8)-(12)-(0)-(2)-(2)-(1)40
--(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)39
--(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(0)22
--(2)-(8)-(12)-(0)-(2)-(2)-(1)-(0)-(1)23
+Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
+WARNING: 0: Failed to get ASTNode for subtree null java.lang.NullPointerException
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:561)
+	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
+	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
+	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
+	at Test.main(Test.java:39)
 
-Changes: -118.19967763274516
-CROSS-ENTROPY-LEFT: -1.298897556403793
-CROSS-ENTROPY-RIGHT: -1.010253654980728
-CROSS-ENTROPY-AVG: -0.7932864270654038
+Exception in thread "main" java.lang.NullPointerException
+	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
+	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
+	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
+	at Test.main(Test.java:39)

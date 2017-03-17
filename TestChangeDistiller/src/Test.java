@@ -17,6 +17,7 @@ import codemining.ast.TreeNode;
 import codemining.ast.java.AbstractJavaTreeExtractor;
 import codemining.ast.java.JavaAstTreeExtractor;
 import codemining.ast.java.JavaAstTreeExtractor.TreeNodeExtractor;
+import codemining.lm.tsg.tui.java.GenerateRandom;
 import codemining.lm.tsg.tui.java.SampleTSG;
 import codemining.util.serialization.ISerializationStrategy.SerializationException;
 
@@ -34,7 +35,6 @@ public class Test {
 		//String [] entropyIng = {"testfiles/Circle_AFTER.java","testfiles/Circle_BEFORE.java"};
 		String [] entropyIng = {"beforeFiles/test1.java","afterFiles/test1.java"};
 		TestTsgEntropy.main(entropyIng); //Testing modified Entropy generator
-		
 	}
 	
 	public static StructureNode analyzeDistiller(String before, String after){
