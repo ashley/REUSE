@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  17 AUG 2016 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 APR 2017 16:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1168,7 +1168,7 @@ LaTeX Warning: Citation `Giachino:2014:CRD:2731750.2731754' on page 5 undefined
 
 LaTeX Warning: Citation `Yu' on page 5 undefined on input line 313.
 
-No file Ashley_Chen_Paper.bbl.
+(./Ashley_Chen_Paper.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1186,8 +1186,8 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 31334 strings out of 493014
- 760456 string characters out of 6133351
+ 31336 strings out of 493014
+ 760500 string characters out of 6133351
  906342 words of memory out of 5000000
  34429 multiletter control sequences out of 15000+600000
  41697 words of font info for 79 fonts, out of 8000000 for 9000
@@ -1203,7 +1203,7 @@ ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
 st/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on Ashley_Chen_Paper.pdf (5 pages, 152306 bytes).
+Output written on Ashley_Chen_Paper.pdf (5 pages, 152318 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream

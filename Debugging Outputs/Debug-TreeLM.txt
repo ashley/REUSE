@@ -1,333 +1,569 @@
-----------------------------------------------------------------------------------------------------
-Mar 16, 2017 10:49:17 PM codemining.util.SettingsLoader <init>
+/Users/ashleychen/Desktop/REUSE/REUSE/TestChangeDistiller/java_samples_After/Circle_AFTER.java
+Apr 07, 2017 5:22:52 AM codemining.util.SettingsLoader <init>
 INFO: Configuration file not found. Loading defaults.
-Mar 16, 2017 10:49:17 PM codemining.util.serialization.KryoSerialization deserializeFrom
+Apr 07, 2017 5:22:52 AM codemining.util.serialization.KryoSerialization deserializeFrom
 INFO: Deserializing object from tsg.ser
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: java
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: util
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,qualifier]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,name]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ImportDeclaration,name]
-SPID: onDemand
-sp: SimpleProperty[org.eclipse.jdt.core.dom.ImportDeclaration,onDemand]
-spValue: true
-GOOD
-SPID: static
-sp: SimpleProperty[org.eclipse.jdt.core.dom.ImportDeclaration,static]
-spValue: false
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: Average
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: keyword
-ASTNODE FOR TREENODE SUCCESS
-SPID: keyword
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: main
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: primitiveTypeCode
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: String
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SimpleType,name]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ArrayType,componentType]
-Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
-WARNING: 64: Failed to get ASTNode for subtree Operation only supported in JLS2, JLS3 and JLS4 ASTs java.lang.UnsupportedOperationException: Operation only supported in JLS2, JLS3 and JLS4 ASTs
-	at org.eclipse.jdt.core.dom.ASTNode.supportedOnlyIn2_3_4(ASTNode.java:2002)
-	at org.eclipse.jdt.core.dom.ArrayType.setComponentType(ArrayType.java:310)
-	at org.eclipse.jdt.core.dom.ArrayType.internalGetSetChildProperty(ArrayType.java:200)
-	at org.eclipse.jdt.core.dom.ASTNode.setStructuralProperty(ASTNode.java:1736)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:552)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
-	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
-	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
-	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
-	at Test.main(Test.java:39)
+filename,entropy,cross-entropy
+LEFT COMMENTS
+//
+//
+RIGHT COMMENTS
+//
+//
+#SNODE L: CU: null
+#SNODE L: CU: null
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@4a7f959b
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@429bffaa
 
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: argv
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SingleVariableDeclaration,type]
-Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
-WARNING: 62: Failed to get ASTNode for subtree null java.lang.NullPointerException
-	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:553)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
-	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
-	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
-	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
-	at Test.main(Test.java:39)
+#TRAVERSE
+LEFTCHILD: CLASS: Circle
+RIGHTCHILD: CLASS: Circle
+##SNODE L: CLASS: Circle
+##SNODE L: CLASS: Circle
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@5403f35f
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@483f6d77
 
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: Scanner
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SimpleType,name]
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: sc
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: Scanner
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.SimpleType,name]
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: System
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: in
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,qualifier]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,name]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ClassInstanceCreation,type]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
-ASTNODE FOR TREENODE SUCCESS
-SPID: primitiveTypeCode
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: counter
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: token
-sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
-spValue: 1
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
-ASTNODE FOR TREENODE SUCCESS
-SPID: primitiveTypeCode
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: total
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: token
-sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
-spValue: 0
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: counter
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: token
-sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
-spValue: 3
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,leftOperand]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,rightOperand]
-SPID: operator
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: System
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: out
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,qualifier]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.QualifiedName,name]
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: println
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: escapedValue
-sp: SimpleProperty[org.eclipse.jdt.core.dom.StringLiteral,escapedValue]
-spValue: "enter a number: "
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,expression]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,name]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ExpressionStatement,expression]
-ASTNODE FOR TREENODE SUCCESS
-SPID: primitiveTypeCode
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: number
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: sc
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: nextInt
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,expression]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodInvocation,name]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: total
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: number
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,leftHandSide]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,rightHandSide]
-SPID: operator
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ExpressionStatement,expression]
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: counter
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: token
-sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
-spValue: 1
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,leftHandSide]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.Assignment,rightHandSide]
-SPID: operator
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ExpressionStatement,expression]
-ASTNODE FOR TREENODE SUCCESS
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.WhileStatement,expression]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.WhileStatement,body]
-ASTNODE FOR TREENODE SUCCESS
-SPID: primitiveTypeCode
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: average
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: total
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: identifier
-sp: SimpleProperty[org.eclipse.jdt.core.dom.SimpleName,identifier]
-spValue: counter
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-SPID: token
-sp: SimpleProperty[org.eclipse.jdt.core.dom.NumberLiteral,token]
-spValue: 1
-GOOD
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,leftOperand]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,rightOperand]
-SPID: operator
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.ParenthesizedExpression,expression]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,leftOperand]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.InfixExpression,rightOperand]
-SPID: operator
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,name]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationFragment,initializer]
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.VariableDeclarationStatement,type]
-ASTNODE FOR TREENODE SUCCESS
-ASTNODE FOR TREENODE SUCCESS
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodDeclaration,name]
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.MethodDeclaration,returnType2]
-Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
-WARNING: 2: Failed to get ASTNode for subtree null java.lang.NullPointerException
-	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:561)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
-	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
-	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
-	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
-	at Test.main(Test.java:39)
+##TRAVERSE
+LEFTCHILD: FIELD: listt : String[]
+RIGHTCHILD: FIELD: listt : String[]
+###SNODE L: FIELD: listt : String[]
+###SNODE L: FIELD: listt : String[]
+###SNODE[] L: null
+###SNODE[] R: null
 
-DESCRIPTOR GET(i): ChildProperty[org.eclipse.jdt.core.dom.TypeDeclaration,name]
-Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
-WARNING: 1: Failed to get ASTNode for subtree null java.lang.NullPointerException
-	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:561)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
-	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
-	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
-	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
-	at Test.main(Test.java:39)
+###EXTRACT
+LEFTCHILD: CONSTRUCTOR: Circle(double)
+RIGHTCHILD: CONSTRUCTOR: Circle(double)
+###SNODE L: CONSTRUCTOR: Circle(double)
+###SNODE L: CONSTRUCTOR: Circle(double)
+###SNODE[] L: null
+###SNODE[] R: null
 
-Mar 16, 2017 10:49:18 PM codemining.ast.java.JavaAstTreeExtractor getASTFromTree
-WARNING: 0: Failed to get ASTNode for subtree null java.lang.NullPointerException
-	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTNodeForTreeNode(JavaAstTreeExtractor.java:561)
-	at codemining.ast.java.JavaAstTreeExtractor.getASTFromTree(JavaAstTreeExtractor.java:510)
-	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
-	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
-	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
-	at Test.main(Test.java:39)
+###EXTRACT
+LEFTCHILD: FIELD: PI : double
+RIGHTCHILD: FIELD: PI : double
+###SNODE L: FIELD: PI : double
+###SNODE L: FIELD: PI : double
+###SNODE[] L: null
+###SNODE[] R: null
 
-Exception in thread "main" java.lang.NullPointerException
-	at codemining.ast.java.AbstractJavaTreeExtractor.getCodeFromTree(AbstractJavaTreeExtractor.java:64)
-	at codemining.lm.tsg.FormattedTSGrammar.generateRandomCode(FormattedTSGrammar.java:76)
-	at codemining.lm.tsg.tui.java.GenerateRandom.main(GenerateRandom.java:31)
-	at Test.main(Test.java:39)
+###EXTRACT
+LEFTCHILD: METHOD: forLoop()
+RIGHTCHILD: METHOD: forLoop()
+###SNODE L: METHOD: forLoop()
+###SNODE L: METHOD: forLoop()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: METHOD: getRadius()
+RIGHTCHILD: METHOD: getRadius()
+###SNODE L: METHOD: getRadius()
+###SNODE L: METHOD: getRadius()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: radius : double
+RIGHTCHILD: FIELD: radius : double
+###SNODE L: FIELD: radius : double
+###SNODE L: FIELD: radius : double
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+TREE 186
+-(0)1664
+-(0)-(0)2
+-(0)-(0)-(0)6
+-(0)-(0)-(1)14
+-(2)185
+-(2)-(2)1771
+-(2)-(5)24
+-(2)-(5)-(1)1772
+-(2)-(8)30
+-(2)-(8)-(1)23
+-(2)-(8)-(2)175
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1773
+-(2)-(8)-(3)-(2)1774
+-(2)-(8)30
+-(2)-(8)-(1)21
+-(2)-(8)-(2)175
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1775
+-(2)-(8)-(3)-(2)1776
+-(2)-(8)30
+-(2)-(8)-(1)21
+-(2)-(8)-(2)162
+-(2)-(8)-(2)-(0)24
+-(2)-(8)-(2)-(0)-(1)55
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1777
+-(2)-(8)-(3)-(2)596
+-(2)-(8)-(3)-(2)-(0)1778
+-(2)-(8)-(3)-(2)-(0)1779
+-(2)-(8)-(3)-(2)-(0)1780
+-(2)-(8)-(3)-(2)-(0)1781
+-(2)-(8)101
+-(2)-(8)-(2)1771
+-(2)-(8)-(7)61
+-(2)-(8)-(7)-(1)175
+-(2)-(8)-(7)-(3)511
+-(2)-(8)-(12)50
+-(2)-(8)-(12)-(0)34
+-(2)-(8)-(12)-(0)-(0)33
+-(2)-(8)-(12)-(0)-(0)-(2)1782
+-(2)-(8)-(12)-(0)-(0)-(3)511
+-(2)-(8)-(12)-(0)34
+-(2)-(8)-(12)-(0)-(0)75
+-(2)-(8)-(12)-(0)-(0)-(0)150
+-(2)-(8)-(12)-(0)-(0)-(1)1783
+-(2)-(8)90
+-(2)-(8)-(1)19
+-(2)-(8)-(2)1784
+-(2)-(8)-(4)91
+-(2)-(8)-(12)50
+-(2)-(8)-(12)-(0)78
+-(2)-(8)-(12)-(0)-(0)61
+-(2)-(8)-(12)-(0)-(0)-(1)24
+-(2)-(8)-(12)-(0)-(0)-(1)-(1)55
+-(2)-(8)-(12)-(0)-(0)-(3)1785
+-(2)-(8)-(12)-(0)-(1)1777
+-(2)-(8)-(12)-(0)-(2)50
+-(2)-(8)-(12)-(0)-(2)-(0)34
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)33
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)2
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)-(0)260
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)-(1)663
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(2)1655
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(3)1785
+-(2)-(8)51
+-(2)-(8)-(2)50
+-(2)-(8)-(2)-(0)64
+-(2)-(8)-(2)-(0)-(1)129
+-(2)-(8)-(2)-(0)-(2)29
+-(2)-(8)-(2)-(0)-(2)-(0)178
+-(2)-(8)-(2)-(0)-(2)-(2)86
+-(2)-(8)-(2)-(0)270
+-(2)-(8)-(2)-(0)-(0)180
+-(2)-(8)-(2)-(0)-(0)-(0)178
+-(2)-(8)-(2)-(0)-(0)-(1)217
+-(2)-(8)-(2)-(0)-(1)50
+-(2)-(8)-(2)-(0)-(1)-(0)77
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)180
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)-(0)178
+-(2)-(8)-(2)-(0)-(1)-(0)-(0)-(1)217
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)50
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)-(0)34
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)-(0)-(0)181
+-(2)-(8)-(2)-(0)-(1)-(0)-(1)-(0)-(0)-(0)178
+-(2)-(8)90
+-(2)-(8)-(1)19
+-(2)-(8)-(2)1786
+-(2)-(8)-(4)175
+-(2)-(8)-(12)50
+-(2)-(8)-(12)-(0)34
+-(2)-(8)-(12)-(0)-(0)33
+-(2)-(8)-(12)-(0)-(0)-(0)2
+-(2)-(8)-(12)-(0)-(0)-(0)-(0)260
+-(2)-(8)-(12)-(0)-(0)-(0)-(1)663
+-(2)-(8)-(12)-(0)-(0)-(2)1655
+-(2)-(8)-(12)-(0)-(0)-(3)1787
+-(2)-(8)-(12)-(0)89
+-(2)-(8)-(12)-(0)-(0)1775
+-(2)-(8)101
+-(2)-(8)-(2)1771
+-(2)-(8)-(7)61
+-(2)-(8)-(7)-(1)175
+-(2)-(8)-(7)-(3)511
+-(2)-(8)-(12)50
+-(2)-(8)-(12)-(0)34
+-(2)-(8)-(12)-(0)-(0)75
+-(2)-(8)-(12)-(0)-(0)-(0)1775
+-(2)-(8)-(12)-(0)-(0)-(1)511
+
+/Users/ashleychen/Desktop/REUSE/REUSE/TestChangeDistiller/java_samples_After/Test2Right.java
+Apr 07, 2017 5:22:53 AM codemining.util.serialization.KryoSerialization deserializeFrom
+INFO: Deserializing object from tsg.ser
+filename,entropy,cross-entropy
+LEFT COMMENTS
+RIGHT COMMENTS
+#SNODE L: CU: null
+#SNODE L: CU: null
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@909217e
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@18271936
+
+#TRAVERSE
+LEFTCHILD: CLASS: Test2
+RIGHTCHILD: CLASS: Test2
+##SNODE L: CLASS: Test2
+##SNODE L: CLASS: Test2
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@606e4010
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@8458f04
+
+##TRAVERSE
+LEFTCHILD: CONSTRUCTOR: Test2()
+RIGHTCHILD: CONSTRUCTOR: Test2()
+###SNODE L: CONSTRUCTOR: Test2()
+###SNODE L: CONSTRUCTOR: Test2()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+TREE 186
+-(2)185
+-(2)-(1)19
+-(2)-(2)1771
+
+/Users/ashleychen/Desktop/REUSE/REUSE/TestChangeDistiller/java_samples_After/TestRightNoComments.java
+Apr 07, 2017 5:22:54 AM codemining.util.serialization.KryoSerialization deserializeFrom
+INFO: Deserializing object from tsg.ser
+filename,entropy,cross-entropy
+LEFT COMMENTS
+RIGHT COMMENTS
+#SNODE L: CU: null
+#SNODE L: CU: null
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@7ce69770
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@1750fbeb
+
+#TRAVERSE
+LEFTCHILD: CLASS: Test
+RIGHTCHILD: CLASS: Test
+##SNODE L: CLASS: Test
+##SNODE L: CLASS: Test
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@5b247367
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@268f106e
+
+##TRAVERSE
+LEFTCHILD: METHOD: foo(int)
+RIGHTCHILD: METHOD: foo(int)
+###SNODE L: METHOD: foo(int)
+###SNODE L: METHOD: foo(int)
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: vField : int
+RIGHTCHILD: FIELD: vField : int
+###SNODE L: FIELD: vField : int
+###SNODE L: FIELD: vField : int
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: arrayField : String[]
+RIGHTCHILD: FIELD: arrayField : String[]
+###SNODE L: FIELD: arrayField : String[]
+###SNODE L: FIELD: arrayField : String[]
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: CONSTRUCTOR: Test()
+RIGHTCHILD: CONSTRUCTOR: Test()
+###SNODE L: CONSTRUCTOR: Test()
+###SNODE L: CONSTRUCTOR: Test()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: CLASS: Bar
+RIGHTCHILD: CLASS: Bar
+###SNODE L: CLASS: Bar
+###SNODE L: CLASS: Bar
+###SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6e9a5ed8
+###SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@7e057f43
+
+###TRAVERSE
+LEFTCHILD: METHOD: newMethod()
+RIGHTCHILD: METHOD: newMethod()
+####SNODE L: METHOD: newMethod()
+####SNODE L: METHOD: newMethod()
+####SNODE[] L: null
+####SNODE[] R: null
+
+####EXTRACT
+LEFTCHILD: CONSTRUCTOR: Bar()
+RIGHTCHILD: CONSTRUCTOR: Bar()
+####SNODE L: CONSTRUCTOR: Bar()
+####SNODE L: CONSTRUCTOR: Bar()
+####SNODE[] L: null
+####SNODE[] R: null
+
+####EXTRACT
+LEFTCHILD: FIELD: tField : String
+RIGHTCHILD: FIELD: tField : String
+###SNODE L: FIELD: tField : String
+###SNODE L: FIELD: tField : String
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: synchField : long
+RIGHTCHILD: FIELD: synchField : long
+###SNODE L: FIELD: synchField : long
+###SNODE L: FIELD: synchField : long
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: aField : int
+RIGHTCHILD: FIELD: aField : int
+###SNODE L: FIELD: aField : int
+###SNODE L: FIELD: aField : int
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: sField : String
+RIGHTCHILD: FIELD: sField : String
+###SNODE L: FIELD: sField : String
+###SNODE L: FIELD: sField : String
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: METHOD: emptyMethod()
+RIGHTCHILD: METHOD: emptyMethod()
+###SNODE L: METHOD: emptyMethod()
+###SNODE L: METHOD: emptyMethod()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: FIELD: aNewString : String
+RIGHTCHILD: FIELD: aNewString : String
+###SNODE L: FIELD: aNewString : String
+###SNODE L: FIELD: aNewString : String
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: METHOD: strictfpMethod()
+RIGHTCHILD: METHOD: strictfpMethod()
+###SNODE L: METHOD: strictfpMethod()
+###SNODE L: METHOD: strictfpMethod()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: METHOD: newBar(long)
+RIGHTCHILD: METHOD: newBar(long)
+###SNODE L: METHOD: newBar(long)
+###SNODE L: METHOD: newBar(long)
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+LEFTCHILD: METHOD: nativeMethod()
+RIGHTCHILD: METHOD: nativeMethod()
+###SNODE L: METHOD: nativeMethod()
+###SNODE L: METHOD: nativeMethod()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+TREE 186
+-(1)5
+-(1)-(2)1771
+-(2)185
+-(2)-(1)19
+-(2)-(1)23
+-(2)-(2)1772
+-(2)-(8)30
+-(2)-(8)-(1)19
+-(2)-(8)-(2)24
+-(2)-(8)-(2)-(1)55
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1773
+-(2)-(8)-(3)-(2)1774
+-(2)-(8)30
+-(2)-(8)-(1)19
+-(2)-(8)-(2)129
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1775
+-(2)-(8)30
+-(2)-(8)-(1)19
+-(2)-(8)-(1)22
+-(2)-(8)-(2)24
+-(2)-(8)-(2)-(1)55
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1776
+-(2)-(8)30
+-(2)-(8)-(1)19
+-(2)-(8)-(1)1777
+-(2)-(8)-(2)129
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1778
+-(2)-(8)30
+-(2)-(8)-(1)19
+-(2)-(8)-(1)486
+-(2)-(8)-(2)24
+-(2)-(8)-(2)-(1)55
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1779
+-(2)-(8)30
+-(2)-(8)-(1)19
+-(2)-(8)-(1)1780
+-(2)-(8)-(2)26
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1781
+-(2)-(8)30
+-(2)-(8)-(1)21
+-(2)-(8)-(2)162
+-(2)-(8)-(2)-(0)24
+-(2)-(8)-(2)-(0)-(1)55
+-(2)-(8)-(3)29
+-(2)-(8)-(3)-(0)1782
+-(2)-(8)90
+-(2)-(8)-(1)54
+-(2)-(8)-(2)1783
+-(2)-(8)-(4)129
+-(2)-(8)-(7)61
+-(2)-(8)-(7)-(1)129
+-(2)-(8)-(7)-(3)1672
+-(2)-(8)-(12)50
+-(2)-(8)-(12)-(0)64
+-(2)-(8)-(12)-(0)-(1)102
+-(2)-(8)-(12)-(0)-(2)29
+-(2)-(8)-(12)-(0)-(2)-(0)1784
+-(2)-(8)-(12)-(0)-(2)-(2)141
+-(2)-(8)-(12)-(0)-(2)-(2)-(0)1672
+-(2)-(8)-(12)-(0)-(2)-(2)-(1)86
+-(2)-(8)-(12)-(0)64
+-(2)-(8)-(12)-(0)-(1)129
+-(2)-(8)-(12)-(0)-(2)29
+-(2)-(8)-(12)-(0)-(2)-(0)131
+-(2)-(8)-(12)-(0)-(2)-(2)86
+-(2)-(8)-(12)-(0)64
+-(2)-(8)-(12)-(0)-(1)129
+-(2)-(8)-(12)-(0)-(2)29
+-(2)-(8)-(12)-(0)-(2)-(0)287
+-(2)-(8)-(12)-(0)-(2)-(2)238
+-(2)-(8)-(12)-(0)77
+-(2)-(8)-(12)-(0)-(0)112
+-(2)-(8)-(12)-(0)-(0)-(0)1784
+-(2)-(8)-(12)-(0)-(1)50
+-(2)-(8)-(12)-(0)-(1)-(0)34
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)75
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)131
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)243
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(0)1785
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(1)33
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(1)-(0)168
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(1)-(2)1786
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(1)-(3)1787
+-(2)-(8)-(12)-(0)-(1)-(0)34
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)75
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)287
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)33
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(0)792
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(2)1788
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)-(3)1672
+-(2)-(8)-(12)-(0)-(1)-(0)89
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)243
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(0)131
+-(2)-(8)-(12)-(0)-(1)-(0)-(0)-(1)287
+-(2)-(8)-(12)-(0)-(2)50
+-(2)-(8)-(12)-(0)-(2)-(0)34
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)75
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)287
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(1)33
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(1)-(0)792
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(1)-(2)1789
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(1)-(3)33
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(1)-(3)-(0)792
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(1)-(3)-(2)1055
+-(2)-(8)-(12)-(0)-(2)-(0)34
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)33
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(0)55
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(2)289
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)-(3)32
+-(2)-(8)-(12)-(0)-(2)-(0)89
+-(2)-(8)-(12)-(0)-(2)-(0)-(0)287
+-(2)-(8)-(12)-(0)89
+-(2)-(8)-(12)-(0)-(0)1790
+-(2)-(8)90
+-(2)-(8)-(1)19
+-(2)-(8)-(2)1791
+-(2)-(8)-(4)91
+-(2)-(8)-(12)50
+-(2)-(8)185
+-(2)-(8)-(1)21
+-(2)-(8)-(2)1792
+-(2)-(8)-(8)90
+-(2)-(8)-(8)-(1)21
+-(2)-(8)-(8)-(2)1793
+-(2)-(8)-(8)-(4)91
+-(2)-(8)-(8)-(12)50
+-(2)-(8)-(8)-(12)-(0)34
+-(2)-(8)-(8)-(12)-(0)-(0)33
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)2
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)-(0)260
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)-(1)663
+-(2)-(8)-(8)-(12)-(0)-(0)-(2)1655
+-(2)-(8)-(8)-(12)-(0)34
+-(2)-(8)-(8)-(12)-(0)-(0)33
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)2
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)-(0)260
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)-(1)663
+-(2)-(8)-(8)-(12)-(0)-(0)-(2)1655
+-(2)-(8)-(8)-(12)-(0)34
+-(2)-(8)-(8)-(12)-(0)-(0)33
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)2
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)-(0)260
+-(2)-(8)-(8)-(12)-(0)-(0)-(0)-(1)663
+-(2)-(8)-(8)-(12)-(0)-(0)-(2)1655
+-(2)-(8)90
+-(2)-(8)-(1)19
+-(2)-(8)-(2)1794
+-(2)-(8)-(4)91
+-(2)-(8)-(7)61
+-(2)-(8)-(7)-(1)26
+-(2)-(8)-(7)-(3)1771
+-(2)-(8)-(12)50
+-(2)-(8)-(12)-(0)34
+-(2)-(8)-(12)-(0)-(0)33
+-(2)-(8)-(12)-(0)-(0)-(0)2
+-(2)-(8)-(12)-(0)-(0)-(0)-(0)260
+-(2)-(8)-(12)-(0)-(0)-(0)-(1)663
+-(2)-(8)-(12)-(0)-(0)-(2)1655
+-(2)-(8)-(12)-(0)-(0)-(3)1795
+-(2)-(8)90
+-(2)-(8)-(1)19
+-(2)-(8)-(1)1796
+-(2)-(8)-(2)1797
+-(2)-(8)-(4)91
+-(2)-(8)90
+-(2)-(8)-(1)19
+-(2)-(8)-(1)1798
+-(2)-(8)-(2)1799
+-(2)-(8)-(4)173
+-(2)-(8)-(12)50
+-(2)-(8)-(12)-(0)89
+-(2)-(8)-(12)-(0)-(0)153
+-(2)-(8)-(12)-(0)-(0)-(0)1800
+-(2)-(8)-(12)-(0)-(0)-(1)1801
+
+/Users/ashleychen/Desktop/REUSE/REUSE/TestChangeDistiller/java_samples_After/Circle_AFTER.java
+Changes: -964.6487367825617
+CROSS-ENTROPY-LEFT: -6.652749908845253
+CROSS-ENTROPY-RIGHT: -6.652749908845253
+CROSS-ENTROPY-AVG: -4.445385883790607
+CROSS-ENTROPY-DIFF: 0.0
+
+/Users/ashleychen/Desktop/REUSE/REUSE/TestChangeDistiller/java_samples_After/Test2Right.java
+Changes: -37.88489551797166
+CROSS-ENTROPY-LEFT: -5.412127931138808
+CROSS-ENTROPY-RIGHT: -5.412127931138808
+CROSS-ENTROPY-AVG: -3.7884895517971655
+CROSS-ENTROPY-DIFF: 0.0
+
+/Users/ashleychen/Desktop/REUSE/REUSE/TestChangeDistiller/java_samples_After/TestRightNoComments.java
+Changes: -1786.5376002893624
+CROSS-ENTROPY-LEFT: -8.309477210648197
+CROSS-ENTROPY-RIGHT: -8.309477210648197
+CROSS-ENTROPY-AVG: -5.548253417047709
+CROSS-ENTROPY-DIFF: 0.0
+

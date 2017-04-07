@@ -1,5 +1,7 @@
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -24,39 +26,36 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
-		String [] addresses1 = {"testfiles/TestLeft.java","testfiles/TestRight.java"};	
-		String [] addresses2 = {"testfiles/Circle_BEFORE.java","testfiles/Circle_AFTER.java"};	
-		
-		
-		String [] trainingFiles = {"beforeFiles","normal","100","afterFiles"};
+		/*
+		String [] trainingFiles = {"beforeFiles","normal","10","afterFiles"};
 		TestTreeLM.main(trainingFiles); //Testing modified SampleTSG
-		
 		System.out.println("----------------------------------------------------------------------------------------------------");
-		//String [] entropyIng = {"testfiles/Circle_AFTER.java","testfiles/Circle_BEFORE.java"};
-		String [] entropyIng = {"beforeFiles/test1.java","afterFiles/test1.java"};
-		TestTsgEntropy.main(entropyIng); //Testing modified Entropy generator
+		*/
+		
+		parseTestFiles("java_samples_After","java_samples_After");
 	}
 	
-	public static StructureNode analyzeDistiller(String before, String after){
-		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
-		File file1 = new File(before);
-		File file2 = new File(after);
+	public static void parseTestFiles(String bugDir, String fixDir) throws SerializationException, IOException{
+		ArrayList<String> results = new ArrayList<String>();
+		File [] bFiles = new File(new File(bugDir).getAbsolutePath()).listFiles(new FilenameFilter() {
+		    public boolean accept(File dir, String name) {
+		        return name.toLowerCase().endsWith(".java");
+		    }
+		});
+		
+		File [] fFiles = new File(new File(fixDir).getAbsolutePath()).listFiles(new FilenameFilter() {
+		    public boolean accept(File dir, String name) {
+		        return name.toLowerCase().endsWith(".java");
+		    }
+		});
 
-		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
-		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
-		/*for (SourceCodeChange change: changes){
-			System.out.println(change);
-		}*/
-		return outcome;
-	}
-	
-	public static void distillAllFiles() throws IOException, SerializationException{
-		String repoPath = "/Users/ashleychen/Desktop/REUSE/REUSE/Repos/";
-		File [] repos = new File(repoPath).listFiles();
-		for (File i: repos){
-			if(!i.toString().equals("/Users/ashleychen/Desktop/REUSE/REUSE/Repos/.DS_Store")){
-				new Repo(i);
-			}
+		for(int i=0;i<bFiles.length;i++){
+			String [] entropyIng = {bFiles[i].toString(),fFiles[i].toString()};
+			System.err.println(bFiles[i]);
+			results.add(bFiles[i] + "\n" + TestTsgEntropy.main(entropyIng)); //Testing modified Entropy generator
+		}
+		for(String n: results){
+			System.out.println(n + "\n");
 		}
 	}
 

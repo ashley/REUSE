@@ -41,7 +41,7 @@ public class TestTsgEntropy {
 				.getSerializer().deserializeFrom(reusePath + "/Entropy-model/saved-ser-"+ iterations + "-iters/"+repoName+".ser");
 	}
 	
-	public static void main(String [] args) throws SerializationException, IOException {
+	public static String main(String [] args) throws SerializationException, IOException {
 
 		//final File directory = new File(path);
 		//final File f = new File(args[0]);
@@ -70,14 +70,15 @@ public class TestTsgEntropy {
 				probability = probabilityComputer
 						.getLog2ProbabilityOf(tsgTree);
 	
-				System.out.println("Changes: " + probability);
-				System.out.println("CROSS-ENTROPY-LEFT: " + probability / fileTokensLeft.size());
-				System.out.println("CROSS-ENTROPY-RIGHT: " + probability / fileTokensRight.size());
-				System.out.println("CROSS-ENTROPY-AVG: " + probability / (fileTokensLeft.size()+fileTokensRight.size()/2));
+				return "Changes: " + probability + "\n" + "CROSS-ENTROPY-LEFT: " + probability / fileTokensLeft.size() + "\n" 
+				+ "CROSS-ENTROPY-RIGHT: " + probability / fileTokensRight.size() + "\n" + 
+				"CROSS-ENTROPY-AVG: " + probability / (fileTokensLeft.size()+fileTokensRight.size()/2) + "\n" + 
+				"CROSS-ENTROPY-DIFF: " + (probability / fileTokensLeft.size() - probability / fileTokensRight.size());
 			}
 			else{
 				System.err.println("Test Tree Expression is NULL");
 			}
+			return null;
 
 	}
 	
