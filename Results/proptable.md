@@ -13,7 +13,7 @@ before-to-before | -37.9588 | -4.7448 | -4.7448 | -3.1632 | 0.0
 before-to-after | -37.9588 | -4.7448 | -5.4226 | -3.4508 | 0.6778
 after-to-after | -37.8848 | -5.4121 | -5.4121 | -3.7884 | 0.0
 
-###TestNoComments.java
+### TestNoComments.java
 BugFix | Changes | CE-Left | CE-Right | CE-Avg | CE-Diff
 --- | --- | --- | --- | --- | ---
 before-to-before | -1864.9178 | -8.4768 | -8.4768 | -5.6512 | 0.0
