@@ -19,6 +19,7 @@ import codemining.ast.TreeNode;
 import codemining.ast.java.AbstractJavaTreeExtractor;
 import codemining.ast.java.JavaAstTreeExtractor;
 import codemining.ast.java.JavaAstTreeExtractor.TreeNodeExtractor;
+import codemining.lm.tsg.tui.TsgEntropy;
 import codemining.lm.tsg.tui.java.GenerateRandom;
 import codemining.lm.tsg.tui.java.SampleTSG;
 import codemining.util.serialization.ISerializationStrategy.SerializationException;
@@ -32,7 +33,7 @@ public class Test {
 		System.out.println("----------------------------------------------------------------------------------------------------");
 		*/
 		
-		parseTestFiles("java_samples_After","java_samples_After");
+		parseTestFiles("/Users/ashleychen/Desktop/testing/b/","/Users/ashleychen/Desktop/testing/f/");
 	}
 	
 	public static void parseTestFiles(String bugDir, String fixDir) throws SerializationException, IOException{
