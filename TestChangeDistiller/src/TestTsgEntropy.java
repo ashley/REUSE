@@ -48,7 +48,7 @@ public class TestTsgEntropy {
 
 		//final Collection<File> allFiles = FileUtils.listFiles(directory,new RegexFileFilter(".*\\.txt$"),DirectoryFileFilter.DIRECTORY);
 		grammar = (TSGrammar<TSGNode>) Serializer
-				.getSerializer().deserializeFrom("tsg.ser");
+				.getSerializer().deserializeFrom("/Users/ashleychen/Desktop/REUSE/REUSE/tsg.ser");
 		//final AbstractTreeExtractor treeFormat = grammar.getTreeExtractor();
 		final AbstractJavaTreeExtractor format = (AbstractJavaTreeExtractor) grammar.getTreeExtractor();
 

@@ -1,3 +1,12 @@
-Loaded default properties at Fri Apr 14 13:50:12 EDT 2017
-Serializer.name=Kryo
+Loaded default properties at Fri May 05 15:32:25 EDT 2017
+AbstractTSGSampler.LogProbCalculationInteval=1.0
+AbstractTSGSampler.CalculateLogProb=true
+AbstractTSGSampler.CalculateStats=true
+AbstractTSGSampler.BurninPct=0.75
+CollapsedGibbsSampler.initialTreeCorpusSize=0.05
+CollapsedGibbsSampler.iterationTreeCorpusIncrease=0.005
+CollapsedGibbsSampler.HyperparameterOptimizationFrequency=20.0
+ParallelThreadPool.nThreads=8.0
 ClassicTsgPosteriorComputer.DoGradientCheck=false
+ContextFreeGrammar.CleanCountThreshold=1.0
+Serializer.name=Kryo
