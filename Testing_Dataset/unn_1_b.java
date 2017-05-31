@@ -6,7 +6,7 @@ public class unn_1_b{
 	
 	public static void main(String[] args){	
 		if (isTerminated()) {
-			setValue(null);
+			setValue(new File("");
 	   	}
 	}
 	public static Boolean isTerminated(){

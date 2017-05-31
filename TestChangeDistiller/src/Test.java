@@ -37,7 +37,7 @@ public class Test {
 		
 		String [] changeDist = {"/Users/ashleychen/Desktop/testing/1b/src/main/java/org/apache/commons/lang3","normal","10",
 				"/Users/ashleychen/Desktop/testing/1b/src/main/java/org/apache/commons/lang3"};
-		TestTreeLM.main(changeDist);
+		//TestTreeLM.main(changeDist);
 		
 	}
 }

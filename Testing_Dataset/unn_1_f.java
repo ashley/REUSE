@@ -10,7 +10,7 @@ public class unn_1_f{
 	   	}
 	}
 	public static Boolean isTerminated(){
-		return (value==0);
+		return true;
 	}
 	public static void setValue(int n){
 		value = n;

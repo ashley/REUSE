@@ -6,7 +6,7 @@ public class not_2_b{
 	
 	public static void main(String[] args){	
 		if (isTerminated()) {
-			String n = setValue();
+			foo();
 	   	}
 	}
 	public static Boolean isTerminated(){
