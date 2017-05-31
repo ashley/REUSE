@@ -41,14 +41,18 @@ public class TestTsgEntropy {
 				.getSerializer().deserializeFrom(reusePath + "/Entropy-model/saved-ser-"+ iterations + "-iters/"+repoName+".ser");
 	}
 	
-	public static String main(String [] args) throws SerializationException, IOException {
+	public static void main(String [] args) throws SerializationException, IOException {
 
 		//final File directory = new File(path);
 		//final File f = new File(args[0]);
-
+		if (args.length < 3) {
+			System.err.println(
+					"Before <beforeFile>, After <afterFile>, tsg <tsgFile>");
+			return ;
+		}
 		//final Collection<File> allFiles = FileUtils.listFiles(directory,new RegexFileFilter(".*\\.txt$"),DirectoryFileFilter.DIRECTORY);
 		grammar = (TSGrammar<TSGNode>) Serializer
-				.getSerializer().deserializeFrom("/Users/ashleychen/Desktop/REUSE/REUSE/tsg.ser");
+				.getSerializer().deserializeFrom(args[2]);
 		//final AbstractTreeExtractor treeFormat = grammar.getTreeExtractor();
 		final AbstractJavaTreeExtractor format = (AbstractJavaTreeExtractor) grammar.getTreeExtractor();
 
@@ -70,15 +74,15 @@ public class TestTsgEntropy {
 				probability = probabilityComputer
 						.getLog2ProbabilityOf(tsgTree);
 	
-				return "Changes: " + probability + "\n" + "CROSS-ENTROPY-LEFT: " + probability / fileTokensLeft.size() + "\n" 
+				System.out.println("Changes: " + probability + "\n" + "CROSS-ENTROPY-LEFT: " + probability / fileTokensLeft.size() + "\n" 
 				+ "CROSS-ENTROPY-RIGHT: " + probability / fileTokensRight.size() + "\n" + 
 				"CROSS-ENTROPY-AVG: " + probability / (fileTokensLeft.size()+fileTokensRight.size()/2) + "\n" + 
-				"CROSS-ENTROPY-DIFF: " + (probability / fileTokensLeft.size() - probability / fileTokensRight.size());
+				"CROSS-ENTROPY-DIFF: " + (probability / fileTokensLeft.size() - probability / fileTokensRight.size()));
 			}
 			else{
 				System.err.println("Test Tree Expression is NULL");
 			}
-			return null;
+			return;
 
 	}
 	

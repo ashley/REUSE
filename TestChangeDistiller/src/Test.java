@@ -39,34 +39,5 @@ public class Test {
 				"/Users/ashleychen/Desktop/testing/1b/src/main/java/org/apache/commons/lang3"};
 		TestTreeLM.main(changeDist);
 		
-		
-		//parseTestFiles("/Users/ashleychen/Desktop/testing/b/","/Users/ashleychen/Desktop/testing/f/");
 	}
-	
-	public static void parseTestFiles(String bugDir, String fixDir) throws SerializationException, IOException{
-		ArrayList<String> results = new ArrayList<String>();
-		File [] bFiles = new File(new File(bugDir).getAbsolutePath()).listFiles(new FilenameFilter() {
-		    public boolean accept(File dir, String name) {
-		        return name.toLowerCase().endsWith(".java");
-		    }
-		});
-		
-		File [] fFiles = new File(new File(fixDir).getAbsolutePath()).listFiles(new FilenameFilter() {
-		    public boolean accept(File dir, String name) {
-		        return name.toLowerCase().endsWith(".java");
-		    }
-		});
-
-		for(int i=0;i<bFiles.length;i++){
-			String [] entropyIng = {bFiles[i].toString(),fFiles[i].toString()};
-			System.err.println(bFiles[i]);
-			results.add(bFiles[i] + "\n" + TestTsgEntropy.main(entropyIng)); //Testing modified Entropy generator
-		}
-		for(String n: results){
-			System.out.println(n + "\n");
-		}
-	}
-	
-
-
 }
