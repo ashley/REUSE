@@ -1,0 +1,33 @@
+#SNODE L: CU: null
+#SNODE L: CU: null
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6e15fe2
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@68f1b17f
+
+#TRAVERSE
+LEFTCHILD: CLASS: test_1
+RIGHTCHILD: CLASS: test_1
+##SNODE L: CLASS: test_1
+##SNODE L: CLASS: test_1
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@1722011b
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@57ad2aa7
+
+##TRAVERSE
+LEFTCHILD: METHOD: main(String)
+RIGHTCHILD: METHOD: main(String)
+###SNODE L: METHOD: main(String)
+###SNODE L: METHOD: main(String)
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+!!EQUAL!!
+DIFF IS NOT NULL
+LEFTCHILD: CONSTRUCTOR: test_1()
+RIGHTCHILD: CONSTRUCTOR: test_1()
+###SNODE L: CONSTRUCTOR: test_1()
+###SNODE L: CONSTRUCTOR: test_1()
+###SNODE[] L: null
+###SNODE[] R: null
+
+###EXTRACT
+DIFF IS NOT NULL

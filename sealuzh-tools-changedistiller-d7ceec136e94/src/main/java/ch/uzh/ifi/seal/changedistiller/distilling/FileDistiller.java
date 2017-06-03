@@ -21,6 +21,8 @@ package ch.uzh.ifi.seal.changedistiller.distilling;
  */
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,12 +34,18 @@ import org.eclipse.jdt.internal.compiler.ast.TypeDeclaration;
 
 import ch.uzh.ifi.seal.changedistiller.ast.ASTHelper;
 import ch.uzh.ifi.seal.changedistiller.ast.ASTHelperFactory;
+import ch.uzh.ifi.seal.changedistiller.ast.ChangeASTHelper;
+import ch.uzh.ifi.seal.changedistiller.ast.ChangeASTHelperFactory;
+import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
+import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilationUtils;
 import ch.uzh.ifi.seal.changedistiller.distilling.refactoring.RefactoringCandidateProcessor;
 import ch.uzh.ifi.seal.changedistiller.model.entities.ClassHistory;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDifferencer;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureFinalDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeNode;
 
 import com.google.inject.Inject;
 
@@ -51,10 +59,11 @@ public class FileDistiller {
 
     private DistillerFactory fDistillerFactory;
     private ASTHelperFactory fASTHelperFactory;
+    private ChangeASTHelperFactory fChangeASTHelperFactory;
     private RefactoringCandidateProcessor fRefactoringProcessor;
-
     private List<SourceCodeChange> fChanges;
     private ASTHelper<StructureNode> fLeftASTHelper;
+    private ChangeASTHelper<StructureFinalDiffNode> diffASTHelper;
     private ASTHelper<StructureNode> fRightASTHelper;
     private ClassHistory fClassHistory;
     private String fVersion;
@@ -65,9 +74,11 @@ public class FileDistiller {
     FileDistiller(
             DistillerFactory distillerFactory,
             ASTHelperFactory factory,
-            RefactoringCandidateProcessor refactoringProcessor) {
+            RefactoringCandidateProcessor refactoringProcessor,
+            ChangeASTHelperFactory changeFactory) {
         fDistillerFactory = distillerFactory;
         fASTHelperFactory = factory;
+        fChangeASTHelperFactory = changeFactory;
         fRefactoringProcessor = refactoringProcessor;
     }
 
@@ -82,6 +93,11 @@ public class FileDistiller {
      */
     public StructureNode extractClassifiedSourceCodeChanges(File left, File right) {
     	StructureNode outcome = extractClassifiedSourceCodeChanges(left, "default", right, "default");
+    	return outcome;
+    }
+    
+    public StructureFinalDiffNode extractChangeNode(File left, File right) {
+    	StructureFinalDiffNode outcome = extractChangeFromSource(left, "default", right, "default");
     	return outcome;
     }
 
@@ -115,6 +131,20 @@ public class FileDistiller {
         StructureNode outcome = extractDifferences();
         return outcome;
     }
+    
+    @SuppressWarnings("unchecked")
+    public StructureFinalDiffNode extractChangeFromSource(File left, String leftVersion, File right, String rightVersion) {
+
+    	fLeftASTHelper = fASTHelperFactory.create(left, leftVersion);
+    	JavaCompilation leftAPIVersion = null; //JavaCompilationUtils.compile(getContentOfFile(leftVersion), left.getName());
+    	JavaCompilation rightAPIVersion = null; //JavaCompilationUtils.compile(getContentOfFile(rightVersion), right.getName());
+        fRightASTHelper = fASTHelperFactory.create(right, rightVersion);
+        leftComments = fLeftASTHelper.getComments();
+        rightComments = fRightASTHelper.getComments();
+        StructureFinalDiffNode outcome = extractChangeDifferences(leftAPIVersion,rightAPIVersion);
+        //diffASTHelper = fChangeASTHelperFactory.create(outcome);
+        return outcome;
+    }
 
 	private StructureNode extractDifferences() {
 		StructureDifferencer structureDifferencer = new StructureDifferencer();
@@ -132,7 +162,36 @@ public class FileDistiller {
         }
         return fLeftAST;
 	}
+	
+	private StructureFinalDiffNode extractChangeDifferences(JavaCompilation leftAPIVersion, JavaCompilation rightAPIVersion) {
+		StructureDifferencer structureDifferencer = new StructureDifferencer();
+		StructureNode fLeftAST = fLeftASTHelper.createStructureTree();
+		StructureNode fRightAST = fRightASTHelper.createStructureTree();
+        structureDifferencer.extractDifferences(fLeftAST,fRightAST);
+        StructureDiffNode structureDiff = structureDifferencer.getDifferences();
+        if (structureDiff != null) {
+        	fChanges = new LinkedList<SourceCodeChange>();
+            // first node is (usually) the compilation unit
+            processRootChildren(structureDiff);
+            
+        } else {
+        	fChanges = Collections.emptyList();
+        }
+        //StructureFinalDiffNode changeAST = diffASTHelper.createStructureChangeTree(); //Attempted to used customized ASTHelper
+        StructureFinalDiffNode changeAST = integrateStructureDiff(fLeftAST, structureDiff,leftAPIVersion,rightAPIVersion);
+        return changeAST;
+	}
+	
 
+    private StructureFinalDiffNode integrateStructureDiff(StructureNode fLeftAST, StructureDiffNode diff, JavaCompilation leftAPIVersion, JavaCompilation rightAPIVersion) {
+    	List<StructureDiffNode> foo = diff.getChildren();
+    	StructureFinalDiffNode changeAST = new JavaStructureChangeNode("String1", "String2", null);
+    	changeAST.setfChildren(foo);	
+    	changeAST.setAPIVersion(leftAPIVersion,rightAPIVersion);
+    	changeAST.setASTNode(fLeftAST.getASTNode());
+		return changeAST;
+	}
+    
     public void extractClassifiedSourceCodeChanges(File left, File right, String version) {
     	fVersion = version;
     	this.extractClassifiedSourceCodeChanges(left, right);

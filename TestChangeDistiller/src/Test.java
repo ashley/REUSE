@@ -16,6 +16,8 @@ import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureFinalDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 import codemining.ast.TreeNode;
 import codemining.ast.java.AbstractJavaTreeExtractor;
@@ -30,14 +32,40 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
-		
-		//String [] trainingFiles = {"beforeFiles","normal","10","afterFiles"};
-		//TestTreeLM.main(trainingFiles); //Testing modified SampleTSG
-		System.out.println("----------------------------------------------------------------------------------------------------");
-		
-		String [] changeDist = {"/Users/ashleychen/Desktop/testing/1b/src/main/java/org/apache/commons/lang3","normal","10",
-				"/Users/ashleychen/Desktop/testing/1b/src/main/java/org/apache/commons/lang3"};
-		//TestTreeLM.main(changeDist);
-		
+		testNewAST();
+	}
+	
+	public static void trainModel() throws IOException, SerializationException{
+		String [] changeDist = {"/Users/ashleychen/Desktop/b","/Users/ashleychen/Desktop/f","normal","5","/Users/ashleychen/Desktop"};
+		TestTreeLM.main(changeDist);
+	}
+	
+	public static void getEntropy() throws IOException, SerializationException{
+		String [] changeDist = {"/Users/ashleychen/Desktop/test_1.java","/Users/ashleychen/Desktop/test_2.java","/Users/ashleychen/Desktop/REUSE/REUSE/tsg.ser"};
+		TestTsgEntropy.main(changeDist);
+	}
+	
+	public static void testCD(){
+		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
+		File file1 = new File("/Users/ashleychen/Desktop/test_1.java");
+		File file2 = new File("/Users/ashleychen/Desktop/test_2.java");
+
+		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2); 
+		List<SourceCodeChange> changes = distiller.getSourceCodeChanges(); // To print changes for debugging
+		for (SourceCodeChange change: changes){
+			System.out.println(change);
+		}
+	}
+	
+	public static void testNewAST(){
+		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
+		File file1 = new File("/Users/ashleychen/Desktop/test_1.java");
+		File file2 = new File("/Users/ashleychen/Desktop/test_2.java");
+
+		StructureFinalDiffNode outcome = distiller.extractChangeNode(file1, file2);
+		List<SourceCodeChange> changes = distiller.getSourceCodeChanges(); // To print changes for debugging
+		for (SourceCodeChange change: changes){
+			System.out.println(change);
+		}
 	}
 }

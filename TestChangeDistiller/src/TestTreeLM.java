@@ -16,6 +16,8 @@ import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureFinalDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 import codemining.ast.TreeNode;
 import codemining.ast.java.AbstractJavaTreeExtractor;
@@ -42,11 +44,11 @@ public class TestTreeLM {
 	public static void main(final String[] args) throws IOException, SerializationException {
 		if (args.length < 4) {
 			System.err.println(
-					"Usage <TrainingDir> normal|binary|binary-metavariables|metavariables|variables <#iterations> <optional serialization file>");
+					"buggyFiles <DirectoryPath>, fixedFiles <DirectoryPath>, mode <normal|binary|variables>, iterations <number>, modelDestination <DirectoryPath>");
 			return;
 		}
 		final String serializedFile = args.length == 5 ? args[4].trim() + ".ser" : "tsg.ser";
-		final int nIterations = Integer.parseInt(args[2]);
+		final int nIterations = Integer.parseInt(args[3]);
 
 		final File samplerCheckpoint = new File("tsgSampler.ser");
 		final CollapsedGibbsSampler sampler;
@@ -58,7 +60,7 @@ public class TestTreeLM {
 		} else {
 
 			final AbstractJavaTreeExtractor format;
-			if (args[1].equals("normal")) {
+			if (args[2].equals("normal")) {
 				format = new JavaAstTreeExtractor();
 
 				sampler = new CollapsedGibbsSampler(20, 10, new FormattedTSGrammar(format),
@@ -79,23 +81,25 @@ public class TestTreeLM {
 				sampler = new CollapsedGibbsSampler(20, 10, new FormattedTSGrammar(format),
 						new FormattedTSGrammar(format));
 			} else {
-				throw new IllegalArgumentException("Unrecognizable parameter " + args[1]);
+				throw new IllegalArgumentException("Unrecognizable parameter " + args[2]);
 			}
 			final double percentRootsInit = .9;
 			int nFiles = 0;
 			int nNodes = 0;
 			
 			File[] beforeDirectory = new File(args[0]).listFiles();
-			File[] afterDirectory = new File(args[3]).listFiles();
+			File[] afterDirectory = new File(args[1]).listFiles();
 			
 			for (int i=0;i<beforeDirectory.length;i++) {
 				try {
-					StructureNode cu = analyzeDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
+					StructureFinalDiffNode cu = modifiedDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
+					//StructureNode cu = analyzeDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
 					if (cu != null){
 						ASTNode treeInt = cu.getASTNode();
 						prepareAST(treeInt);
 						//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
-						final TreeNode<TSGNode> ast = TSGNode.convertTree(format.getTree(treeInt), percentRootsInit);
+						TreeNode<Integer>  formatted = format.getTree(treeInt);
+						final TreeNode<TSGNode> ast = TSGNode.convertTree(formatted, percentRootsInit);
 						nNodes += ast.getTreeSize();
 						nFiles++;
 						sampler.addTree(ast);
@@ -167,6 +171,20 @@ public class TestTreeLM {
 
 	private static final Logger LOGGER = Logger.getLogger(SampleTSG.class.getName());
 	
+	public static StructureFinalDiffNode modifiedDistiller(String before, String after){
+		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
+		File file1 = new File(before);
+		File file2 = new File(after);
+
+		StructureFinalDiffNode outcome = distiller.extractChangeNode(file1, file2);
+		
+		//List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
+		/*for (SourceCodeChange change: changes){
+			System.out.println(change);
+		}*/
+		return outcome;
+	}
+	
 	public static StructureNode analyzeDistiller(String before, String after){
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
 		File file1 = new File(before);
@@ -179,6 +197,7 @@ public class TestTreeLM {
 		}*/
 		return outcome;
 	}
+	
 	
 	public static void prepareAST( ASTNode node ) {
 		node.accept( new ASTVisitor() {

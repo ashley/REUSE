@@ -80,10 +80,10 @@ public class TestTsgEntropy {
 				"CROSS-ENTROPY-DIFF: " + (probability / fileTokensLeft.size() - probability / fileTokensRight.size()));
 			}
 			else{
-				System.err.println("Test Tree Expression is NULL");
+				System.err.println("Cannot calculate entropy level. Change-Tree Expression is NULL");
 			}
 			return;
-
+ 
 	}
 	
 	public static Double [] getEntropy(){

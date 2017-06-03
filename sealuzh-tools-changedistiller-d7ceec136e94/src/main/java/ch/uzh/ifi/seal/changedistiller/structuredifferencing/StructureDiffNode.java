@@ -1,5 +1,7 @@
 package ch.uzh.ifi.seal.changedistiller.structuredifferencing;
 
+import java.io.File;
+
 /*
  * #%L
  * ChangeDistiller
@@ -23,6 +25,7 @@ package ch.uzh.ifi.seal.changedistiller.structuredifferencing;
 import java.util.LinkedList;
 import java.util.List;
 
+import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDifferencer.DiffType;
 
 /**
@@ -36,6 +39,8 @@ public class StructureDiffNode {
     private StructureNode fLeft;
     private StructureNode fRight;
     private DiffType fDiffType;
+    //private JavaCompilation leftffCompilation;
+    //private JavaCompilation rightfCompilation;
 
     /**
      * Creates a new structure diff node.
@@ -159,5 +164,16 @@ public class StructureDiffNode {
     public boolean isDeletion() {
         return fDiffType == DiffType.DELETION;
     }
+
+	/*
+	public void addAPIVersion(JavaCompilation leftAPIVersion, JavaCompilation rightAPIVersion) {
+		leftffCompilation = leftAPIVersion;
+		rightfCompilation = rightAPIVersion;
+	}
+	
+	public JavaCompilation getfCompilation(){
+		return leftffCompilation;
+	}
+	*/
 
 }

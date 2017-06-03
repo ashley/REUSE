@@ -34,6 +34,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import ch.uzh.ifi.seal.changedistiller.ast.FileUtils;
 import ch.uzh.ifi.seal.changedistiller.ast.InvalidSyntaxException;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
 
 /**
  * Utility class for Java compilation.

@@ -29,7 +29,7 @@ after-to-after | -1786.5376 | -8.3094 | -8.3094 | -5.5482 | 0.0
 
 TypeOfBug | Changes | CE-Left | CE-Right | CE-Avg | CE-Diff | Expected | Observed | Notes
 ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- 
-unn_1 | -380.4179 | -5.0054 | -5.5133 | -3.4583 | 0.5078 | Negative | Equal | Wrong argument type
+unn_1 | -380.4179 | -5.0054 | -5.5133 | -3.4583 | 0.5078 | Negative | Positive | Wrong argument type
 unn_2 | -593.4720 | -6.5941 | -7.2374 | -4.5303 | 0.6433 | Negative | Positive | Asks for a return on a void function 
 unn_3 | -395.8753 | -6.7097 | -5.4982 | -4.1671 | -1.2114 | Negative | Negative | Fixed by throwing exception
 nat_1 | -444.1586 | -6.4370 | -6.4370 | -4.3122- | 0.0000 | Equal | Equal | Changed argument value
@@ -37,5 +37,5 @@ not_1 | -517.9211 | -6.8147 | -7.0948 | -4.6242 | 0.2800 | Positive | Positive |
 not_2 | -531.1510 | -6.1051 | -6.1761 | -4.0857 | 0.0709 | Positive | Positive | Initializing unknown method in f
 not_3 | -395.9493 | -6.4909 | -6.4909 | -4.3510 | 0.0000 | Equal | Equal | Nothing changed
 not_4 | -531.1510 | -6.1051 | -6.3994 | -4.1496 | -0.2145 | Negative | Negative | Delete unknown method in f
-na_1 |  -199.5726 | -6.6524 | -4.6412 | -3.9131 | -2.0111 | Negative | Positive | Create a method for unknkown method from b in f
+na_1 |  -199.5726 | -6.6524 | -4.6412 | -3.9131 | -2.0111 | Negative | Negative | Create a method for unknkown method from b in f
 na_2 | -369.2301 | -5.6804 | -5.8607 | -3.8461 |  0.1803 | Negative | Positive | OOB Error

@@ -22,12 +22,15 @@ package ch.uzh.ifi.seal.changedistiller.ast;
 
 import java.io.File;
 
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureFinalDiffNode;
+
 /**
  * Factory interface to create {@link ASTHelper} from a {@link File} and a version number.
  * 
  * @author Beat Fluri
  */
-public interface ASTHelperFactory {
+public interface ChangeASTHelperFactory {
 
     /**
      * Creates and returns an {@link ASTHelper} acting on the given {@link File}.
@@ -39,8 +42,8 @@ public interface ASTHelperFactory {
      * @return the AST helper acting on the file
      */
     @SuppressWarnings("rawtypes")
-    ASTHelper create(File file, String version);
-    
-    //@SuppressWarnings("rawtypes")
-    //ChangeASTHelper createChange(File file, String version);
+    ChangeASTHelper create(File file, String version);
+
+	//@SuppressWarnings("rawtypes")
+	//ChangeASTHelper create(StructureFinalDiffNode node);
 }
