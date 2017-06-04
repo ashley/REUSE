@@ -1,15 +1,15 @@
 #SNODE L: CU: null
 #SNODE L: CU: null
-#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@6e15fe2
-#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@68f1b17f
+#SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@2ef3eef9
+#SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@243c4f91
 
 #TRAVERSE
 LEFTCHILD: CLASS: test_1
 RIGHTCHILD: CLASS: test_1
 ##SNODE L: CLASS: test_1
 ##SNODE L: CLASS: test_1
-##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@1722011b
-##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@57ad2aa7
+##SNODE[] L: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@291ae
+##SNODE[] R: [Lch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;@61df66b6
 
 ##TRAVERSE
 LEFTCHILD: METHOD: main(String)
@@ -31,3 +31,4 @@ RIGHTCHILD: CONSTRUCTOR: test_1()
 
 ###EXTRACT
 DIFF IS NOT NULL
+Update: System.out.println("The first letter of " + word + " is "+ initial);
