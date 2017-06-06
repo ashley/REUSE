@@ -24,8 +24,10 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.PackageDeclaration;
 
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaCompilation;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeNode.Type;
 
 /**
  * Node for structure differencing.
@@ -106,5 +108,9 @@ public interface StructureFinalDiffNode {
 	void setAPIVersion(JavaCompilation leftAPIVersion, JavaCompilation rightAPIVersion);
 
 	void setASTNode(ASTNode astNode);
+
+	PackageDeclaration getPackage();
+
+	Type getTypes();
 
 }

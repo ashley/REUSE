@@ -1,5 +1,7 @@
 package ch.uzh.ifi.seal.changedistiller.structuredifferencing.java;
 
+import java.io.File;
+
 /*
  * #%L
  * ChangeDistiller
@@ -26,6 +28,8 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
+import com.google.inject.Inject;
+
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 
 /**
@@ -40,6 +44,7 @@ public class JavaStructureNode implements StructureNode {
     private String fQualifier;
     private ASTNode fASTNode;
     private List<JavaStructureNode> fChildren;
+    private File fFile;
 
     /**
      * Creates a new Java structure node
@@ -53,12 +58,18 @@ public class JavaStructureNode implements StructureNode {
      * @param astNode
      *            representing the structure node
      */
+    
     public JavaStructureNode(Type type, String qualifier, String name, ASTNode astNode) {
         fType = type;
         fQualifier = qualifier;
         fName = name;
         fASTNode = astNode;
         fChildren = new LinkedList<JavaStructureNode>();
+    }
+    
+    @Inject
+    public JavaStructureNode(String name){
+    	fName = name;
     }
 
     /**

@@ -25,6 +25,7 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.PackageDeclaration;
 
 import com.google.inject.Inject;
 
@@ -184,6 +185,16 @@ public class JavaStructureChangeNode implements StructureFinalDiffNode {
 	public void setAPIVersion(JavaCompilation leftAPIVersion, JavaCompilation rightAPIVersion) {
 		fAPIVersion = leftAPIVersion;
 		
+	}
+
+	@Override
+	public PackageDeclaration getPackage() {
+		return null; // TODO Implement pls
+	}
+
+	@Override
+	public Type getTypes() {
+		return fType;
 	}
 
 

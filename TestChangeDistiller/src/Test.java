@@ -32,11 +32,11 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
-		testNewAST();
+		testCD();
 	}
 	
 	public static void trainModel() throws IOException, SerializationException{
-		String [] changeDist = {"/Users/ashleychen/Desktop/b","/Users/ashleychen/Desktop/f","normal","5","/Users/ashleychen/Desktop"};
+		String [] changeDist = {"/Users/ashleychen/Desktop/b","/Users/ashleychen/Desktop/f","normal","5","/Users/ashleychen/Desktop/tsg.ser"};
 		TestTreeLM.main(changeDist);
 	}
 	
@@ -67,5 +67,10 @@ public class Test {
 		for (SourceCodeChange change: changes){
 			System.out.println(change);
 		}
+	}
+
+	public static void getRandomCode() throws IOException, SerializationException{
+		String [] changeDist = {"/Users/ashleychen/Desktop/REUSE/REUSE/Results/SourceCodeModel.ser","1"};
+		GenerateRandom.main(changeDist);
 	}
 }

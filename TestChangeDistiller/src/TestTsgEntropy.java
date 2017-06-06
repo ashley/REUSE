@@ -69,8 +69,7 @@ public class TestTsgEntropy {
 				final List<String> fileTokensLeft = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[0])).toCharArray());
 				final List<String> fileTokensRight = tokenizer.tokenListFromCode(FileUtils.readFileToString(new File(args[1])).toCharArray());
 	
-				final TreeProbabilityComputer<TSGNode> probabilityComputer = new TreeProbabilityComputer<TSGNode>(
-						grammar, false, TreeProbabilityComputer.TSGNODE_MATCHER);
+				final TreeProbabilityComputer<TSGNode> probabilityComputer = new TreeProbabilityComputer<TSGNode>(grammar, false, TreeProbabilityComputer.TSGNODE_MATCHER);
 				probability = probabilityComputer
 						.getLog2ProbabilityOf(tsgTree);
 	

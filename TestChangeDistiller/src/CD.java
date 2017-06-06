@@ -6,33 +6,22 @@ import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller.Language;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 
 public class CD {
 	public static void main(String [] args) throws IOException{
-		File left = new File(args[0]);
-		File right = new File(args[1]);
-		
+		if (args.length != 2) {
+			System.err.println("Usage <beforeFilePath> <afterFilePath>");
+			return;
+		}
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
-		try {
-		    distiller.extractClassifiedSourceCodeChanges(left, right);
-		} catch(Exception e) {
-		    /* An exception most likely indicates a bug in ChangeDistiller. Please file a
-		       bug report at https://bitbucket.org/sealuzh/tools-changedistiller/issues and
-		       attach the full stack trace along with the two files that you tried to distill. */
-		    System.err.println("Warning: error while change distilling. " + e.getMessage());
-		}
-		List<SourceCodeChange> changes = distiller.getSourceCodeChanges();
-		System.out.println();
-		if (changes != null){
-			System.out.println("CHANGES: ");
-			for(SourceCodeChange change: changes){
-				System.out.println(change);
-				System.out.println(change.getChangedEntity());
-		        System.out.println();
-			}
-		}
-		else{
-			System.out.print("Changes are null");
+		File file1 = new File(args[0]);
+		File file2 = new File(args[1]);
+
+		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2); 
+		List<SourceCodeChange> changes = distiller.getSourceCodeChanges(); // To print changes for debugging
+		for (SourceCodeChange change: changes){
+			System.out.println(change);
 		}
 					
 	}//initialize

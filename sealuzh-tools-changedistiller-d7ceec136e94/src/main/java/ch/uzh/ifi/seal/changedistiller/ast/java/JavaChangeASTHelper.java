@@ -43,9 +43,11 @@ import ch.uzh.ifi.seal.changedistiller.model.entities.MethodHistory;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeEntity;
 import ch.uzh.ifi.seal.changedistiller.model.entities.StructureEntityVersion;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeNode.Type;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeTreeBuilder;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureTreeBuilder;
 import ch.uzh.ifi.seal.changedistiller.treedifferencing.Node;
 
@@ -68,9 +70,10 @@ public class JavaChangeASTHelper implements ChangeASTHelper<JavaStructureChangeN
 
     @Inject
     JavaChangeASTHelper(
-    		@Assisted File file,
+    		@Assisted JavaStructureNode left,
+            @Assisted JavaStructureNode right,
+            @Assisted File file,
             @Assisted String javaVersion,
-            StructureDiffNode node,
             JavaASTNodeTypeConverter astHelper,
             JavaDeclarationConverter declarationConverter,
             JavaMethodBodyConverter bodyConverter) {

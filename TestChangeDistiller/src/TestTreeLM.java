@@ -92,13 +92,14 @@ public class TestTreeLM {
 			
 			for (int i=0;i<beforeDirectory.length;i++) {
 				try {
-					StructureFinalDiffNode cu = modifiedDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
-					//StructureNode cu = analyzeDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
+					//StructureFinalDiffNode cu = modifiedDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
+					StructureNode cu = analyzeDistiller(beforeDirectory[i].getAbsolutePath(),afterDirectory[i].getAbsolutePath());
 					if (cu != null){
 						ASTNode treeInt = cu.getASTNode();
 						prepareAST(treeInt);
 						//org.eclipse.jdt.core.dom.ASTNode treeInt = format.getDistillerTree(fi);
 						TreeNode<Integer>  formatted = format.getTree(treeInt);
+						//TreeNode<Integer> changeFormatted = format.getChangeTree(cu);
 						final TreeNode<TSGNode> ast = TSGNode.convertTree(formatted, percentRootsInit);
 						nNodes += ast.getTreeSize();
 						nFiles++;

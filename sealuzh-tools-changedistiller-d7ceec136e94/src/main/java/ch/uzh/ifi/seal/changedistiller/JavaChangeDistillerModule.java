@@ -26,6 +26,7 @@ import ch.uzh.ifi.seal.changedistiller.ast.ASTHelperFactory;
 import ch.uzh.ifi.seal.changedistiller.ast.ASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.ast.ChangeASTHelper;
 import ch.uzh.ifi.seal.changedistiller.ast.ChangeASTHelperFactory;
+import ch.uzh.ifi.seal.changedistiller.ast.StructureNodeFactory;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaASTHelper;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaASTNodeTypeConverter;
 import ch.uzh.ifi.seal.changedistiller.ast.java.JavaChangeASTHelper;
@@ -34,7 +35,9 @@ import ch.uzh.ifi.seal.changedistiller.distilling.DistillerFactory;
 import ch.uzh.ifi.seal.changedistiller.distilling.SourceCodeChangeClassifier;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureFinalDiffNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureNode;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
@@ -50,8 +53,10 @@ public class JavaChangeDistillerModule extends AbstractModule {
     protected void configure() {    	
         bind(ASTNodeTypeConverter.class).to(JavaASTNodeTypeConverter.class);
         bind(SourceCodeChangeClassifier.class).to(JavaSourceCodeChangeClassifier.class);
+        //bind(StructureNode.class).to(JavaStructureNode.class);
         install(new FactoryModuleBuilder().build(DistillerFactory.class));
+        //install(new FactoryModuleBuilder().implement(StructureNode.class, JavaStructureNode.class).build(StructureNodeFactory.class));
         install(new FactoryModuleBuilder().implement(ASTHelper.class, JavaASTHelper.class).build(ASTHelperFactory.class));
-        install(new FactoryModuleBuilder().implement(ChangeASTHelper.class, JavaChangeASTHelper.class).build(ChangeASTHelperFactory.class));
+        //install(new FactoryModuleBuilder().implement(ChangeASTHelper.class, JavaChangeASTHelper.class).build(ChangeASTHelperFactory.class));
     }
 }

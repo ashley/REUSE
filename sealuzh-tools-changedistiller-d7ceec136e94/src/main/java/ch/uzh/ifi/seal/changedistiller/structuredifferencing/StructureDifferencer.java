@@ -71,23 +71,23 @@ public class StructureDifferencer {
     	for (int i=0; i<n;i++){
     		space += "#";
     	}
-    	System.out.println(space + "SNODE L: " + left);
-    	System.out.println(space + "SNODE L: " + right);
+    	//System.out.println(space + "SNODE L: " + left);
+    	//System.out.println(space + "SNODE L: " + right);
 
         StructureNode[] leftChildren = getChildren(left);
         StructureNode[] rightChildren = getChildren(right);
         
-    	System.out.println(space + "SNODE[] L: " + leftChildren);
-    	System.out.println(space + "SNODE[] R: " + rightChildren);
+    	//System.out.println(space + "SNODE[] L: " + leftChildren);
+    	//System.out.println(space + "SNODE[] R: " + rightChildren);
     	
-    	System.out.println();
+    	//System.out.println();
 
         StructureDiffNode root = new StructureDiffNode(left, right);
         if ((leftChildren != null) && (rightChildren != null)) {
-        	System.out.println(space + "TRAVERSE");
+        	//System.out.println(space + "TRAVERSE");
             root = traverseChildren(root, leftChildren, rightChildren, n);
         } else {
-        	System.out.println(space + "EXTRACT");
+        	//System.out.println(space + "EXTRACT");
             root = extractLeaveChange(root, left, right);
         }
         if (hasChanges(root)) {
@@ -111,7 +111,7 @@ public class StructureDifferencer {
             root.setDiffType(DiffType.DELETION);
         } else {
             if (!contentsEqual(left, right)) {
-            	System.out.println("!!EQUAL!!");
+            	//System.out.println("!!EQUAL!!");
                 root.setLeft(left);
                 root.setRight(right);
                 root.setDiffType(DiffType.CHANGE);
@@ -139,12 +139,12 @@ public class StructureDifferencer {
         }
         for (StructureNode node : allSet) {
             StructureNode leftChild = leftSet.get(node);
-            System.out.println("LEFTCHILD: " + leftChild);
+            //System.out.println("LEFTCHILD: " + leftChild);
             StructureNode rightChild = rightSet.get(node);
-            System.out.println("RIGHTCHILD: " + rightChild);
+            //System.out.println("RIGHTCHILD: " + rightChild);
             StructureDiffNode diff = traverse(leftChild, rightChild, space);
             if (diff != null) {
-            	System.out.println("DIFF IS NOT NULL");
+            	//System.out.println("DIFF IS NOT NULL");
                 root.addChild(diff);
             }
         }

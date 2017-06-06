@@ -24,6 +24,7 @@ import java.io.File;
 
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureFinalDiffNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 
 /**
  * Factory interface to create {@link ASTHelper} from a {@link File} and a version number.
@@ -43,6 +44,9 @@ public interface ChangeASTHelperFactory {
      */
     @SuppressWarnings("rawtypes")
     ChangeASTHelper create(File file, String version);
+    
+    @SuppressWarnings("rawtypes")
+	ChangeASTHelper create(StructureNode fLeftAST, StructureNode fRightAST);
 
 	//@SuppressWarnings("rawtypes")
 	//ChangeASTHelper create(StructureFinalDiffNode node);
