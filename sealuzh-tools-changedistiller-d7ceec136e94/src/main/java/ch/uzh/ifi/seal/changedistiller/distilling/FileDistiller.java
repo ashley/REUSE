@@ -74,11 +74,11 @@ public class FileDistiller {
     FileDistiller(
             DistillerFactory distillerFactory,
             ASTHelperFactory factory,
-            RefactoringCandidateProcessor refactoringProcessor/*,
-            ChangeASTHelperFactory changeFactory*/) {
+            RefactoringCandidateProcessor refactoringProcessor,
+            ChangeASTHelperFactory changeFactory) {
         fDistillerFactory = distillerFactory;
         fASTHelperFactory = factory;
-        //fChangeASTHelperFactory = changeFactory;
+        fChangeASTHelperFactory = changeFactory;
         fRefactoringProcessor = refactoringProcessor;
     }
 
@@ -120,14 +120,6 @@ public class FileDistiller {
         fRightASTHelper = fASTHelperFactory.create(right, rightVersion);
         leftComments = fLeftASTHelper.getComments();
         rightComments = fRightASTHelper.getComments();
-        //System.out.println("LEFT COMMENTS");
-        //for (Comment comment:leftComments){
-        	//System.out.print(comment);
-        //}
-        //System.out.println("RIGHT COMMENTS");
-        //for (Comment comment:leftComments){
-        	//System.out.print(comment);
-        //}
         StructureNode outcome = extractDifferences();
         return outcome;
     }
@@ -138,11 +130,11 @@ public class FileDistiller {
     	fLeftASTHelper = fASTHelperFactory.create(left, leftVersion);
     	JavaCompilation leftAPIVersion = null; //JavaCompilationUtils.compile(getContentOfFile(leftVersion), left.getName());
     	JavaCompilation rightAPIVersion = null; //JavaCompilationUtils.compile(getContentOfFile(rightVersion), right.getName());
-        fRightASTHelper = fASTHelperFactory.create(right, rightVersion);
+    	fRightASTHelper = fASTHelperFactory.create(right, rightVersion);
+		diffASTHelper = fChangeASTHelperFactory.create(8);
         leftComments = fLeftASTHelper.getComments();
         rightComments = fRightASTHelper.getComments();
         StructureFinalDiffNode outcome = extractChangeDifferences(leftAPIVersion,rightAPIVersion);
-        //diffASTHelper = fChangeASTHelperFactory.create(outcome);
         return outcome;
     }
 
@@ -167,7 +159,6 @@ public class FileDistiller {
 		StructureDifferencer structureDifferencer = new StructureDifferencer();
 		StructureNode fLeftAST = fLeftASTHelper.createStructureTree();
 		StructureNode fRightAST = fRightASTHelper.createStructureTree();
-		diffASTHelper = fChangeASTHelperFactory.create(fLeftAST, fRightAST);
         structureDifferencer.extractDifferences(fLeftAST,fRightAST);
         StructureDiffNode structureDiff = structureDifferencer.getDifferences();
         if (structureDiff != null) {

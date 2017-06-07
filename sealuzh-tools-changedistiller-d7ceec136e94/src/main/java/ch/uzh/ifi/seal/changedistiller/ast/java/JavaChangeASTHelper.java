@@ -53,13 +53,9 @@ import ch.uzh.ifi.seal.changedistiller.treedifferencing.Node;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import com.google.inject.assistedinject.AssistedInject;
 
-/**
- * Implementation of {@link ASTHelper} for the Java programming language.
- * 
- * @author Beat Fluri,
- * @author Giacomo Ghezzi
- */
+
 public class JavaChangeASTHelper implements ChangeASTHelper<JavaStructureChangeNode> {
 
     private JavaDeclarationConverter fDeclarationConverter;
@@ -67,22 +63,22 @@ public class JavaChangeASTHelper implements ChangeASTHelper<JavaStructureChangeN
     private JavaASTNodeTypeConverter fASTHelper;
     private JavaCompilation fCompilation;
     private List<Comment> fComments;
-
-    @Inject
+    
+    @Inject 
+    JavaChangeASTHelper(@Assisted int i){};
+    /*
     JavaChangeASTHelper(
-    		@Assisted JavaStructureNode left,
-            @Assisted JavaStructureNode right,
-            @Assisted File file,
-            @Assisted String javaVersion,
+    		@Assisted File left,
+            @Assisted File  right,
             JavaASTNodeTypeConverter astHelper,
             JavaDeclarationConverter declarationConverter,
             JavaMethodBodyConverter bodyConverter) {
-        fCompilation = JavaCompilationUtils.compile(file, AST.JLS4); //node.getfCompilation();
+        //fCompilation = JavaCompilationUtils.compile(file, AST.JLS4); //node.getfCompilation();
         prepareComments();
-        fASTHelper = astHelper;
-        fDeclarationConverter = declarationConverter;
-        fBodyConverter = bodyConverter;
-    }
+        //fASTHelper = astHelper;
+        //fDeclarationConverter = declarationConverter;
+        //fBodyConverter = bodyConverter;
+    }*/
     
     @SuppressWarnings("unchecked")
 	private void prepareComments() {

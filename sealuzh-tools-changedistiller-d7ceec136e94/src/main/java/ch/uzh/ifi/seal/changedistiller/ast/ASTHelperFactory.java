@@ -41,6 +41,4 @@ public interface ASTHelperFactory {
     @SuppressWarnings("rawtypes")
     ASTHelper create(File file, String version);
     
-    //@SuppressWarnings("rawtypes")
-    //ChangeASTHelper createChange(File file, String version);
 }

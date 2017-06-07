@@ -53,10 +53,10 @@ public class JavaChangeDistillerModule extends AbstractModule {
     protected void configure() {    	
         bind(ASTNodeTypeConverter.class).to(JavaASTNodeTypeConverter.class);
         bind(SourceCodeChangeClassifier.class).to(JavaSourceCodeChangeClassifier.class);
-        //bind(StructureNode.class).to(JavaStructureNode.class);
+        bind(StructureNode.class).to(JavaStructureNode.class);
         install(new FactoryModuleBuilder().build(DistillerFactory.class));
         //install(new FactoryModuleBuilder().implement(StructureNode.class, JavaStructureNode.class).build(StructureNodeFactory.class));
         install(new FactoryModuleBuilder().implement(ASTHelper.class, JavaASTHelper.class).build(ASTHelperFactory.class));
-        //install(new FactoryModuleBuilder().implement(ChangeASTHelper.class, JavaChangeASTHelper.class).build(ChangeASTHelperFactory.class));
+        install(new FactoryModuleBuilder().implement(ChangeASTHelper.class, JavaChangeASTHelper.class).build(ChangeASTHelperFactory.class));
     }
 }

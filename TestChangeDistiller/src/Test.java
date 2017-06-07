@@ -32,7 +32,7 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
-		testCD();
+		testNewAST();
 	}
 	
 	public static void trainModel() throws IOException, SerializationException{
