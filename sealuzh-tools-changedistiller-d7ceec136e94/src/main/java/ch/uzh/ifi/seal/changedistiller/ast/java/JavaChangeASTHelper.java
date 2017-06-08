@@ -391,7 +391,7 @@ public class JavaChangeASTHelper implements ChangeASTHelper<JavaStructureChangeN
 	public JavaStructureChangeNode createStructureTree() {
 		ASTNode cu = fRightAST.getASTNode();
 		JavaStructureChangeNode node = new JavaStructureChangeNode(null, null, cu);
-		cu.accept(new JavaStructureTreeBuilder(node));
+		cu.accept(new JavaStructureChangeTreeBuilder(node));
 	    return node;
 	}
 
