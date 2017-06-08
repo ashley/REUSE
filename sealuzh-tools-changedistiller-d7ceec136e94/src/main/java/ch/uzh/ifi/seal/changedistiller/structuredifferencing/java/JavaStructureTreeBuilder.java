@@ -48,6 +48,7 @@ import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureN
 public class JavaStructureTreeBuilder extends ASTVisitor {
 
 	private Stack<JavaStructureNode> fNodeStack;
+	private Stack<JavaStructureChangeNode> fNodeChangeStack;
 	private Stack<char[]> fQualifiers;
 
 	/**
@@ -59,6 +60,12 @@ public class JavaStructureTreeBuilder extends ASTVisitor {
 	public JavaStructureTreeBuilder(JavaStructureNode root) {
 		fNodeStack = new Stack<JavaStructureNode>();
 		fNodeStack.push(root);
+		fQualifiers = new Stack<char[]>();
+	}
+
+	public JavaStructureTreeBuilder(JavaStructureChangeNode node) {
+		fNodeChangeStack = new Stack<JavaStructureChangeNode>();
+		fNodeChangeStack.push(node);
 		fQualifiers = new Stack<char[]>();
 	}
 

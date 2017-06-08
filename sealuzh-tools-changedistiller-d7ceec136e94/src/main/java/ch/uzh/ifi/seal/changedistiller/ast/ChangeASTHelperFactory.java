@@ -22,9 +22,12 @@ package ch.uzh.ifi.seal.changedistiller.ast;
 
 import java.io.File;
 
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureNode;
+
 public interface ChangeASTHelperFactory {
 
     @SuppressWarnings("rawtypes")
-	ChangeASTHelper create(int i);
+	ChangeASTHelper create(StructureNode[] i);
 
 }

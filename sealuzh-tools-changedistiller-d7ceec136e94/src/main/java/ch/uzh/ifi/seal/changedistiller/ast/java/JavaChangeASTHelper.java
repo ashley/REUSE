@@ -43,6 +43,7 @@ import ch.uzh.ifi.seal.changedistiller.model.entities.MethodHistory;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeEntity;
 import ch.uzh.ifi.seal.changedistiller.model.entities.StructureEntityVersion;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDiffNode;
+import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureDifferencer;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.StructureNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeNode;
 import ch.uzh.ifi.seal.changedistiller.structuredifferencing.java.JavaStructureChangeNode.Type;
@@ -63,29 +64,29 @@ public class JavaChangeASTHelper implements ChangeASTHelper<JavaStructureChangeN
     private JavaASTNodeTypeConverter fASTHelper;
     private JavaCompilation fCompilation;
     private List<Comment> fComments;
+    private StructureNode fLeftAST;
+    private StructureNode fRightAST;
+    private StructureDiffNode fDiff;
     
     @Inject 
-    JavaChangeASTHelper(@Assisted int i){};
-    /*
-    JavaChangeASTHelper(
-    		@Assisted File left,
-            @Assisted File  right,
+    JavaChangeASTHelper(@Assisted StructureNode[] fAST,
             JavaASTNodeTypeConverter astHelper,
             JavaDeclarationConverter declarationConverter,
             JavaMethodBodyConverter bodyConverter) {
-        //fCompilation = JavaCompilationUtils.compile(file, AST.JLS4); //node.getfCompilation();
-        prepareComments();
-        //fASTHelper = astHelper;
-        //fDeclarationConverter = declarationConverter;
-        //fBodyConverter = bodyConverter;
-    }*/
-    
-    @SuppressWarnings("unchecked")
-	private void prepareComments() {
-        fComments = fCompilation.getCompilationUnit().getCommentList(); 
+    	fASTHelper = astHelper;
+        fDeclarationConverter = declarationConverter;
+        fBodyConverter = bodyConverter;
+        fLeftAST = fAST[0];
+        fRightAST = fAST[1];
+        getDifferences();
     }
 
-
+	private void getDifferences(){
+        StructureDifferencer structureDifferencer = new StructureDifferencer();
+        structureDifferencer.extractDifferences(fLeftAST,fRightAST);
+        fDiff = structureDifferencer.getDifferences();
+    }
+    
     @Override
     public Node createDeclarationChangeTree(JavaStructureChangeNode node) {
         ASTNode astNode = node.getASTNode();
@@ -388,8 +389,10 @@ public class JavaChangeASTHelper implements ChangeASTHelper<JavaStructureChangeN
 
 	@Override
 	public JavaStructureChangeNode createStructureTree() {
-		// TODO Auto-generated method stub
-		return null;
+		ASTNode cu = fRightAST.getASTNode();
+		JavaStructureChangeNode node = new JavaStructureChangeNode(null, null, cu);
+		cu.accept(new JavaStructureTreeBuilder(node));
+	    return node;
 	}
 
 

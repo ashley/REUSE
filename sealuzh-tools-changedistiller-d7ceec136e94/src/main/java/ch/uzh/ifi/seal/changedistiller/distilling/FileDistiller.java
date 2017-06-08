@@ -131,7 +131,11 @@ public class FileDistiller {
     	JavaCompilation leftAPIVersion = null; //JavaCompilationUtils.compile(getContentOfFile(leftVersion), left.getName());
     	JavaCompilation rightAPIVersion = null; //JavaCompilationUtils.compile(getContentOfFile(rightVersion), right.getName());
     	fRightASTHelper = fASTHelperFactory.create(right, rightVersion);
-		diffASTHelper = fChangeASTHelperFactory.create(8);
+    	StructureNode fLeftAST = fLeftASTHelper.createStructureTree();
+    	StructureNode fRightAST = fRightASTHelper.createStructureTree();
+    	StructureNode [] arr = {fLeftAST,fRightAST};
+    	diffASTHelper = fChangeASTHelperFactory.create(arr);
+    	JavaStructureChangeNode changeNode = diffASTHelper.createStructureTree();
         leftComments = fLeftASTHelper.getComments();
         rightComments = fRightASTHelper.getComments();
         StructureFinalDiffNode outcome = extractChangeDifferences(leftAPIVersion,rightAPIVersion);
