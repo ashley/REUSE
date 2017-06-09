@@ -3,6 +3,7 @@ import requests
 import sys #For encoding/decoding special keys
 import os #For encoding/decoding special keys
 import re
+from tqdm import tqdm #Loading bar API
 reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
 
@@ -78,7 +79,7 @@ def aggregateFiles(g, repo_name, repoID):
     if not os.path.lexists("Repos"+"//"+repo_name):
         os.makedirs("Repos"+"//"+repo_name)  
     
-    for i in range(1,len(SHA_pairs)):
+    for i in tqdm(range(1,len(SHA_pairs))):
         changed_files = compareFiles(repo,SHA_pairs[i][0],SHA_pairs[i][1])
     
         buggyFolders = i

@@ -32,7 +32,9 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
-		testNewAST();
+		String [] testing = {"/Users/ashleychen/desktop/atmosphere","normal","20"};
+		TrainBuggyCode.main(testing);
+		//testNewAST();
 	}
 	
 	public static void trainModel() throws IOException, SerializationException{
