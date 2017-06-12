@@ -98,7 +98,7 @@ public class TrainBuggyCode {
 								beforeDirectory = FileUtils.listFiles(buggyFolders[0], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
 								afterDirectory = FileUtils.listFiles(buggyFolders[1], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
 							}
-							else if(buggyFolders[1].getName().equals("f")){
+							else if(buggyFolders[0].getName().equals("f")){
 								beforeDirectory = FileUtils.listFiles(buggyFolders[1], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
 								afterDirectory = FileUtils.listFiles(buggyFolders[0], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
 							}
