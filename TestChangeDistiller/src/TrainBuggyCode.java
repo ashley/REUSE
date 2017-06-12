@@ -81,52 +81,59 @@ public class TrainBuggyCode {
 			int nFiles = 0;
 			int nNodes = 0;
 			
-			File[] repository = new File(args[0]).listFiles();
-			
-			for(File commits : repository){
-				if (commits.isDirectory()){
-					File[] buggyFolders = commits.listFiles();
-					if(buggyFolders.length == 2){
-						Collection<File> beforeDirectory = null;
-						Collection<File> afterDirectory = null;
-						if(buggyFolders[0].getName().equals("b")){
-							beforeDirectory = FileUtils.listFiles(buggyFolders[0], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
-							afterDirectory = FileUtils.listFiles(buggyFolders[1], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
-						}
-						else if(buggyFolders[1].getName().equals("f")){
-							beforeDirectory = FileUtils.listFiles(buggyFolders[1], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
-							afterDirectory = FileUtils.listFiles(buggyFolders[0], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
-						}
-						if(beforeDirectory != null && afterDirectory != null){
-							Iterator<File> iBefore = beforeDirectory.iterator();
-							Iterator<File> iAfter = afterDirectory.iterator();
-						while (iBefore.hasNext() && iAfter.hasNext()) {
-							try {
-								String beforePath = iBefore.next().getAbsolutePath();
-								System.out.println(beforePath);
-								StructureNode cu = analyzeDistiller(beforePath, iAfter.next().getAbsolutePath());
-								if (cu != null){
-									ASTNode treeInt = cu.getASTNode();
-									prepareAST(treeInt);
-									TreeNode<Integer>  formatted = format.getTree(treeInt);
-									final TreeNode<TSGNode> ast = TSGNode.convertTree(formatted, percentRootsInit);
-									nNodes += ast.getTreeSize();
-									nFiles++;
-									sampler.addTree(ast);
+			try{
+				File[] repository = new File(args[0]).listFiles();
+				for(File commits : repository){
+					if (commits.isDirectory()){
+						File[] buggyFolders = commits.listFiles();
+						if(buggyFolders.length == 2){
+							Collection<File> beforeDirectory = null;
+							Collection<File> afterDirectory = null;
+							if(buggyFolders[0].getName().equals("b")){
+								beforeDirectory = FileUtils.listFiles(buggyFolders[0], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
+								afterDirectory = FileUtils.listFiles(buggyFolders[1], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
+							}
+							else if(buggyFolders[1].getName().equals("f")){
+								beforeDirectory = FileUtils.listFiles(buggyFolders[1], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
+								afterDirectory = FileUtils.listFiles(buggyFolders[0], new RegexFileFilter(".*\\.java$"),DirectoryFileFilter.DIRECTORY);
+							}
+							if(beforeDirectory != null && afterDirectory != null){
+								System.out.println("Directories are not NULL");
+								Iterator<File> iBefore = beforeDirectory.iterator();
+								Iterator<File> iAfter = afterDirectory.iterator();
+							while (iBefore.hasNext() && iAfter.hasNext()) {
+								try {
+									String beforePath = iBefore.next().getAbsolutePath();
+									System.out.println(beforePath);
+									StructureNode cu = analyzeDistiller(beforePath, iAfter.next().getAbsolutePath());
+									if (cu != null){
+										System.out.println("Starting tree conversion");
+										ASTNode treeInt = cu.getASTNode();
+										prepareAST(treeInt);
+										TreeNode<Integer>  formatted = format.getTree(treeInt);
+										final TreeNode<TSGNode> ast = TSGNode.convertTree(formatted, percentRootsInit);
+										nNodes += ast.getTreeSize();
+										nFiles++;
+										sampler.addTree(ast);
+									}
+									else{
+										System.err.println("Tree Expression is null");
+									}
 								}
-								else{
-									System.err.println("Tree Expression is null");
+								catch (final Exception e) {
+									LOGGER.warning(
+										"Failed to get AST for " + args[0] + " " + ExceptionUtils.getFullStackTrace(e));
 								}
 							}
-							catch (final Exception e) {
-								LOGGER.warning(
-									"Failed to get AST for " + args[0] + " " + ExceptionUtils.getFullStackTrace(e));
 							}
-						}
 						}
 					}
 				}
 			}
+			catch(Exception e){
+				throw e;
+			}
+			
 
 			LOGGER.info("Loaded " + nFiles + " files containing " + nNodes
 					+ " nodes");
