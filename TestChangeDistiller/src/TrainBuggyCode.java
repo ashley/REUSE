@@ -36,12 +36,12 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class TrainBuggyCode {
 
 	public static void main(final String[] args) throws IOException, SerializationException {
-		if (args.length < 3) {
+		if (args.length < 4) {
 			System.err.println(
-					"Repository <DirectoryPath>, mode <normal|binary|variables>, iterations <number>");
+					"Repository <DirectoryPath>, mode <normal|binary|variables>, iterations <number>, fileName <string>");
 			return;
 		}
-		final String serializedFile = "TestingDirectory.ser";
+		final String serializedFile = "TestingDirectory_"+args[3]+".ser";
 		final int nIterations = Integer.parseInt(args[2]);
 
 		final File samplerCheckpoint = new File("tsgSampler.ser");

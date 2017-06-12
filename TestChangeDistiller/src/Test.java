@@ -32,7 +32,7 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
-		String [] testing = {"/Users/ashleychen/desktop/atmosphere","normal","20"};
+		String [] testing = {"/Users/ashleychen/Desktop/REUSE/REUSE/Git_Scripts/Repos/testing","normal","20","testing"};
 		TrainBuggyCode.main(testing);
 		//testNewAST();
 	}

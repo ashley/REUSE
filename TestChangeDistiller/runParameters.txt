@@ -1,4 +1,4 @@
-Loaded default properties at Mon Jun 12 11:33:29 EDT 2017
+Loaded default properties at Mon Jun 12 19:50:16 EDT 2017
 AbstractTSGSampler.LogProbCalculationInteval=1.0
 AbstractTSGSampler.CalculateLogProb=true
 AbstractTSGSampler.CalculateStats=true
@@ -9,3 +9,4 @@ CollapsedGibbsSampler.HyperparameterOptimizationFrequency=20.0
 ParallelThreadPool.nThreads=8.0
 ClassicTsgPosteriorComputer.DoGradientCheck=false
 ContextFreeGrammar.CleanCountThreshold=1.0
+Serializer.name=Kryo
