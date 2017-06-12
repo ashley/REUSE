@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Loaded default properties at Mon Jun 12 13:09:27 EDT 2017
+=======
+Loaded default properties at Mon Jun 12 13:10:30 EDT 2017
+>>>>>>> c1a03ca8c6e43edb09c5c4d28ed2d27dde8e4e96
 AbstractTSGSampler.LogProbCalculationInteval=1.0
 AbstractTSGSampler.CalculateLogProb=true
 AbstractTSGSampler.CalculateStats=true
@@ -6,7 +10,6 @@ AbstractTSGSampler.BurninPct=0.75
 CollapsedGibbsSampler.initialTreeCorpusSize=0.05
 CollapsedGibbsSampler.iterationTreeCorpusIncrease=0.005
 CollapsedGibbsSampler.HyperparameterOptimizationFrequency=20.0
-ParallelThreadPool.nThreads=68.0
+ParallelThreadPool.nThreads=8.0
 ClassicTsgPosteriorComputer.DoGradientCheck=false
 ContextFreeGrammar.CleanCountThreshold=1.0
-Serializer.name=Kryo
