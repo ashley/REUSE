@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Loaded default properties at Mon Jun 12 11:22:31 EDT 2017
+=======
+Loaded default properties at Mon Jun 12 10:16:17 EDT 2017
+>>>>>>> 12be4eeea3b2bc96a4b5b14ed9a0ecd3f111bc5f
 AbstractTSGSampler.LogProbCalculationInteval=1.0
 AbstractTSGSampler.CalculateLogProb=true
 AbstractTSGSampler.CalculateStats=true
