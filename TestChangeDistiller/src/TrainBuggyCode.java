@@ -89,6 +89,7 @@ public class TrainBuggyCode {
 						File[] buggyFolders = commits.listFiles();
 						if(buggyFolders.length == 2){
 							System.out.println("GOING INTO BUGGY FILES");
+							System.out.println("BUGGY FILE NAME: <" + buggyFolders[0] + "> <" + buggyFolders[1] + ">");
 							Collection<File> beforeDirectory = null;
 							Collection<File> afterDirectory = null;
 							if(buggyFolders[0].getName().equals("b")){
