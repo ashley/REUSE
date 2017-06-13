@@ -84,7 +84,8 @@ public class TrainBuggyCode {
 			try{
 				File[] repository = new File(args[0]).listFiles();
 				System.out.println("LENGTH: " + repository.length);
-				for(File commits : repository){
+				for(int i=0;i<5000;i++){
+					File commits = repository[i];
 					if (commits.isDirectory()){
 						File[] buggyFolders = commits.listFiles();
 						if(buggyFolders.length == 2){

@@ -33,17 +33,18 @@ public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException{
 		String [] testing = {"/Users/ashleychen/Desktop/REUSE/REUSE/Git_Scripts/Repos/testing","normal","20","testing"};
-		TrainBuggyCode.main(testing);
-		//testNewAST();
+		//TrainBuggyCode.main(testing);
+		getEntropy();
 	}
 	
 	public static void trainModel() throws IOException, SerializationException{
-		String [] changeDist = {"/Users/ashleychen/Desktop/b","/Users/ashleychen/Desktop/f","normal","5","/Users/ashleychen/Desktop/tsg.ser"};
+		String [] changeDist = {"/Users/ashleychen/Desktop/REUSE/REUSE/Training_Dataset/b","/Users/ashleychen/Desktop/REUSE/REUSE/Training_Dataset/f","normal","2","foo"};
 		TestTreeLM.main(changeDist);
 	}
 	
 	public static void getEntropy() throws IOException, SerializationException{
-		String [] changeDist = {"/Users/ashleychen/Desktop/test_1.java","/Users/ashleychen/Desktop/test_2.java","/Users/ashleychen/Desktop/REUSE/REUSE/tsg.ser"};
+		String [] changeDist = {"/Users/ashleychen/Desktop/elasticsearch/2/b/TransportNodesOperationAction.java","/Users/ashleychen/Desktop/elasticsearch/2/b/TransportNodesOperationAction.java",
+				"/Users/ashleychen/Desktop/TestingDirectory_elasticsearch.ser"};
 		TestTsgEntropy.main(changeDist);
 	}
 	
