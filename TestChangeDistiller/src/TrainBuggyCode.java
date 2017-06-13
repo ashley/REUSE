@@ -36,9 +36,9 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 public class TrainBuggyCode {
 
 	public static void main(final String[] args) throws IOException, SerializationException {
-		if (args.length < 4) {
+		if (args.length < 9) {
 			System.err.println(
-					"Repository <DirectoryPath>, mode <normal|binary|variables>, iterations <number>, fileName <string>");
+					"Repository <DirectoryPath>, mode <normal|binary|variables>, iterations <number>, fileName <string>, firstInt, secondInt, third Int, fourth Int, # of commits");
 			return;
 		}
 		final String serializedFile = "TestingDirectory_"+args[3]+".ser";
@@ -84,7 +84,13 @@ public class TrainBuggyCode {
 			try{
 				File[] repository = new File(args[0]).listFiles();
 				System.out.println("LENGTH: " + repository.length);
-				for(int i=0;i<5000;i++){
+				int first = Integer.parseInt(args[4]);
+				int second = Integer.parseInt(args[5]);
+				int third = Integer.parseInt(args[6]);
+				int fourth = Integer.parseInt(args[7]);
+				for(int i=1;i<Integer.parseInt(args[8]);i++){
+					if((i >= first && i <=second) || (i >= third && i <= fourth)){
+						System.out.println(i);
 					File commits = repository[i];
 					if (commits.isDirectory()){
 						File[] buggyFolders = commits.listFiles();
@@ -133,6 +139,7 @@ public class TrainBuggyCode {
 							}
 							}
 						}
+					}
 					}
 				}
 			}
@@ -198,18 +205,18 @@ public class TrainBuggyCode {
 	}
 
 	private static final Logger LOGGER = Logger.getLogger(SampleTSG.class.getName());
-	
-	public static StructureFinalDiffNode modifiedDistiller(String before, String after){
+
+	public static StructureFinalDiffNode modifiedDistiller(String before, String after) {
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
 		File file1 = new File(before);
 		File file2 = new File(after);
 
 		StructureFinalDiffNode outcome = distiller.extractChangeNode(file1, file2);
-		
+
 		return outcome;
 	}
-	
-	public static StructureNode analyzeDistiller(String before, String after){
+
+	public static StructureNode analyzeDistiller(String before, String after) {
 		FileDistiller distiller = ChangeDistiller.createFileDistiller(Language.JAVA);
 		File file1 = new File(before);
 		File file2 = new File(after);
@@ -217,13 +224,13 @@ public class TrainBuggyCode {
 		StructureNode outcome = distiller.extractClassifiedSourceCodeChanges(file1, file2);
 		return outcome;
 	}
-	
-	public static void prepareAST( ASTNode node ) {
-		node.accept( new ASTVisitor() {
+
+	public static void prepareAST(ASTNode node) {
+		node.accept(new ASTVisitor() {
 			@Override
-			public void endVisit( Javadoc node ) {
+			public void endVisit(Javadoc node) {
 				node.delete();
 			}
-		} );
+		});
 	}
 }
