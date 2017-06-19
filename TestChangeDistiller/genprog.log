@@ -1,0 +1,79 @@
+DEBUG	2017-06-15 14:00:14,577	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+ERROR	2017-06-15 14:00:14,696	119	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException:  (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:618)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:575)
+	at clegoues.genprog4java.main.Main.main(Main.java:82)
+	at Test.main(Test.java:38)
+
+ERROR	2017-06-15 14:00:14,696	119	clegoues.util.ConfigurationBuilder	[main]	missing required property javaVM
+ERROR	2017-06-15 14:00:14,696	119	clegoues.util.ConfigurationBuilder	[main]	missing required property libs
+DEBUG	2017-06-15 14:00:35,039	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+ERROR	2017-06-15 14:00:35,150	111	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: arg1 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:618)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:575)
+	at clegoues.genprog4java.main.Main.main(Main.java:82)
+	at Test.main(Test.java:38)
+
+ERROR	2017-06-15 14:00:35,150	111	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: arg2 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:618)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:575)
+	at clegoues.genprog4java.main.Main.main(Main.java:82)
+	at Test.main(Test.java:38)
+
+ERROR	2017-06-15 14:00:35,150	111	clegoues.util.ConfigurationBuilder	[main]	missing required property javaVM
+ERROR	2017-06-15 14:00:35,150	111	clegoues.util.ConfigurationBuilder	[main]	missing required property libs
+DEBUG	2017-06-15 14:00:51,454	0	clegoues.genprog4java.fitness.Fitness	[main]	parsing granularity, value: class
+ERROR	2017-06-15 14:00:51,568	114	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: arg1 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:618)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:575)
+	at clegoues.genprog4java.main.Main.main(Main.java:82)
+	at Test.main(Test.java:38)
+
+ERROR	2017-06-15 14:00:51,568	114	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: arg2 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:618)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:575)
+	at clegoues.genprog4java.main.Main.main(Main.java:82)
+	at Test.main(Test.java:38)
+
+ERROR	2017-06-15 14:00:51,568	114	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: arg3 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:618)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:575)
+	at clegoues.genprog4java.main.Main.main(Main.java:82)
+	at Test.main(Test.java:38)
+
+ERROR	2017-06-15 14:00:51,568	114	clegoues.util.ConfigurationBuilder	[main]	java.io.FileNotFoundException: arg4 (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at clegoues.util.ConfigurationBuilder.loadProperties(ConfigurationBuilder.java:618)
+	at clegoues.util.ConfigurationBuilder.parseArgs(ConfigurationBuilder.java:575)
+	at clegoues.genprog4java.main.Main.main(Main.java:82)
+	at Test.main(Test.java:38)
+
+ERROR	2017-06-15 14:00:51,569	115	clegoues.util.ConfigurationBuilder	[main]	missing required property javaVM
+ERROR	2017-06-15 14:00:51,569	115	clegoues.util.ConfigurationBuilder	[main]	missing required property libs
