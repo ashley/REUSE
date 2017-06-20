@@ -107,12 +107,13 @@ public class BuggyEntropy {
 						}
 				}
 			}
-			System.out.println("ENTROPY: " + ENTROPY/COMPUTED_COMMITS);
-			System.out.println("CE-AVG: " + CE_AVG/COMPUTED_COMMITS);
-			System.out.println("CE-LEFT: " + CE_LEFT/COMPUTED_COMMITS);
-			System.out.println("CE-RIGHT: " + CE_RIGHT/COMPUTED_COMMITS);
-			System.out.println("CE-DIFF: " + CE_DIFF/COMPUTED_COMMITS);
+			System.out.println("ENTROPY: " + ENTROPY/COMPUTED_COMMITS + "\n" +
+								"CE-AVG: " + CE_AVG/COMPUTED_COMMITS + "\n" +
+								"CE-LEFT: " + CE_LEFT/COMPUTED_COMMITS + "\n" + 
+ 								"CE-RIGHT: " + CE_RIGHT/COMPUTED_COMMITS + "\n" +
+								"CE-DIFF: " + CE_DIFF/COMPUTED_COMMITS);
 			StringBuilder sb = new StringBuilder();
+			sb.append("before_file_path change CE-Avg CE-Left CE-Right CE-Diff" + "\n");
 			for(String s: formattedEntropy){
 				sb.append(s);
 				sb.append("\n");

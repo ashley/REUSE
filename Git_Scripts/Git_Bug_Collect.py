@@ -3,6 +3,7 @@ import requests
 import sys #For encoding/decoding special keys
 import os #For encoding/decoding special keys
 import re
+import datetime
 from tqdm import tqdm #Loading bar API
 reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
@@ -21,7 +22,7 @@ Prints out API rate limit info
 """
 def getRateInfo(g):
     print "RATE INFO: " + str(g.rate_limiting[0])
-    print "Unix timestamp indicating time till reset: " + str(g.rate_limiting_resettime)
+    print "Unix timestamp indicating time till reset: " + str(datetime.datetime.fromtimestamp(int(str(g.rate_limiting_resettime))).strftime('%Y-%m-%d %H:%M:%S'))
     print "---------------------------------------------------------------"
 
 """
@@ -105,6 +106,46 @@ def aggregateFiles(g, repo_name, repoID):
         getRateInfo(g)
 
 """
+Creates directory of buggy and buggy files
+@param {Github} g
+@param {String} repo_name
+@param {String} repoID
+"""
+def getParentFiles(g, repo_name, repoID):
+
+    SHA_pairs = importSHAs(os.getcwd()+"//"+repo_name+"_pairs.txt")
+    repo = g.get_repo(repoID) 
+    getRateInfo(g)
+
+    if not os.path.lexists("Repos"+"//"+repo_name+"_buggy"):
+        os.makedirs("Repos"+"//"+repo_name+"_buggy")  
+    
+    i=1
+    buggySHA = SHA_pairs[i][0]
+    file_path = "modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereServlet.java" 
+    log = repo.get_commits(path=file_path) 
+
+    potentialFiles = []
+    for l in log:
+        files = [fi for fi in repo.get_commit(l.sha).files]
+        renamedFiles = []
+        for file in files:
+            if file.status == 'renamed':
+                if file.previous_filename.encode('utf-8') == file_path:
+                    potentialFiles.append(file)
+
+            else:
+                if file_path in [file.filename.encode('utf-8') for file in files]:
+                    pass
+                    #potentialFiles.append(file)
+    print [file.filename for file in potentialFiles]
+
+    downloadFile(potentialFiles[0],"//"+"Users"+"//"+"ashleychen"+"//"+"Desktop"+"//"+"AtmosphereServlet.java")
+
+    getRateInfo(g)
+        
+
+"""
 Parses a text file of SHA pairs
 @param {String} filePath
 @return {List} list of list of SHA pairs
@@ -119,6 +160,7 @@ def importSHAs(filePath):
 
 def main():
     g = gitLogin()
-    aggregateFiles(g, "atmosphere", "atmosphere/atmosphere")
+    getParentFiles(g,"atmosphere","atmosphere/atmosphere")
+    #aggregateFiles(g, "atmosphere", "atmosphere/atmosphere")
 
 main()

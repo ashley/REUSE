@@ -504,7 +504,14 @@ public class JavaDeclarationConverter extends ASTVisitor {
 
 	private int getEndPosition(ASTNode node) {
 		int end = node.getStartPosition() + node.getLength();
-		char lastChar = fSource.charAt(end); // this is a bit heuristic
+		char lastChar;
+		try{
+			lastChar = fSource.charAt(end); // this is a bit heuristic
+		}
+		catch (Exception e){
+			System.err.println("Could not compute charAT End.");
+			lastChar = ' ';
+		}
 		switch(lastChar) {
 		case ' ':
 		case '>':

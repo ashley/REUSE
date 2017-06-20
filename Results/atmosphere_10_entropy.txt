@@ -1,3 +1,4 @@
+before_file_path change CE-Left CE-Right CE-Avg CE-Diff
 /home/ashley/reuse/Git_Scripts/Repos/atmosphere/1153/b/AtmosphereFramework.java -0.553821673975382 -0.3691834437366965 -0.553821673975382 -0.5536821722942797 -1.395016811022165E-4
 /home/ashley/reuse/Git_Scripts/Repos/atmosphere/1153/b/ManagedAtmosphereHandlerTest.java -2.4698129462757534 -1.6191478889518538 -2.4698129462757534 -2.349963653085219 -0.11984929319053439
 /home/ashley/reuse/Git_Scripts/Repos/atmosphere/3631/b/InjectableObjectFactory.java -3.747331832054733 -2.3913205923623693 -3.747331832054733 -3.299961022836389 -0.44737080921834416

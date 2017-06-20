@@ -44,6 +44,7 @@ import org.eclipse.jdt.core.dom.EnhancedForStatement;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.ForStatement;
 import org.eclipse.jdt.core.dom.IfStatement;
+import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.LabeledStatement;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
@@ -350,7 +351,15 @@ public class JavaMethodBodyConverter extends ASTVisitor {
         // get rid of the javadoc 
         if (node instanceof MethodDeclaration) {
             MethodDeclaration method = (MethodDeclaration) node;
-        	return result.replace(method.getJavadoc().toString(), "");
+            Javadoc methodDoc = method.getJavadoc();
+            String methodString;
+            try{
+            	methodString = methodDoc.toString();
+            }
+            catch(Exception e){
+            	methodString = "";
+            }
+        	return result.replace(methodString, "");
         }
         if (node instanceof TypeDeclaration) {
         	TypeDeclaration method = (TypeDeclaration) node;

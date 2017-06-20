@@ -35,41 +35,73 @@ public class Test {
 	
 	public static void main(String[] args) throws IOException, SerializationException, UnexpectedCoverageResultException{
 		
-		String [] arguments = {"/Users/ashleychen/Desktop/REUSE/REUSE/Git_Scripts/Repos/testing",
-				"/Users/ashleychen/Desktop/REUSE/REUSE/Results/atmosphere_models_25/TestingDirectory_atmosphere_25_1.ser",
+		String [] arguments = {"/Users/ashleychen/Desktop/REUSE/REUSE/Git_Scripts/Repos/elasticsearch",
+				"/Users/ashleychen/Desktop/REUSE/REUSE/Results/TestingDirectory_elasticsearch_100_1.ser",
 				"1","78","entropy_levels.txt"};
-		BuggyEntropy.main(arguments);
+		//BuggyEntropy.main(arguments);
+		trainDerby();
 	}
 	
 	public static void trainProjects() throws IOException, SerializationException{
 		/*
-		String [] testing_1 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_1", "1","2880","0","0","3200"};
+		String [] testing_1 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_1", "1","2880","0","0","3200"};
 		TrainBuggyCode.main(testing_1);
-		String [] testing_2 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_2", "1","2560","2881","3200","3200"};
+		String [] testing_2 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_2", "1","2560","2881","3200","3200"};
 		TrainBuggyCode.main(testing_2);
-		String [] testing_3 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_3", "1","2240","2561","3200","3200"};
+		String [] testing_3 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_3", "1","2240","2561","3200","3200"};
 		TrainBuggyCode.main(testing_3);
-		String [] testing_4 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_4", "1","1920","2241","3200","3200"};
+		String [] testing_4 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_4", "1","1920","2241","3200","3200"};
 		TrainBuggyCode.main(testing_4);
 		*/
 		
 		/*
-		String [] testing_5 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_5", "1","1600","1921","3200","3200"};
+		String [] testing_5 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_5", "1","1600","1921","3200","3200"};
 		TrainBuggyCode.main(testing_5);
-		String [] testing_6 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_6", "1","1280","1601","3200","3200"};
+		String [] testing_6 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_6", "1","1280","1601","3200","3200"};
 		TrainBuggyCode.main(testing_6);
-		String [] testing_7 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_7", "1","960","1281","3200","3200"};
+		String [] testing_7 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_7", "1","960","1281","3200","3200"};
 		TrainBuggyCode.main(testing_7);
 		*/
 		
-		
-		String [] testing_8 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_8", "1","640","961","3200","3200"};
+		/*
+		String [] testing_8 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_8", "1","640","961","3200","3200"};
 		TrainBuggyCode.main(testing_8);
-		String [] testing_9 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_9", "1","320","641","3200","3200"};
+		String [] testing_9 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_9", "1","320","641","3200","3200"};
 		TrainBuggyCode.main(testing_9);
-		String [] testing_10 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","100", "openjpa_100_10", "321","3200","0","0","3200"};
+		String [] testing_10 = {"/home/ashley/reuse/Git_Scripts/Repos/openjpa", "normal","50", "openjpa_50_10", "321","3200","0","0","3200"};
 		TrainBuggyCode.main(testing_10);
+		*/
+	}
+	
+	public static void trainDerby() throws IOException, SerializationException{
+		/*
+		String [] testing_1 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_1", "1","8739","0","0","9710"};
+		TrainBuggyCode.main(testing_1);
+		String [] testing_2 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_2", "1","7768","8740","9710","9710"};
+		TrainBuggyCode.main(testing_2);
+		String [] testing_3 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_3", "1","6797","7769","9710","9710"};
+		TrainBuggyCode.main(testing_3);
+		String [] testing_4 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_4", "1","5826","6798","9710","9710"};
+		TrainBuggyCode.main(testing_4);
+		*/
 		
+		/*
+		String [] testing_5 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_5", "1","4855","5827","9710","9710"};
+		TrainBuggyCode.main(testing_5);
+		String [] testing_6 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_6", "1","3884","4856","9710","9710"};
+		TrainBuggyCode.main(testing_6);
+		String [] testing_7 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_7", "1","2913","3885","9710","9710"};
+		TrainBuggyCode.main(testing_7);
+		*/
+		
+		/*
+		String [] testing_8 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_8", "1","1942","2914","9710","9710"};
+		TrainBuggyCode.main(testing_8);
+		String [] testing_9 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_9", "1","971","1943","9710","9710"};
+		TrainBuggyCode.main(testing_9);
+		String [] testing_10 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_10", "972","9710","0","0","9710"};
+		TrainBuggyCode.main(testing_10);
+		*/
 	}
 	
 	public static void trainModel() throws IOException, SerializationException{
