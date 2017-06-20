@@ -39,7 +39,7 @@ public class Test {
 				"/Users/ashleychen/Desktop/REUSE/REUSE/Results/TestingDirectory_elasticsearch_100_1.ser",
 				"1","78","entropy_levels.txt"};
 		//BuggyEntropy.main(arguments);
-		trainDerby();
+		trainNetty();
 	}
 	
 	public static void trainProjects() throws IOException, SerializationException{
@@ -102,6 +102,67 @@ public class Test {
 		String [] testing_10 = {"/home/ashley/reuse/Git_Scripts/Repos/derby", "normal","50", "derby_50_10", "972","9710","0","0","9710"};
 		TrainBuggyCode.main(testing_10);
 		*/
+	}
+	public static void trainElastic() throws IOException, SerializationException{
+		/*
+		String [] testing_1 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_1", "1","8001","0","0","8890"};
+		TrainBuggyCode.main(testing_1);
+		String [] testing_2 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_2", "1","7112","8001","8890","8890"};
+		TrainBuggyCode.main(testing_2);
+		String [] testing_3 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_3", "1","6223","7112","8890","8890"};
+		TrainBuggyCode.main(testing_3);
+		String [] testing_4 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_4", "1","5334","6223","8890","8890"};
+		TrainBuggyCode.main(testing_4);
+		*/
+		
+		/*
+		String [] testing_5 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_5", "1","4445","5334","8890","8890"};
+		TrainBuggyCode.main(testing_5);
+		String [] testing_6 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_6", "1","3556","4445","8890","8890"};
+		TrainBuggyCode.main(testing_6);
+		String [] testing_7 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_7", "1","2667","3556","8890","8890"};
+		TrainBuggyCode.main(testing_7);
+		*/
+		
+		/*
+		String [] testing_8 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_8", "1","1778","2667","8890","8890"};
+		TrainBuggyCode.main(testing_8);
+		String [] testing_9 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_9", "1","889","1778","8890","8890"};
+		TrainBuggyCode.main(testing_9);
+		String [] testing_10 = {"/home/ashley/reuse/Git_Scripts/Repos/elasticsearch", "normal","50", "elasticsearch_50_10", "889","8890","0","0","8890"};
+		TrainBuggyCode.main(testing_10);
+		*/
+	}
+
+	public static void trainNetty() throws IOException, SerializationException{
+		/*
+		String [] testing_1 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_1", "1","840","0","0","8740"};
+		TrainBuggyCode.main(testing_1);
+		String [] testing_2 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_2", "1","6992","7867","8740","8740"};
+		TrainBuggyCode.main(testing_2);
+		String [] testing_3 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_3", "1","6118","6993","8740","8740"};
+		TrainBuggyCode.main(testing_3);
+		String [] testing_4 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_4", "1","5244","6118","8740","8740"};
+		TrainBuggyCode.main(testing_4);
+		*/
+		
+		/*	
+		String [] testing_5 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_5", "1","4370","5245","8740","8740"};
+		TrainBuggyCode.main(testing_5);
+		String [] testing_6 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_6", "1","3496","4371","8740","8740"};
+		TrainBuggyCode.main(testing_6);
+		String [] testing_7 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_7", "1","2622","3497","8740","8740"};
+		TrainBuggyCode.main(testing_7);
+		*/
+		
+		
+		String [] testing_8 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_8", "1","1748","2623","8740","8740"};
+		TrainBuggyCode.main(testing_8);
+		String [] testing_9 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_9", "1","874","1749","8740","8740"};
+		TrainBuggyCode.main(testing_9);
+		String [] testing_10 = {"/home/ashley/reuse/Git_Scripts/Repos/netty", "normal","50", "netty_50_10", "840","8740","0","0","8740"};
+		TrainBuggyCode.main(testing_10);
+		
 	}
 	
 	public static void trainModel() throws IOException, SerializationException{
