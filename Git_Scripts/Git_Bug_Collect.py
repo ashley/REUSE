@@ -4,7 +4,7 @@ import sys #For encoding/decoding special keys
 import os #For encoding/decoding special keys
 import re
 import datetime
-from tqdm import tqdm #Loading bar API
+import time
 reload(sys) #Fixes bug for encoding special keys
 sys.setdefaultencoding('utf8') #Fixes bug for encoding special keys
 
@@ -22,7 +22,12 @@ Prints out API rate limit info
 """
 def getRateInfo(g):
     print "RATE INFO: " + str(g.rate_limiting[0])
-    print "Unix timestamp indicating time till reset: " + str(datetime.datetime.fromtimestamp(int(str(g.rate_limiting_resettime))).strftime('%Y-%m-%d %H:%M:%S'))
+    limit_time = datetime.datetime.fromtimestamp(int(str(g.rate_limiting_resettime)))
+    print "Unix timestamp indicating time till reset: " + str(limit_time.strftime('%Y-%m-%d %H:%M:%S'))
+    if g.rate_limiting[0] < 4:
+    	wait_time = limit_time - datetime.datetime.now() + datetime.timedelta(minutes=2)
+    	print "Pause for " + str(wait_time)
+        time.sleep(wait_time.total_seconds())
     print "---------------------------------------------------------------"
 
 """
@@ -118,14 +123,23 @@ def getParentFiles(g, repo_name, repoID):
     if not os.path.lexists("Repos"+"//"+repo_name+"_buggy"):
         os.makedirs("Repos"+"//"+repo_name+"_buggy")
     
-    for i in range(1,len(SHA_pairs)):
+    for i in range(2966,len(SHA_pairs)):
         changed_files = compareFiles(repo,SHA_pairs[i][0],SHA_pairs[i][1])
         buggySHA = SHA_pairs[i][0]
         buggyFolders = i
 
         buggyFolder_filePath = "Repos"+"//"+repo_name+"_buggy"+"//"+str(buggyFolders)
-        if not os.path.lexists(buggyFolder_filePath):
-            os.makedirs(buggyFolder_filePath)  
+        
+	if not os.path.lexists(buggyFolder_filePath):
+            os.makedirs(buggyFolder_filePath)
+        if not os.path.lexists(buggyFolder_filePath+"//"+"b"):
+            os.makedirs(buggyFolder_filePath+"//"+"b")
+        if not os.path.lexists(buggyFolder_filePath+"//"+"f"):
+            os.makedirs(buggyFolder_filePath+"//"+"f")
+
+        for files in changed_files["bf"]:
+            fileName = re.sub('.*\/', '',files.filename)
+            downloadFile(files,buggyFolder_filePath+"//"+"f"+"//"+fileName)
 
         for fi in changed_files["bi"]:
             file_path = fi.filename
@@ -134,9 +148,9 @@ def getParentFiles(g, repo_name, repoID):
     
             beforeFile = [file for file in repo.get_commit(commits.sha).files if file.filename==file_path]
 
-            if len(beforeFile) == 1:
+            if len(beforeFile) >= 1:
                 fileName = re.sub('.*\/', '',beforeFile[0].filename)
-                downloadFile(beforeFile[0],buggyFolder_filePath+"//"+fileName)
+                downloadFile(beforeFile[0],buggyFolder_filePath+"//"+"b"+"//"+fileName)
 
         getRateInfo(g)  
         
