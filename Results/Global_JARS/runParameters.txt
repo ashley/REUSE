@@ -1,0 +1,11 @@
+Loaded default properties at Wed Jun 21 15:44:46 EDT 2017
+AbstractTSGSampler.LogProbCalculationInteval=1.0
+AbstractTSGSampler.CalculateLogProb=true
+AbstractTSGSampler.CalculateStats=true
+AbstractTSGSampler.BurninPct=0.75
+CollapsedGibbsSampler.initialTreeCorpusSize=0.05
+CollapsedGibbsSampler.iterationTreeCorpusIncrease=0.005
+CollapsedGibbsSampler.HyperparameterOptimizationFrequency=20.0
+ParallelThreadPool.nThreads=68.0
+ClassicTsgPosteriorComputer.DoGradientCheck=false
+ContextFreeGrammar.CleanCountThreshold=1.0
