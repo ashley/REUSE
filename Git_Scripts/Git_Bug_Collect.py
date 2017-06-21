@@ -94,12 +94,10 @@ def aggregateFiles(g, repo_name, repoID):
             os.makedirs(buggyFolder_filePath+"//"+"f")  
     
         for files in changed_files["bf"]:
-            #print(files.raw_url)
             fileName = re.sub('.*\/', '',files.filename)
             downloadFile(files,buggyFolder_filePath+"//"+"b"+"//"+fileName)
 
         for files in changed_files["bi"]:
-            #print(files.raw_url)
             fileName = re.sub('.*\/', '',files.filename)
             downloadFile(files,buggyFolder_filePath+"//"+"f"+"//"+fileName)
 
@@ -118,31 +116,29 @@ def getParentFiles(g, repo_name, repoID):
     getRateInfo(g)
 
     if not os.path.lexists("Repos"+"//"+repo_name+"_buggy"):
-        os.makedirs("Repos"+"//"+repo_name+"_buggy")  
+        os.makedirs("Repos"+"//"+repo_name+"_buggy")
     
-    i=1
-    buggySHA = SHA_pairs[i][0]
-    file_path = "modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereServlet.java" 
-    log = repo.get_commits(path=file_path) 
+    for i in range(1,len(SHA_pairs)):
+        changed_files = compareFiles(repo,SHA_pairs[i][0],SHA_pairs[i][1])
+        buggySHA = SHA_pairs[i][0]
+        buggyFolders = i
 
-    potentialFiles = []
-    for l in log:
-        files = [fi for fi in repo.get_commit(l.sha).files]
-        renamedFiles = []
-        for file in files:
-            if file.status == 'renamed':
-                if file.previous_filename.encode('utf-8') == file_path:
-                    potentialFiles.append(file)
+        buggyFolder_filePath = "Repos"+"//"+repo_name+"_buggy"+"//"+str(buggyFolders)
+        if not os.path.lexists(buggyFolder_filePath):
+            os.makedirs(buggyFolder_filePath)  
 
-            else:
-                if file_path in [file.filename.encode('utf-8') for file in files]:
-                    pass
-                    #potentialFiles.append(file)
-    print [file.filename for file in potentialFiles]
+        for fi in changed_files["bi"]:
+            file_path = fi.filename
+            print file_path
+            commits = repo.get_commits(path=file_path).reversed[1]
+    
+            beforeFile = [file for file in repo.get_commit(commits.sha).files if file.filename==file_path]
 
-    downloadFile(potentialFiles[0],"//"+"Users"+"//"+"ashleychen"+"//"+"Desktop"+"//"+"AtmosphereServlet.java")
+            if len(beforeFile) == 1:
+                fileName = re.sub('.*\/', '',beforeFile[0].filename)
+                downloadFile(beforeFile[0],buggyFolder_filePath+"//"+fileName)
 
-    getRateInfo(g)
+        getRateInfo(g)  
         
 
 """
