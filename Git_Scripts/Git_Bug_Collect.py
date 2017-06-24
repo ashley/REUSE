@@ -123,7 +123,7 @@ def getParentFiles(g, repo_name, repoID):
     if not os.path.lexists("Repos"+"//"+repo_name+"_buggy"):
         os.makedirs("Repos"+"//"+repo_name+"_buggy")
     
-    for i in range(2966,len(SHA_pairs)):
+    for i in range(4743,len(SHA_pairs)):
         changed_files = compareFiles(repo,SHA_pairs[i][0],SHA_pairs[i][1])
         buggySHA = SHA_pairs[i][0]
         buggyFolders = i
@@ -170,7 +170,7 @@ def importSHAs(filePath):
 
 def main():
     g = gitLogin()
-    getParentFiles(g,"atmosphere","atmosphere/atmosphere")
+    getParentFiles(g,"derby","apache/derby")
     #aggregateFiles(g, "atmosphere", "atmosphere/atmosphere")
 
 main()
