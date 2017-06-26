@@ -1,0 +1,3 @@
+/home/ashley/reuse/Results/../Git_Scripts/elasticsearch/8218/b/GlassFishWebSocketSupport.java -1.3660155316897107 -0.9178206634705041 -1.3660155316897107 -1.39867429382666 0.032658762136949404
+/home/ashley/reuse/Results/../Git_Scripts/elasticsearch/624/b/GlassFishWebSocketSupport.java -1.61636706163561 -1.0912366624310887 -1.61636706163561 -1.6794295286225 0.06306246698689
+/home/ashley/reuse/Results/../Git_Scripts/elasticsearch/1153/b/GlassFishWebSocketSupport.java -1.3547462996008133 -0.9200651205800467 -1.3547462996008133 -1.433681088526859 0.07893478892604566
