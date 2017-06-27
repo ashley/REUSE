@@ -25,8 +25,8 @@ getUniqueFiles <- function(filePath,filename){
 }
 
 #getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/atmosphere_fileNames.txt","atmosphere")
-#derby <- getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/derby_fileNames.txt")
-#elasticsearch <- getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/elasticsearch_fileNames.txt")
-#netty <- getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/netty_fileNames.txt")
-#openjpa <- getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/openjpa_fileNames.txt")
+getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/derby_fileNames.txt","derby")
+getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/elasticsearch_fileNames.txt","elasticsearch")
+getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/netty_fileNames.txt","netty")
+getUniqueFiles("/Users/ashleychen/desktop/reuse/reuse/Analysis/Filenames/openjpa_fileNames.txt","openjpa")
 

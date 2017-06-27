@@ -1,0 +1,37 @@
+## netty_buggy - DONE
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/netty_buggy /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_netty_50_1.ser 5220 5799 netty_1_entropy_buggy.txt
+
+## openjpa_buggy - DONE
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/openjpa_buggy /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_openjpa_50_1.ser 2881 3200 openjpa_1_entropy_buggy.txt
+
+## elasticsearch_buggy - DONE
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/elasticsearch_buggy home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_elasticsearch_50_1.ser 5220 5799 elasticsearch_1_entropy_buggy.txt
+
+## elasticsearch - DONE
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/elasticsearch /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_elasticsearch_50_1.ser 5220 5799 elasticsearch_1_entropy.txt
+
+
+## derby_buggy - DONE
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/derby_buggy /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_5.ser 5220 5799 derby_1_entropy_buggy.txt
+
+### derby - Ongoing
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/derby /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_5.ser 5220 5799 derby_1_entropy.txt
+
+## derby_buggy - DONE
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/derby_buggy /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_5.ser 8740 9710 derby_5_1_entropy_buggy.txt
+
+## derby model to openjpa
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/openjpa /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_5.ser 1 320 derbytoopenjpa_1_entropy.txt
+
+## openjpa model to derby
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/derby /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_openjpa_50_1.ser 1 320 openjpatoderby_1_entropy.txt
+
+## openjpa model to atmosphere
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/atmosphere /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_openjpa_50_1.ser 1 320 openjpatoatmosphere_1_entropy.txt
+
+## atmosphere model to openjpa
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/openjpa /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_atmosphere_100_10.ser 1 320 atmospheretoopenjpa_1_entropy.txt
+
+## netty to atmosphere
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/netty /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_atmosphere_100_10.ser 1 320 nettytoatmosphere_1_entropy.txt
+
