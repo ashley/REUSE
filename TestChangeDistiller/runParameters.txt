@@ -1,6 +1,0 @@
-Loaded default properties at Sun Aug 13 18:14:03 EDT 2017
-Serializer.name=Kryo
-AbstractTSGSampler.LogProbCalculationInteval=1.0
-AbstractTSGSampler.CalculateLogProb=true
-AbstractTSGSampler.CalculateStats=true
-AbstractTSGSampler.BurninPct=0.75
