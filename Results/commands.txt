@@ -21,7 +21,15 @@ java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/derby /ho
 java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/derby_buggy /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_5.ser 8740 9710 derby_5_1_entropy_buggy.txt
 
 ## derby model to openjpa
+<<<<<<< Updated upstream
 java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/openjpa /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_5.ser 1 320 derbytoopenjpa_1_entropy.txt
+=======
+<<<<<<< Updated upstream
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/openjpa /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_1.ser 1 320 derbytoopenjpa_1_entropy.txt
+=======
+java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/openjpa /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_derby_50_5.ser 1 320 derbytoopenjpa_1_entropy.txt
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 ## openjpa model to derby
 java -Xmx4g -jar BuggyEntropy.jar /home/ashley/reuse/Git_Scripts/Repos/derby /home/ashley/reuse/Git_Scripts/Repos/Training_Models/TestingDirectory_openjpa_50_1.ser 1 320 openjpatoderby_1_entropy.txt

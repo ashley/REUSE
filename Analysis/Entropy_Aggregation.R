@@ -55,6 +55,16 @@ derbyToOpenjpa <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Ent
 derbyToOpenjpa_buggy <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Entropy/derbytoopenjpa_1_entropy_buggy.txt")
 openjpaToAtmosphere <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Entropy/openjpatoatmosphere_1_entropy.txt")
 openjpaToAtmosphere_buggy <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Entropy/openjpatoatmosphere_1_entropy_buggy.txt")
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+atmosphereToOpenjpa <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Entropy/atmospheretoopenjpa_1_entropy.txt")
+atmosphereToOpenjpa_buggy <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Entropy/atmospheretoopenjpa_1_entropy_buggy.txt")
+nettytoatmosphere <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Entropy/nettytoatmosphere_1_entropy.txt")
+nettytoatmosphere_buggy <- getEntropy("/Users/ashleychen/desktop/reuse/reuse/Analysis/Entropy/nettytoatmosphere_1_entropy_buggy.txt")
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 openjpaToDerby$group <- "fixed"
 openjpaToDerby_buggy$group <- "not_fixed"
@@ -62,6 +72,16 @@ derbyToOpenjpa$group <- "fixed"
 derbyToOpenjpa_buggy$group <- "not_fixed"
 openjpaToAtmosphere$group <- "fixed"
 openjpaToAtmosphere_buggy$group <- "not_fixed"
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+atmosphereToOpenjpa$group <- "fixed"
+atmosphereToOpenjpa_buggy$group <- "not_fixed"
+nettytoatmosphere$group <- "fixed"
+nettytoatmosphere_buggy$group <- "not_fixed"
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 #Prepare data frames
 atmos$group <- "fixed"
@@ -89,8 +109,16 @@ derby$project <- "elasticsearch"
 derby_buggy$group <- "not_fixed"
 derby_buggy$project <- "elasticsearch"
 
+<<<<<<< Updated upstream
 
 
+=======
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 sum(atmosphere.testCount,derby.testCount,elasticsearch.testCount,openjpa.testCount,netty.testCount)*2
 
 #combine
@@ -105,7 +133,16 @@ openjpa_all <- rbind(openjpa,openjpa_buggy)
 openjpaToAtmosphere_all <- rbind(openjpaToAtmosphere,openjpaToAtmosphere_buggy)
 openjpaToDerby_all <- rbind(openjpaToDerby,openjpaToDerby_buggy)
 derbyToOpenjpa_all <- rbind(derbyToOpenjpa,derbyToOpenjpa_buggy)
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< Updated upstream
+atmosphereToOpenjpa_all <- rbind(atmosphereToOpenjpa,atmosphereToOpenjpa_buggy)
+nettytoatmosphere_all <- rbind(nettytoatmosphere,nettytoatmosphere_buggy)
+=======
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 #write
 write.csv(dat, file = "dat.csv",row.names=FALSE)
@@ -120,8 +157,18 @@ mean(dat$Entropy[dat$group=="not_fixed"])
 mean(derby$Entropy)
 mean(derby_buggy$Entropy)
 mean(dat$Entropy[dat$group=="fixed"]) - mean(dat$Entropy[dat$group=="not_fixed"])
+<<<<<<< Updated upstream
 summary(dat$Entropy[dat$group=="fixed"])
 summary(dat$Entropy[dat$group=="not_fixed"])
+=======
+<<<<<<< Updated upstream
+summary(dat_all$CE_AVG[dat$group=="fixed"])
+summary(dat_all$CE_AVG[dat$group=="not_fixed"])
+=======
+summary(dat$Entropy[dat$group=="fixed"])
+summary(dat$Entropy[dat$group=="not_fixed"])
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 #T Test
 t.test(atmos$Entropy,atmos_buggy$Entropy,alternative = c("l"))
@@ -134,18 +181,52 @@ wilcox.test(elasticsearch$CE_AVG,elasticsearch_buggy$CE_AVG,conf.level = .95)
 wilcox.test(derby$CE_AVG,derby_buggy$CE_AVG,conf.level = .95)
 wilcox.test(dat$CE_AVG[dat$group=="fixed"],dat$CE_AVG[dat$group=="not_fixed"],conf.level = .95)
 wilcox.test(dat_all$CE_AVG[dat$group=="fixed"],dat_all$CE_AVG[dat$group=="not_fixed"],conf.level = .95)
+<<<<<<< Updated upstream
 wilcox.test(openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="fixed"],openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="not_fixed"],conf.level = .95)
+=======
+<<<<<<< Updated upstream
+
+wilcox.test(openjpaToDerby_all$CE_AVG[openjpaToDerby_all$group=="fixed"],openjpaToDerby_all$CE_AVG[openjpaToDerby_all$group=="not_fixed"],conf.level = .95)
+wilcox.test(derbyToOpenjpa_all$CE_AVG[derbyToOpenjpa_all$group=="fixed"],derbyToOpenjpa_all$CE_AVG[derbyToOpenjpa_all$group=="not_fixed"],conf.level = .95)
+wilcox.test(openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="fixed"],openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="not_fixed"],conf.level = .95)
+wilcox.test(atmosphereToOpenjpa_all$CE_AVG[atmosphereToOpenjpa_all$group=="fixed"],atmosphereToOpenjpa_all$CE_AVG[atmosphereToOpenjpa_all$group=="not_fixed"],conf.level = .95)
+wilcox.test(nettytoatmosphere_all$CE_AVG[nettytoatmosphere_all$group=="fixed"],nettytoatmosphere_all$CE_AVG[nettytoatmosphere_all$group=="not_fixed"],conf.level = .95)
+=======
+wilcox.test(openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="fixed"],openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="not_fixed"],conf.level = .95)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 #Boxplot for comparig fix and not_fix
 boxplot(dat$Entropy[dat$group=="fixed"],dat$Entropy[dat$group=="not_fixed"],names=c("Fixed","Buggy"),xlab="Change Quality",ylab="Change Entropy")
 boxplot(dat$CE_AVG[dat_all$group=="fixed"],dat_all$CE_AVG[dat$group=="not_fixed"],names=c("Fixed","Buggy"),xlab="Change Quality",ylab="Change Cross-Entropy",outline=FALSE)
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+summary(dat$CE_AVG[dat_all$group=="fixed"])
+summary(dat_all$CE_AVG[dat$group=="not_fixed"])
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 boxplot(atmos$Entropy,atmos_buggy$Entropy,names=c("Fixed", "Not Fixed"))
 boxplot(netty$Entropy,netty_buggy$Entropy, elasticsearch$Entropy, elasticsearch_buggy$Entropy,names=c("netty_f","netty_b","elastic_f","elastic_b"))
 boxplot(elasticsearch$Entropy,elasticsearch_buggy$Entropy,names=c("Fixed","Not Fixed"))
 boxplot(openjpa$Entropy,openjpa_buggy$Entropy,names=c("Fixed", "Not Fixed"))
+<<<<<<< Updated upstream
 boxplot(derby$Entropy,derby_buggy$Entropy,names=c("Fixed","Not Fixed"))
 boxplot(dat$Entropy[dat$group=="fixed"],dat$Entropy[dat$group=="not_fixed"],names=c("Fixed","Not Fixed"))
+=======
+<<<<<<< Updated upstream
+boxplot(derby$CE_AVG,derby_buggy$CE_AVG,names=c("Fixed","Not Fixed"))
+boxplot(dat$Entropy[dat$group=="fixed"],dat$Entropy[dat$group=="not_fixed"],names=c("Fixed","Not Fixed"))
+boxplot(openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="fixed"],openjpaToAtmosphere_all$CE_AVG[openjpaToAtmosphere_all$group=="not_fixed"],names=c("Fixed","Not Fixed"))
+boxplot(atmosphereToOpenjpa_all$CE_AVG[atmosphereToOpenjpa_all$group=="fixed"],atmosphereToOpenjpa_all$CE_AVG[atmosphereToOpenjpa_all$group=="not_fixed"],names=c("Fixed","Not Fixed"))
+=======
+boxplot(derby$Entropy,derby_buggy$Entropy,names=c("Fixed","Not Fixed"))
+boxplot(dat$Entropy[dat$group=="fixed"],dat$Entropy[dat$group=="not_fixed"],names=c("Fixed","Not Fixed"))
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 atmos_file<- rbind(subset(atmos_buggy, atmos_buggy$filename=="GlassFishWebSocketSupport.java"), subset(atmos,atmos$filename=="GlassFishWebSocketSupport.java"))
 elastic_file<- rbind(subset(elasticsearch_buggy, elasticsearch_buggy$filename=="ZenDiscovery.java"), subset(elasticsearch,elasticsearch$filename=="ZenDiscovery.java"))
@@ -153,6 +234,13 @@ open_file<- rbind(subset(openjpa_buggy, openjpa_buggy$filename=="DB2Dictionary.j
 netty_file<- rbind(subset(netty_buggy, netty_buggy$filename=="AbstractChannel.java"), subset(netty,netty$filename=="AbstractChannel.java"))
 derby_file<- rbind(subset(derby, derby$filename=="ElasticsearchIntegrationTest.java"))
 dat_file <- rbind(atmos_file,elastic_file,open_file,netty_file,derby_file)
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 #Plot of entropy over index
 plot(atmos_buggy$Entropy,type="l",col="red")
 lines(atmos$Entropy,col="green")
