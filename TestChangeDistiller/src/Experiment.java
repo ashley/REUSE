@@ -31,7 +31,7 @@ import codemining.lm.tsg.tui.java.GenerateRandom;
 import codemining.lm.tsg.tui.java.SampleTSG;
 import codemining.util.serialization.ISerializationStrategy.SerializationException;
 
-public class Test {
+public class Experiment {
 	
 	public static void main(String[] args) throws IOException, SerializationException, UnexpectedCoverageResultException{
 		

@@ -75,7 +75,6 @@ public class EntropyGenerator {
 		TSGrammar<TSGNode> model = importModel(args[0]);
 		List<ASTNode> sourceCode = parseAST(new File(args[1]));
 		HashMap<ASTNode, Double> entropyResults = generateEntropy(model, sourceCode);
-		System.out.println(entropyResults);
 		
 	}
 
@@ -88,6 +87,9 @@ public class EntropyGenerator {
 			double prob = probabilityComputer.getLog2ProbabilityOf(tsgTree);
 			double entropy = -prob * Math.exp(prob);
 			ASTEntropy.put(node, entropy);
+			
+			System.out.println(node);
+			System.out.println(entropy);
 		}
 		return ASTEntropy;
 		
@@ -319,4 +321,5 @@ public class EntropyGenerator {
 		});
 		return decomposed;
 	}
+	
 }
