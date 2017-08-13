@@ -1,8 +1,9 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeMap;
+import java.util.HashMap;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -69,9 +70,17 @@ import codemining.util.serialization.ISerializationStrategy.SerializationExcepti
 import codemining.util.serialization.Serializer;
 
 public class EntropyGenerator {
+	
+	public static void main(String[] args) throws SerializationException, IOException{
+		TSGrammar<TSGNode> model = importModel(args[0]);
+		List<ASTNode> sourceCode = parseAST(new File(args[1]));
+		HashMap<ASTNode, Double> entropyResults = generateEntropy(model, sourceCode);
+		System.out.println(entropyResults);
+		
+	}
 
-	public static TreeMap<ASTNode, Double> generateEntropy(TSGrammar<TSGNode> model, List<ASTNode> stmts){
-		TreeMap<ASTNode, Double> ASTEntropy = new TreeMap<ASTNode, Double>();
+	public static HashMap<ASTNode, Double> generateEntropy(TSGrammar<TSGNode> model, List<ASTNode> stmts){
+		HashMap<ASTNode, Double> ASTEntropy = new HashMap<ASTNode, Double>();
 		final TreeProbabilityComputer<TSGNode> probabilityComputer = 
 				new TreeProbabilityComputer<TSGNode>(model, false, TreeProbabilityComputer.TSGNODE_MATCHER);
 		for(ASTNode node: stmts){
